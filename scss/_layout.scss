@@ -1,0 +1,62 @@
+/******************* LAYOUT *******************/
+
+.card {
+    background-color: white;
+    border-radius: 8px;
+}
+
+.btn {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.flex1 {
+    flex: 1 !important;
+}
+
+.flex0 {
+    flex: 0 !important;
+}
+
+.hidden {
+  color: #e8ebef !important;
+}
+
+/* FLEX KIT */
+
+// flex col
+@mixin flex($direction: column, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+// alignements
+@mixin flexAlign($align: center) {
+  align-items: $align; // start | center | end | stretch
+}
+
+@mixin flexJustify($justify: center) {
+  justify-content: $justify; // start | center | end | space-between | space-around | space-evenly
+}
+
+// fullcenter
+@mixin flexCenter($direction: column, $gap: 0) {
+  @include flex($direction, $gap);
+  align-items: center;
+  justify-content: center;
+}
+
+// distributions
+@mixin flexBetween($direction: row, $gap: 0, $align: center) {
+  @include flex($direction, $gap);
+  align-items: $align;
+  justify-content: space-between;
+} 
+
+// items
+@mixin flexGrow($direction: column, $gap: 0, $grow: 1) {
+  @include flex($direction, $gap);
+  flex-grow: $grow;
+}

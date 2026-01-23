@@ -1,0 +1,19 @@
+/******************* TYPOGRAPHY *******************/
+
+/* FONTS */
+// Adobe - Myriad Pro
+@import url("https://use.typekit.net/arm4sae.css"); 
+// Google - Jura
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap'); 
+// Google - Roboto Mono
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+/* VARIABLES */
+$myriad: "myriad-pro", sans-serif; 
+$jura: "Jura", sans-serif;
+$mono: "Roboto Mono", monospace;
+
+/* CLASSES */
+.myriad { font-family: $myriad; }
+.jura { font-family: $jura; }
+.mono { font-family: $mono; }

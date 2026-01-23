@@ -1,0 +1,63 @@
+/******************* COLORS *******************/
+
+/* CORPORATE COLORS */
+$primary-color:     #004877; // Ceva Corporate Blue
+$secondary-color:   #52c9e8; // Ceva Aqua Blue 
+$body-color:        #6C6F70; // Ceva Slate
+
+/* DYNAMIC SUPPORTING COLORS PALETTE */
+$highlight-color:   #00add8; // One Ceva
+$success-color:     #89bd2c; // One Health
+$link-color:        #61C1C3; // One Planet
+$alert-color:       #ffc72c; // PANTONE 123 C
+$warning-color:     #ff8200; // PANTONE 151
+$danger-color:      #a32b26; // PANTONE 7623 C
+
+/* NATURAL SUPPORTING COLORS PALETTE */
+$nt-primary-color:  #00325a; // PANTONE 540 C
+$nt-light-color:    #9ed6e0; // PANTONE 629 C
+$nt-secondary-color:#026691; // PANTONE 634 C
+$nt-danger-color:   #b45240; // PANTONE 7593 C
+$nt-warning-color:  #dfa83d; // PANTONE 1245 C
+$nt-success-color:  #84a369; // PANTONE 7494 C
+
+/* PORTALS */
+$genesys-blue:      #3829ff; // Genesys Blue
+$egginject-blue:    #30377d; // EggInject Blue
+$dovac-blue:        #006fb2; // Dovac Blue
+$laserlife-blue:    #1d286e; // Laser Life Blue
+$inline-blue:       #064b8b; // Inline Blue
+
+/* DESIGN SYSTEM COLORS */
+$border-color:#999999; // Ceva Slate
+$border-color-light:#ced4da; // Ceva Slate
+$bg-color-light:#dfe3e8; // Ceva Slate
+$bg-color-lighter:#e8ebef; // Ceva Slate
+
+/* TEMP */
+$bg-color:#f0f2f6; //sidebar background
+$bg-color-hover:#ced4da; //sidebar background
+$bg-color-selected: $nt-primary-color; //sidebar background
+
+/* CLASSES */
+.primary-color { color: $nt-primary-color; }
+.secondary-color { color: $secondary-color; }
+.body-color { color: $body-color; }
+.warning-color { color: $warning-color !important; }
+.danger-color { color: $danger-color !important; }
+
+.bg-primary { background-color: $highlight-color; }
+.bg-secondary { background-color: $nt-primary-color; }
+.bg-body { background-color: $body-color; }
+
+.genesys { color: $genesys-blue !important; }
+.egginject { color: $egginject-blue !important; }
+.dovac { color: $dovac-blue !important; }
+.laserlife { color: $laserlife-blue !important; }
+.inline { color: $inline-blue !important; }
+
+.genesys-bg { background-color: $genesys-blue !important; }
+.egginject-bg { background-color: $egginject-blue !important; }
+.dovac-bg { background-color: $dovac-blue !important; }
+.laserlife-bg { background-color: $laserlife-blue !important; }
+.inline-bg { background-color: $inline-blue !important; }
