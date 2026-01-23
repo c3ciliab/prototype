@@ -362,15 +362,24 @@ section {
     .scene {
         flex-direction: row;
         align-items: flex-start;
-        gap: 4rem;
+        gap: 6rem;
         padding-top: 6rem;
         padding-inline: 3rem;
 
         figure {
-            width: 25%;
+            //width: 25%;
+            position: relative;
 
             img {
                 width: 100%;
+            }
+
+            svg {
+                position: absolute;
+                top: 22%;
+                left: 12%;
+                width: 60px;
+                fill: colors.$warning-color;
             }
         }
 

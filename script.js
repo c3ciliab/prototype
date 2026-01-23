@@ -1,4 +1,4 @@
-
+// /* CLOCK */
 function pad2(n) {
   return String(n).padStart(2, "0");
 }
@@ -44,4 +44,4 @@ function tick() {
 tick();
 setInterval(tick, 1000);
 
-
+// /* CLOCK */

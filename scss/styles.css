@@ -497,15 +497,22 @@ section nav a img {
 .dashboard .scene {
   flex-direction: row;
   align-items: flex-start;
-  gap: 4rem;
+  gap: 6rem;
   padding-top: 6rem;
   padding-inline: 3rem;
 }
 .dashboard .scene figure {
-  width: 25%;
+  position: relative;
 }
 .dashboard .scene figure img {
   width: 100%;
+}
+.dashboard .scene figure svg {
+  position: absolute;
+  top: 22%;
+  left: 12%;
+  width: 60px;
+  fill: #ff8200;
 }
 .dashboard .scene .card-wrapper {
   display: flex;
