@@ -1,28 +1,5 @@
 /******************* LAYOUT *******************/
 
-.card {
-    background-color: white;
-    border-radius: 8px;
-}
-
-.btn {
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.flex1 {
-    flex: 1 !important;
-}
-
-.flex0 {
-    flex: 0 !important;
-}
-
-.hidden {
-  color: #e8ebef !important;
-}
-
 /* FLEX KIT */
 
 // flex col
@@ -33,11 +10,13 @@
 }
 
 // alignements
-@mixin flexAlign($align: center) {
+@mixin flexAlign($direction: row, $gap: 0, $align: center) {
+  @include flex($direction, $gap);
   align-items: $align; // start | center | end | stretch
 }
 
-@mixin flexJustify($justify: center) {
+@mixin flexJustify($direction: row, $gap: 0, $justify: center) {
+  @include flex($direction, $gap);
   justify-content: $justify; // start | center | end | space-between | space-around | space-evenly
 }
 
@@ -59,4 +38,121 @@
 @mixin flexGrow($direction: column, $gap: 0, $grow: 1) {
   @include flex($direction, $gap);
   flex-grow: $grow;
+}
+
+/* ELEMENTS */
+
+// containers
+.content {
+  width: 75%;
+
+  &.c-full {
+    width: 100%;
+  }
+}
+
+.content-full {
+  width: 100%;
+}
+
+.content-left {
+  @include flex (column, 3rem);
+  width: 60%;
+
+  .card-wrapper {
+      gap: .5rem;
+  }
+
+  .card-title {
+      font-size: 16px !important;
+  }
+  .card-title-side {
+      font-size: 20px !important;
+  }
+}
+
+.content-right {
+  @include flex (column, 3rem);
+  width: 40%;
+
+  .card-title {
+      font-size: 16px !important;
+  }
+  .card-title-side {
+      font-size: 20px !important;
+  }
+}
+
+// blocks
+.card, %card {
+  border-radius: 8px;
+  background-color: white;
+}
+
+// lists
+.grid-list {
+    @include flex(row, 1rem);
+    width: 100%;
+
+    li {
+      @include flexAlign(row, .5rem);
+      width: 25%;
+    }
+
+    img {
+      width: 40px;
+      height: 26px;
+    }
+}
+
+// modals / popups
+.popup {
+  @extend %card;
+  display: none;
+  position: absolute;
+  z-index: 3;
+  right: 1rem;
+  padding: .75rem;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* MEDIA QUERIES */
+// min resolution supported: 390px
+
+// mq tool
+@mixin mq($min) {
+  @media (min-width: $min) { @content; }
+}
+
+@mixin mqx($max) {
+  @media (max-width: $max) { @content; }
+}
+
+// common breakpoints (=> https://tailwindcss.com/docs/responsive-design)
+@mixin mq-sm {
+  @media (min-width: 640px) { @content; }
+}
+
+@mixin mq-md {
+  @media (min-width: 768px) { @content; }
+}
+
+@mixin mq-lg {
+  @media (min-width: 1024px) { @content; }
+}
+
+@mixin mq-xl {
+  @media (min-width: 1280px) { @content; }
+}
+
+@mixin mq-2xl {
+  @media (min-width: 1536px) { @content; }
+}
+
+// classes
+.xxl-screen {
+  @include mq(1920px) {
+    display: flex;
+  }
 }

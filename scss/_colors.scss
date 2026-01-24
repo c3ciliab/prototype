@@ -1,25 +1,29 @@
-/******************* COLORS *******************/
+/******************* COLORS *******************/  // https://coolors.co/004877-52c9e8-6c6f70-00add8-00325a-9ed6e0-ced4da-dfe3e8-e8ebef-f0f2f6
+:root {
+  --primary-color: #00325a; // valeur par défaut
+}
+/************** CEVA COLOR CHART **************/
 
 /* CORPORATE COLORS */
-$primary-color:     #004877; // Ceva Corporate Blue
-$secondary-color:   #52c9e8; // Ceva Aqua Blue 
-$body-color:        #6C6F70; // Ceva Slate
+$ceva-blue-color:   #004877; // Ceva Corporate Blue
+$ceva-aqua-color:   #52c9e8; // Ceva Aqua Blue 
+$ceva-body-color:   #6C6F70; // Ceva Slate
 
 /* DYNAMIC SUPPORTING COLORS PALETTE */
-$highlight-color:   #00add8; // One Ceva
-$success-color:     #89bd2c; // One Health
-$link-color:        #61C1C3; // One Planet
-$alert-color:       #ffc72c; // PANTONE 123 C
-$warning-color:     #ff8200; // PANTONE 151
-$danger-color:      #a32b26; // PANTONE 7623 C
+$ceva-ceva-color:   #00add8; // One Ceva
+$ceva-health-color: #89bd2c; // One Health
+$ceva-planet-color: #61C1C3; // One Planet
+$ceva-dn-yellow:    #ffc72c; // PANTONE 123 C
+$ceva-dn-orange:    #ff8200; // PANTONE 151
+$ceva-dn-red:       #a32b26; // PANTONE 7623 C
 
 /* NATURAL SUPPORTING COLORS PALETTE */
-$nt-primary-color:  #00325a; // PANTONE 540 C
-$nt-light-color:    #9ed6e0; // PANTONE 629 C
-$nt-secondary-color:#026691; // PANTONE 634 C
-$nt-danger-color:   #b45240; // PANTONE 7593 C
-$nt-warning-color:  #dfa83d; // PANTONE 1245 C
-$nt-success-color:  #84a369; // PANTONE 7494 C
+$ceva-nt-blue:      #00325a; // PANTONE 540 C
+$ceva-nt-aqua:      #9ed6e0; // PANTONE 629 C
+$ceva-nt-teal:      #026691; // PANTONE 634 C
+$ceva-nt-red:       #b45240; // PANTONE 7593 C
+$ceva-nt-yellow:    #dfa83d; // PANTONE 1245 C
+$ceva-nt-green:     #84a369; // PANTONE 7494 C
 
 /* PORTALS */
 $genesys-blue:      #3829ff; // Genesys Blue
@@ -28,36 +32,142 @@ $dovac-blue:        #006fb2; // Dovac Blue
 $laserlife-blue:    #1d286e; // Laser Life Blue
 $inline-blue:       #064b8b; // Inline Blue
 
-/* DESIGN SYSTEM COLORS */
-$border-color:#999999; // Ceva Slate
-$border-color-light:#ced4da; // Ceva Slate
-$bg-color-light:#dfe3e8; // Ceva Slate
-$bg-color-lighter:#e8ebef; // Ceva Slate
+/************** VARIANTS **************/
 
-/* TEMP */
-$bg-color:#f0f2f6; //sidebar background
-$bg-color-hover:#ced4da; //sidebar background
-$bg-color-selected: $nt-primary-color; //sidebar background
+/* SUPPORT GREYS */
+$platinum-grey:     #f0f2f6;
+$alabaster-grey:    #e8ebef;
+$pale-slate-grey:   #ced4da;
+$olive-grey:        #909396;
+
+/************** DESIGN SYSTEM COLORS **************/
+
+/* COLOR PALETTE */
+$primary-color: $ceva-nt-blue;
+$secondary-color: $ceva-body-color;
+$highlight-color: $ceva-ceva-color;
+$success-color: $ceva-health-color;
+$warning-color: $ceva-dn-yellow;
+$alert-color: $ceva-dn-orange;
+$danger-color: $ceva-dn-red;
+
+/* LAYOUT and ELEMENTS */
+$bg-primary: $platinum-grey;
+$bg-light: $pale-slate-grey;
+$bg-lighter: $alabaster-grey;
+$bg-selected: $primary-color;
+$bg-ninja: rgba($ceva-dn-yellow, 0.5);
+
+$border-color: $pale-slate-grey;
+$border-color-light: $alabaster-grey;
+$border-color-dark: $olive-grey;
+
+//$bg-color-light:#dfe3e8;
+
+/************** THEMES **************/
+
+/* PORTALS THEMES */
+.portal-theme {
+    // Genesys Theme
+    &#genesys {
+        header {
+            background-color: $genesys-blue;
+        }
+
+        &.full-theme {
+            --primary-color: #{$genesys-blue};
+
+            &.full {
+                .sidebar .selected, 
+                .sidebar .selected figure, 
+                footer {
+                    background-color: $genesys-blue;
+                }
+            }
+        }
+    }
+    // EggInject Theme
+    &#egginject {
+        header {
+            background-color: $egginject-blue;
+        }
+
+        &.full-theme {
+            --primary-color: #{$egginject-blue};
+
+            &.full {
+                .sidebar .selected, 
+                .sidebar .selected figure, 
+                footer {
+                    background-color: $egginject-blue;
+                }
+            }
+        }
+    }
+    // Laserlife Theme
+    &#laserlife {
+        header {
+            background-color: $laserlife-blue;
+        }
+
+        &.full-theme {
+            --primary-color: #{$laserlife-blue};
+
+            &.full {
+                .sidebar .selected, 
+                .sidebar .selected figure, 
+                footer {
+                    background-color: $laserlife-blue;
+                }
+            }
+        }
+    }
+    // Dovac Theme
+    &#dovac {
+        header {
+            background-color: $dovac-blue;
+        }
+
+        &.full-theme {
+            --primary-color: #{$dovac-blue};
+
+            &.full {
+                .sidebar .selected, 
+                .sidebar .selected figure, 
+                footer {
+                    background-color: $dovac-blue;
+                }
+            }
+        }
+    }
+    // Inline Theme
+    &#inline {
+        header {
+            background-color: $inline-blue;
+        }
+
+        &.full-theme {
+            --primary-color: #{$inline-blue};
+
+            &.full {
+                .sidebar .selected, 
+                .sidebar .selected figure, 
+                footer {
+                    background-color: $inline-blue;
+                }
+            }
+        }
+    }
+}
 
 /* CLASSES */
-.primary-color { color: $nt-primary-color; }
-.secondary-color { color: $secondary-color; }
-.body-color { color: $body-color; }
-.warning-color { color: $warning-color !important; }
-.danger-color { color: $danger-color !important; }
+.primary-color { color: $primary-color; }
+.warning-color { color: $warning-color; }
+.alert-color { color: $alert-color !important; }
+.danger-color { color: $danger-color; }
 
-.bg-primary { background-color: $highlight-color; }
-.bg-secondary { background-color: $nt-primary-color; }
-.bg-body { background-color: $body-color; }
-
-.genesys { color: $genesys-blue !important; }
-.egginject { color: $egginject-blue !important; }
-.dovac { color: $dovac-blue !important; }
-.laserlife { color: $laserlife-blue !important; }
-.inline { color: $inline-blue !important; }
-
-.genesys-bg { background-color: $genesys-blue !important; }
-.egginject-bg { background-color: $egginject-blue !important; }
-.dovac-bg { background-color: $dovac-blue !important; }
-.laserlife-bg { background-color: $laserlife-blue !important; }
-.inline-bg { background-color: $inline-blue !important; }
+.genesys-blue { color: #3829ff; }
+.egginject-blue { color: #30377d; }
+.dovac-blue { color: #006fb2; }
+.laserlife-blue { color: #1d286e; }
+.inline-blue { color: #064b8b; }

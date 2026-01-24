@@ -1,3 +1,35 @@
+// /* POPUP TOGGLE */
+document.addEventListener("click", (e) => {
+  const trigger = e.target.closest(".trigger");
+  const allTriggers = document.querySelectorAll(".trigger");
+
+  // click on trigger => toggle and close others
+  if (trigger) {
+    allTriggers.forEach(t => { if (t !== trigger) t.classList.remove("is-open"); });
+    trigger.classList.toggle("is-open");
+    return;
+  }
+
+  // click outside => close everything
+  allTriggers.forEach(t => t.classList.remove("is-open"));
+});
+
+// "esc" => close everything
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") {
+    document.querySelectorAll(".trigger.is-open")
+      .forEach(t => t.classList.remove("is-open"));
+  }
+});
+
+// /* DELETE */
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn-delete");
+  if (!btn) return;
+
+  btn.closest("p")?.remove();
+});
+
 // /* CLOCK */
 function pad2(n) {
   return String(n).padStart(2, "0");

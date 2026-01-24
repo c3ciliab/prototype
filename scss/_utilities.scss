@@ -1,8 +1,65 @@
 /******************* UTILITIES *******************/
+@use "sass:list";
+@use "colors" as *;
+@use "typography" as *;
+@use "layout" as *;
 
-// text utilities
+/* NINJA */
+
+// hide
+.hide { display: none !important; }
+.hidden { color: $bg-lighter !important; }
+
+// comment
+.ninja-4th-wall {
+    display: none;
+    position: absolute;
+    z-index: 0;
+    top: .5rem;
+    left: 0;
+    width: fit-content;
+    padding: 2px;
+    font-size: $sm-txt;
+    font-style: italic;
+    color: $secondary-color;
+    background-color: $bg-ninja;
+
+    @include mq-2xl {
+        @include flex(row, .5rem);
+    }
+}
+
+/* TAILWIND LIKE CLASSES */
+
+// flex
+.flex-center {
+    @include flexCenter(column, 1rem);
+}
+
+// bg & borders
+.rounded { border-radius: 100%; }
+
+/* TOOLS */
+
+// text
 @mixin ellipsis {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+/* TRANSITIONS */
+
+// one(/all) propriety
+@mixin transition($prop: all, $duration: 0.24s, $timing: ease, $delay: 0s) {
+  transition: #{$prop} #{$duration} #{$timing} #{$delay};
+}
+
+// several proprieties
+@mixin transitions($props, $duration: 0.24s, $timing: ease, $delay: 0s) {
+  $out: ();
+  @each $p in $props {
+    $out: list.append($out, #{$p} #{$duration} #{$timing} #{$delay}, comma);
+  }
+  transition: $out;
 }
