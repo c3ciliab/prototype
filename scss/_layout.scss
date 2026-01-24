@@ -111,10 +111,28 @@
   display: none;
   position: absolute;
   z-index: 3;
-  right: 1rem;
-  padding: .75rem;
+  min-width: 120px;
+  max-height: 80vh;
+  overflow: auto;
+  padding: 1.5rem;
   text-align: left;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.24);
+
+  &.is-open {
+    @include flexAlign(column, .75rem, start);
+  }
+
+  .pp-title {
+    color: var(--primary-color);;
+  }
+
+  .pp-content {
+    @include flex(row, 1rem);
+
+    .filters {
+      @include flex(column, 1rem);
+    }
+  }
 }
 
 /* MEDIA QUERIES */

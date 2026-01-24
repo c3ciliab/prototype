@@ -1,26 +1,96 @@
 // /* POPUP TOGGLE */
+const GAP = 12;
+
+function closeAllPopups(exceptPopup = null) {
+  document.querySelectorAll(".popup.is-open").forEach(p => {
+    if (p !== exceptPopup) {
+      p.classList.remove("is-open");
+      p.setAttribute("aria-hidden", "true");
+    }
+  });
+
+  document.querySelectorAll(".trigger[aria-expanded='true']").forEach(b => {
+    const id = b.getAttribute("aria-controls");
+    const p = id ? document.getElementById(id) : null;
+    if (!exceptPopup || p !== exceptPopup) b.setAttribute("aria-expanded", "false");
+  });
+}
+
+function positionPopup(trigger, popup) {
+  const r = trigger.getBoundingClientRect();
+  const pos = trigger.dataset.popupPos || "center";
+
+  popup.style.position = "absolute";
+  //popup.style.top = `${window.scrollY + r.bottom + 8}px`; // 8px btn bottom
+  //popup.style.left = `${window.scrollX + r.right - popup.offsetWidth}px`; // align right
+  popup.style.top = `${window.scrollY + r.bottom + GAP}px`;
+
+  if (pos === "right") {
+    // calée à droite de l’écran
+    popup.style.left = "auto";
+    popup.style.right = "1rem";
+  } else {
+    // centrée sous le bouton
+    popup.style.right = "auto";
+    const left = window.scrollX + (r.left + r.width / 2) - (popup.offsetWidth / 2);
+    popup.style.left = `${Math.max(window.scrollX + 12, left)}px`; // évite de sortir à gauche
+  }
+}
+
 document.addEventListener("click", (e) => {
   const trigger = e.target.closest(".trigger");
-  const allTriggers = document.querySelectorAll(".trigger");
 
-  // click on trigger => toggle and close others
+  // click on trigger
   if (trigger) {
-    allTriggers.forEach(t => { if (t !== trigger) t.classList.remove("is-open"); });
-    trigger.classList.toggle("is-open");
+    const popupId = trigger.getAttribute("aria-controls");
+    const popup = popupId ? document.getElementById(popupId) : null;
+    if (!popup) return;
+
+    const willOpen = !popup.classList.contains("is-open");
+    closeAllPopups(popup);
+
+    if (willOpen) {
+      popup.classList.add("is-open");
+      popup.setAttribute("aria-hidden", "false");
+      trigger.setAttribute("aria-expanded", "true");
+
+      // placer après ouverture pour que offsetWidth soit correct
+      requestAnimationFrame(() => positionPopup(trigger, popup));
+    } else {
+      popup.classList.remove("is-open");
+      popup.setAttribute("aria-hidden", "true");
+      trigger.setAttribute("aria-expanded", "false");
+    }
+
     return;
   }
 
+  // click inside popup => don't close
+  if (e.target.closest(".popup")) return;
   // click outside => close everything
-  allTriggers.forEach(t => t.classList.remove("is-open"));
+  closeAllPopups();
 });
 
 // "esc" => close everything
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") {
-    document.querySelectorAll(".trigger.is-open")
-      .forEach(t => t.classList.remove("is-open"));
-  }
+  if (e.key === "Escape") closeAllPopups();
 });
+
+// Si on scroll/resize, on repositionne les popups ouvertes
+window.addEventListener("resize", () => {
+  document.querySelectorAll(".trigger[aria-expanded='true']").forEach(btn => {
+    const id = btn.getAttribute("aria-controls");
+    const p = id ? document.getElementById(id) : null;
+    if (p && p.classList.contains("is-open")) positionPopup(btn, p);
+  });
+});
+window.addEventListener("scroll", () => {
+  document.querySelectorAll(".trigger[aria-expanded='true']").forEach(btn => {
+    const id = btn.getAttribute("aria-controls");
+    const p = id ? document.getElementById(id) : null;
+    if (p && p.classList.contains("is-open")) positionPopup(btn, p);
+  });
+}, { passive: true });
 
 // /* DELETE */
 document.addEventListener("click", (e) => {

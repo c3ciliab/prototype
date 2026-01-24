@@ -75,16 +75,6 @@
   }
 }
 
-// popups and modals's trigger
-.trigger {
-  &.is-open {
-    .popup {
-      @include flexAlign(column, .75rem, start);
-      top: 4rem;
-    }
-  }
-}
-
 /* BUTTONS GROUPS */
 .time-container, .time-controls, .action-tools {
   @include flexAlign(row, .75rem);

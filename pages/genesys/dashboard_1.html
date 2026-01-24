@@ -110,75 +110,77 @@
                 <img src="../../img/logos/genesys.png" alt="Ceva Logo">
             </div>
             <div class="h-right-side">
-                <button class="trigger" type="button">
-                    <img src="../../img/icons/flag_UK.png" width="40">
-                    <div class="popup" role="menu">
-                        <h2>Language</h2>
-                        <span>Suggested Languages</span>
-                        <ul class="grid-list">
-                            <li>
-                                <img src="../../img/icons/flag_FR.png">
-                                <span>FR</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_UK.png">
-                                <span>UK</span>
-                            </li>
-                        </ul>
-                        <span>All</span>
-                        <ul class="grid-list">
-                            <li>
-                                <img src="../../img/icons/flag_UK.png">
-                                <span>UK</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_US.png">
-                                <span>US</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_SP.png">
-                                <span>SP</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_DE.png">
-                                <span>DE</span>
-                            </li>
-                        </ul>
-                        <ul class="grid-list">
-                            <li>
-                                <img src="../../img/icons/flag_IT.png">
-                                <span>IT</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_NE.png">
-                                <span>NE</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_RU.png">
-                                <span>RU</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_UK.png">
-                                <span>SP</span>
-                            </li>
-                        </ul>
-                    </div>
+
+                <button class="trigger" type="button" aria-controls="langSelect" aria-expanded="false" data-popup-pos="right">
+                    <img src="../../img/icons/flag_UK.png" width="48">
                 </button>
-                <button class="trigger rounded" type="button">
+                <div id="langSelect" class="popup" role="menu" aria-hidden="true">
+                    <h2>Language</h2>
+                    <span>Suggested Languages</span>
+                    <ul class="grid-list">
+                        <li>
+                            <img src="../../img/icons/flag_FR.png">
+                            <span>FR</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_UK.png">
+                            <span>UK</span>
+                        </li>
+                    </ul>
+                    <span>All</span>
+                    <ul class="grid-list">
+                        <li>
+                            <img src="../../img/icons/flag_UK.png">
+                            <span>UK</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_US.png">
+                            <span>US</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_SP.png">
+                            <span>SP</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_DE.png">
+                            <span>DE</span>
+                        </li>
+                    </ul>
+                    <ul class="grid-list">
+                        <li>
+                            <img src="../../img/icons/flag_IT.png">
+                            <span>IT</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_NE.png">
+                            <span>NE</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_RU.png">
+                            <span>RU</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_UK.png">
+                            <span>SP</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="rounded trigger" type="button" aria-controls="userMenu" aria-expanded="false" data-popup-pos="right">
                     <img class="rounded" src="../../img/icons/user.png" width="32">
-                    <div class="popup" role="menu">
-                        <ul>
-                            <li>user</li>
-                            <li>logout</li>
-                        </ul>
-                    </div>
                 </button>
+                <div id="userMenu" class="popup" role="menu" aria-hidden="true">
+                    <ul>
+                        <li>user</li>
+                        <li>logout</li>
+                    </ul>
+                </div>
             </div>
         </header>
 
         <!-- MAIN CONTENT -->
         <main>
-            <section>
+            <section class="v2">
                 <!-- SECTION TOP MENU -->
                 <div class="section-header">
                     <!-- Dashboard pages menu -->
@@ -194,12 +196,31 @@
                     <!-- Date Picker -->
                     <div class="time-container">
                         <!-- Calendar btn -->
-                        <button class="btn-secondary" title="datepicker">
+                        <button class="btn-secondary trigger" type="button" aria-controls="timePicker" aria-expanded="false">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                 <path d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM480 496C488.8 496 496 488.8 496 480L496 416L408 416L408 496L480 496zM496 368L496 288L408 288L408 368L496 368zM360 368L360 288L280 288L280 368L360 368zM232 368L232 288L144 288L144 368L232 368zM144 416L144 480C144 488.8 151.2 496 160 496L232 496L232 416L144 416zM280 416L280 496L360 496L360 416L280 416zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176z"/>
                             </svg>
                         </button>
-
+                        <div id="timePicker" class="popup" role="menu" aria-hidden="true" data-popup-pos="center">
+                            <h3 class="pp-title">Time period</h3>
+                            <div class="pp-content">
+                                <ul class="filters">
+                                    <li>Last & pending week</li>
+                                    <li>Last month</li>
+                                    <li>Last quarter</li>
+                                    <li>Last year</li>
+                                </ul>
+                                <div>
+                                    <span>0</span>
+                                    <span>Start Date</span>
+                                </div>
+                                <div>
+                                    <span>0</span>
+                                    <span>End Date</span>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <!-- Day +/- -->
                         <div class="time-controls">
                             <!-- previous btn -->
@@ -240,27 +261,29 @@
                         <span>click on</span>
                         <button type="button" class="btn-delete rounded" aria-label="Delete">x</button>
                     </p>
-                    
+
                     <div class="content-left">
-                        <div class="card-wrapper">
+                        <div class="card card-wrapper">
                             <div class="double-header">
                                 <div class="header-w-icon">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                         <path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM288 224C288 206.3 302.3 192 320 192C337.7 192 352 206.3 352 224C352 241.7 337.7 256 320 256C302.3 256 288 241.7 288 224zM280 288L328 288C341.3 288 352 298.7 352 312L352 400L360 400C373.3 400 384 410.7 384 424C384 437.3 373.3 448 360 448L280 448C266.7 448 256 437.3 256 424C256 410.7 266.7 400 280 400L304 400L304 336L280 336C266.7 336 256 325.3 256 312C256 298.7 266.7 288 280 288z"/>
                                     </svg>
-                                    <div class="card card-header">
+                                    <div class="card-header">
                                         <h2 class="card-title">Total flocks</h2>
                                         <span class="card-title-side">
                                             7
                                         </span>
                                     </div>
                                 </div>
-                                <div class="card card-header">
-                                    <h2 class="card-title">On-Going Flock</h2>
-                                    <span class="card-title-side">
-                                        2411CF S54
-                                    </span>
-                                </div>
+                                 <div class="header-w-icon">
+                                    <div class="card-header">
+                                        <h2 class="card-title">On-Going Flock</h2>
+                                        <span class="card-title-side">
+                                            2411CF S54
+                                        </span>
+                                    </div>
+                                 </div>
                             </div>
                             <div class="card card-table col-6">
                                 <div class="row-top-line">
@@ -333,12 +356,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="card-wrapper">
-                            <div class="header-w-icon alert">
+                        <div class="card card-wrapper flex1">
+                            <div class="header-w-icon flex0 warning">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                     <path d="M320 64C334.7 64 348.2 72.1 355.2 85L571.2 485C577.9 497.4 577.6 512.4 570.4 524.5C563.2 536.6 550.1 544 536 544L104 544C89.9 544 76.8 536.6 69.6 524.5C62.4 512.4 62.1 497.4 68.8 485L284.8 85C291.8 72.1 305.3 64 320 64zM320 416C302.3 416 288 430.3 288 448C288 465.7 302.3 480 320 480C337.7 480 352 465.7 352 448C352 430.3 337.7 416 320 416zM320 224C301.8 224 287.3 239.5 288.6 257.7L296 361.7C296.9 374.2 307.4 384 319.9 384C332.5 384 342.9 374.3 343.8 361.7L351.2 257.7C352.5 239.5 338.1 224 319.8 224z"/>
                                 </svg>
-                                <div class="card card-header">
+                                <div class="card-header between">
                                     <h2 class="card-title">Active Alerts</h2>
                                     <span class="card-title-side alert-color">
                                         2
@@ -377,9 +400,8 @@
                             </div>
                         </div>
                     </div>
-                    
                     <div class="content-right">
-                        <div class="card-wrapper">
+                        <div class="card card-wrapper">
                             <div class="header-w-icon">
                                 <figure>
                                     <img src="../../img/icons/bird.png" width="40">
@@ -388,7 +410,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                     <path d="M323.2 452.4C354.4 433.6 387.9 416 424.3 416L480 416C484.6 416 489.1 415.8 493.6 415.3L578.9 537.2C582.9 542.9 590.2 545.4 596.8 543.3C603.4 541.2 608 535 608 528L608 288C608 217.3 550.7 160 480 160L424.3 160C387.9 160 354.4 142.4 323.2 123.6C294.3 106.1 260.3 96 224 96C118 96 32 182 32 288C32 359.1 70.6 421.1 128 454.3L128 520C128 533.3 138.7 544 152 544C165.3 544 176 533.3 176 520L176 474C191.3 477.9 207.4 480 224 480C229.4 480 234.7 479.8 240 479.3L240 520C240 533.3 250.7 544 264 544C277.3 544 288 533.3 288 520L288 469.1C300.4 464.7 312.2 459.1 323.2 452.4zM480 264C493.3 264 504 274.7 504 288C504 301.3 493.3 312 480 312C466.7 312 456 301.3 456 288C456 274.7 466.7 264 480 264z"/>
                                 </svg>-->
-                                <div class="card card-header">
+                                <div class="card-header between">
                                     <h2 class="card-title">Day-old chicks sorted</h2>
                                     <span class="card-title-side">
                                         202,000
@@ -421,33 +443,21 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- 
-                            <div class="card card-footer">
-                                <div class="row-line">
-                                    <div class="line">
-                                        <h3 class="footer-title"># Flocks</h3>
-                                    </div>
-                                    <div class="line-end">
-                                        <span class="primary-color">7</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card card-footer">
-                                <div class="row-line">
-                                    <div class="line">
-                                        <h3 class="footer-title">Active Alert(s)</h3>
-                                    </div>
-                                    <div class="line-end">
-                                        <span class="danger-color">2</span>
-                                    </div>
-                                </div>
-                            </div>
-                            -->
                         </div>
 
-                        <div class="card-wrapper">
-                            <div class="card card-graph">
-                                <h2>Hour average Speed per line</h2>
+                        <div class="card card-wrapper">
+                            <div class="header-w-icon">
+                                <figure class="icon-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                        <path d="M96 96C113.7 96 128 110.3 128 128L128 464C128 472.8 135.2 480 144 480L544 480C561.7 480 576 494.3 576 512C576 529.7 561.7 544 544 544L144 544C99.8 544 64 508.2 64 464L64 128C64 110.3 78.3 96 96 96zM208 288C225.7 288 240 302.3 240 320L240 384C240 401.7 225.7 416 208 416C190.3 416 176 401.7 176 384L176 320C176 302.3 190.3 288 208 288zM352 224L352 384C352 401.7 337.7 416 320 416C302.3 416 288 401.7 288 384L288 224C288 206.3 302.3 192 320 192C337.7 192 352 206.3 352 224zM432 256C449.7 256 464 270.3 464 288L464 384C464 401.7 449.7 416 432 416C414.3 416 400 401.7 400 384L400 288C400 270.3 414.3 256 432 256zM576 160L576 384C576 401.7 561.7 416 544 416C526.3 416 512 401.7 512 384L512 160C512 142.3 526.3 128 544 128C561.7 128 576 142.3 576 160z"/>
+                                    </svg>
+                                </figure>
+                                <div class="card-header">
+                                    <h2 class="card-title">Hour average Speed per line</h2>
+                                </div>
+                            </div>
+                            
+                            <div class="card-graph">
                                 <img src="../../img/graphs/graph-1.png" width="240">
                             </div>
                         </div>

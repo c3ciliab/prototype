@@ -34,6 +34,15 @@
 // flex
 .flex-center {
     @include flexCenter(column, 1rem);
+
+    &.temp {
+      gap: 4rem;
+      padding-top: 4rem
+    }
+}
+
+.gap-8 {
+  @include flex(row, 2rem);
 }
 
 // bg & borders
