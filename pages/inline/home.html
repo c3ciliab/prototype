@@ -110,69 +110,71 @@
                 <img src="../../img/logos/inline.png" alt="Inline Logo">
             </div>
             <div class="h-right-side">
-                <button class="trigger" type="button">
-                    <img src="../../img/icons/flag_UK.png" width="40">
-                    <div class="popup" role="menu">
-                        <h2>Language</h2>
-                        <span>Suggested Languages</span>
-                        <ul class="grid-list">
-                            <li>
-                                <img src="../../img/icons/flag_FR.png">
-                                <span>FR</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_UK.png">
-                                <span>UK</span>
-                            </li>
-                        </ul>
-                        <span>All</span>
-                        <ul class="grid-list">
-                            <li>
-                                <img src="../../img/icons/flag_UK.png">
-                                <span>UK</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_US.png">
-                                <span>US</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_SP.png">
-                                <span>SP</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_DE.png">
-                                <span>DE</span>
-                            </li>
-                        </ul>
-                        <ul class="grid-list">
-                            <li>
-                                <img src="../../img/icons/flag_IT.png">
-                                <span>IT</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_NE.png">
-                                <span>NE</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_RU.png">
-                                <span>RU</span>
-                            </li>
-                            <li>
-                                <img src="../../img/icons/flag_UK.png">
-                                <span>SP</span>
-                            </li>
-                        </ul>
-                    </div>
+
+                <button class="trigger" type="button" aria-controls="langSelect" aria-expanded="false" data-popup-pos="right">
+                    <img src="../../img/icons/flag_UK.png" width="48">
                 </button>
-                <button class="trigger rounded" type="button">
+                <div id="langSelect" class="popup" role="menu" aria-hidden="true">
+                    <h2>Language</h2>
+                    <span>Suggested Languages</span>
+                    <ul class="grid-list">
+                        <li>
+                            <img src="../../img/icons/flag_FR.png">
+                            <span>FR</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_UK.png">
+                            <span>UK</span>
+                        </li>
+                    </ul>
+                    <span>All</span>
+                    <ul class="grid-list">
+                        <li>
+                            <img src="../../img/icons/flag_UK.png">
+                            <span>UK</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_US.png">
+                            <span>US</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_SP.png">
+                            <span>SP</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_DE.png">
+                            <span>DE</span>
+                        </li>
+                    </ul>
+                    <ul class="grid-list">
+                        <li>
+                            <img src="../../img/icons/flag_IT.png">
+                            <span>IT</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_NE.png">
+                            <span>NE</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_RU.png">
+                            <span>RU</span>
+                        </li>
+                        <li>
+                            <img src="../../img/icons/flag_UK.png">
+                            <span>SP</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <button class="rounded trigger" type="button" aria-controls="userMenu" aria-expanded="false" data-popup-pos="right">
                     <img class="rounded" src="../../img/icons/user.png" width="32">
-                    <div class="popup" role="menu">
-                        <ul>
-                            <li>user</li>
-                            <li>logout</li>
-                        </ul>
-                    </div>
                 </button>
+                <div id="userMenu" class="popup" role="menu" aria-hidden="true">
+                    <ul>
+                        <li>user</li>
+                        <li>logout</li>
+                    </ul>
+                </div>
             </div>
         </header>
 
