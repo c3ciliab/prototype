@@ -883,6 +883,13 @@ section .scene .hero .h-tagline {
   padding-top: 6rem;
   padding-inline: 3rem;
 }
+.dashboard .scene.dash-home figure {
+  width: 60%;
+}
+.dashboard .scene.dash-home .content {
+  width: 40%;
+  padding-top: 2rem;
+}
 .dashboard .card-wrapper {
   display: flex;
   flex-direction: column;
