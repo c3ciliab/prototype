@@ -1,46 +1,264 @@
 /******************* LAYOUT *******************/
-
-/* FLEX KIT */
-
-// flex col
-@mixin flex($direction: column, $gap: 0) {
-  display: flex;
-  flex-direction: $direction;
-  gap: $gap;
-}
-
-// alignements
-@mixin flexAlign($direction: row, $gap: 0, $align: center) {
-  @include flex($direction, $gap);
-  align-items: $align; // start | center | end | stretch
-}
-
-@mixin flexJustify($direction: row, $gap: 0, $justify: center) {
-  @include flex($direction, $gap);
-  justify-content: $justify; // start | center | end | space-between | space-around | space-evenly
-}
-
-// fullcenter
-@mixin flexCenter($direction: column, $gap: 0) {
-  @include flex($direction, $gap);
-  align-items: center;
-  justify-content: center;
-}
-
-// distributions
-@mixin flexBetween($direction: row, $gap: 0, $align: center) {
-  @include flex($direction, $gap);
-  align-items: $align;
-  justify-content: space-between;
-} 
-
-// items
-@mixin flexGrow($direction: column, $gap: 0, $grow: 1) {
-  @include flex($direction, $gap);
-  flex-grow: $grow;
-}
+@use "colors" as *;
+@use "typography" as *;
+@use "config" as *;
 
 /* ELEMENTS */
+
+/*********** LAYOUT ***********/
+
+/* LEFT MENU */
+.sidebar-wrapper {
+    display: flex;
+    position: fixed;
+    z-index: 1;
+    width: 48px;
+    height: 100%;
+    background-color: $bg-primary;
+    @include transition(width);
+
+    .sidebar {
+        @include flex;
+        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.07);
+
+        li {
+            a {
+                @include flexAlign;
+                height: 48px;
+                @include transition(gap);
+
+                figure {
+                    @include flexCenter;
+                    position: relative;
+                    z-index: 2;
+                    width: 48px;
+                    padding-inline: 4px;
+                    background-color: $bg-primary;
+
+                    svg {
+                        width: 20px;
+                        fill: $secondary-color;
+                    }
+                }
+
+                span {
+                    position: relative;
+                    z-index: 1;
+                    width: 0;
+                    max-width: 200px;
+                    font-size: $sm-txt;
+                    @include ellipsis;
+                    transform: translateX(-152px);
+                    opacity: 0;
+                    @include transitions((width, transform, opacity));
+                }
+
+                &:hover {
+                    background-color: $bg-light;
+
+                    figure {
+                        background-color: $bg-light;
+                    }
+                }
+            }
+
+            &.selected {
+                font-weight: bold;
+                color: white;
+                background-color: $bg-selected;
+                cursor: default;
+                
+                figure {
+                    background-color: $bg-selected;  
+
+                    svg {
+                        fill: white;
+                    }
+                } 
+                
+                a:hover {
+                    cursor: default;
+                }
+            }
+
+            &:first-child, &:nth-child(2), &.selected {
+                a:hover {
+                    background-color: initial;
+                    
+                    figure {
+                        background-color: initial;
+                    }
+                }
+            }
+        }
+    }
+
+    &:hover {
+        width: 256px;
+
+        .sidebar {
+            li a {
+                gap: .5rem;
+
+                span {
+                    width: 200px;
+                    padding-inline: 12px;
+                    transform: translateX(0px);
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+/* FIXED FOOTER */
+footer {
+    @include flexBetween;
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    width: 100%;
+    padding: .5rem;
+    font-size: $sm-txt;
+    color: white;
+    background-color: $primary-color;
+    
+    // media queries
+    @include mq-sm { padding-inline: 2rem; }
+    @include mq-lg { padding-inline: 4rem; }
+    @include mq-xl { padding-inline: 8rem; }
+
+    figure {
+        @include flexAlign(row, .5rem);
+    }
+
+    ul {
+        display: none;
+        @include mq-md {
+            @include flex(row, 1rem);
+        }
+    }
+}
+
+/* CONTENT */
+.content-wrapper {
+    @include flexGrow;
+    padding-left: 48px; // space for sidebar
+    padding-bottom: 60px; // space for footer
+    background-color: white;
+}
+
+header {
+    @include flexBetween(row, .75rem);
+    height: 84px;
+    padding-inline: 1rem;
+    background-color: $highlight-color;
+
+    .h-left-side {
+        @include flex;
+
+        .brand-name {
+            @include brand-txt;
+            line-height: 1;
+            color: white;
+        }
+
+        .tagline {
+            font-family: $jura;
+            font-size: $sm-txt;
+            color: $primary-color;
+        }
+    }
+
+    .h-right-side {
+        @include flex(row, 1rem);
+        align-items: center;
+
+        button:nth-child(2) {
+            .popup {
+                width: 200px;
+            }
+        }
+    }
+    
+    // media queries    
+    @include mq-sm {
+        padding-inline: 1.25rem;
+        
+        .h-left-side {
+            gap: .25rem;
+
+            .brand-name {font-size: $xl-txt; }
+            .tagline { font-size: $md-txt; }
+        }
+
+        .h-right-side {
+            gap: 1.5rem;
+        }
+    }
+        
+    @include mq-md {
+        padding-inline: 1.5rem;
+
+        .h-right-side {
+            gap: 2rem;
+        }
+    }
+}
+
+main {
+    @include flexGrow;
+    align-items: center;
+}
+
+/* MAIN CONTENT */
+section {
+    @include flex;
+    width: 100%;
+    height: 100%;
+    padding-top: 1.5rem;
+    padding-inline: 1.5rem;
+
+    .section-header {
+        @include flexAlign;
+        justify-content: flex-end;
+        height: 48px;
+
+        #clock, .time-display {
+            @include time-txt;
+            color: $secondary-color;
+        }
+    }
+
+    .scene {
+        @include flexGrow(column, 2rem);
+        align-items: center;
+        position: relative;
+        z-index: 0;
+        width: 100%;
+        padding-top: 3rem;
+
+        .hero {
+            @include flex(column, 1.5rem);
+
+            .h-tagline {
+                @include brand-txt;
+                font-size: $xl-txt;
+            }
+        }
+
+        // media queries
+        @include mq-sm {
+            gap: 6rem;
+            padding-top: 11rem;
+
+            .hero .h-tagline {
+                font-size: 48px;
+            }
+        }
+        
+    }
+}
 
 // containers
 .content {
@@ -83,12 +301,6 @@
   }
 }
 
-// blocks
-.card, %card {
-  border-radius: 8px;
-  background-color: white;
-}
-
 // lists
 .grid-list {
     @include flex(row, 1rem);
@@ -105,72 +317,27 @@
     }
 }
 
-// modals / popups
-.popup {
-  @extend %card;
-  display: none;
-  position: absolute;
-  z-index: 3;
-  min-width: 120px;
-  max-height: 80vh;
-  overflow: auto;
-  padding: 1.5rem;
-  text-align: left;
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.24);
+/* NINJA */
 
-  &.is-open {
-    @include flexAlign(column, .75rem, start);
-  }
+// hide
+.hide { display: none !important; }
+.hidden { color: $bg-lighter !important; }
 
-  .pp-title {
-    color: var(--primary-color);;
-  }
+// comment
+.ninja-4th-wall {
+    display: none;
+    position: absolute;
+    z-index: 0;
+    top: .5rem;
+    left: 0;
+    width: fit-content;
+    padding: 2px;
+    font-size: $sm-txt;
+    font-style: italic;
+    color: $secondary-color;
+    background-color: $bg-ninja;
 
-  .pp-content {
-    @include flex(row, 1rem);
-
-    .filters {
-      @include flex(column, 1rem);
+    @include mq-2xl {
+        @include flex(row, .5rem);
     }
-  }
-}
-
-/* MEDIA QUERIES */
-// min resolution supported: 390px
-
-// mq tool
-@mixin mq($min) {
-  @media (min-width: $min) { @content; }
-}
-
-@mixin mqx($max) {
-  @media (max-width: $max) { @content; }
-}
-
-// common breakpoints (=> https://tailwindcss.com/docs/responsive-design)
-@mixin mq-sm {
-  @media (min-width: 640px) { @content; }
-}
-
-@mixin mq-md {
-  @media (min-width: 768px) { @content; }
-}
-
-@mixin mq-lg {
-  @media (min-width: 1024px) { @content; }
-}
-
-@mixin mq-xl {
-  @media (min-width: 1280px) { @content; }
-}
-
-@mixin mq-2xl {
-  @media (min-width: 1536px) { @content; }
-}
-
-// classes
-.xxl-screen {
-  @include mq(1920px) {
-    display: flex;
-  }
 }

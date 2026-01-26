@@ -1,6 +1,16 @@
 /******************* COLORS *******************/  // https://coolors.co/004877-52c9e8-6c6f70-00add8-00325a-9ed6e0-ced4da-dfe3e8-e8ebef-f0f2f6
 :root {
-  --primary-color: #00325a; // valeur par défaut
+  --primary-color:   #00325a; // Ceva Natural blue
+  --secondary-color: white;
+  --default-color:   #6C6F70; // Ceva Slate
+
+  --bg-primary:     var(--primary-color);
+  --bg-secondary:   var(--secondary-color);
+  --bg-default:     var(--default-color);
+
+  --txt-primary:    var(--primary-color);
+  --txt-secondary:  var(--secondary-color);
+  --txt-default:    var(--default-color);
 }
 /************** CEVA COLOR CHART **************/
 

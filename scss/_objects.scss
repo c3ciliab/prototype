@@ -1,6 +1,15 @@
-/******************* BUTTONS *******************/
+/******************* OBJECTS *******************/
 @use "colors" as *;
-@use "layout" as *;
+@use "typography" as *;
+@use "config" as *;
+
+/* PLACEHOLDERS */
+
+// card
+.card, %card {
+  background-color: var(--bg-secondary);
+  border-radius: 8px;
+}
 
 /* BUTTONS */
 
@@ -9,60 +18,58 @@
   @extend %card;
   @include flexCenter;
   width: auto;
-  padding: 12px;
+  padding: 14px 12px;
   border: 1px solid white;
+  color: var(--txt-default);
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 
-  &:hover, &.selected {
+  svg {
+    fill: var(--txt-default);
+  }
+
+  &:hover, &.selected, &.disabled {
     box-shadow: none;
   }
 
   &.selected {
     cursor: default;
   }
+
+  &.disabled {
+    opacity: .4
+  }
 }
 
-// primary actions
+// primary button
 .btn-primary, %btn-primary {
   @extend %btn;
   border-color: var(--primary-color);
-  color: white;
-  background-color: var(--primary-color);
+  color: var(--txt-secondary);
+  background-color: var(--bg-primary);
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
 
   svg {
-    fill: white;
+    fill: var(--bg-secondary)
   }
 
   &:hover, &.selected {
     border-color: var(--primary-color);
-    color: var(--primary-color);
-    background-color: white;
+    color: var(--txt-primary);
+    background-color: var(--bg-secondary);
 
     svg {
-      fill: var(--primary-color);
+      fill: var(--bg-primary);
     }
   }
-}
-
-.btn-delete {
-  @extend %btn;
-  width: 16px;
-  height: 16px;
-  padding: 0;
-  border-color: $secondary-color;
-  line-height: 1;
-  color: $secondary-color;
-  background-color: transparent;
 }
 
 // secondary actions
 .btn-secondary, %btn-secondary {
   @extend %btn;
-  color: var(--primary-color);
+  color: var(--txt-primary);
 
   svg {
-    fill: var(--primary-color);
+    fill: var(--bg-primary);
   }
 
   &:hover, &.selected {
@@ -73,6 +80,25 @@
     color: white;
     background-color: var(--primary-color);
   }
+}
+
+.btn-icon, %btn-icon {
+  @extend %btn;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+}
+
+// misc
+.btn-delete {
+  @extend %btn-icon;
+  border-color: var(--default-color);
+  line-height: 1;
+  background-color: transparent;
+}
+
+.btn-sm {
+  width: 16px;
 }
 
 /* BUTTONS GROUPS */
@@ -88,9 +114,6 @@
       width: 28px;
     }
   }
-  
-  //.btn-primary { }
-  //.btn-secondary { }
 }
 
 .time-container {
@@ -104,10 +127,6 @@
     width: 36px;
     height: 36px;
 
-    svg {
-      fill: $secondary-color;
-    }
-
     &:hover {
       border-color: $border-color;
     }
@@ -118,5 +137,20 @@
     height: 40px;
     padding-inline: 1rem;
     border: 1px solid $border-color;
+  }
+}
+
+/* FORMS */
+
+/* INPUTS */
+input {
+  width: 96px;
+  padding: 5px 8px;
+  border: 1px solid $secondary-color;
+  border-radius: 6px;
+  font-size: 14px;
+
+  &:focus {
+    border: 1px solid $highlight-color;
   }
 }

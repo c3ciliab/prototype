@@ -123,14 +123,12 @@ function formatClock(now) {
 function formatDay(now) {
   // JJ/Mmm/AAAA
   const day = pad2(now.getDate());
+  const month = pad2(now.getMonth() + 1);
   const year = now.getFullYear();
-  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-  const mon = months[now.getMonth()];
-  
-  return `${day}, ${mon} ${year}`;
-  // JJ/MM
-  //const month = pad2(now.getMonth() + 1);
-  //return `${day}/${month}`;
+  return `${day}/${month}/${year}`;
+  //const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  //const mon = months[now.getMonth()];
+  //return `${day}, ${mon} ${year}`;
 }
 
 function tick() {
