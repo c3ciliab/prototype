@@ -509,7 +509,7 @@
     .v2 {
         .scene {
             gap: 1rem;
-            padding-block: 2rem;
+            padding-block: 2rem 1.5rem;
             padding-inline: 0;
         }
         
@@ -681,8 +681,8 @@
             }
 
             .table-body {
-                height: 160px;
-                max-height: 160px;
+                height: 180px;
+                max-height: 180px;
                 overflow: hidden;
 
                 .table-body-container {
@@ -780,6 +780,7 @@
         
         .card-graph {
             align-items: flex-start;
+            height: 100%;
             padding: 16px;
 
             .graph-header {
