@@ -284,18 +284,27 @@ header {
     background-color: $highlight-color;
 
     .h-left-side {
-        @include flex;
+        @include flex(row);
 
-        .brand-name {
-            @include brand-txt;
-            line-height: 1;
-            color: white;
+        &.h-home {
+            flex-direction: column;
+
+            .brand-name {
+                @include brand-txt;
+                line-height: 1;
+                color: white;
+            }
+
+            .tagline {
+                font-family: $jura;
+                font-size: $sm-txt;
+                color: $primary-color;
+            }
         }
 
-        .tagline {
-            font-family: $jura;
-            font-size: $sm-txt;
-            color: $primary-color;
+        &:not(.h-home) {
+            align-items: center;
+            gap: 4rem;
         }
     }
 
@@ -309,16 +318,152 @@ header {
             }
         }
     }
+
+    .menu-filter {
+        position: relative;
+
+        .filter-btn {
+            @include flexAlign;
+            gap: .25rem;
+            height: 40px;
+            padding-inline: .5rem;
+            color: white;
+            background-color: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 8px;
+
+            span {
+                position: relative;
+                z-index: 1;
+                max-width: 200px;
+                font-size: $sm-txt;
+                @include ellipsis;
+            }
+
+            &:hover {
+                border-color: white;
+            }
+        }
+
+        .chevron {
+            width: 18px;
+            height: 18px;
+            transition: transform .2s ease;
+        }
+
+        &.is-open .chevron{
+            transform: rotate(180deg); /* down -> up */
+        }
+
+        .filter-list {
+            position: absolute;
+            top: 48px !important;
+            left: 0 !important;
+            z-index: 4;
+            overflow: hidden;
+            max-height: 0;
+            padding: 0;
+            font-size: $sm-txt;
+            border-radius: 8px;
+            box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.24);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transform: translateY(-12px);
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+
+            /* Panel */
+            .filter-panel{
+                @extend %card;
+                padding: .5rem;
+            }
+
+            .filter-search{
+                display: flex;
+                align-items: center;
+                padding: .5rem;
+                border: 1px solid #e3e6eb;
+                border-radius: 8px;
+
+                svg {
+                    width: 28px;
+                    fill: #3c3c3c;
+                }
+            }
+
+            .filter-search__input{
+                width:100%;
+                border:0;
+            }
+
+            .filter-search__clear{
+                border: 0;
+                background: transparent;
+                height: auto;
+                cursor: pointer;
+                line-height: 1;
+                padding: .25rem .4rem;
+                border-radius: 6px;
+            }
+
+            .filter-search__clear:hover{
+                background: #f3f5f8;
+            }
+
+            .checklist{
+                margin: .5rem 0 0;
+                max-height: 260px;
+                overflow: auto;
+                border-radius: 8px;
+            }
+
+            .check-items {
+                max-height: 120px;
+                overflow-y: scroll;
+            }
+
+            .checklist__item{
+                padding: .35rem .5rem;
+                white-space: nowrap;
+                border-radius: 6px;
+            }
+
+            .checklist__item:hover{ background:#f3f5f8; }
+
+            .check{
+                display:flex;
+                align-items:center;
+                gap:.6rem;
+                cursor:pointer;
+                user-select:none;
+            }
+
+            /* Checkbox look simple */
+            .check__input{ width: 16px; height: 16px; }
+        }
+
+        &.is-open {
+            .filter-list { 
+                max-height: 240px;
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+                transform: translateY(0);
+                transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
+            }
+        }
+    }
     
     // media queries    
     @include mq-sm {
         padding-inline: 1.25rem;
         
         .h-left-side {
-            gap: .25rem;
-
-            .brand-name {font-size: $xl-txt; }
-            .tagline { font-size: $md-txt; }
+            &.h-home {
+                gap: .25rem;
+                .brand-name {font-size: $xl-txt; }
+                .tagline { font-size: $md-txt; }
+            }
         }
 
         .h-right-side {
