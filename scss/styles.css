@@ -809,7 +809,6 @@ header .menu-filter .filter-list {
   position: absolute;
   top: 48px !important;
   left: 0 !important;
-  z-index: 4;
   overflow: hidden;
   max-height: 0;
   padding: 0;
@@ -1109,8 +1108,6 @@ section .scene .hero .h-tagline {
   gap: 1rem;
 }
 .dashboard .section-header ul a {
-  font-family: "myriad-pro", sans-serif;
-  font-style: normal;
   font-weight: bold;
   font-size: 0.875rem;
   text-transform: uppercase;

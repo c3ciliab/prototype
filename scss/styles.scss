@@ -35,8 +35,8 @@
 
             a {
                 @extend %btn-secondary;
-                @include brand-txt(normal);
-                font-size: .875rem;
+                font-weight: bold;
+                font-size: 0.875rem;
                 text-transform: uppercase;
             }
         }
