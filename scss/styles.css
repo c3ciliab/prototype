@@ -290,6 +290,7 @@
 }
 
 .time-controls {
+  display: none;
   gap: 0.5rem;
 }
 .time-controls .btn-secondary {
@@ -1111,6 +1112,7 @@ section .scene .hero .h-tagline {
   font-weight: bold;
   font-size: 0.875rem;
   text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 .dashboard .scene {
   display: flex;
