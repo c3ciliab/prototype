@@ -137,6 +137,10 @@
   height: 100%;
 }
 
+.pl-1 {
+  padding-left: 1rem;
+}
+
 .pb-1-5 {
   padding-bottom: 1.5rem;
 }
@@ -186,7 +190,7 @@
 /*********** IMPORTS ***********/
 /******************* OBJECTS *******************/
 /* PLACEHOLDERS */
-.card, .dashboard .card-wrapper .card-header, .dashboard .card-wrapper .card-body, .dashboard .card-wrapper .card-footer, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .dashboard .section-header ul a, .btn-primary {
+.card, .dashboard .card-wrapper .card-header, .dashboard .card-wrapper .card-body, .dashboard .card-wrapper .card-footer, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .dashboard .section-header ul a, .btn-primary {
   background-color: var(--bg-secondary);
   border-radius: 8px;
 }
@@ -347,6 +351,7 @@ ul, li {
 }
 
 button {
+  color: #3c3c3c;
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -480,7 +485,7 @@ img {
   gap: 0;
   box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.07);
 }
-.sidebar-wrapper .sidebar li a {
+.sidebar-wrapper .sidebar li a, .sidebar-wrapper .sidebar li button {
   display: flex;
   flex-direction: row;
   gap: 0;
@@ -488,7 +493,7 @@ img {
   height: 48px;
   transition: gap 0.24s ease 0s;
 }
-.sidebar-wrapper .sidebar li a figure {
+.sidebar-wrapper .sidebar li a figure, .sidebar-wrapper .sidebar li button figure {
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -500,11 +505,11 @@ img {
   padding-inline: 4px;
   background-color: #f0f2f6;
 }
-.sidebar-wrapper .sidebar li a figure svg {
+.sidebar-wrapper .sidebar li a figure svg, .sidebar-wrapper .sidebar li button figure svg {
   width: 20px;
   fill: #6C6F70;
 }
-.sidebar-wrapper .sidebar li a span {
+.sidebar-wrapper .sidebar li a span, .sidebar-wrapper .sidebar li button span {
   position: relative;
   z-index: 1;
   width: 0;
@@ -517,10 +522,14 @@ img {
   opacity: 0;
   transition: width 0.24s ease 0s, transform 0.24s ease 0s, opacity 0.24s ease 0s;
 }
-.sidebar-wrapper .sidebar li a:hover {
+.sidebar-wrapper .sidebar li a > svg, .sidebar-wrapper .sidebar li button > svg {
+  display: none;
+  transform: translateX(-152px);
+}
+.sidebar-wrapper .sidebar li a:hover, .sidebar-wrapper .sidebar li button:hover {
   background-color: #ced4da;
 }
-.sidebar-wrapper .sidebar li a:hover figure {
+.sidebar-wrapper .sidebar li a:hover figure, .sidebar-wrapper .sidebar li button:hover figure {
   background-color: #ced4da;
 }
 .sidebar-wrapper .sidebar li.selected {
@@ -538,23 +547,124 @@ img {
 .sidebar-wrapper .sidebar li.selected a:hover {
   cursor: default;
 }
-.sidebar-wrapper .sidebar li:first-child a:hover, .sidebar-wrapper .sidebar li:nth-child(2) a:hover, .sidebar-wrapper .sidebar li.selected a:hover {
+.sidebar-wrapper .sidebar li:first-child :hover, .sidebar-wrapper .sidebar li:nth-child(2) :hover, .sidebar-wrapper .sidebar li.selected :hover {
   background-color: initial;
 }
-.sidebar-wrapper .sidebar li:first-child a:hover figure, .sidebar-wrapper .sidebar li:nth-child(2) a:hover figure, .sidebar-wrapper .sidebar li.selected a:hover figure {
+.sidebar-wrapper .sidebar li:first-child :hover figure, .sidebar-wrapper .sidebar li:nth-child(2) :hover figure, .sidebar-wrapper .sidebar li.selected :hover figure {
   background-color: initial;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-btn {
+  gap: 0;
+}
+.sidebar-wrapper .sidebar li.menu-filter .chevron {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+.sidebar-wrapper .sidebar li.menu-filter.is-open .chevron {
+  transform: rotate(180deg); /* down -> up */
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list {
+  display: none;
+  overflow: hidden;
+  max-height: 0;
+  padding-inline: 0.5rem;
+  font-size: 14px;
+  opacity: 0;
+  transform: translateY(-48px);
+  transition: max-height 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+  /* Panel */
+  /* Checkbox look simple */
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel {
+  border: 1px solid #d9dde3;
+  padding: 0.5rem;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-search {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border: 1px solid #e3e6eb;
+  border-radius: 8px;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-search svg {
+  width: 28px;
+  fill: #3c3c3c;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-search__input {
+  width: 100%;
+  border: 0;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-search__clear {
+  border: 0;
+  background: transparent;
+  height: auto;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.25rem 0.4rem;
+  border-radius: 6px;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-search__clear:hover {
+  background: #f3f5f8;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .checklist {
+  margin: 0.5rem 0 0;
+  max-height: 260px;
+  overflow: auto;
+  border-radius: 8px;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .check-items {
+  max-height: 120px;
+  overflow-y: scroll;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .checklist__item {
+  padding: 0.35rem 0.5rem;
+  white-space: nowrap;
+  border-radius: 6px;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .checklist__item:hover {
+  background: #f3f5f8;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .check__input {
+  width: 16px;
+  height: 16px;
+}
+.sidebar-wrapper .sidebar li.menu-filter.is-open .filter-list {
+  max-height: 240px;
+  opacity: 1;
+  transform: translateY(0);
+  transition: max-height 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
 }
 .sidebar-wrapper:hover {
   width: 256px;
 }
-.sidebar-wrapper:hover .sidebar li a {
+.sidebar-wrapper:hover .sidebar li a, .sidebar-wrapper:hover .sidebar li button {
   gap: 0.5rem;
 }
-.sidebar-wrapper:hover .sidebar li a span {
+.sidebar-wrapper:hover .sidebar li a span, .sidebar-wrapper:hover .sidebar li button span {
   width: 200px;
   padding-inline: 12px;
   transform: translateX(0px);
   opacity: 1;
+}
+.sidebar-wrapper:hover .sidebar li a > svg, .sidebar-wrapper:hover .sidebar li button > svg {
+  display: block;
+  transform: translateX(0);
+}
+.sidebar-wrapper:hover .sidebar li button span {
+  width: 176px;
+}
+.sidebar-wrapper:hover .sidebar li .filter-list {
+  display: block;
 }
 
 /* FIXED FOOTER */

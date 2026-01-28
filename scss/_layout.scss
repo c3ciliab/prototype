@@ -2,6 +2,7 @@
 @use "colors" as *;
 @use "typography" as *;
 @use "config" as *;
+@use "objects";
 
 /* ELEMENTS */
 
@@ -22,7 +23,7 @@
         box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.07);
 
         li {
-            a {
+            a, button {
                 @include flexAlign;
                 height: 48px;
                 @include transition(gap);
@@ -51,6 +52,11 @@
                     transform: translateX(-152px);
                     opacity: 0;
                     @include transitions((width, transform, opacity));
+                }
+
+                > svg {
+                    display: none;
+                    transform: translateX(-152px);
                 }
 
                 &:hover {
@@ -82,11 +88,117 @@
             }
 
             &:first-child, &:nth-child(2), &.selected {
-                a:hover {
+                :hover {
                     background-color: initial;
                     
                     figure {
                         background-color: initial;
+                    }
+                }
+            }
+
+            &.menu-filter {
+                .filter-btn {
+                    gap: 0;
+                }
+
+                .chevron {
+                    width: 18px;
+                    height: 18px;
+                    transition: transform .2s ease;
+                }
+
+                &.is-open .chevron{
+                    transform: rotate(180deg); /* down -> up */
+                }
+
+                .filter-list {
+                    display: none;
+                    overflow: hidden;
+                    max-height: 0;
+                    padding-inline: .5rem;
+                    font-size: $sm-txt;
+                    opacity: 0;
+                    transform: translateY(-48px);
+                    transition: max-height .2s ease, opacity .2s ease, transform .2s ease;
+
+                    /* Panel */
+                    .filter-panel{
+                        @extend %card;
+                        border: 1px solid #d9dde3;
+                        padding: .5rem;
+                    }
+
+                    .filter-search{
+                        display: flex;
+                        align-items: center;
+                        padding: .5rem;
+                        border: 1px solid #e3e6eb;
+                        border-radius: 8px;
+
+                        svg {
+                            width: 28px;
+                            fill: #3c3c3c;
+                        }
+                    }
+
+                    .filter-search__input{
+                        width:100%;
+                        border:0;
+                    }
+
+                    .filter-search__clear{
+                        border: 0;
+                        background: transparent;
+                        height: auto;
+                        cursor: pointer;
+                        line-height: 1;
+                        padding: .25rem .4rem;
+                        border-radius: 6px;
+                    }
+
+                    .filter-search__clear:hover{
+                        background: #f3f5f8;
+                    }
+
+                    .checklist{
+                        margin: .5rem 0 0;
+                        max-height: 260px;
+                        overflow: auto;
+                        border-radius: 8px;
+                    }
+
+                    .check-items {
+                        max-height: 120px;
+                        overflow-y: scroll;
+                    }
+
+                    .checklist__item{
+                        padding: .35rem .5rem;
+                        white-space: nowrap;
+                        border-radius: 6px;
+                    }
+
+                    .checklist__item:hover{ background:#f3f5f8; }
+
+                    .check{
+                        display:flex;
+                        align-items:center;
+                        gap:.6rem;
+                        cursor:pointer;
+                        user-select:none;
+                    }
+
+                    /* Checkbox look simple */
+                    .check__input{ width: 16px; height: 16px; }
+                }
+
+                &.is-open {
+                    .filter-list { 
+                        max-height: 240px;
+                        opacity: 1;
+                        transform: translateY(0);
+                        transition: max-height .2s ease, opacity .2s ease, transform .2s ease;
                     }
                 }
             }
@@ -97,14 +209,31 @@
         width: 256px;
 
         .sidebar {
-            li a {
-                gap: .5rem;
+            li {
+                 a, button {
+                    gap: .5rem;
 
-                span {
-                    width: 200px;
-                    padding-inline: 12px;
-                    transform: translateX(0px);
-                    opacity: 1;
+                    span {
+                        width: 200px;
+                        padding-inline: 12px;
+                        transform: translateX(0px);
+                        opacity: 1;
+                    }
+
+                    > svg {
+                        display: block;
+                        transform: translateX(0);
+                    }
+                }
+
+                button {
+                    span {
+                        width: 176px;
+                    }
+                }
+
+                .filter-list {
+                    display: block;
                 }
             }
         }

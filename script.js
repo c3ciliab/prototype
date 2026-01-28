@@ -1,3 +1,110 @@
+// /* OPEN/CLOSE MENU */
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".filter-btn");
+  if (!btn) return;
+
+  const item = btn.closest(".menu-filter");
+  const list = item.querySelector(".filter-list");
+
+  const willOpen = !item.classList.contains("is-open");
+  item.classList.toggle("is-open", willOpen);
+
+  btn.setAttribute("aria-expanded", String(willOpen));
+  if (list) list.hidden = !willOpen;
+});
+
+// Search inside panel
+document.addEventListener("input", (e) => {
+  const input = e.target.closest(".filter-search__input");
+  if (!input) return;
+
+  const panel = input.closest(".filter-panel");
+  const q = input.value.trim().toLowerCase();
+
+  panel.querySelectorAll(".checklist__item").forEach(li => {
+    if (li.classList.contains("checklist__item--selectall")) return;
+
+    const label = li.innerText.trim().toLowerCase();
+    li.style.display = label.includes(q) ? "" : "none";
+  });
+
+  // Recalc dropdown height after filtering
+  const wrap = input.closest(".menu-filter")?.querySelector(".filter-list");
+  if (wrap && wrap.closest(".menu-filter").classList.contains("is-open")) {
+    setMaxHeight(wrap, true);
+  }
+
+  // Update select-all state after filtering
+  updateSelectAll(panel);
+});
+
+// Select all + indeterminate
+function updateSelectAll(panel) {
+  const selectAll = panel.querySelector(".select-all");
+  const items = [...panel.querySelectorAll(".check__input.item")]
+    .filter(cb => cb.closest(".checklist__item").style.display !== "none");
+
+  const checked = items.filter(cb => cb.checked).length;
+
+  if (!selectAll) return;
+  selectAll.indeterminate = checked > 0 && checked < items.length;
+  selectAll.checked = items.length > 0 && checked === items.length;
+}
+
+document.addEventListener("change", (e) => {
+  const panel = e.target.closest(".filter-panel");
+  if (!panel) return;
+
+  // Click select-all
+  if (e.target.classList.contains("select-all")) {
+    const checked = e.target.checked;
+    panel.querySelectorAll(".check__input.item").forEach(cb => {
+      // option: ne coche que les visibles
+      if (cb.closest(".checklist__item").style.display === "none") return;
+      cb.checked = checked;
+    });
+    updateSelectAll(panel);
+    return;
+  }
+
+  // Click a single item -> update select-all state
+  if (e.target.classList.contains("item")) {
+    updateSelectAll(panel);
+  }
+});
+
+document.addEventListener("click", (e) => {
+  const clearBtn = e.target.closest(".filter-search__clear");
+  if (!clearBtn) return;
+
+  const panel = clearBtn.closest(".filter-panel");
+  const input = panel.querySelector(".filter-search__input");
+  const wrap = panel.closest(".menu-filter")?.querySelector(".filter-list");
+
+  // 1) reset search
+  if (input) input.value = "";
+
+  // 2) show all rows
+  panel.querySelectorAll(".checklist__item").forEach(li => {
+    li.style.display = "";
+  });
+
+  // 3) uncheck all items
+  panel.querySelectorAll(".check__input.item").forEach(cb => cb.checked = false);
+
+  // 4) reset select all state
+  const selectAll = panel.querySelector(".select-all");
+  if (selectAll) {
+    selectAll.checked = false;
+    selectAll.indeterminate = false;
+  }
+
+  // 5) recalc dropdown height if open
+  if (wrap && wrap.closest(".menu-filter").classList.contains("is-open")) {
+    wrap.style.maxHeight = wrap.scrollHeight + "px";
+  }
+});
+
 // /* POPUP TOGGLE */
 const GAP = 12;
 
