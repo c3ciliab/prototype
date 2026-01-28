@@ -44,7 +44,7 @@
     }
 
     .scene {
-        @include flexAlign(row, 2rem, start);
+        @include flex;
         padding-top: 2rem;
 
         figure {
@@ -64,18 +64,55 @@
         }
 
         &.dash-home {
-            gap: 6rem;
-            padding-top: 6rem;
-            padding-inline: 3rem;
+            flex-direction: column;
+            gap: 3rem;
+            padding-inline: .5rem;
 
             figure {
-                width: 60%;
+                width: 80%;
             }
 
             .content {
-                width: 40%;
+                width: 100%;
                 padding-top: 2rem;
             }
+    
+            // media queries
+            @include mq-sm {  }
+
+            @include mq-md {
+            }
+
+            @include mq-lg {
+                flex-direction: row;
+                padding-top: 6rem;
+
+                figure {
+                    width: 50%;
+                }
+
+                .content {
+                    width: 50%;
+                    padding-top: 2rem;
+                }
+            }
+
+            @include mq-xl {
+                gap: 6rem;
+                padding-inline: 3rem;
+
+                figure {
+                    width: 60%;
+                }
+
+                .content {
+                    width: 40%;
+                }
+            }
+        }
+
+        @include mq(1160px) {
+            @include flexAlign(row, 2rem, start);
         }
     }
 

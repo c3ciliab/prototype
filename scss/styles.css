@@ -352,7 +352,7 @@ ul, li {
 }
 
 button {
-  color: #3c3c3c;
+  color: inherit;
   text-decoration: none;
   border: none;
   cursor: pointer;
@@ -939,11 +939,14 @@ section {
 }
 section .section-header {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 0;
-  align-items: center;
   justify-content: flex-end;
+  row-gap: 0.75rem;
   height: 48px;
+}
+section .section-header li {
+  display: flex;
 }
 section .section-header #clock, section .section-header .time-display {
   font-family: "Roboto Mono", monospace;
@@ -981,7 +984,14 @@ section .scene .hero .h-tagline {
     font-size: 48px;
   }
 }
-
+@media (min-width: 1160px) {
+  section .section-header {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    align-items: center;
+  }
+}
 .content {
   width: 75%;
 }
@@ -1116,9 +1126,8 @@ section .scene .hero .h-tagline {
 }
 .dashboard .scene {
   display: flex;
-  flex-direction: row;
-  gap: 2rem;
-  align-items: start;
+  flex-direction: column;
+  gap: 0;
   padding-top: 2rem;
 }
 .dashboard .scene figure {
@@ -1135,16 +1144,49 @@ section .scene .hero .h-tagline {
   fill: #ff8200;
 }
 .dashboard .scene.dash-home {
-  gap: 6rem;
-  padding-top: 6rem;
-  padding-inline: 3rem;
+  flex-direction: column;
+  gap: 3rem;
+  padding-inline: 0.5rem;
 }
 .dashboard .scene.dash-home figure {
-  width: 60%;
+  width: 80%;
 }
 .dashboard .scene.dash-home .content {
-  width: 40%;
+  width: 100%;
   padding-top: 2rem;
+}
+@media (min-width: 1024px) {
+  .dashboard .scene.dash-home {
+    flex-direction: row;
+    padding-top: 6rem;
+  }
+  .dashboard .scene.dash-home figure {
+    width: 50%;
+  }
+  .dashboard .scene.dash-home .content {
+    width: 50%;
+    padding-top: 2rem;
+  }
+}
+@media (min-width: 1280px) {
+  .dashboard .scene.dash-home {
+    gap: 6rem;
+    padding-inline: 3rem;
+  }
+  .dashboard .scene.dash-home figure {
+    width: 60%;
+  }
+  .dashboard .scene.dash-home .content {
+    width: 40%;
+  }
+}
+@media (min-width: 1160px) {
+  .dashboard .scene {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: start;
+  }
 }
 .dashboard .card-wrapper {
   display: flex;

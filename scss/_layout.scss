@@ -493,9 +493,14 @@ section {
     padding-inline: 1.5rem;
 
     .section-header {
-        @include flexAlign;
+        @include flex;
         justify-content: flex-end;
+        row-gap: .75rem;
         height: 48px;
+
+        li {
+            display: flex;
+        }
 
         #clock, .time-display {
             @include time-txt;
@@ -531,6 +536,15 @@ section {
         }
         
     }
+    
+    // media queries
+    @include mq(1160px) {
+        .section-header {
+            @include flexAlign;
+        }
+    }
+    @include mq-lg { }
+    @include mq-xl { }
 }
 
 // containers

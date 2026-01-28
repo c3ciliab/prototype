@@ -13,7 +13,7 @@ document.addEventListener("click", (e) => {
   if (list) list.hidden = !willOpen;
 });
 
-// Search inside panel
+// search inside panel
 document.addEventListener("input", (e) => {
   const input = e.target.closest(".filter-search__input");
   if (!input) return;
@@ -28,17 +28,17 @@ document.addEventListener("input", (e) => {
     li.style.display = label.includes(q) ? "" : "none";
   });
 
-  // Recalc dropdown height after filtering
+  // recalc dropdown height after filtering
   const wrap = input.closest(".menu-filter")?.querySelector(".filter-list");
   if (wrap && wrap.closest(".menu-filter").classList.contains("is-open")) {
     setMaxHeight(wrap, true);
   }
 
-  // Update select-all state after filtering
+  // update select-all state after filtering
   updateSelectAll(panel);
 });
 
-// Select all + indeterminate
+// select all + indeterminate
 function updateSelectAll(panel) {
   const selectAll = panel.querySelector(".select-all");
   const items = [...panel.querySelectorAll(".check__input.item")]
@@ -55,7 +55,7 @@ document.addEventListener("change", (e) => {
   const panel = e.target.closest(".filter-panel");
   if (!panel) return;
 
-  // Click select-all
+  // click select-all
   if (e.target.classList.contains("select-all")) {
     const checked = e.target.checked;
     panel.querySelectorAll(".check__input.item").forEach(cb => {
@@ -67,7 +67,7 @@ document.addEventListener("change", (e) => {
     return;
   }
 
-  // Click a single item -> update select-all state
+  // click a single item -> update select-all state
   if (e.target.classList.contains("item")) {
     updateSelectAll(panel);
   }
