@@ -793,6 +793,15 @@
                         &:first-child { width: 16%; }
                     }
                 }
+
+                .table-body {
+                    span {
+                        &:first-child {
+                            font-style: italic;
+                            color: $secondary-color;
+                        }
+                    }
+                }
             }
 
             &.col-11 {

@@ -1779,6 +1779,10 @@ section .scene .hero .h-tagline {
 .dashboard .v2 .card.card-table.col-7 .row-top-line span:first-child, .dashboard .v2 .card.card-table.col-7 .row-line span:first-child {
   width: 16%;
 }
+.dashboard .v2 .card.card-table.col-7 .table-body span:first-child {
+  font-style: italic;
+  color: #6C6F70;
+}
 .dashboard .v2 .card.card-table.col-11 .row-top-line span:first-child, .dashboard .v2 .card.card-table.col-11 .row-line span:first-child {
   width: 9%;
 }
