@@ -575,7 +575,6 @@ img {
   transform: translateY(-48px);
   transition: max-height 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
   /* Panel */
-  /* Checkbox look simple */
 }
 .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel {
   border: 1px solid #d9dde3;
@@ -634,6 +633,9 @@ img {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+.sidebar-wrapper .sidebar li.menu-filter .filter-list {
+  /* Checkbox look simple */
 }
 .sidebar-wrapper .sidebar li.menu-filter .filter-list .check__input {
   width: 16px;
@@ -822,7 +824,6 @@ header .menu-filter .filter-list {
   transform: translateY(-12px);
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
   /* Panel */
-  /* Checkbox look simple */
 }
 header .menu-filter .filter-list .filter-panel {
   padding: 0.5rem;
@@ -880,6 +881,9 @@ header .menu-filter .filter-list .check {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
+}
+header .menu-filter .filter-list {
+  /* Checkbox look simple */
 }
 header .menu-filter .filter-list .check__input {
   width: 16px;
@@ -1086,20 +1090,6 @@ section .scene .hero .h-tagline {
 /* FLEX KIT */
 /*********** PAGES ***********/
 /* DASHBOARDS SPECIFIC STYLES */
-.dashboard {
-  /* &.portal-theme {
-       // Genesys Pages Specific Styles
-       &#genesys { }
-       // EggInject Pages Specific Styles
-       &#egginject { }
-       // Laserlife Pages Specific Styles
-       &#laserlife { }
-       // Dovac Pages Specific Styles
-       &#dovac { }
-       // Inline Pages Specific Styles
-       &#inline { }
-   }*/
-}
 .dashboard header {
   padding-block: 0.75rem;
   background-color: var(--primary-color);
@@ -1576,9 +1566,12 @@ section .scene .hero .h-tagline {
 .dashboard .scene.dashboard-5 .double-header .header-w-icon:nth-child(2) .card-header {
   justify-content: flex-end;
 }
+.dashboard .v2 {
+  padding: 1.5rem;
+}
 .dashboard .v2 .scene {
   gap: 1rem;
-  padding-block: 2rem 1.5rem;
+  padding-top: 1.5rem;
   padding-inline: 0;
 }
 .dashboard .v2 .card-wrapper {
@@ -1780,6 +1773,12 @@ section .scene .hero .h-tagline {
 .dashboard .v2 .card.card-table.col-6 .row-top-line span:last-child, .dashboard .v2 .card.card-table.col-6 .row-line span:last-child {
   width: 14%;
 }
+.dashboard .v2 .card.card-table.col-7 .row-top-line span, .dashboard .v2 .card.card-table.col-7 .row-line span {
+  width: 14%;
+}
+.dashboard .v2 .card.card-table.col-7 .row-top-line span:first-child, .dashboard .v2 .card.card-table.col-7 .row-line span:first-child {
+  width: 16%;
+}
 .dashboard .v2 .card.card-table.col-11 .row-top-line span:first-child, .dashboard .v2 .card.card-table.col-11 .row-line span:first-child {
   width: 9%;
 }
@@ -1878,4 +1877,33 @@ section .scene .hero .h-tagline {
 }
 .dashboard .v2 .content-left .card-wrapper, .dashboard .v2 .content-right .card-wrapper {
   gap: 1rem;
+}
+.dashboard .v3 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.dashboard .v3 .content-top, .dashboard .v3 .content-bottom {
+  flex: 1;
+  width: 100%;
+}
+.dashboard .v3 .card-wrapper {
+  gap: 1rem;
+}
+.dashboard .v3 .card-title {
+  padding-block: 0 !important;
+}
+.dashboard {
+  /* &.portal-theme {
+       // Genesys Pages Specific Styles
+       &#genesys { }
+       // EggInject Pages Specific Styles
+       &#egginject { }
+       // Laserlife Pages Specific Styles
+       &#laserlife { }
+       // Dovac Pages Specific Styles
+       &#dovac { }
+       // Inline Pages Specific Styles
+       &#inline { }
+   }*/
 }/*# sourceMappingURL=styles.css.map */

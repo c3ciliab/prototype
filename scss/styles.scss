@@ -545,9 +545,11 @@
     }
 
     .v2 {
+        padding: 1.5rem;
+
         .scene {
             gap: 1rem;
-            padding-block: 2rem 1.5rem;
+            padding-top: 1.5rem;
             padding-inline: 0;
         }
         
@@ -784,6 +786,15 @@
                 }
             }
 
+            &.col-7 {
+                .row-top-line, .row-line {
+                    span {
+                        width: 14%;
+                        &:first-child { width: 16%; }
+                    }
+                }
+            }
+
             &.col-11 {
                 .row-top-line, .row-line {
                     span {
@@ -883,6 +894,24 @@
                 gap: 1rem;
             }
         }
+    }
+
+    .v3 {
+        @include flex(column, 1rem);
+
+        .content-top, .content-bottom {
+            flex: 1;
+            width: 100%;
+        }
+        
+        .card-wrapper {
+            gap: 1rem;
+        }
+
+        .card-title {
+            padding-block: 0 !important;
+        }
+
     }
 
    /* &.portal-theme {
