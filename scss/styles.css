@@ -554,6 +554,204 @@ h2 {
 .card.graph-card:last-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel:last-child, header .menu-filter .filter-list .graph-card.filter-panel:last-child, .dashboard .scene.dash-home .graph-card.card-header:last-child, .dashboard .scene.dash-home .graph-card.card-body:last-child, .dashboard .scene.dash-home .graph-card.card-footer:last-child, .graph-card.popup:last-child, .graph-card.btn:last-child, .main-nav a.graph-card:last-child, .graph-card.btn-icon:last-child, .graph-card.btn-delete:last-child, .graph-card.btn-secondary:last-child, .section-header ul a.graph-card:last-child, .graph-card.btn-primary:last-child {
   flex: 1;
 }
+.card.graph-card.line-chart .card-data, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data, header .menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data, .dashboard .scene.dash-home .graph-card.line-chart.card-header .card-data, .dashboard .scene.dash-home .graph-card.line-chart.card-body .card-data, .dashboard .scene.dash-home .graph-card.line-chart.card-footer .card-data, .graph-card.line-chart.popup .card-data, .graph-card.line-chart.btn .card-data, .main-nav a.graph-card.line-chart .card-data, .graph-card.line-chart.btn-icon .card-data, .graph-card.line-chart.btn-delete .card-data, .graph-card.line-chart.btn-secondary .card-data, .section-header ul a.graph-card.line-chart .card-data, .graph-card.line-chart.btn-primary .card-data {
+  flex-direction: column;
+  position: relative;
+}
+.card.graph-card.line-chart .card-data .data-bg, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .data-bg, header .menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .data-bg, .dashboard .scene.dash-home .graph-card.line-chart.card-header .card-data .data-bg, .dashboard .scene.dash-home .graph-card.line-chart.card-body .card-data .data-bg, .dashboard .scene.dash-home .graph-card.line-chart.card-footer .card-data .data-bg, .graph-card.line-chart.popup .card-data .data-bg, .graph-card.line-chart.btn .card-data .data-bg, .main-nav a.graph-card.line-chart .card-data .data-bg, .graph-card.line-chart.btn-icon .card-data .data-bg, .graph-card.line-chart.btn-delete .card-data .data-bg, .graph-card.line-chart.btn-secondary .card-data .data-bg, .section-header ul a.graph-card.line-chart .card-data .data-bg, .graph-card.line-chart.btn-primary .card-data .data-bg {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.card.graph-card.line-chart .card-data .data-bottom, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .data-bottom, header .menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .data-bottom, .dashboard .scene.dash-home .graph-card.line-chart.card-header .card-data .data-bottom, .dashboard .scene.dash-home .graph-card.line-chart.card-body .card-data .data-bottom, .dashboard .scene.dash-home .graph-card.line-chart.card-footer .card-data .data-bottom, .graph-card.line-chart.popup .card-data .data-bottom, .graph-card.line-chart.btn .card-data .data-bottom, .main-nav a.graph-card.line-chart .card-data .data-bottom, .graph-card.line-chart.btn-icon .card-data .data-bottom, .graph-card.line-chart.btn-delete .card-data .data-bottom, .graph-card.line-chart.btn-secondary .card-data .data-bottom, .section-header ul a.graph-card.line-chart .card-data .data-bottom, .graph-card.line-chart.btn-primary .card-data .data-bottom {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.card.graph-card.line-chart .card-data .chart-content, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .chart-content, header .menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .chart-content, .dashboard .scene.dash-home .graph-card.line-chart.card-header .card-data .chart-content, .dashboard .scene.dash-home .graph-card.line-chart.card-body .card-data .chart-content, .dashboard .scene.dash-home .graph-card.line-chart.card-footer .card-data .chart-content, .graph-card.line-chart.popup .card-data .chart-content, .graph-card.line-chart.btn .card-data .chart-content, .main-nav a.graph-card.line-chart .card-data .chart-content, .graph-card.line-chart.btn-icon .card-data .chart-content, .graph-card.line-chart.btn-delete .card-data .chart-content, .graph-card.line-chart.btn-secondary .card-data .chart-content, .section-header ul a.graph-card.line-chart .card-data .chart-content, .graph-card.line-chart.btn-primary .card-data .chart-content {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.card.graph-card.line-chart .card-data .chart-content .bar, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .chart-content .bar, header .menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .chart-content .bar, .dashboard .scene.dash-home .graph-card.line-chart.card-header .card-data .chart-content .bar, .dashboard .scene.dash-home .graph-card.line-chart.card-body .card-data .chart-content .bar, .dashboard .scene.dash-home .graph-card.line-chart.card-footer .card-data .chart-content .bar, .graph-card.line-chart.popup .card-data .chart-content .bar, .graph-card.line-chart.btn .card-data .chart-content .bar, .main-nav a.graph-card.line-chart .card-data .chart-content .bar, .graph-card.line-chart.btn-icon .card-data .chart-content .bar, .graph-card.line-chart.btn-delete .card-data .chart-content .bar, .graph-card.line-chart.btn-secondary .card-data .chart-content .bar, .section-header ul a.graph-card.line-chart .card-data .chart-content .bar, .graph-card.line-chart.btn-primary .card-data .chart-content .bar {
+  width: 48px;
+  height: 100%;
+  background-color: var(--bg-secondary);
+}
+.card.graph-card.line-chart .card-data .y-axis, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .y-axis, header .menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .y-axis, .dashboard .scene.dash-home .graph-card.line-chart.card-header .card-data .y-axis, .dashboard .scene.dash-home .graph-card.line-chart.card-body .card-data .y-axis, .dashboard .scene.dash-home .graph-card.line-chart.card-footer .card-data .y-axis, .graph-card.line-chart.popup .card-data .y-axis, .graph-card.line-chart.btn .card-data .y-axis, .main-nav a.graph-card.line-chart .card-data .y-axis, .graph-card.line-chart.btn-icon .card-data .y-axis, .graph-card.line-chart.btn-delete .card-data .y-axis, .graph-card.line-chart.btn-secondary .card-data .y-axis, .section-header ul a.graph-card.line-chart .card-data .y-axis, .graph-card.line-chart.btn-primary .card-data .y-axis {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100px;
+}
+.card.graph-card.line-chart .card-data .x-axis, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .x-axis, header .menu-filter .filter-list .graph-card.line-chart.filter-panel .card-data .x-axis, .dashboard .scene.dash-home .graph-card.line-chart.card-header .card-data .x-axis, .dashboard .scene.dash-home .graph-card.line-chart.card-body .card-data .x-axis, .dashboard .scene.dash-home .graph-card.line-chart.card-footer .card-data .x-axis, .graph-card.line-chart.popup .card-data .x-axis, .graph-card.line-chart.btn .card-data .x-axis, .main-nav a.graph-card.line-chart .card-data .x-axis, .graph-card.line-chart.btn-icon .card-data .x-axis, .graph-card.line-chart.btn-delete .card-data .x-axis, .graph-card.line-chart.btn-secondary .card-data .x-axis, .section-header ul a.graph-card.line-chart .card-data .x-axis, .graph-card.line-chart.btn-primary .card-data .x-axis {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding-left: 116px;
+}
+.card.chart-card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .chart-card.filter-panel, header .menu-filter .filter-list .chart-card.filter-panel, .dashboard .scene.dash-home .chart-card.card-header, .dashboard .scene.dash-home .chart-card.card-body, .dashboard .scene.dash-home .chart-card.card-footer, .chart-card.popup, .chart-card.btn, .main-nav a.chart-card, .chart-card.btn-icon, .chart-card.btn-delete, .chart-card.btn-secondary, .section-header ul a.chart-card, .chart-card.btn-primary {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+.card.chart-card .card-data, .sidebar-wrapper .sidebar li.menu-filter .filter-list .chart-card.filter-panel .card-data, header .menu-filter .filter-list .chart-card.filter-panel .card-data, .dashboard .scene.dash-home .chart-card.card-header .card-data, .dashboard .scene.dash-home .chart-card.card-body .card-data, .dashboard .scene.dash-home .chart-card.card-footer .card-data, .chart-card.popup .card-data, .chart-card.btn .card-data, .main-nav a.chart-card .card-data, .chart-card.btn-icon .card-data, .chart-card.btn-delete .card-data, .chart-card.btn-secondary .card-data, .section-header ul a.chart-card .card-data, .chart-card.btn-primary .card-data {
+  flex: 1;
+}
+.card.chart-card .chart, .sidebar-wrapper .sidebar li.menu-filter .filter-list .chart-card.filter-panel .chart, header .menu-filter .filter-list .chart-card.filter-panel .chart, .dashboard .scene.dash-home .chart-card.card-header .chart, .dashboard .scene.dash-home .chart-card.card-body .chart, .dashboard .scene.dash-home .chart-card.card-footer .chart, .chart-card.popup .chart, .chart-card.btn .chart, .main-nav a.chart-card .chart, .chart-card.btn-icon .chart, .chart-card.btn-delete .chart, .chart-card.btn-secondary .chart, .section-header ul a.chart-card .chart, .chart-card.btn-primary .chart {
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 1rem;
+  height: 100%;
+}
+.card.chart-card .y-axis, .sidebar-wrapper .sidebar li.menu-filter .filter-list .chart-card.filter-panel .y-axis, header .menu-filter .filter-list .chart-card.filter-panel .y-axis, .dashboard .scene.dash-home .chart-card.card-header .y-axis, .dashboard .scene.dash-home .chart-card.card-body .y-axis, .dashboard .scene.dash-home .chart-card.card-footer .y-axis, .chart-card.popup .y-axis, .chart-card.btn .y-axis, .main-nav a.chart-card .y-axis, .chart-card.btn-icon .y-axis, .chart-card.btn-delete .y-axis, .chart-card.btn-secondary .y-axis, .section-header ul a.chart-card .y-axis, .chart-card.btn-primary .y-axis {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: flex-end;
+  color: #7a8796;
+  font-size: 14px;
+}
+.card .legend, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .legend, header .menu-filter .filter-list .filter-panel .legend, .dashboard .scene.dash-home .card-header .legend, .dashboard .scene.dash-home .card-body .legend, .dashboard .scene.dash-home .card-footer .legend, .popup .legend, .btn .legend, .main-nav a .legend, .btn-icon .legend, .btn-delete .legend, .btn-secondary .legend, .section-header ul a .legend, .btn-primary .legend {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #3a4653;
+  opacity: 0.9;
+}
+.card .legend .dot, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .legend .dot, header .menu-filter .filter-list .filter-panel .legend .dot, .dashboard .scene.dash-home .card-header .legend .dot, .dashboard .scene.dash-home .card-body .legend .dot, .dashboard .scene.dash-home .card-footer .legend .dot, .popup .legend .dot, .btn .legend .dot, .main-nav a .legend .dot, .btn-icon .legend .dot, .btn-delete .legend .dot, .btn-secondary .legend .dot, .section-header ul a .legend .dot, .btn-primary .legend .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: #f3a12c;
+}
+.card .plot, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .plot, header .menu-filter .filter-list .filter-panel .plot, .dashboard .scene.dash-home .card-header .plot, .dashboard .scene.dash-home .card-body .plot, .dashboard .scene.dash-home .card-footer .plot, .popup .plot, .btn .plot, .main-nav a .plot, .btn-icon .plot, .btn-delete .plot, .btn-secondary .plot, .section-header ul a .plot, .btn-primary .plot {
+  position: relative;
+  overflow: hidden;
+}
+.card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel, header .menu-filter .filter-list .filter-panel, .dashboard .scene.dash-home .card-header, .dashboard .scene.dash-home .card-body, .dashboard .scene.dash-home .card-footer, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .section-header ul a, .btn-primary {
+  /* grid lines */
+}
+.card .gridline, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .gridline, header .menu-filter .filter-list .filter-panel .gridline, .dashboard .scene.dash-home .card-header .gridline, .dashboard .scene.dash-home .card-body .gridline, .dashboard .scene.dash-home .card-footer .gridline, .popup .gridline, .btn .gridline, .main-nav a .gridline, .btn-icon .gridline, .btn-delete .gridline, .btn-secondary .gridline, .section-header ul a .gridline, .btn-primary .gridline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.06);
+  pointer-events: none;
+}
+.card .gl-1, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .gl-1, header .menu-filter .filter-list .filter-panel .gl-1, .dashboard .scene.dash-home .card-header .gl-1, .dashboard .scene.dash-home .card-body .gl-1, .dashboard .scene.dash-home .card-footer .gl-1, .popup .gl-1, .btn .gl-1, .main-nav a .gl-1, .btn-icon .gl-1, .btn-delete .gl-1, .btn-secondary .gl-1, .section-header ul a .gl-1, .btn-primary .gl-1 {
+  top: 7.5px;
+}
+.card .gl-2, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .gl-2, header .menu-filter .filter-list .filter-panel .gl-2, .dashboard .scene.dash-home .card-header .gl-2, .dashboard .scene.dash-home .card-body .gl-2, .dashboard .scene.dash-home .card-footer .gl-2, .popup .gl-2, .btn .gl-2, .main-nav a .gl-2, .btn-icon .gl-2, .btn-delete .gl-2, .btn-secondary .gl-2, .section-header ul a .gl-2, .btn-primary .gl-2 {
+  top: 39.5px;
+}
+.card .gl-3, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .gl-3, header .menu-filter .filter-list .filter-panel .gl-3, .dashboard .scene.dash-home .card-header .gl-3, .dashboard .scene.dash-home .card-body .gl-3, .dashboard .scene.dash-home .card-footer .gl-3, .popup .gl-3, .btn .gl-3, .main-nav a .gl-3, .btn-icon .gl-3, .btn-delete .gl-3, .btn-secondary .gl-3, .section-header ul a .gl-3, .btn-primary .gl-3 {
+  top: 71.5px;
+}
+.card .gl-4, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .gl-4, header .menu-filter .filter-list .filter-panel .gl-4, .dashboard .scene.dash-home .card-header .gl-4, .dashboard .scene.dash-home .card-body .gl-4, .dashboard .scene.dash-home .card-footer .gl-4, .popup .gl-4, .btn .gl-4, .main-nav a .gl-4, .btn-icon .gl-4, .btn-delete .gl-4, .btn-secondary .gl-4, .section-header ul a .gl-4, .btn-primary .gl-4 {
+  top: 103.5px;
+}
+.card .gl-5, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .gl-5, header .menu-filter .filter-list .filter-panel .gl-5, .dashboard .scene.dash-home .card-header .gl-5, .dashboard .scene.dash-home .card-body .gl-5, .dashboard .scene.dash-home .card-footer .gl-5, .popup .gl-5, .btn .gl-5, .main-nav a .gl-5, .btn-icon .gl-5, .btn-delete .gl-5, .btn-secondary .gl-5, .section-header ul a .gl-5, .btn-primary .gl-5 {
+  top: 135.5px;
+}
+.card .gl-6, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .gl-6, header .menu-filter .filter-list .filter-panel .gl-6, .dashboard .scene.dash-home .card-header .gl-6, .dashboard .scene.dash-home .card-body .gl-6, .dashboard .scene.dash-home .card-footer .gl-6, .popup .gl-6, .btn .gl-6, .main-nav a .gl-6, .btn-icon .gl-6, .btn-delete .gl-6, .btn-secondary .gl-6, .section-header ul a .gl-6, .btn-primary .gl-6 {
+  top: 167.5px;
+}
+.card .gl-7, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .gl-7, header .menu-filter .filter-list .filter-panel .gl-7, .dashboard .scene.dash-home .card-header .gl-7, .dashboard .scene.dash-home .card-body .gl-7, .dashboard .scene.dash-home .card-footer .gl-7, .popup .gl-7, .btn .gl-7, .main-nav a .gl-7, .btn-icon .gl-7, .btn-delete .gl-7, .btn-secondary .gl-7, .section-header ul a .gl-7, .btn-primary .gl-7 {
+  top: 199.5px;
+}
+.card .gl-8, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .gl-8, header .menu-filter .filter-list .filter-panel .gl-8, .dashboard .scene.dash-home .card-header .gl-8, .dashboard .scene.dash-home .card-body .gl-8, .dashboard .scene.dash-home .card-footer .gl-8, .popup .gl-8, .btn .gl-8, .main-nav a .gl-8, .btn-icon .gl-8, .btn-delete .gl-8, .btn-secondary .gl-8, .section-header ul a .gl-8, .btn-primary .gl-8 {
+  top: 231.5px;
+}
+.card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel, header .menu-filter .filter-list .filter-panel, .dashboard .scene.dash-home .card-header, .dashboard .scene.dash-home .card-body, .dashboard .scene.dash-home .card-footer, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .section-header ul a, .btn-primary {
+  /* columns container */
+}
+.card .cols, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .cols, header .menu-filter .filter-list .filter-panel .cols, .dashboard .scene.dash-home .card-header .cols, .dashboard .scene.dash-home .card-body .cols, .dashboard .scene.dash-home .card-footer .cols, .popup .cols, .btn .cols, .main-nav a .cols, .btn-icon .cols, .btn-delete .cols, .btn-secondary .cols, .section-header ul a .cols, .btn-primary .cols {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  align-items: end;
+  padding: 14px 16px 20px;
+  gap: 20px;
+}
+.card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel, header .menu-filter .filter-list .filter-panel, .dashboard .scene.dash-home .card-header, .dashboard .scene.dash-home .card-body, .dashboard .scene.dash-home .card-footer, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .section-header ul a, .btn-primary {
+  /* each column */
+}
+.card .col, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .col, header .menu-filter .filter-list .filter-panel .col, .dashboard .scene.dash-home .card-header .col, .dashboard .scene.dash-home .card-body .col, .dashboard .scene.dash-home .card-footer .col, .popup .col, .btn .col, .main-nav a .col, .btn-icon .col, .btn-delete .col, .btn-secondary .col, .section-header ul a .col, .btn-primary .col {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel, header .menu-filter .filter-list .filter-panel, .dashboard .scene.dash-home .card-header, .dashboard .scene.dash-home .card-body, .dashboard .scene.dash-home .card-footer, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .section-header ul a, .btn-primary {
+  /* bar */
+}
+.card .bar, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .bar, header .menu-filter .filter-list .filter-panel .bar, .dashboard .scene.dash-home .card-header .bar, .dashboard .scene.dash-home .card-body .bar, .dashboard .scene.dash-home .card-footer .bar, .popup .bar, .btn .bar, .main-nav a .bar, .btn-icon .bar, .btn-delete .bar, .btn-secondary .bar, .section-header ul a .bar, .btn-primary .bar {
+  width: 66%;
+  height: calc(var(--bar) * 1%);
+  border-radius: 6px;
+  background: #9fd0ff; /* bleu clair */
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+.card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel, header .menu-filter .filter-list .filter-panel, .dashboard .scene.dash-home .card-header, .dashboard .scene.dash-home .card-body, .dashboard .scene.dash-home .card-footer, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .section-header ul a, .btn-primary {
+  /* x labels */
+}
+.card .x, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .x, header .menu-filter .filter-list .filter-panel .x, .dashboard .scene.dash-home .card-header .x, .dashboard .scene.dash-home .card-body .x, .dashboard .scene.dash-home .card-footer .x, .popup .x, .btn .x, .main-nav a .x, .btn-icon .x, .btn-delete .x, .btn-secondary .x, .section-header ul a .x, .btn-primary .x {
+  position: absolute;
+  bottom: 6px;
+  font-size: 14px;
+  color: #586574;
+}
+.card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel, header .menu-filter .filter-list .filter-panel, .dashboard .scene.dash-home .card-header, .dashboard .scene.dash-home .card-body, .dashboard .scene.dash-home .card-footer, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .section-header ul a, .btn-primary {
+  /* point on the line */
+}
+.card .point, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .point, header .menu-filter .filter-list .filter-panel .point, .dashboard .scene.dash-home .card-header .point, .dashboard .scene.dash-home .card-body .point, .dashboard .scene.dash-home .card-footer .point, .popup .point, .btn .point, .main-nav a .point, .btn-icon .point, .btn-delete .point, .btn-secondary .point, .section-header ul a .point, .btn-primary .point {
+  position: absolute;
+  left: 50%;
+  top: calc(100% - var(--line) * 1%);
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  border-radius: 999px;
+  background: #f3a12c;
+  box-shadow: 0 0 0 3px rgba(243, 161, 44, 0.22);
+}
+.card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel, header .menu-filter .filter-list .filter-panel, .dashboard .scene.dash-home .card-header, .dashboard .scene.dash-home .card-body, .dashboard .scene.dash-home .card-footer, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .section-header ul a, .btn-primary {
+  /* value text above points */
+}
+.card .value, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .value, header .menu-filter .filter-list .filter-panel .value, .dashboard .scene.dash-home .card-header .value, .dashboard .scene.dash-home .card-body .value, .dashboard .scene.dash-home .card-footer .value, .popup .value, .btn .value, .main-nav a .value, .btn-icon .value, .btn-delete .value, .btn-secondary .value, .section-header ul a .value, .btn-primary .value {
+  position: absolute;
+  left: 50%;
+  top: calc(100% - var(--line) * 1% - 18px);
+  transform: translate(-50%, -50%);
+  font-weight: 600;
+  font-size: 20px;
+  color: #3a4653;
+  white-space: nowrap;
+}
+.card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel, header .menu-filter .filter-list .filter-panel, .dashboard .scene.dash-home .card-header, .dashboard .scene.dash-home .card-body, .dashboard .scene.dash-home .card-footer, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .section-header ul a, .btn-primary {
+  /* SVG line overlay */
+}
+.card .line-svg, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .line-svg, header .menu-filter .filter-list .filter-panel .line-svg, .dashboard .scene.dash-home .card-header .line-svg, .dashboard .scene.dash-home .card-body .line-svg, .dashboard .scene.dash-home .card-footer .line-svg, .popup .line-svg, .btn .line-svg, .main-nav a .line-svg, .btn-icon .line-svg, .btn-delete .line-svg, .btn-secondary .line-svg, .section-header ul a .line-svg, .btn-primary .line-svg {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.card .line-path, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .line-path, header .menu-filter .filter-list .filter-panel .line-path, .dashboard .scene.dash-home .card-header .line-path, .dashboard .scene.dash-home .card-body .line-path, .dashboard .scene.dash-home .card-footer .line-path, .popup .line-path, .btn .line-path, .main-nav a .line-path, .btn-icon .line-path, .btn-delete .line-path, .btn-secondary .line-path, .section-header ul a .line-path, .btn-primary .line-path {
+  fill: none;
+  stroke: #f3a12c;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.95;
+}
 
 /* BUTTONS */
 .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .section-header ul a, .btn-primary {
