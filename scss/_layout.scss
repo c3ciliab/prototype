@@ -15,7 +15,7 @@
     z-index: 1;
     width: 48px;
     height: 100%;
-    background-color: $bg-primary;
+    background-color: var(--bg-sidenav);
     @include transition(width);
 
     .sidebar {
@@ -34,11 +34,11 @@
                     z-index: 2;
                     width: 48px;
                     padding-inline: 4px;
-                    background-color: $bg-primary;
+                    background-color: var(--bg-sidenav);
 
                     svg {
                         width: 20px;
-                        fill: $secondary-color;
+                        fill: var(--txt-default);
                     }
                 }
 
@@ -60,27 +60,27 @@
                 }
 
                 &:hover {
-                    background-color: $bg-light;
+                    background-color: var(--bg-side-hov);
 
                     figure {
-                        background-color: $bg-light;
+                        background-color: var(--bg-side-hov);
                     }
                 }
             }
 
             &.selected {
                 font-weight: bold;
-                color: white;
-                background-color: $bg-selected;
+                color: var(--txt-secondary);
+                background-color: var(--bg-selected);
                 cursor: default;
                 
                 figure {
-                    background-color: $bg-selected;  
+                    background-color: var(--bg-selected);  
 
                     svg {
-                        fill: white;
+                        fill: var(--bg-primary);
                     }
-                } 
+                }
                 
                 a:hover {
                     cursor: default;
@@ -249,8 +249,8 @@ footer {
     width: 100%;
     padding: .5rem;
     font-size: $sm-txt;
-    color: white;
-    background-color: $primary-color;
+    color: var(--txt-secondary);
+    background-color: var(--bg-secondary);
     
     // media queries
     @include mq-sm { padding-inline: 2rem; }
@@ -274,37 +274,27 @@ footer {
     @include flexGrow;
     padding-left: 48px; // space for sidebar
     padding-bottom: 60px; // space for footer
-    background-color: white;
+    background-color: var(--bg-default);
+
+    &.w-home {
+        background-color: var(--bg-primary);
+    }
 }
 
 header {
     @include flexBetween(row, .75rem);
     height: 84px;
+    min-height: 84px;
+    flex: 0 0 84px;
+    flex-shrink: 0;
     padding-inline: 1rem;
-    background-color: $highlight-color;
-
+    background-color: var(--bg-secondary);
+    
     .h-left-side {
         @include flex(row);
 
-        &.h-home {
-            flex-direction: column;
-
-            .brand-name {
-                @include brand-txt;
-                line-height: 1;
-                color: white;
-            }
-
-            .tagline {
-                font-family: $jura;
-                font-size: $sm-txt;
-                color: $primary-color;
-            }
-        }
-
-        &:not(.h-home) {
-            align-items: center;
-            gap: 4rem;
+        img {
+            height: 60px;
         }
     }
 
@@ -456,14 +446,6 @@ header {
     // media queries    
     @include mq-sm {
         padding-inline: 1.25rem;
-        
-        .h-left-side {
-            &.h-home {
-                gap: .25rem;
-                .brand-name {font-size: $xl-txt; }
-                .tagline { font-size: $md-txt; }
-            }
-        }
 
         .h-right-side {
             gap: 1.5rem;
@@ -477,11 +459,45 @@ header {
             gap: 2rem;
         }
     }
+
+    &.h-home {
+        background-color: var(--highlight-color);
+
+        .h-left-side {
+            flex-direction: column;
+
+            .brand-name {
+                @include brand-txt;
+                line-height: 1;
+                color: var(--txt-secondary);
+            }
+
+            .tagline {
+                font-family: $jura;
+                font-size: $sm-txt;
+                color: var(--txt-primary);
+            }
+
+            @include mq-sm {
+                gap: .25rem;
+                .brand-name {font-size: $xl-txt; }
+                .tagline { font-size: $md-txt; }
+            }
+        }
+    }
+
+    &:not(.h-home) {
+        .h-left-side {
+            align-items: center;
+            gap: 4rem;
+        }
+    }
 }
 
 main {
     @include flexGrow;
     align-items: center;
+    overflow: hidden;
 }
 
 /* MAIN CONTENT */
@@ -489,32 +505,58 @@ section {
     @include flex;
     width: 100%;
     height: 100%;
-    padding-top: 1.5rem;
-    padding-inline: 1.5rem;
+    padding: 1.5rem;
+}
 
-    .section-header {
-        @include flex;
-        justify-content: flex-end;
-        row-gap: .75rem;
-        height: 48px;
+.section-header {
+    @include flex;
+    row-gap: .75rem;
+    justify-content: space-between;
+    height: 48px;
+    min-height: 48px;
+    flex: 0 0 48px;
+    flex-shrink: 0;
+
+    ul {
+        @include flex(row, 1rem);
 
         li {
             display: flex;
         }
 
-        #clock, .time-display {
-            @include time-txt;
-            color: $secondary-color;
+        a {
+            @extend %btn-secondary;
+            font-weight: bold;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: -.5px;
         }
     }
 
-    .scene {
-        @include flexGrow(column, 2rem);
+    #clock, .time-display {
+        @include time-txt;
+        color: var(--txt-default);
+    }
+
+    &.sh-home {
+        justify-content: flex-end;
+    }
+
+    @include mq(1160px) {
+        @include flexAlign;
+    }
+}
+
+.scene {
+    @include flexGrow(column, 2rem);
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    overflow: hidden;
+
+    &.sc-home {
         align-items: center;
-        position: relative;
-        z-index: 0;
-        width: 100%;
-        padding-top: 3rem;
+        justify-content: center;
 
         .hero {
             @include flex(column, 1.5rem);
@@ -522,85 +564,228 @@ section {
             .h-tagline {
                 @include brand-txt;
                 font-size: $xl-txt;
+                color: var(--txt-primary);
             }
         }
-
         // media queries
         @include mq-sm {
             gap: 6rem;
-            padding-top: 11rem;
 
             .hero .h-tagline {
                 font-size: 48px;
             }
         }
-        
     }
-    
-    // media queries
-    @include mq(1160px) {
-        .section-header {
-            @include flexAlign;
+}
+
+/* DASHBOARDS SPECIFIC STYLES */
+.dashboard {
+    section {
+        gap: 1.5rem;
+    }
+
+    .scene {
+        gap: 1rem;
+
+        &.dash-home {
+            gap: 3rem;
+            padding-inline: .5rem;
+
+            .card-wrapper {
+                @include flex (column, .5rem);
+                width: 100%;
+            }
+
+            figure {
+                width: 80%;
+                position: relative;
+
+                img {
+                    width: 100%;
+                }
+
+                svg {
+                    position: absolute;
+                    width: 52px;
+                    fill: $alert-color;
+
+                    &.svg-1 {
+                        top: 36%;
+                        left: 24%;
+                    }
+
+                    &.svg-2 {
+                        top: 48%;
+                        right: -2%;
+                    }
+                }
+            }
+
+            .content {
+                width: 100%;
+            }
+
+            .row-line {
+                padding-inline: 0 12px;
+
+                .line {
+                    @include flexAlign(row, .5rem);
+                    width: 80%;
+
+                    svg {
+                        width: 48px;
+                        fill: var(--primary-color);
+                    }
+                }
+
+                .line-end {
+                    @include flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    width: 20%;
+
+                    span:first-child {
+                        font-size: 18px;
+                        font-weight: bold;
+                    }
+
+                    span:nth-child(2) {
+                        font-style: italic;
+                        color: $secondary-color;
+                    }
+                }
+            }
+
+            .card-header {
+                @include flexJustify(row, 0, space-between);
+                @extend %card;
+                padding: 0;
+
+                .card-title {
+                    padding: 16px;
+                    border-top-left-radius: 8px;
+                    border-bottom-left-radius: 8px;
+                    font-size: $lg-txt;
+                    text-transform: none;
+                    color: var(--txt-secondary);
+                    background-color: var(--bg-secondary);
+                }
+
+                .card-title-side {
+                    @include flexCenter (row);
+                    padding-right: 32px;
+                    font-size: $lg-txt;
+                    font-weight: bold;
+                    color: var(--txt-primary);
+                }
+            }
+
+            .card-body { 
+                @extend %card;
+                padding: 0;
+                padding-inline: 20px;
+            }
+
+            .card-footer {
+                @extend %card;
+                padding: 0;
+
+                .row-line {
+                    padding-inline: 24px 32px;
+
+                    .line-end {
+                        span:first-child {
+                            font-size: $lg-txt;
+                        }
+                    }
+                }
+
+                .footer-title {
+                    font-size: $lg-txt;
+                    color: var(--primary-color);
+                }
+            }
+
+            // media queries
+            @include mq-lg {
+                flex-direction: row;
+                padding-top: 6rem;
+
+                figure {
+                    width: 50%;
+                }
+
+                .content {
+                    width: 50%;
+                }
+            }
+            
+            @include mq(1160px) {
+                @include flexAlign(row, 2rem, start);
+            }
+
+            @include mq-xl {
+                gap: 6rem;
+                padding-inline: 3rem;
+
+                figure {
+                    width: 60%;
+                }
+
+                .content {
+                    width: 40%;
+                }
+            }
         }
     }
-    @include mq-lg { }
-    @include mq-xl { }
 }
 
-// containers
-.content {
-  width: 75%;
 
-  &.c-full {
+/******* CONTENT STRUCTURE *******/
+    
+/* CONTAINERS */
+.card-wrapper {
+    @include flex (row, 1rem);
     width: 100%;
-  }
 }
 
-.content-full {
-  width: 100%;
-}
-
-.content-left {
-  @include flex (column, 3rem);
-  width: 60%;
-
-  .card-wrapper {
-      gap: .5rem;
-  }
-
-  .card-title {
-      font-size: 16px !important;
-  }
-  .card-title-side {
-      font-size: 20px !important;
-  }
-}
-
-.content-right {
-  @include flex (column, 3rem);
-  width: 40%;
-
-  .card-title {
-      font-size: 16px !important;
-  }
-  .card-title-side {
-      font-size: 20px !important;
-  }
-}
-
-// lists
-.grid-list {
-    @include flex(row, 1rem);
-    width: 100%;
-
-    li {
-      @include flexAlign(row, .5rem);
-      width: 25%;
+.dashboard-1 {
+    .content-full { width: 100%; }
+    .content-left {
+        width: 60%;
+    }
+    .content-right {
+        width: 40%;
     }
 
-    img {
-      width: 40px;
-      height: 26px;
+    .content-middle {
+        @include flexGrow (row, 1rem);
+        overflow: hidden;
+
+        .content-left, .content-right {
+            flex-direction: column;
+        }
+    }
+}
+
+.dashboard-2 {
+    .card-wrapper {
+        height: 100%;
+        max-height: 100%;
+    }
+}
+
+.dashboard-3 {
+    .card-wrapper {
+        flex: 1;
+    }
+}
+
+.dashboard-5 {
+    .card-wrapper {
+        &:last-child {
+            flex: 1;
+        }
     }
 }
 
@@ -615,14 +800,20 @@ section {
     display: none;
     position: absolute;
     z-index: 0;
-    top: .5rem;
-    left: 0;
+    top: 92px;
+    left: 56px;
     width: fit-content;
     padding: 2px;
     font-size: $sm-txt;
     font-style: italic;
-    color: $secondary-color;
+    color: var(--txt-default);
     background-color: $bg-ninja;
+
+    &.a-right {
+        top: 102px;
+        left: initial;
+        right: 16px;
+    }
 
     @include mq-2xl {
         @include flex(row, .5rem);

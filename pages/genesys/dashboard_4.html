@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connected C.H.I.C.K. Program</title>
+    <link rel="icon" href="../../img/favicon.ico" sizes="any">
     <link rel="stylesheet" href="../../scss/styles.css">
     <script src="../../script.js" defer></script>
 </head> 
@@ -192,6 +193,108 @@
         <header>
             <div class="h-left-side">
                 <img src="../../img/logos/genesys.png" alt="Ceva Logo">
+                <div class="menu-filter" id="hatcheryFilter">
+                    <button class="filter-btn trigger" type="button" aria-controls="filterList" aria-expanded="false" data-popup-pos="center">
+                        <span>Search for a hatchery</span>
+                        <!-- chevron -->
+                        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
+                            <path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div id="filterList" class="popup filter-list" role="filter" aria-hidden="true">
+                        <div class="filter-panel">
+                            <div class="filter-search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                    <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+                                </svg>
+                                <input class="filter-search__input" type="text" placeholder="Search for a hatchery" />
+                                <button type="button" class="filter-search__clear" aria-label="Clear">✕</button>
+                            </div>
+
+                            <ul class="checklist" role="listbox" aria-label="Hatcheries">
+                                <li class="checklist__item checklist__item--selectall">
+                                    <label class="check">
+                                        <input class="check__input select-all" type="checkbox" />
+                                        <span class="check__box" aria-hidden="true"></span>
+                                        <span class="check__label">Select All</span>
+                                    </label>
+                                </li>
+                                <div class="check-items">
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Agidel" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Agidel</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Al Watania Broiler</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Baromfi-Coop Kft Keltető</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Calisa II</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Hawa Chicken (LB)</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Moy Park - Donaghmore</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Padma Karya Prima</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">SKM JOMBANG</span>
+                                        </label>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Actions -->
+                <div class="action-tools">
+                    <button class="btn-primary" title="report">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M192 112L304 112L304 200C304 239.8 336.2 272 376 272L464 272L464 512C464 520.8 456.8 528 448 528L192 528C183.2 528 176 520.8 176 512L176 128C176 119.2 183.2 112 192 112zM352 131.9L444.1 224L376 224C362.7 224 352 213.3 352 200L352 131.9zM192 64C156.7 64 128 92.7 128 128L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 250.5C512 233.5 505.3 217.2 493.3 205.2L370.7 82.7C358.7 70.7 342.5 64 325.5 64L192 64zM248 320C234.7 320 224 330.7 224 344C224 357.3 234.7 368 248 368L392 368C405.3 368 416 357.3 416 344C416 330.7 405.3 320 392 320L248 320zM248 416C234.7 416 224 426.7 224 440C224 453.3 234.7 464 248 464L392 464C405.3 464 416 453.3 416 440C416 426.7 405.3 416 392 416L248 416z"/>
+                        </svg>
+                    </button>
+                    <button class="btn-primary" title="share">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M457.5 71C450.6 64.1 440.3 62.1 431.3 65.8C422.3 69.5 416.5 78.3 416.5 88L416.5 144L368.5 144C280.1 144 208.5 215.6 208.5 304C208.5 350.7 229.2 384.4 252.1 407.4C260.2 415.6 268.6 422.3 276.4 427.8C285.6 434.3 298.1 433.5 306.5 425.9C314.9 418.3 316.7 405.9 311 396.1C307.4 389.8 304.5 381.2 304.5 369.4C304.5 333.2 333.8 303.9 370 303.9L416.5 303.9L416.5 359.9C416.5 369.6 422.3 378.4 431.3 382.1C440.3 385.8 450.6 383.8 457.5 376.9L593.5 240.9C602.9 231.5 602.9 216.3 593.5 207L457.5 71zM464.5 168L464.5 145.9L542.6 224L464.5 302.1L464.5 280C464.5 266.7 453.8 256 440.5 256L370 256C319.1 256 276.1 289.5 261.7 335.6C258.4 326.2 256.5 315.8 256.5 304C256.5 242.1 306.6 192 368.5 192L440.5 192C453.8 192 464.5 181.3 464.5 168zM144.5 160C100.3 160 64.5 195.8 64.5 240L64.5 496C64.5 540.2 100.3 576 144.5 576L400.5 576C444.7 576 480.5 540.2 480.5 496L480.5 472C480.5 458.7 469.8 448 456.5 448C443.2 448 432.5 458.7 432.5 472L432.5 496C432.5 513.7 418.2 528 400.5 528L144.5 528C126.8 528 112.5 513.7 112.5 496L112.5 240C112.5 222.3 126.8 208 144.5 208L168.5 208C181.8 208 192.5 197.3 192.5 184C192.5 170.7 181.8 160 168.5 160L144.5 160z"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
             <div class="h-right-side">
 
@@ -280,12 +383,52 @@
                     <!-- Date Picker -->
                     <div class="time-container">
                         <!-- Calendar btn -->
-                        <button class="btn-secondary" title="datepicker">
+                        <button class="btn-primary trigger" type="button" aria-controls="timePicker" aria-expanded="false" data-popup-pos="right">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                 <path d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM480 496C488.8 496 496 488.8 496 480L496 416L408 416L408 496L480 496zM496 368L496 288L408 288L408 368L496 368zM360 368L360 288L280 288L280 368L360 368zM232 368L232 288L144 288L144 368L232 368zM144 416L144 480C144 488.8 151.2 496 160 496L232 496L232 416L144 416zM280 416L280 496L360 496L360 416L280 416zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176z"/>
                             </svg>
                         </button>
-
+                        <div id="timePicker" class="popup" role="menu" aria-hidden="true">
+                            <h3 class="pp-title">Time period</h3>
+                            <div class="pp-content">
+                                <ul class="filters">
+                                    <li>Last & pending week</li>
+                                    <li>Last month</li>
+                                    <li>Last quarter</li>
+                                    <li>Last year</li>
+                                </ul>
+                                <div class="advanced-filters">
+                                    <div class="top-filters">
+                                        <div class="filter f-left">
+                                            <label for="start-date">Start Date</label>
+                                            <div class="input-btn">
+                                                <button class="btn-sm">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                                        <path d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176zM144 288L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 288L144 288z"/>
+                                                    </svg>
+                                                </button>
+                                                <input type="text" id="start-date" name="start-date" placeholder="25/01/2025">
+                                            </div>
+                                        </div>
+                                        <div class="filter f-left">
+                                            <label for="end-date">End Date</label>
+                                            <div class="input-btn">
+                                                <button class="btn-sm">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                                        <path d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176zM144 288L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 288L144 288z"/>
+                                                    </svg>
+                                                </button>
+                                            <input type="text" id="end-date" name="end-date" placeholder="25/01/2025">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="daypicker">
+                                        Calendar
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <!-- Day +/- -->
                         <div class="time-controls">
                             <!-- previous btn -->
@@ -304,83 +447,148 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Actions -->
-                    <div class="action-tools">
-                        <button class="btn-primary" title="report">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                <path d="M192 112L304 112L304 200C304 239.8 336.2 272 376 272L464 272L464 512C464 520.8 456.8 528 448 528L192 528C183.2 528 176 520.8 176 512L176 128C176 119.2 183.2 112 192 112zM352 131.9L444.1 224L376 224C362.7 224 352 213.3 352 200L352 131.9zM192 64C156.7 64 128 92.7 128 128L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 250.5C512 233.5 505.3 217.2 493.3 205.2L370.7 82.7C358.7 70.7 342.5 64 325.5 64L192 64zM248 320C234.7 320 224 330.7 224 344C224 357.3 234.7 368 248 368L392 368C405.3 368 416 357.3 416 344C416 330.7 405.3 320 392 320L248 320zM248 416C234.7 416 224 426.7 224 440C224 453.3 234.7 464 248 464L392 464C405.3 464 416 453.3 416 440C416 426.7 405.3 416 392 416L248 416z"/>
-                            </svg>
-                        </button>
-                        <button class="btn-primary" title="share">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                <path d="M457.5 71C450.6 64.1 440.3 62.1 431.3 65.8C422.3 69.5 416.5 78.3 416.5 88L416.5 144L368.5 144C280.1 144 208.5 215.6 208.5 304C208.5 350.7 229.2 384.4 252.1 407.4C260.2 415.6 268.6 422.3 276.4 427.8C285.6 434.3 298.1 433.5 306.5 425.9C314.9 418.3 316.7 405.9 311 396.1C307.4 389.8 304.5 381.2 304.5 369.4C304.5 333.2 333.8 303.9 370 303.9L416.5 303.9L416.5 359.9C416.5 369.6 422.3 378.4 431.3 382.1C440.3 385.8 450.6 383.8 457.5 376.9L593.5 240.9C602.9 231.5 602.9 216.3 593.5 207L457.5 71zM464.5 168L464.5 145.9L542.6 224L464.5 302.1L464.5 280C464.5 266.7 453.8 256 440.5 256L370 256C319.1 256 276.1 289.5 261.7 335.6C258.4 326.2 256.5 315.8 256.5 304C256.5 242.1 306.6 192 368.5 192L440.5 192C453.8 192 464.5 181.3 464.5 168zM144.5 160C100.3 160 64.5 195.8 64.5 240L64.5 496C64.5 540.2 100.3 576 144.5 576L400.5 576C444.7 576 480.5 540.2 480.5 496L480.5 472C480.5 458.7 469.8 448 456.5 448C443.2 448 432.5 458.7 432.5 472L432.5 496C432.5 513.7 418.2 528 400.5 528L144.5 528C126.8 528 112.5 513.7 112.5 496L112.5 240C112.5 222.3 126.8 208 144.5 208L168.5 208C181.8 208 192.5 197.3 192.5 184C192.5 170.7 181.8 160 168.5 160L144.5 160z"/>
-                            </svg>
-                        </button>
-                    </div>
                 </div>
 
                 <!-- SECTION CONTENT -->
-                <div class="scene">
-                    <!-- 4TH WALL -->
-                    <p class="ninja-4th-wall">
-                        <span>Work In Progress</span>
-                        <button type="button" class="btn-delete rounded" aria-label="Delete">x</button>
-                    </p>
-                    <div class="content-full h-full">
-                        <div class="card-wrapper h-full pb-1-5">
-                            <div class="card card-table col-5 h-full">
-                                <div class="row-top-line">
-                                    <span>Date</span>
-                                    <span>Time</span>
-                                    <span>Code - Name</span>
-                                    <span>Flock Name</span>
-                                    <span>DOC Quantity</span>
-                                </div>
-                                <div class="table-body">
-                                    <div class="table-body-container">
-                                        <div class="row-line">
-                                            <span>11/10/25</span>
-                                            <span>09:40-10:55 AM</span>
-                                            <span class="alert-color">G0001 - Emergency stop</span>
-                                            <span>2411CF S51</span>
-                                            <span class="alert-color">12,689</span>
-                                        </div>
-                                        <div class="row-line">
-                                            <span>11/10/25</span>
-                                            <span>08:37-09:40 AM</span>
-                                            <span class="alert-color">A504 - Communication default line</span>
-                                            <span>2411CF S35</span>
-                                            <span class="alert-color">12,689</span>
-                                        </div>
-                                        <div class="row-line">
-                                            <span>10/10/25</span>
-                                            <span>08:37-09:40 AM</span>
-                                            <span>A033 - Safety door open</span>
-                                            <span>2411CF S35</span>
-                                            <span>2</span>
-                                        </div>
-                                        <div class="row-line">
-                                            <span>11/10/25</span>
-                                            <span>09:40-10:55 AM</span>
-                                            <span>G0001 - Emergency stop</span>
-                                            <span>2411CF S51</span>
-                                            <span>12,689</span>
-                                        </div>
-                                        <div class="row-line">
-                                            <span>11/10/25</span>
-                                            <span>08:37-09:40 AM</span>
-                                            <span>A504 - Communication default line</span>
-                                            <span>2411CF S35</span>
-                                            <span>12,689</span>
-                                        </div>
-                                        <div class="row-line">
-                                            <span>10/10/25</span>
-                                            <span>08:37-09:40 AM</span>
-                                            <span>A033 - Safety door open</span>
-                                            <span>2411CF S35</span>
-                                            <span>2</span>
-                                        </div>
+                <div class="scene dashboard-2">
+
+                    <!-- DATA CONTENT -->
+                    <div class="card-wrapper">
+                        <div class="card table-card col-5">
+                            <div class="table-head">
+                                <span>Date</span>
+                                <span>Time</span>
+                                <span>Code - Name</span>
+                                <span>Flock Name</span>
+                                <span>DOC Quantity</span>
+                            </div>
+                            <div class="table-body">
+                                <div class="table-body-container">
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>09:40-10:55 AM</span>
+                                        <span class="alert-color">G0001 - Emergency stop</span>
+                                        <span>2411CF S51</span>
+                                        <span class="alert-color">12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span class="alert-color">A504 - Communication default line</span>
+                                        <span>2411CF S35</span>
+                                        <span class="alert-color">12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>10/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span>A033 - Safety door open</span>
+                                        <span>2411CF S35</span>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>09:40-10:55 AM</span>
+                                        <span>G0001 - Emergency stop</span>
+                                        <span>2411CF S51</span>
+                                        <span>12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span>A504 - Communication default line</span>
+                                        <span>2411CF S35</span>
+                                        <span>12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>10/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span>A033 - Safety door open</span>
+                                        <span>2411CF S35</span>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>09:40-10:55 AM</span>
+                                        <span class="alert-color">G0001 - Emergency stop</span>
+                                        <span>2411CF S51</span>
+                                        <span class="alert-color">12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span class="alert-color">A504 - Communication default line</span>
+                                        <span>2411CF S35</span>
+                                        <span class="alert-color">12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>10/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span>A033 - Safety door open</span>
+                                        <span>2411CF S35</span>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>09:40-10:55 AM</span>
+                                        <span>G0001 - Emergency stop</span>
+                                        <span>2411CF S51</span>
+                                        <span>12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span>A504 - Communication default line</span>
+                                        <span>2411CF S35</span>
+                                        <span>12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>10/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span>A033 - Safety door open</span>
+                                        <span>2411CF S35</span>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>09:40-10:55 AM</span>
+                                        <span class="alert-color">G0001 - Emergency stop</span>
+                                        <span>2411CF S51</span>
+                                        <span class="alert-color">12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span class="alert-color">A504 - Communication default line</span>
+                                        <span>2411CF S35</span>
+                                        <span class="alert-color">12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>10/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span>A033 - Safety door open</span>
+                                        <span>2411CF S35</span>
+                                        <span>2</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>09:40-10:55 AM</span>
+                                        <span>G0001 - Emergency stop</span>
+                                        <span>2411CF S51</span>
+                                        <span>12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>11/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span>A504 - Communication default line</span>
+                                        <span>2411CF S35</span>
+                                        <span>12,689</span>
+                                    </div>
+                                    <div class="row-line">
+                                        <span>10/10/25</span>
+                                        <span>08:37-09:40 AM</span>
+                                        <span>A033 - Safety door open</span>
+                                        <span>2411CF S35</span>
+                                        <span>2</span>
                                     </div>
                                 </div>
                             </div>
@@ -390,6 +598,7 @@
             </section>
         </main>
     </div>
+
     <!-- FOOTER -->
     <footer>
         <figure>
@@ -398,7 +607,7 @@
         </figure>
         <ul>
             <li><a href="dashboard_4.html">Dashboard 4 v1</a></li>
-            <li><a href="../../404.html">Dashboard 4 v2</a></li>
+            <li><a href="dashboard_4-v2.html">Dashboard 4 v2</a></li>
             <li><a href="../../404.html">Dashboard 4 v3</a></li>
             <li><a href="../../404.html">Dashboard 4 v4</a></li>
             <!-- 

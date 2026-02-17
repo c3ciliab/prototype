@@ -251,4 +251,104 @@ function tick() {
 tick();
 setInterval(tick, 1000);
 
-// /* CLOCK */
+// /* FLOCKS LIST */
+function createRowLine(cells, flockName, volume, female, male, vfemale, vmale) {
+  const row = document.createElement("div");
+  row.className = "row-line";
+  row.dataset.flock = flockName;
+  row.dataset.volume = volume;
+  row.dataset.female = female;
+  row.dataset.male = male;
+  row.dataset.vfemale = vfemale;
+  row.dataset.vmale = vmale;
+
+  cells.forEach((cell) => {
+    const span = document.createElement("span");
+    span.textContent = String(cell);
+    row.appendChild(span);
+  });
+
+  return row;
+}
+
+function renderRowLines(container, rows) {
+  const el = typeof container === "string" ? document.querySelector(container) : container;
+  if (!el) return;
+
+  el.innerHTML = "";
+  const frag = document.createDocumentFragment();
+
+  rows.forEach((r) => {
+    const cells = Array.isArray(r) ? r : [
+      r.id,
+      r.lot,
+      r.age,
+      r.volume,
+      r.female,
+      r.male
+    ];
+    const flockName = Array.isArray(r) ? r[1] : r.lot;
+    const volume    = Array.isArray(r) ? r[3] : r.volume;
+    const female    = Array.isArray(r) ? r[4] : r.female;
+    const male    = Array.isArray(r) ? r[5] : r.male;
+    const vfemale   = Array.isArray(r) ? r[6] : r.vfemale;
+    const vmale     = Array.isArray(r) ? r[7] : r.vmale;
+
+    frag.appendChild(createRowLine(cells, flockName, volume, female, male, vfemale, vmale));
+  });
+
+  el.appendChild(frag);
+}
+
+// click update
+document.addEventListener("click", (e) => {
+  const row = e.target.closest(".row-line");
+  if (!row) return;
+
+  const flock = row.dataset.flock;
+  const volume = row.dataset.volume;
+  const female = row.dataset.female;
+  const male = row.dataset.male;
+  const vfemale = row.dataset.vfemale;
+  const vmale = row.dataset.vmale;
+
+  const flockEl = document.getElementById("ongoingFlock");
+  if (flockEl && flock) flockEl.textContent = flock;
+
+  document.querySelectorAll(".sorted-volume").forEach((el) => {
+    el.textContent = volume ?? "-";
+  });
+
+  document.querySelectorAll(".pctMale").forEach((el) => {
+    el.textContent = male ?? "-";
+  });
+  document.querySelectorAll(".pctFemale").forEach((el) => {
+    el.textContent = female ?? "-";
+  });
+
+  document.querySelectorAll(".v-male").forEach((el) => {
+    el.textContent = vmale ?? "-";
+  });
+  document.querySelectorAll(".v-female").forEach((el) => {
+    el.textContent = vfemale ?? "-";
+  });
+
+  // style "selected"
+  document.querySelectorAll(".row-line.selected").forEach(r => r.classList.remove("selected"));
+  row.classList.add("selected");
+});
+
+const rows = [
+  { id: 1, lot: "2411CF S51", age: "51 w", volume: "200,000", female: "52,0%", male: "48,0%", vfemale: "102,000", vmale: "98,000" },
+  { id: 2, lot: "2411CF S52", age: "52 w", volume: "201,000", female: "50,0%", male: "50,0%", vfemale: "100,500", vmale: "100,500" },
+  { id: 3, lot: "2411CF S53", age: "53 w", volume: "203,000", female: "51,0%", male: "49,0%", vfemale: "101,000", vmale: "100,500" },
+  { id: 4, lot: "2411CF S54", age: "54 w", volume: "202,000", female: "49,0%", male: "51,0%", vfemale: "100,500", vmale: "101,500" },
+  { id: 5, lot: "2411CF S53", age: "53 w", volume: "201,000", female: "50,3%", male: "49,7%", vfemale: "100,800", vmale: "100,200" },
+  { id: 6, lot: "2411CF S54", age: "54 w", volume: "202,000", female: "48,0%", male: "52,0%", vfemale: "100,000", vmale: "100,000" },
+  { id: 7, lot: "2411CF S55", age: "54 w", volume: "200,000", female: "49,0%", male: "51,0%", vfemale: "100,000", vmale: "100,000" },
+  { id: 8, lot: "2411CF S56", age: "54 w", volume: "201,000", female: "49,0%", male: "51,0%", vfemale: "100,000", vmale: "100,000" },
+  { id: 9, lot: "2411CF S57", age: "53 w", volume: "200,000", female: "50,0%", male: "50,0%", vfemale: "100,000", vmale: "100,000" },
+  { id: 10, lot: "2411CF S58", age: "54 w", volume: "200,000", female: "49,0%", male: "51,0%", vfemale: "100,000", vmale: "100,000" }
+];
+
+renderRowLines("#flocksTable", rows);

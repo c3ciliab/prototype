@@ -100,4 +100,19 @@
       @include flex(row, 1rem);
     }
   }
+
+  .grid-list {
+    @include flex(row, 1rem);
+    width: 100%;
+
+    li {
+    @include flexAlign(row, .5rem);
+    width: 25%;
+    }
+
+    img {
+    width: 40px;
+    height: 26px;
+    }
+  }
 }

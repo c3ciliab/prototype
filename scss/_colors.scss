@@ -1,76 +1,130 @@
 /******************* COLORS *******************/  // https://coolors.co/004877-52c9e8-6c6f70-00add8-00325a-9ed6e0-ced4da-dfe3e8-e8ebef-f0f2f6
 :root {
-  --primary-color:   #00325a; // Ceva Natural blue
-  --secondary-color: white;
-  --default-color:   #6C6F70; // Ceva Slate
-
-  --bg-primary:     var(--primary-color);
-  --bg-secondary:   var(--secondary-color);
-  --bg-default:     var(--default-color);
-
-  --txt-primary:    var(--primary-color);
-  --txt-secondary:  var(--secondary-color);
-  --txt-default:    var(--default-color);
-}
 /************** CEVA COLOR CHART **************/
 
 /* CORPORATE COLORS */
-$ceva-blue-color:   #004877; // Ceva Corporate Blue
-$ceva-aqua-color:   #52c9e8; // Ceva Aqua Blue 
-$ceva-body-color:   #6C6F70; // Ceva Slate
+--ceva-blue:        #004877; // Ceva Corporate Blue
+--ceva-aqua:        #52c9e8; // Ceva Aqua Blue 
+--ceva-slate:       #6C6F70; // Ceva Slate
 
 /* DYNAMIC SUPPORTING COLORS PALETTE */
-$ceva-ceva-color:   #00add8; // One Ceva
-$ceva-health-color: #89bd2c; // One Health
-$ceva-planet-color: #61C1C3; // One Planet
-$ceva-dn-yellow:    #ffc72c; // PANTONE 123 C
-$ceva-dn-orange:    #ff8200; // PANTONE 151
-$ceva-dn-red:       #a32b26; // PANTONE 7623 C
+--ceva-one:         #00add8; // One Ceva
+--ceva-health:      #89bd2c; // One Health
+--ceva-planet:      #61C1C3; // One Planet
+--ceva-dn-yellow:   #ffc72c; // PANTONE 123 C
+--ceva-dn-orange:   #ff8200; // PANTONE 151
+--ceva-dn-red:      #a32b26; // PANTONE 7623 C
 
 /* NATURAL SUPPORTING COLORS PALETTE */
-$ceva-nt-blue:      #00325a; // PANTONE 540 C
-$ceva-nt-aqua:      #9ed6e0; // PANTONE 629 C
-$ceva-nt-teal:      #026691; // PANTONE 634 C
-$ceva-nt-red:       #b45240; // PANTONE 7593 C
-$ceva-nt-yellow:    #dfa83d; // PANTONE 1245 C
-$ceva-nt-green:     #84a369; // PANTONE 7494 C
+--ceva-nt-blue:     #00325a; // PANTONE 540 C
+--ceva-nt-aqua:     #9ed6e0; // PANTONE 629 C
+--ceva-nt-teal:     #026691; // PANTONE 634 C
+--ceva-nt-red:      #b45240; // PANTONE 7593 C
+--ceva-nt-yellow:   #dfa83d; // PANTONE 1245 C
+--ceva-nt-green:    #84a369; // PANTONE 7494 C
 
 /* PORTALS */
-$genesys-blue:      #3829ff; // Genesys Blue
-$egginject-blue:    #30377d; // EggInject Blue
-$dovac-blue:        #006fb2; // Dovac Blue
-$laserlife-blue:    #1d286e; // Laser Life Blue
-$inline-blue:       #064b8b; // Inline Blue
+--genesys-blue:     #3829ff; // Genesys Blue
+--egginject-blue:   #30377d; // EggInject Blue
+--dovac-blue:       #006fb2; // Dovac Blue
+--laserlife-blue:   #1d286e; // Laser Life Blue
+--inline-blue:      #064b8b; // Inline Blue
 
 /************** VARIANTS **************/
 
+--ceva-white:       white;
+--ceva-dark:        #00223d; // Ceva Dark blue
+--ceva-darker:      #001629; // Ceva Darker blue
+--ceva-black:       #00111f; // Ceva Black blue
+
 /* SUPPORT GREYS */
-$platinum-grey:     #f0f2f6;
-$alabaster-grey:    #e8ebef;
-$pale-slate-grey:   #ced4da;
-$olive-grey:        #909396;
+--platinum-grey:    #f0f2f6;
+--alabaster-grey:   #e8ebef;
+--pale-slate-grey:  #ced4da;
+--olive-grey:       #909396;
+--dark-grey:        #3c3c3c;
+
+--neutral-color:    rgba(255, 255, 255, 0.24);
+--neutral-text:     rgba(255, 255, 255, 0.42);
+
+/************** DESIGN SYSTEM COLORS **************/
+
+--bg-default:   var(--alabaster-grey);
+--bg-primary:   var(--ceva-white);
+--bg-secondary: var(--ceva-nt-blue);
+--bg-selected:  var(--ceva-nt-blue);
+
+--bg-sidenav:   var(--platinum-grey);
+--bg-side-hov:  var(--pale-slate-grey);
+  
+--txt-body:     var(--dark-grey);
+--txt-default:  var(--ceva-slate);
+--txt-primary:  var(--ceva-nt-blue);
+--txt-secondary:var(--ceva-white);
+
+--highlight-color: var(--ceva-one);
+
+--female-color: var(--ceva-one);
+--male-color: var(--ceva-dn-yellow);
+
+  /*
+  --bg-light:       var(--ceva-nt-blue);
+  --bg-dark:        var(--ceva-black);
+  --bg-hover:       var(--ceva-nt-blue);
+  --bg-selected:    var(--ceva-black);
+
+  --txt-default:    var(--ceva-slate);
+  --txt-neutral:    var(--neutral-text);
+  --txt-primary:    var(--ceva-nt-blue);
+  --txt-secondary:  var(--ceva-white);
+  --txt-highlight:  var(--highlight-color);
+
+  --border-color:   var(--highlight-color);
+  --border-light:   var(--bg-light);
+  --border-dark:    var(--black-color);
+*/
+    &.dark-theme {
+        --bg-primary:     var(--ceva-darker);
+        --bg-secondary:   var(--ceva-white);
+        --bg-light:       var(--ceva-nt-blue);
+        --bg-dark:        var(--ceva-black);
+        --bg-hover:       var(--ceva-nt-blue);
+        --bg-selected:    var(--ceva-black);
+
+        --txt-body:       var(--body-color);
+        --txt-default:    var(--ceva-slate);
+        --txt-neutral:    var(--neutral-text);
+        --txt-primary:    var(--ceva-nt-blue);
+        --txt-secondary:  var(--ceva-white);
+        --txt-highlight:  var(--highlight-color);
+
+        --border-color:   var(--highlight-color);
+        --border-light:   var(--bg-light);
+        --border-dark:    var(--black-color);
+    } 
+}
 
 /************** DESIGN SYSTEM COLORS **************/
 
 /* COLOR PALETTE */
-$primary-color: $ceva-nt-blue;
-$secondary-color: $ceva-body-color;
-$highlight-color: $ceva-ceva-color;
-$success-color: $ceva-health-color;
-$warning-color: $ceva-dn-yellow;
-$alert-color: $ceva-dn-orange;
-$danger-color: $ceva-dn-red;
+$primary-color: var(--ceva-nt-blue);
+$secondary-color: var(--ceva-body-color);
+$highlight-color: var(--ceva-ceva-color);
+$success-color: var(--ceva-health-color);
+$warning-color: var(--ceva-dn-yellow);
+$alert-color: var(--ceva-dn-orange);
+$danger-color: var(--ceva-dn-red);
 
 /* LAYOUT and ELEMENTS */
-$bg-primary: $platinum-grey;
-$bg-light: $pale-slate-grey;
-$bg-lighter: $alabaster-grey;
-$bg-selected: $primary-color;
-$bg-ninja: rgba($ceva-dn-yellow, 0.5);
+$bg-primary: var(--platinum-grey);
+$bg-light: var(--pale-slate-grey);
+$bg-lighter: var(--alabaster-grey);
+$bg-selected: var(--primary-color);
+$bg-ninja: rgba(255, 199, 44, .5);
 
-$border-color: $pale-slate-grey;
-$border-color-light: $alabaster-grey;
-$border-color-dark: $olive-grey;
+$border-color: var(--pale-slate-grey);
+$border-color-light: var(--alabaster-grey);
+$border-color-dark: var(--olive-grey);
 
 //$bg-color-light:#dfe3e8;
 
@@ -81,17 +135,17 @@ $border-color-dark: $olive-grey;
     // Genesys Theme
     &#genesys {
         header {
-            background-color: $genesys-blue;
+            background-color: var(--genesys-blue);
         }
 
         &.full-theme {
-            --primary-color: #{$genesys-blue};
+            --primary-color: var(--genesys-blue);
 
             &.full {
                 .sidebar .selected, 
                 .sidebar .selected figure, 
                 footer {
-                    background-color: $genesys-blue;
+                    background-color: var(--genesys-blue);
                 }
             }
         }
@@ -99,17 +153,17 @@ $border-color-dark: $olive-grey;
     // EggInject Theme
     &#egginject {
         header {
-            background-color: $egginject-blue;
+            background-color: var(--egginject-blue);
         }
 
         &.full-theme {
-            --primary-color: #{$egginject-blue};
+            --primary-color: var(--egginject-blue);
 
             &.full {
                 .sidebar .selected, 
                 .sidebar .selected figure, 
                 footer {
-                    background-color: $egginject-blue;
+                    background-color: var(--egginject-blue);
                 }
             }
         }
@@ -117,17 +171,17 @@ $border-color-dark: $olive-grey;
     // Laserlife Theme
     &#laserlife {
         header {
-            background-color: $laserlife-blue;
+            background-color: var(--laserlife-blue);
         }
 
         &.full-theme {
-            --primary-color: #{$laserlife-blue};
+            --primary-color: var(--laserlife-blue);
 
             &.full {
                 .sidebar .selected, 
                 .sidebar .selected figure, 
                 footer {
-                    background-color: $laserlife-blue;
+                    background-color: var(--laserlife-blue);
                 }
             }
         }
@@ -135,17 +189,17 @@ $border-color-dark: $olive-grey;
     // Dovac Theme
     &#dovac {
         header {
-            background-color: $dovac-blue;
+            background-color: var(--dovac-blue);
         }
 
         &.full-theme {
-            --primary-color: #{$dovac-blue};
+            --primary-color: var(--dovac-blue);
 
             &.full {
                 .sidebar .selected, 
                 .sidebar .selected figure, 
                 footer {
-                    background-color: $dovac-blue;
+                    background-color: var(--dovac-blue);
                 }
             }
         }
@@ -153,17 +207,17 @@ $border-color-dark: $olive-grey;
     // Inline Theme
     &#inline {
         header {
-            background-color: $inline-blue;
+            background-color: var(--inline-blue);
         }
 
         &.full-theme {
-            --primary-color: #{$inline-blue};
+            --primary-color: var(--inline-blue);
 
             &.full {
                 .sidebar .selected, 
                 .sidebar .selected figure, 
                 footer {
-                    background-color: $inline-blue;
+                    background-color: var(--inline-blue);
                 }
             }
         }

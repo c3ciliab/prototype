@@ -24,6 +24,13 @@ $lg-txt: 24px;
 $xl-txt: 28px;
 $xxl-txt: 32px;
 
+// Titles
+h2 {
+    font-size: $sm-txt;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
 // Styles
 @mixin brand-txt($style: italic) {
     font-family: $myriad;

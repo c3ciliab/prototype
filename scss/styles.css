@@ -6,100 +6,169 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap");
 /******************* COLORS *******************/
 :root {
-  --primary-color: #00325a;
-  --secondary-color: white;
-  --default-color: #6C6F70;
-  --bg-primary: var(--primary-color);
-  --bg-secondary: var(--secondary-color);
-  --bg-default: var(--default-color);
-  --txt-primary: var(--primary-color);
-  --txt-secondary: var(--secondary-color);
-  --txt-default: var(--default-color);
+  /************** CEVA COLOR CHART **************/
+  /* CORPORATE COLORS */
+  --ceva-blue: #004877;
+  --ceva-aqua: #52c9e8;
+  --ceva-slate: #6C6F70;
+  /* DYNAMIC SUPPORTING COLORS PALETTE */
+  --ceva-one: #00add8;
+  --ceva-health: #89bd2c;
+  --ceva-planet: #61C1C3;
+  --ceva-dn-yellow: #ffc72c;
+  --ceva-dn-orange: #ff8200;
+  --ceva-dn-red: #a32b26;
+  /* NATURAL SUPPORTING COLORS PALETTE */
+  --ceva-nt-blue: #00325a;
+  --ceva-nt-aqua: #9ed6e0;
+  --ceva-nt-teal: #026691;
+  --ceva-nt-red: #b45240;
+  --ceva-nt-yellow: #dfa83d;
+  --ceva-nt-green: #84a369;
+  /* PORTALS */
+  --genesys-blue: #3829ff;
+  --egginject-blue: #30377d;
+  --dovac-blue: #006fb2;
+  --laserlife-blue: #1d286e;
+  --inline-blue: #064b8b;
+  /************** VARIANTS **************/
+  --ceva-white: white;
+  --ceva-dark: #00223d;
+  --ceva-darker: #001629;
+  --ceva-black: #00111f;
+  /* SUPPORT GREYS */
+  --platinum-grey: #f0f2f6;
+  --alabaster-grey: #e8ebef;
+  --pale-slate-grey: #ced4da;
+  --olive-grey: #909396;
+  --dark-grey: #3c3c3c;
+  --neutral-color: rgba(255, 255, 255, 0.24);
+  --neutral-text: rgba(255, 255, 255, 0.42);
+  /************** DESIGN SYSTEM COLORS **************/
+  --bg-default: var(--alabaster-grey);
+  --bg-primary: var(--ceva-white);
+  --bg-secondary: var(--ceva-nt-blue);
+  --bg-selected: var(--ceva-nt-blue);
+  --bg-sidenav: var(--platinum-grey);
+  --bg-side-hov: var(--pale-slate-grey);
+  --txt-body: var(--dark-grey);
+  --txt-default: var(--ceva-slate);
+  --txt-primary: var(--ceva-nt-blue);
+  --txt-secondary:var(--ceva-white);
+  --highlight-color: var(--ceva-one);
+  --female-color: var(--ceva-one);
+  --male-color: var(--ceva-dn-yellow);
+  /*
+    --bg-light:       var(--ceva-nt-blue);
+    --bg-dark:        var(--ceva-black);
+    --bg-hover:       var(--ceva-nt-blue);
+    --bg-selected:    var(--ceva-black);
+
+    --txt-default:    var(--ceva-slate);
+    --txt-neutral:    var(--neutral-text);
+    --txt-primary:    var(--ceva-nt-blue);
+    --txt-secondary:  var(--ceva-white);
+    --txt-highlight:  var(--highlight-color);
+
+    --border-color:   var(--highlight-color);
+    --border-light:   var(--bg-light);
+    --border-dark:    var(--black-color);
+  */
+}
+:root.dark-theme {
+  --bg-primary: var(--ceva-darker);
+  --bg-secondary: var(--ceva-white);
+  --bg-light: var(--ceva-nt-blue);
+  --bg-dark: var(--ceva-black);
+  --bg-hover: var(--ceva-nt-blue);
+  --bg-selected: var(--ceva-black);
+  --txt-body: var(--body-color);
+  --txt-default: var(--ceva-slate);
+  --txt-neutral: var(--neutral-text);
+  --txt-primary: var(--ceva-nt-blue);
+  --txt-secondary: var(--ceva-white);
+  --txt-highlight: var(--highlight-color);
+  --border-color: var(--highlight-color);
+  --border-light: var(--bg-light);
+  --border-dark: var(--black-color);
 }
 
-/************** CEVA COLOR CHART **************/
-/* CORPORATE COLORS */
-/* DYNAMIC SUPPORTING COLORS PALETTE */
-/* NATURAL SUPPORTING COLORS PALETTE */
-/* PORTALS */
-/************** VARIANTS **************/
-/* SUPPORT GREYS */
 /************** DESIGN SYSTEM COLORS **************/
 /* COLOR PALETTE */
 /* LAYOUT and ELEMENTS */
 /************** THEMES **************/
 /* PORTALS THEMES */
 .portal-theme#genesys header {
-  background-color: #3829ff;
+  background-color: var(--genesys-blue);
 }
 .portal-theme#genesys.full-theme {
-  --primary-color: #3829ff;
+  --primary-color: var(--genesys-blue);
 }
 .portal-theme#genesys.full-theme.full .sidebar .selected,
 .portal-theme#genesys.full-theme.full .sidebar .selected figure,
 .portal-theme#genesys.full-theme.full footer {
-  background-color: #3829ff;
+  background-color: var(--genesys-blue);
 }
 .portal-theme#egginject header {
-  background-color: #30377d;
+  background-color: var(--egginject-blue);
 }
 .portal-theme#egginject.full-theme {
-  --primary-color: #30377d;
+  --primary-color: var(--egginject-blue);
 }
 .portal-theme#egginject.full-theme.full .sidebar .selected,
 .portal-theme#egginject.full-theme.full .sidebar .selected figure,
 .portal-theme#egginject.full-theme.full footer {
-  background-color: #30377d;
+  background-color: var(--egginject-blue);
 }
 .portal-theme#laserlife header {
-  background-color: #1d286e;
+  background-color: var(--laserlife-blue);
 }
 .portal-theme#laserlife.full-theme {
-  --primary-color: #1d286e;
+  --primary-color: var(--laserlife-blue);
 }
 .portal-theme#laserlife.full-theme.full .sidebar .selected,
 .portal-theme#laserlife.full-theme.full .sidebar .selected figure,
 .portal-theme#laserlife.full-theme.full footer {
-  background-color: #1d286e;
+  background-color: var(--laserlife-blue);
 }
 .portal-theme#dovac header {
-  background-color: #006fb2;
+  background-color: var(--dovac-blue);
 }
 .portal-theme#dovac.full-theme {
-  --primary-color: #006fb2;
+  --primary-color: var(--dovac-blue);
 }
 .portal-theme#dovac.full-theme.full .sidebar .selected,
 .portal-theme#dovac.full-theme.full .sidebar .selected figure,
 .portal-theme#dovac.full-theme.full footer {
-  background-color: #006fb2;
+  background-color: var(--dovac-blue);
 }
 .portal-theme#inline header {
-  background-color: #064b8b;
+  background-color: var(--inline-blue);
 }
 .portal-theme#inline.full-theme {
-  --primary-color: #064b8b;
+  --primary-color: var(--inline-blue);
 }
 .portal-theme#inline.full-theme.full .sidebar .selected,
 .portal-theme#inline.full-theme.full .sidebar .selected figure,
 .portal-theme#inline.full-theme.full footer {
-  background-color: #064b8b;
+  background-color: var(--inline-blue);
 }
 
 /* CLASSES */
 .primary-color {
-  color: #00325a;
+  color: var(--ceva-nt-blue);
 }
 
 .warning-color {
-  color: #ffc72c;
+  color: var(--ceva-dn-yellow);
 }
 
 .alert-color {
-  color: #ff8200 !important;
+  color: var(--ceva-dn-orange) !important;
 }
 
 .danger-color {
-  color: #a32b26;
+  color: var(--ceva-dn-red);
 }
 
 .genesys-blue {
@@ -123,6 +192,12 @@
 }
 
 /* TEXT */
+h2 {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
 /******************* CONFIG *******************/
 /* FLEX KIT */
 /* MEDIA QUERIES */
@@ -190,13 +265,298 @@
 /*********** IMPORTS ***********/
 /******************* OBJECTS *******************/
 /* PLACEHOLDERS */
-.card, .dashboard .card-wrapper .card-header, .dashboard .card-wrapper .card-body, .dashboard .card-wrapper .card-footer, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel, header .menu-filter .filter-list .filter-panel, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .dashboard .section-header ul a, .btn-primary {
-  background-color: var(--bg-secondary);
+.card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel, header .menu-filter .filter-list .filter-panel, .dashboard .scene.dash-home .card-header, .dashboard .scene.dash-home .card-body, .dashboard .scene.dash-home .card-footer, .popup, .btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .section-header ul a, .btn-primary {
+  padding: 1rem;
+  background-color: var(--bg-primary);
   border-radius: 8px;
+}
+.card .card-title, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .card-title, header .menu-filter .filter-list .filter-panel .card-title, .dashboard .scene.dash-home .card-header .card-title, .dashboard .scene.dash-home .card-body .card-title, .dashboard .scene.dash-home .card-footer .card-title, .popup .card-title, .btn .card-title, .main-nav a .card-title, .btn-icon .card-title, .btn-delete .card-title, .btn-secondary .card-title, .section-header ul a .card-title, .btn-primary .card-title {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  align-items: center;
+  justify-content: space-between;
+}
+.card .card-title h2, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .card-title h2, header .menu-filter .filter-list .filter-panel .card-title h2, .dashboard .scene.dash-home .card-header .card-title h2, .dashboard .scene.dash-home .card-body .card-title h2, .dashboard .scene.dash-home .card-footer .card-title h2, .popup .card-title h2, .btn .card-title h2, .main-nav a .card-title h2, .btn-icon .card-title h2, .btn-delete .card-title h2, .btn-secondary .card-title h2, .section-header ul a .card-title h2, .btn-primary .card-title h2 {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  height: 32px;
+  color: var(--txt-primary);
+}
+.card .card-title svg, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .card-title svg, header .menu-filter .filter-list .filter-panel .card-title svg, .dashboard .scene.dash-home .card-header .card-title svg, .dashboard .scene.dash-home .card-body .card-title svg, .dashboard .scene.dash-home .card-footer .card-title svg, .popup .card-title svg, .btn .card-title svg, .main-nav a .card-title svg, .btn-icon .card-title svg, .btn-delete .card-title svg, .btn-secondary .card-title svg, .section-header ul a .card-title svg, .btn-primary .card-title svg {
+  width: 32px;
+  fill: var(--txt-primary);
+}
+.card .card-title svg.alert, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .card-title svg.alert, header .menu-filter .filter-list .filter-panel .card-title svg.alert, .dashboard .scene.dash-home .card-header .card-title svg.alert, .dashboard .scene.dash-home .card-body .card-title svg.alert, .dashboard .scene.dash-home .card-footer .card-title svg.alert, .popup .card-title svg.alert, .btn .card-title svg.alert, .main-nav a .card-title svg.alert, .btn-icon .card-title svg.alert, .btn-delete .card-title svg.alert, .btn-secondary .card-title svg.alert, .section-header ul a .card-title svg.alert, .btn-primary .card-title svg.alert {
+  fill: var(--ceva-dn-orange);
+}
+.card .card-title figure, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .card-title figure, header .menu-filter .filter-list .filter-panel .card-title figure, .dashboard .scene.dash-home .card-header .card-title figure, .dashboard .scene.dash-home .card-body .card-title figure, .dashboard .scene.dash-home .card-footer .card-title figure, .popup .card-title figure, .btn .card-title figure, .main-nav a .card-title figure, .btn-icon .card-title figure, .btn-delete .card-title figure, .btn-secondary .card-title figure, .section-header ul a .card-title figure, .btn-primary .card-title figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background-color: var(--bg-secondary);
+  border-radius: 100%;
+}
+.card .card-title figure img, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .card-title figure img, header .menu-filter .filter-list .filter-panel .card-title figure img, .dashboard .scene.dash-home .card-header .card-title figure img, .dashboard .scene.dash-home .card-body .card-title figure img, .dashboard .scene.dash-home .card-footer .card-title figure img, .popup .card-title figure img, .btn .card-title figure img, .main-nav a .card-title figure img, .btn-icon .card-title figure img, .btn-delete .card-title figure img, .btn-secondary .card-title figure img, .section-header ul a .card-title figure img, .btn-primary .card-title figure img {
+  width: 20px;
+}
+.card .card-title figure.svg-icon svg, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .card-title figure.svg-icon svg, header .menu-filter .filter-list .filter-panel .card-title figure.svg-icon svg, .dashboard .scene.dash-home .card-header .card-title figure.svg-icon svg, .dashboard .scene.dash-home .card-body .card-title figure.svg-icon svg, .dashboard .scene.dash-home .card-footer .card-title figure.svg-icon svg, .popup .card-title figure.svg-icon svg, .btn .card-title figure.svg-icon svg, .main-nav a .card-title figure.svg-icon svg, .btn-icon .card-title figure.svg-icon svg, .btn-delete .card-title figure.svg-icon svg, .btn-secondary .card-title figure.svg-icon svg, .section-header ul a .card-title figure.svg-icon svg, .btn-primary .card-title figure.svg-icon svg {
+  width: 20px;
+  fill: var(--txt-secondary);
+}
+.card .title-data, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .title-data, header .menu-filter .filter-list .filter-panel .title-data, .dashboard .scene.dash-home .card-header .title-data, .dashboard .scene.dash-home .card-body .title-data, .dashboard .scene.dash-home .card-footer .title-data, .popup .title-data, .btn .title-data, .main-nav a .title-data, .btn-icon .title-data, .btn-delete .title-data, .btn-secondary .title-data, .section-header ul a .title-data, .btn-primary .title-data {
+  font-size: 28px;
+  font-weight: bold;
+  color: var(--highlight-color);
+}
+.card .row-line, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .row-line, header .menu-filter .filter-list .filter-panel .row-line, .dashboard .scene.dash-home .card-header .row-line, .dashboard .scene.dash-home .card-body .row-line, .dashboard .scene.dash-home .card-footer .row-line, .popup .row-line, .btn .row-line, .main-nav a .row-line, .btn-icon .row-line, .btn-delete .row-line, .btn-secondary .row-line, .section-header ul a .row-line, .btn-primary .row-line {
+  display: flex;
+  padding: 8px 16px;
+  padding-right: 32px;
+  border-bottom: 1px solid var(--alabaster-grey);
+}
+.card .row-line span, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .row-line span, header .menu-filter .filter-list .filter-panel .row-line span, .dashboard .scene.dash-home .card-header .row-line span, .dashboard .scene.dash-home .card-body .row-line span, .dashboard .scene.dash-home .card-footer .row-line span, .popup .row-line span, .btn .row-line span, .main-nav a .row-line span, .btn-icon .row-line span, .btn-delete .row-line span, .btn-secondary .row-line span, .section-header ul a .row-line span, .btn-primary .row-line span {
+  font-size: 14px;
+}
+.card .row-line:last-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .row-line:last-child, header .menu-filter .filter-list .filter-panel .row-line:last-child, .dashboard .scene.dash-home .card-header .row-line:last-child, .dashboard .scene.dash-home .card-body .row-line:last-child, .dashboard .scene.dash-home .card-footer .row-line:last-child, .popup .row-line:last-child, .btn .row-line:last-child, .main-nav a .row-line:last-child, .btn-icon .row-line:last-child, .btn-delete .row-line:last-child, .btn-secondary .row-line:last-child, .section-header ul a .row-line:last-child, .btn-primary .row-line:last-child {
+  border-bottom: none;
+}
+.card .row-line:hover, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .row-line:hover, header .menu-filter .filter-list .filter-panel .row-line:hover, .dashboard .scene.dash-home .card-header .row-line:hover, .dashboard .scene.dash-home .card-body .row-line:hover, .dashboard .scene.dash-home .card-footer .row-line:hover, .popup .row-line:hover, .btn .row-line:hover, .main-nav a .row-line:hover, .btn-icon .row-line:hover, .btn-delete .row-line:hover, .btn-secondary .row-line:hover, .section-header ul a .row-line:hover, .btn-primary .row-line:hover {
+  background-color: var(--bg-sidenav);
+  cursor: pointer;
+}
+.card .row-line.selected, .sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-panel .row-line.selected, header .menu-filter .filter-list .filter-panel .row-line.selected, .dashboard .scene.dash-home .card-header .row-line.selected, .dashboard .scene.dash-home .card-body .row-line.selected, .dashboard .scene.dash-home .card-footer .row-line.selected, .popup .row-line.selected, .btn .row-line.selected, .main-nav a .row-line.selected, .btn-icon .row-line.selected, .btn-delete .row-line.selected, .btn-secondary .row-line.selected, .section-header ul a .row-line.selected, .btn-primary .row-line.selected {
+  color: var(--highlight-color);
+  cursor: default;
+}
+.card.kpi-card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .kpi-card.filter-panel, header .menu-filter .filter-list .kpi-card.filter-panel, .dashboard .scene.dash-home .kpi-card.card-header, .dashboard .scene.dash-home .kpi-card.card-body, .dashboard .scene.dash-home .kpi-card.card-footer, .kpi-card.popup, .kpi-card.btn, .main-nav a.kpi-card, .kpi-card.btn-icon, .kpi-card.btn-delete, .kpi-card.btn-secondary, .section-header ul a.kpi-card, .kpi-card.btn-primary {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: space-between;
+}
+.card.kpi-card:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .kpi-card.filter-panel:first-child, header .menu-filter .filter-list .kpi-card.filter-panel:first-child, .dashboard .scene.dash-home .kpi-card.card-header:first-child, .dashboard .scene.dash-home .kpi-card.card-body:first-child, .dashboard .scene.dash-home .kpi-card.card-footer:first-child, .kpi-card.popup:first-child, .kpi-card.btn:first-child, .main-nav a.kpi-card:first-child, .kpi-card.btn-icon:first-child, .kpi-card.btn-delete:first-child, .kpi-card.btn-secondary:first-child, .section-header ul a.kpi-card:first-child, .kpi-card.btn-primary:first-child {
+  width: 40%;
+}
+.card.kpi-card:nth-child(2), .sidebar-wrapper .sidebar li.menu-filter .filter-list .kpi-card.filter-panel:nth-child(2), header .menu-filter .filter-list .kpi-card.filter-panel:nth-child(2), .dashboard .scene.dash-home .kpi-card.card-header:nth-child(2), .dashboard .scene.dash-home .kpi-card.card-body:nth-child(2), .dashboard .scene.dash-home .kpi-card.card-footer:nth-child(2), .kpi-card.popup:nth-child(2), .kpi-card.btn:nth-child(2), .main-nav a.kpi-card:nth-child(2), .kpi-card.btn-icon:nth-child(2), .kpi-card.btn-delete:nth-child(2), .kpi-card.btn-secondary:nth-child(2), .section-header ul a.kpi-card:nth-child(2), .kpi-card.btn-primary:nth-child(2) {
+  width: 60%;
+}
+.card.table-card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.filter-panel, header .menu-filter .filter-list .table-card.filter-panel, .dashboard .scene.dash-home .table-card.card-header, .dashboard .scene.dash-home .table-card.card-body, .dashboard .scene.dash-home .table-card.card-footer, .table-card.popup, .table-card.btn, .main-nav a.table-card, .table-card.btn-icon, .table-card.btn-delete, .table-card.btn-secondary, .section-header ul a.table-card, .table-card.btn-primary {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+.card.table-card .card-title, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.filter-panel .card-title, header .menu-filter .filter-list .table-card.filter-panel .card-title, .dashboard .scene.dash-home .table-card.card-header .card-title, .dashboard .scene.dash-home .table-card.card-body .card-title, .dashboard .scene.dash-home .table-card.card-footer .card-title, .table-card.popup .card-title, .table-card.btn .card-title, .main-nav a.table-card .card-title, .table-card.btn-icon .card-title, .table-card.btn-delete .card-title, .table-card.btn-secondary .card-title, .section-header ul a.table-card .card-title, .table-card.btn-primary .card-title {
+  padding-right: 1rem;
+}
+.card.table-card .table, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.filter-panel .table, header .menu-filter .filter-list .table-card.filter-panel .table, .dashboard .scene.dash-home .table-card.card-header .table, .dashboard .scene.dash-home .table-card.card-body .table, .dashboard .scene.dash-home .table-card.card-footer .table, .table-card.popup .table, .table-card.btn .table, .main-nav a.table-card .table, .table-card.btn-icon .table, .table-card.btn-delete .table, .table-card.btn-secondary .table, .section-header ul a.table-card .table, .table-card.btn-primary .table {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  flex-grow: 1;
+  overflow: hidden;
+}
+.card.table-card .table-head, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.filter-panel .table-head, header .menu-filter .filter-list .table-card.filter-panel .table-head, .dashboard .scene.dash-home .table-card.card-header .table-head, .dashboard .scene.dash-home .table-card.card-body .table-head, .dashboard .scene.dash-home .table-card.card-footer .table-head, .table-card.popup .table-head, .table-card.btn .table-head, .main-nav a.table-card .table-head, .table-card.btn-icon .table-head, .table-card.btn-delete .table-head, .table-card.btn-secondary .table-head, .section-header ul a.table-card .table-head, .table-card.btn-primary .table-head {
+  display: flex;
+  padding: 1rem;
+  padding-right: 2rem;
+  font-weight: bold;
+  color: var(--txt-primary);
+  box-shadow: 0 10px 12px -10px rgba(0, 0, 0, 0.18);
+}
+.card.table-card .table-body, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.filter-panel .table-body, header .menu-filter .filter-list .table-card.filter-panel .table-body, .dashboard .scene.dash-home .table-card.card-header .table-body, .dashboard .scene.dash-home .table-card.card-body .table-body, .dashboard .scene.dash-home .table-card.card-footer .table-body, .table-card.popup .table-body, .table-card.btn .table-body, .main-nav a.table-card .table-body, .table-card.btn-icon .table-body, .table-card.btn-delete .table-body, .table-card.btn-secondary .table-body, .section-header ul a.table-card .table-body, .table-card.btn-primary .table-body {
+  flex: 1;
+  overflow: hidden;
+}
+.card.table-card .table-body .table-body-container, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.filter-panel .table-body .table-body-container, header .menu-filter .filter-list .table-card.filter-panel .table-body .table-body-container, .dashboard .scene.dash-home .table-card.card-header .table-body .table-body-container, .dashboard .scene.dash-home .table-card.card-body .table-body .table-body-container, .dashboard .scene.dash-home .table-card.card-footer .table-body .table-body-container, .table-card.popup .table-body .table-body-container, .table-card.btn .table-body .table-body-container, .main-nav a.table-card .table-body .table-body-container, .table-card.btn-icon .table-body .table-body-container, .table-card.btn-delete .table-body .table-body-container, .table-card.btn-secondary .table-body .table-body-container, .section-header ul a.table-card .table-body .table-body-container, .table-card.btn-primary .table-body .table-body-container {
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+}
+.card.table-card.col-4, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-4.filter-panel, header .menu-filter .filter-list .table-card.col-4.filter-panel, .dashboard .scene.dash-home .table-card.col-4.card-header, .dashboard .scene.dash-home .table-card.col-4.card-body, .dashboard .scene.dash-home .table-card.col-4.card-footer, .table-card.col-4.popup, .table-card.col-4.btn, .main-nav a.table-card.col-4, .table-card.col-4.btn-icon, .table-card.col-4.btn-delete, .table-card.col-4.btn-secondary, .section-header ul a.table-card.col-4, .table-card.col-4.btn-primary {
+  height: 44%;
+}
+.card.table-card.col-4 .table-head span:first-child, .card.table-card.col-4 .row-line span:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-4.filter-panel .table-head span:first-child, header .menu-filter .filter-list .table-card.col-4.filter-panel .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-4.card-header .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-4.card-body .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-4.card-footer .table-head span:first-child, .table-card.col-4.popup .table-head span:first-child, .table-card.col-4.btn .table-head span:first-child, .main-nav a.table-card.col-4 .table-head span:first-child, .table-card.col-4.btn-icon .table-head span:first-child, .table-card.col-4.btn-delete .table-head span:first-child, .table-card.col-4.btn-secondary .table-head span:first-child, .section-header ul a.table-card.col-4 .table-head span:first-child, .table-card.col-4.btn-primary .table-head span:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-4.filter-panel .row-line span:first-child, header .menu-filter .filter-list .table-card.col-4.filter-panel .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-4.card-header .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-4.card-body .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-4.card-footer .row-line span:first-child, .table-card.col-4.popup .row-line span:first-child, .table-card.col-4.btn .row-line span:first-child, .main-nav a.table-card.col-4 .row-line span:first-child, .table-card.col-4.btn-icon .row-line span:first-child, .table-card.col-4.btn-delete .row-line span:first-child, .table-card.col-4.btn-secondary .row-line span:first-child, .section-header ul a.table-card.col-4 .row-line span:first-child, .table-card.col-4.btn-primary .row-line span:first-child {
+  width: 15%;
+}
+.card.table-card.col-4 .table-head span:nth-child(2), .card.table-card.col-4 .row-line span:nth-child(2), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-4.filter-panel .table-head span:nth-child(2), header .menu-filter .filter-list .table-card.col-4.filter-panel .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-4.card-header .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-4.card-body .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-4.card-footer .table-head span:nth-child(2), .table-card.col-4.popup .table-head span:nth-child(2), .table-card.col-4.btn .table-head span:nth-child(2), .main-nav a.table-card.col-4 .table-head span:nth-child(2), .table-card.col-4.btn-icon .table-head span:nth-child(2), .table-card.col-4.btn-delete .table-head span:nth-child(2), .table-card.col-4.btn-secondary .table-head span:nth-child(2), .section-header ul a.table-card.col-4 .table-head span:nth-child(2), .table-card.col-4.btn-primary .table-head span:nth-child(2), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-4.filter-panel .row-line span:nth-child(2), header .menu-filter .filter-list .table-card.col-4.filter-panel .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-4.card-header .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-4.card-body .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-4.card-footer .row-line span:nth-child(2), .table-card.col-4.popup .row-line span:nth-child(2), .table-card.col-4.btn .row-line span:nth-child(2), .main-nav a.table-card.col-4 .row-line span:nth-child(2), .table-card.col-4.btn-icon .row-line span:nth-child(2), .table-card.col-4.btn-delete .row-line span:nth-child(2), .table-card.col-4.btn-secondary .row-line span:nth-child(2), .section-header ul a.table-card.col-4 .row-line span:nth-child(2), .table-card.col-4.btn-primary .row-line span:nth-child(2) {
+  width: 40%;
+}
+.card.table-card.col-4 .table-head span:nth-child(3), .card.table-card.col-4 .row-line span:nth-child(3), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-4.filter-panel .table-head span:nth-child(3), header .menu-filter .filter-list .table-card.col-4.filter-panel .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-4.card-header .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-4.card-body .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-4.card-footer .table-head span:nth-child(3), .table-card.col-4.popup .table-head span:nth-child(3), .table-card.col-4.btn .table-head span:nth-child(3), .main-nav a.table-card.col-4 .table-head span:nth-child(3), .table-card.col-4.btn-icon .table-head span:nth-child(3), .table-card.col-4.btn-delete .table-head span:nth-child(3), .table-card.col-4.btn-secondary .table-head span:nth-child(3), .section-header ul a.table-card.col-4 .table-head span:nth-child(3), .table-card.col-4.btn-primary .table-head span:nth-child(3), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-4.filter-panel .row-line span:nth-child(3), header .menu-filter .filter-list .table-card.col-4.filter-panel .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-4.card-header .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-4.card-body .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-4.card-footer .row-line span:nth-child(3), .table-card.col-4.popup .row-line span:nth-child(3), .table-card.col-4.btn .row-line span:nth-child(3), .main-nav a.table-card.col-4 .row-line span:nth-child(3), .table-card.col-4.btn-icon .row-line span:nth-child(3), .table-card.col-4.btn-delete .row-line span:nth-child(3), .table-card.col-4.btn-secondary .row-line span:nth-child(3), .section-header ul a.table-card.col-4 .row-line span:nth-child(3), .table-card.col-4.btn-primary .row-line span:nth-child(3) {
+  width: 30%;
+}
+.card.table-card.col-4 .table-head span:nth-child(4), .card.table-card.col-4 .row-line span:nth-child(4), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-4.filter-panel .table-head span:nth-child(4), header .menu-filter .filter-list .table-card.col-4.filter-panel .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-4.card-header .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-4.card-body .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-4.card-footer .table-head span:nth-child(4), .table-card.col-4.popup .table-head span:nth-child(4), .table-card.col-4.btn .table-head span:nth-child(4), .main-nav a.table-card.col-4 .table-head span:nth-child(4), .table-card.col-4.btn-icon .table-head span:nth-child(4), .table-card.col-4.btn-delete .table-head span:nth-child(4), .table-card.col-4.btn-secondary .table-head span:nth-child(4), .section-header ul a.table-card.col-4 .table-head span:nth-child(4), .table-card.col-4.btn-primary .table-head span:nth-child(4), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-4.filter-panel .row-line span:nth-child(4), header .menu-filter .filter-list .table-card.col-4.filter-panel .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-4.card-header .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-4.card-body .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-4.card-footer .row-line span:nth-child(4), .table-card.col-4.popup .row-line span:nth-child(4), .table-card.col-4.btn .row-line span:nth-child(4), .main-nav a.table-card.col-4 .row-line span:nth-child(4), .table-card.col-4.btn-icon .row-line span:nth-child(4), .table-card.col-4.btn-delete .row-line span:nth-child(4), .table-card.col-4.btn-secondary .row-line span:nth-child(4), .section-header ul a.table-card.col-4 .row-line span:nth-child(4), .table-card.col-4.btn-primary .row-line span:nth-child(4) {
+  width: 15%;
+}
+.card.table-card.col-5 .table-head span:first-child, .card.table-card.col-5 .row-line span:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .table-head span:first-child, header .menu-filter .filter-list .table-card.col-5.filter-panel .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-5.card-header .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-5.card-body .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-5.card-footer .table-head span:first-child, .table-card.col-5.popup .table-head span:first-child, .table-card.col-5.btn .table-head span:first-child, .main-nav a.table-card.col-5 .table-head span:first-child, .table-card.col-5.btn-icon .table-head span:first-child, .table-card.col-5.btn-delete .table-head span:first-child, .table-card.col-5.btn-secondary .table-head span:first-child, .section-header ul a.table-card.col-5 .table-head span:first-child, .table-card.col-5.btn-primary .table-head span:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .row-line span:first-child, header .menu-filter .filter-list .table-card.col-5.filter-panel .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-5.card-header .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-5.card-body .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-5.card-footer .row-line span:first-child, .table-card.col-5.popup .row-line span:first-child, .table-card.col-5.btn .row-line span:first-child, .main-nav a.table-card.col-5 .row-line span:first-child, .table-card.col-5.btn-icon .row-line span:first-child, .table-card.col-5.btn-delete .row-line span:first-child, .table-card.col-5.btn-secondary .row-line span:first-child, .section-header ul a.table-card.col-5 .row-line span:first-child, .table-card.col-5.btn-primary .row-line span:first-child {
+  width: 14%;
+}
+.card.table-card.col-5 .table-head span:nth-child(2), .card.table-card.col-5 .row-line span:nth-child(2), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .table-head span:nth-child(2), header .menu-filter .filter-list .table-card.col-5.filter-panel .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-5.card-header .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-5.card-body .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-5.card-footer .table-head span:nth-child(2), .table-card.col-5.popup .table-head span:nth-child(2), .table-card.col-5.btn .table-head span:nth-child(2), .main-nav a.table-card.col-5 .table-head span:nth-child(2), .table-card.col-5.btn-icon .table-head span:nth-child(2), .table-card.col-5.btn-delete .table-head span:nth-child(2), .table-card.col-5.btn-secondary .table-head span:nth-child(2), .section-header ul a.table-card.col-5 .table-head span:nth-child(2), .table-card.col-5.btn-primary .table-head span:nth-child(2), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .row-line span:nth-child(2), header .menu-filter .filter-list .table-card.col-5.filter-panel .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-5.card-header .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-5.card-body .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-5.card-footer .row-line span:nth-child(2), .table-card.col-5.popup .row-line span:nth-child(2), .table-card.col-5.btn .row-line span:nth-child(2), .main-nav a.table-card.col-5 .row-line span:nth-child(2), .table-card.col-5.btn-icon .row-line span:nth-child(2), .table-card.col-5.btn-delete .row-line span:nth-child(2), .table-card.col-5.btn-secondary .row-line span:nth-child(2), .section-header ul a.table-card.col-5 .row-line span:nth-child(2), .table-card.col-5.btn-primary .row-line span:nth-child(2) {
+  width: 18%;
+}
+.card.table-card.col-5 .table-head span:nth-child(3), .card.table-card.col-5 .row-line span:nth-child(3), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .table-head span:nth-child(3), header .menu-filter .filter-list .table-card.col-5.filter-panel .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-5.card-header .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-5.card-body .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-5.card-footer .table-head span:nth-child(3), .table-card.col-5.popup .table-head span:nth-child(3), .table-card.col-5.btn .table-head span:nth-child(3), .main-nav a.table-card.col-5 .table-head span:nth-child(3), .table-card.col-5.btn-icon .table-head span:nth-child(3), .table-card.col-5.btn-delete .table-head span:nth-child(3), .table-card.col-5.btn-secondary .table-head span:nth-child(3), .section-header ul a.table-card.col-5 .table-head span:nth-child(3), .table-card.col-5.btn-primary .table-head span:nth-child(3), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .row-line span:nth-child(3), header .menu-filter .filter-list .table-card.col-5.filter-panel .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-5.card-header .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-5.card-body .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-5.card-footer .row-line span:nth-child(3), .table-card.col-5.popup .row-line span:nth-child(3), .table-card.col-5.btn .row-line span:nth-child(3), .main-nav a.table-card.col-5 .row-line span:nth-child(3), .table-card.col-5.btn-icon .row-line span:nth-child(3), .table-card.col-5.btn-delete .row-line span:nth-child(3), .table-card.col-5.btn-secondary .row-line span:nth-child(3), .section-header ul a.table-card.col-5 .row-line span:nth-child(3), .table-card.col-5.btn-primary .row-line span:nth-child(3) {
+  width: 32%;
+}
+.card.table-card.col-5 .table-head span:nth-child(4), .card.table-card.col-5 .row-line span:nth-child(4), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .table-head span:nth-child(4), header .menu-filter .filter-list .table-card.col-5.filter-panel .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-5.card-header .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-5.card-body .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-5.card-footer .table-head span:nth-child(4), .table-card.col-5.popup .table-head span:nth-child(4), .table-card.col-5.btn .table-head span:nth-child(4), .main-nav a.table-card.col-5 .table-head span:nth-child(4), .table-card.col-5.btn-icon .table-head span:nth-child(4), .table-card.col-5.btn-delete .table-head span:nth-child(4), .table-card.col-5.btn-secondary .table-head span:nth-child(4), .section-header ul a.table-card.col-5 .table-head span:nth-child(4), .table-card.col-5.btn-primary .table-head span:nth-child(4), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .row-line span:nth-child(4), header .menu-filter .filter-list .table-card.col-5.filter-panel .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-5.card-header .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-5.card-body .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-5.card-footer .row-line span:nth-child(4), .table-card.col-5.popup .row-line span:nth-child(4), .table-card.col-5.btn .row-line span:nth-child(4), .main-nav a.table-card.col-5 .row-line span:nth-child(4), .table-card.col-5.btn-icon .row-line span:nth-child(4), .table-card.col-5.btn-delete .row-line span:nth-child(4), .table-card.col-5.btn-secondary .row-line span:nth-child(4), .section-header ul a.table-card.col-5 .row-line span:nth-child(4), .table-card.col-5.btn-primary .row-line span:nth-child(4) {
+  width: 18%;
+}
+.card.table-card.col-5 .table-head span:last-child, .card.table-card.col-5 .row-line span:last-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .table-head span:last-child, header .menu-filter .filter-list .table-card.col-5.filter-panel .table-head span:last-child, .dashboard .scene.dash-home .table-card.col-5.card-header .table-head span:last-child, .dashboard .scene.dash-home .table-card.col-5.card-body .table-head span:last-child, .dashboard .scene.dash-home .table-card.col-5.card-footer .table-head span:last-child, .table-card.col-5.popup .table-head span:last-child, .table-card.col-5.btn .table-head span:last-child, .main-nav a.table-card.col-5 .table-head span:last-child, .table-card.col-5.btn-icon .table-head span:last-child, .table-card.col-5.btn-delete .table-head span:last-child, .table-card.col-5.btn-secondary .table-head span:last-child, .section-header ul a.table-card.col-5 .table-head span:last-child, .table-card.col-5.btn-primary .table-head span:last-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .row-line span:last-child, header .menu-filter .filter-list .table-card.col-5.filter-panel .row-line span:last-child, .dashboard .scene.dash-home .table-card.col-5.card-header .row-line span:last-child, .dashboard .scene.dash-home .table-card.col-5.card-body .row-line span:last-child, .dashboard .scene.dash-home .table-card.col-5.card-footer .row-line span:last-child, .table-card.col-5.popup .row-line span:last-child, .table-card.col-5.btn .row-line span:last-child, .main-nav a.table-card.col-5 .row-line span:last-child, .table-card.col-5.btn-icon .row-line span:last-child, .table-card.col-5.btn-delete .row-line span:last-child, .table-card.col-5.btn-secondary .row-line span:last-child, .section-header ul a.table-card.col-5 .row-line span:last-child, .table-card.col-5.btn-primary .row-line span:last-child {
+  width: 18%;
+}
+.card.table-card.col-5 .row-line, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .row-line, header .menu-filter .filter-list .table-card.col-5.filter-panel .row-line, .dashboard .scene.dash-home .table-card.col-5.card-header .row-line, .dashboard .scene.dash-home .table-card.col-5.card-body .row-line, .dashboard .scene.dash-home .table-card.col-5.card-footer .row-line, .table-card.col-5.popup .row-line, .table-card.col-5.btn .row-line, .main-nav a.table-card.col-5 .row-line, .table-card.col-5.btn-icon .row-line, .table-card.col-5.btn-delete .row-line, .table-card.col-5.btn-secondary .row-line, .section-header ul a.table-card.col-5 .row-line, .table-card.col-5.btn-primary .row-line {
+  padding: 12px 16px;
+}
+.card.table-card.col-5 .row-line span, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-5.filter-panel .row-line span, header .menu-filter .filter-list .table-card.col-5.filter-panel .row-line span, .dashboard .scene.dash-home .table-card.col-5.card-header .row-line span, .dashboard .scene.dash-home .table-card.col-5.card-body .row-line span, .dashboard .scene.dash-home .table-card.col-5.card-footer .row-line span, .table-card.col-5.popup .row-line span, .table-card.col-5.btn .row-line span, .main-nav a.table-card.col-5 .row-line span, .table-card.col-5.btn-icon .row-line span, .table-card.col-5.btn-delete .row-line span, .table-card.col-5.btn-secondary .row-line span, .section-header ul a.table-card.col-5 .row-line span, .table-card.col-5.btn-primary .row-line span {
+  font-size: 16px;
+}
+.card.table-card.col-6, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel, header .menu-filter .filter-list .table-card.col-6.filter-panel, .dashboard .scene.dash-home .table-card.col-6.card-header, .dashboard .scene.dash-home .table-card.col-6.card-body, .dashboard .scene.dash-home .table-card.col-6.card-footer, .table-card.col-6.popup, .table-card.col-6.btn, .main-nav a.table-card.col-6, .table-card.col-6.btn-icon, .table-card.col-6.btn-delete, .table-card.col-6.btn-secondary, .section-header ul a.table-card.col-6, .table-card.col-6.btn-primary {
+  height: 54%;
+}
+.card.table-card.col-6 .table-head span:first-child, .card.table-card.col-6 .row-line span:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:first-child, header .menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-6.card-header .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-6.card-body .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-6.card-footer .table-head span:first-child, .table-card.col-6.popup .table-head span:first-child, .table-card.col-6.btn .table-head span:first-child, .main-nav a.table-card.col-6 .table-head span:first-child, .table-card.col-6.btn-icon .table-head span:first-child, .table-card.col-6.btn-delete .table-head span:first-child, .table-card.col-6.btn-secondary .table-head span:first-child, .section-header ul a.table-card.col-6 .table-head span:first-child, .table-card.col-6.btn-primary .table-head span:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:first-child, header .menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-6.card-header .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-6.card-body .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-6.card-footer .row-line span:first-child, .table-card.col-6.popup .row-line span:first-child, .table-card.col-6.btn .row-line span:first-child, .main-nav a.table-card.col-6 .row-line span:first-child, .table-card.col-6.btn-icon .row-line span:first-child, .table-card.col-6.btn-delete .row-line span:first-child, .table-card.col-6.btn-secondary .row-line span:first-child, .section-header ul a.table-card.col-6 .row-line span:first-child, .table-card.col-6.btn-primary .row-line span:first-child {
+  width: 6%;
+}
+.card.table-card.col-6 .table-head span:nth-child(2), .card.table-card.col-6 .row-line span:nth-child(2), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:nth-child(2), header .menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-6.card-header .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-6.card-body .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-6.card-footer .table-head span:nth-child(2), .table-card.col-6.popup .table-head span:nth-child(2), .table-card.col-6.btn .table-head span:nth-child(2), .main-nav a.table-card.col-6 .table-head span:nth-child(2), .table-card.col-6.btn-icon .table-head span:nth-child(2), .table-card.col-6.btn-delete .table-head span:nth-child(2), .table-card.col-6.btn-secondary .table-head span:nth-child(2), .section-header ul a.table-card.col-6 .table-head span:nth-child(2), .table-card.col-6.btn-primary .table-head span:nth-child(2), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:nth-child(2), header .menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-6.card-header .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-6.card-body .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-6.card-footer .row-line span:nth-child(2), .table-card.col-6.popup .row-line span:nth-child(2), .table-card.col-6.btn .row-line span:nth-child(2), .main-nav a.table-card.col-6 .row-line span:nth-child(2), .table-card.col-6.btn-icon .row-line span:nth-child(2), .table-card.col-6.btn-delete .row-line span:nth-child(2), .table-card.col-6.btn-secondary .row-line span:nth-child(2), .section-header ul a.table-card.col-6 .row-line span:nth-child(2), .table-card.col-6.btn-primary .row-line span:nth-child(2) {
+  width: 24%;
+}
+.card.table-card.col-6 .table-head span:nth-child(3), .card.table-card.col-6 .row-line span:nth-child(3), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:nth-child(3), header .menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-6.card-header .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-6.card-body .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-6.card-footer .table-head span:nth-child(3), .table-card.col-6.popup .table-head span:nth-child(3), .table-card.col-6.btn .table-head span:nth-child(3), .main-nav a.table-card.col-6 .table-head span:nth-child(3), .table-card.col-6.btn-icon .table-head span:nth-child(3), .table-card.col-6.btn-delete .table-head span:nth-child(3), .table-card.col-6.btn-secondary .table-head span:nth-child(3), .section-header ul a.table-card.col-6 .table-head span:nth-child(3), .table-card.col-6.btn-primary .table-head span:nth-child(3), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:nth-child(3), header .menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-6.card-header .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-6.card-body .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-6.card-footer .row-line span:nth-child(3), .table-card.col-6.popup .row-line span:nth-child(3), .table-card.col-6.btn .row-line span:nth-child(3), .main-nav a.table-card.col-6 .row-line span:nth-child(3), .table-card.col-6.btn-icon .row-line span:nth-child(3), .table-card.col-6.btn-delete .row-line span:nth-child(3), .table-card.col-6.btn-secondary .row-line span:nth-child(3), .section-header ul a.table-card.col-6 .row-line span:nth-child(3), .table-card.col-6.btn-primary .row-line span:nth-child(3) {
+  width: 20%;
+}
+.card.table-card.col-6 .table-head span:nth-child(4), .card.table-card.col-6 .row-line span:nth-child(4), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:nth-child(4), header .menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-6.card-header .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-6.card-body .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-6.card-footer .table-head span:nth-child(4), .table-card.col-6.popup .table-head span:nth-child(4), .table-card.col-6.btn .table-head span:nth-child(4), .main-nav a.table-card.col-6 .table-head span:nth-child(4), .table-card.col-6.btn-icon .table-head span:nth-child(4), .table-card.col-6.btn-delete .table-head span:nth-child(4), .table-card.col-6.btn-secondary .table-head span:nth-child(4), .section-header ul a.table-card.col-6 .table-head span:nth-child(4), .table-card.col-6.btn-primary .table-head span:nth-child(4), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:nth-child(4), header .menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-6.card-header .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-6.card-body .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-6.card-footer .row-line span:nth-child(4), .table-card.col-6.popup .row-line span:nth-child(4), .table-card.col-6.btn .row-line span:nth-child(4), .main-nav a.table-card.col-6 .row-line span:nth-child(4), .table-card.col-6.btn-icon .row-line span:nth-child(4), .table-card.col-6.btn-delete .row-line span:nth-child(4), .table-card.col-6.btn-secondary .row-line span:nth-child(4), .section-header ul a.table-card.col-6 .row-line span:nth-child(4), .table-card.col-6.btn-primary .row-line span:nth-child(4) {
+  width: 22%;
+}
+.card.table-card.col-6 .table-head span:nth-child(5), .card.table-card.col-6 .row-line span:nth-child(5), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:nth-child(5), header .menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:nth-child(5), .dashboard .scene.dash-home .table-card.col-6.card-header .table-head span:nth-child(5), .dashboard .scene.dash-home .table-card.col-6.card-body .table-head span:nth-child(5), .dashboard .scene.dash-home .table-card.col-6.card-footer .table-head span:nth-child(5), .table-card.col-6.popup .table-head span:nth-child(5), .table-card.col-6.btn .table-head span:nth-child(5), .main-nav a.table-card.col-6 .table-head span:nth-child(5), .table-card.col-6.btn-icon .table-head span:nth-child(5), .table-card.col-6.btn-delete .table-head span:nth-child(5), .table-card.col-6.btn-secondary .table-head span:nth-child(5), .section-header ul a.table-card.col-6 .table-head span:nth-child(5), .table-card.col-6.btn-primary .table-head span:nth-child(5), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:nth-child(5), header .menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:nth-child(5), .dashboard .scene.dash-home .table-card.col-6.card-header .row-line span:nth-child(5), .dashboard .scene.dash-home .table-card.col-6.card-body .row-line span:nth-child(5), .dashboard .scene.dash-home .table-card.col-6.card-footer .row-line span:nth-child(5), .table-card.col-6.popup .row-line span:nth-child(5), .table-card.col-6.btn .row-line span:nth-child(5), .main-nav a.table-card.col-6 .row-line span:nth-child(5), .table-card.col-6.btn-icon .row-line span:nth-child(5), .table-card.col-6.btn-delete .row-line span:nth-child(5), .table-card.col-6.btn-secondary .row-line span:nth-child(5), .section-header ul a.table-card.col-6 .row-line span:nth-child(5), .table-card.col-6.btn-primary .row-line span:nth-child(5) {
+  width: 14%;
+}
+.card.table-card.col-6 .table-head span:last-child, .card.table-card.col-6 .row-line span:last-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:last-child, header .menu-filter .filter-list .table-card.col-6.filter-panel .table-head span:last-child, .dashboard .scene.dash-home .table-card.col-6.card-header .table-head span:last-child, .dashboard .scene.dash-home .table-card.col-6.card-body .table-head span:last-child, .dashboard .scene.dash-home .table-card.col-6.card-footer .table-head span:last-child, .table-card.col-6.popup .table-head span:last-child, .table-card.col-6.btn .table-head span:last-child, .main-nav a.table-card.col-6 .table-head span:last-child, .table-card.col-6.btn-icon .table-head span:last-child, .table-card.col-6.btn-delete .table-head span:last-child, .table-card.col-6.btn-secondary .table-head span:last-child, .section-header ul a.table-card.col-6 .table-head span:last-child, .table-card.col-6.btn-primary .table-head span:last-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:last-child, header .menu-filter .filter-list .table-card.col-6.filter-panel .row-line span:last-child, .dashboard .scene.dash-home .table-card.col-6.card-header .row-line span:last-child, .dashboard .scene.dash-home .table-card.col-6.card-body .row-line span:last-child, .dashboard .scene.dash-home .table-card.col-6.card-footer .row-line span:last-child, .table-card.col-6.popup .row-line span:last-child, .table-card.col-6.btn .row-line span:last-child, .main-nav a.table-card.col-6 .row-line span:last-child, .table-card.col-6.btn-icon .row-line span:last-child, .table-card.col-6.btn-delete .row-line span:last-child, .table-card.col-6.btn-secondary .row-line span:last-child, .section-header ul a.table-card.col-6 .row-line span:last-child, .table-card.col-6.btn-primary .row-line span:last-child {
+  width: 14%;
+}
+.card.table-card.col-7 .table-head span, .card.table-card.col-7 .row-line span, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-7.filter-panel .table-head span, header .menu-filter .filter-list .table-card.col-7.filter-panel .table-head span, .dashboard .scene.dash-home .table-card.col-7.card-header .table-head span, .dashboard .scene.dash-home .table-card.col-7.card-body .table-head span, .dashboard .scene.dash-home .table-card.col-7.card-footer .table-head span, .table-card.col-7.popup .table-head span, .table-card.col-7.btn .table-head span, .main-nav a.table-card.col-7 .table-head span, .table-card.col-7.btn-icon .table-head span, .table-card.col-7.btn-delete .table-head span, .table-card.col-7.btn-secondary .table-head span, .section-header ul a.table-card.col-7 .table-head span, .table-card.col-7.btn-primary .table-head span, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-7.filter-panel .row-line span, header .menu-filter .filter-list .table-card.col-7.filter-panel .row-line span, .dashboard .scene.dash-home .table-card.col-7.card-header .row-line span, .dashboard .scene.dash-home .table-card.col-7.card-body .row-line span, .dashboard .scene.dash-home .table-card.col-7.card-footer .row-line span, .table-card.col-7.popup .row-line span, .table-card.col-7.btn .row-line span, .main-nav a.table-card.col-7 .row-line span, .table-card.col-7.btn-icon .row-line span, .table-card.col-7.btn-delete .row-line span, .table-card.col-7.btn-secondary .row-line span, .section-header ul a.table-card.col-7 .row-line span, .table-card.col-7.btn-primary .row-line span {
+  width: 14%;
+}
+.card.table-card.col-7 .table-head span:first-child, .card.table-card.col-7 .row-line span:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-7.filter-panel .table-head span:first-child, header .menu-filter .filter-list .table-card.col-7.filter-panel .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-7.card-header .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-7.card-body .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-7.card-footer .table-head span:first-child, .table-card.col-7.popup .table-head span:first-child, .table-card.col-7.btn .table-head span:first-child, .main-nav a.table-card.col-7 .table-head span:first-child, .table-card.col-7.btn-icon .table-head span:first-child, .table-card.col-7.btn-delete .table-head span:first-child, .table-card.col-7.btn-secondary .table-head span:first-child, .section-header ul a.table-card.col-7 .table-head span:first-child, .table-card.col-7.btn-primary .table-head span:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-7.filter-panel .row-line span:first-child, header .menu-filter .filter-list .table-card.col-7.filter-panel .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-7.card-header .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-7.card-body .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-7.card-footer .row-line span:first-child, .table-card.col-7.popup .row-line span:first-child, .table-card.col-7.btn .row-line span:first-child, .main-nav a.table-card.col-7 .row-line span:first-child, .table-card.col-7.btn-icon .row-line span:first-child, .table-card.col-7.btn-delete .row-line span:first-child, .table-card.col-7.btn-secondary .row-line span:first-child, .section-header ul a.table-card.col-7 .row-line span:first-child, .table-card.col-7.btn-primary .row-line span:first-child {
+  width: 16%;
+}
+.card.table-card.col-7 .table-body span:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-7.filter-panel .table-body span:first-child, header .menu-filter .filter-list .table-card.col-7.filter-panel .table-body span:first-child, .dashboard .scene.dash-home .table-card.col-7.card-header .table-body span:first-child, .dashboard .scene.dash-home .table-card.col-7.card-body .table-body span:first-child, .dashboard .scene.dash-home .table-card.col-7.card-footer .table-body span:first-child, .table-card.col-7.popup .table-body span:first-child, .table-card.col-7.btn .table-body span:first-child, .main-nav a.table-card.col-7 .table-body span:first-child, .table-card.col-7.btn-icon .table-body span:first-child, .table-card.col-7.btn-delete .table-body span:first-child, .table-card.col-7.btn-secondary .table-body span:first-child, .section-header ul a.table-card.col-7 .table-body span:first-child, .table-card.col-7.btn-primary .table-body span:first-child {
+  font-style: italic;
+  color: var(--ceva-body-color);
+}
+.card.table-card.col-11 .table-head span:first-child, .card.table-card.col-11 .row-line span:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:first-child, header .menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-11.card-header .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-11.card-body .table-head span:first-child, .dashboard .scene.dash-home .table-card.col-11.card-footer .table-head span:first-child, .table-card.col-11.popup .table-head span:first-child, .table-card.col-11.btn .table-head span:first-child, .main-nav a.table-card.col-11 .table-head span:first-child, .table-card.col-11.btn-icon .table-head span:first-child, .table-card.col-11.btn-delete .table-head span:first-child, .table-card.col-11.btn-secondary .table-head span:first-child, .section-header ul a.table-card.col-11 .table-head span:first-child, .table-card.col-11.btn-primary .table-head span:first-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:first-child, header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span:first-child, .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span:first-child, .table-card.col-11.popup .row-line span:first-child, .table-card.col-11.btn .row-line span:first-child, .main-nav a.table-card.col-11 .row-line span:first-child, .table-card.col-11.btn-icon .row-line span:first-child, .table-card.col-11.btn-delete .row-line span:first-child, .table-card.col-11.btn-secondary .row-line span:first-child, .section-header ul a.table-card.col-11 .row-line span:first-child, .table-card.col-11.btn-primary .row-line span:first-child {
+  width: 9%;
+}
+.card.table-card.col-11 .table-head span:nth-child(2), .card.table-card.col-11 .row-line span:nth-child(2), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(2), header .menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-11.card-header .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-11.card-body .table-head span:nth-child(2), .dashboard .scene.dash-home .table-card.col-11.card-footer .table-head span:nth-child(2), .table-card.col-11.popup .table-head span:nth-child(2), .table-card.col-11.btn .table-head span:nth-child(2), .main-nav a.table-card.col-11 .table-head span:nth-child(2), .table-card.col-11.btn-icon .table-head span:nth-child(2), .table-card.col-11.btn-delete .table-head span:nth-child(2), .table-card.col-11.btn-secondary .table-head span:nth-child(2), .section-header ul a.table-card.col-11 .table-head span:nth-child(2), .table-card.col-11.btn-primary .table-head span:nth-child(2), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(2), header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span:nth-child(2), .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span:nth-child(2), .table-card.col-11.popup .row-line span:nth-child(2), .table-card.col-11.btn .row-line span:nth-child(2), .main-nav a.table-card.col-11 .row-line span:nth-child(2), .table-card.col-11.btn-icon .row-line span:nth-child(2), .table-card.col-11.btn-delete .row-line span:nth-child(2), .table-card.col-11.btn-secondary .row-line span:nth-child(2), .section-header ul a.table-card.col-11 .row-line span:nth-child(2), .table-card.col-11.btn-primary .row-line span:nth-child(2) {
+  width: 14%;
+}
+.card.table-card.col-11 .table-head span:nth-child(3), .card.table-card.col-11 .row-line span:nth-child(3), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(3), header .menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-11.card-header .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-11.card-body .table-head span:nth-child(3), .dashboard .scene.dash-home .table-card.col-11.card-footer .table-head span:nth-child(3), .table-card.col-11.popup .table-head span:nth-child(3), .table-card.col-11.btn .table-head span:nth-child(3), .main-nav a.table-card.col-11 .table-head span:nth-child(3), .table-card.col-11.btn-icon .table-head span:nth-child(3), .table-card.col-11.btn-delete .table-head span:nth-child(3), .table-card.col-11.btn-secondary .table-head span:nth-child(3), .section-header ul a.table-card.col-11 .table-head span:nth-child(3), .table-card.col-11.btn-primary .table-head span:nth-child(3), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(3), header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span:nth-child(3), .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span:nth-child(3), .table-card.col-11.popup .row-line span:nth-child(3), .table-card.col-11.btn .row-line span:nth-child(3), .main-nav a.table-card.col-11 .row-line span:nth-child(3), .table-card.col-11.btn-icon .row-line span:nth-child(3), .table-card.col-11.btn-delete .row-line span:nth-child(3), .table-card.col-11.btn-secondary .row-line span:nth-child(3), .section-header ul a.table-card.col-11 .row-line span:nth-child(3), .table-card.col-11.btn-primary .row-line span:nth-child(3) {
+  width: 12%;
+}
+.card.table-card.col-11 .table-head span:nth-child(4), .card.table-card.col-11 .row-line span:nth-child(4), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(4), header .menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-11.card-header .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-11.card-body .table-head span:nth-child(4), .dashboard .scene.dash-home .table-card.col-11.card-footer .table-head span:nth-child(4), .table-card.col-11.popup .table-head span:nth-child(4), .table-card.col-11.btn .table-head span:nth-child(4), .main-nav a.table-card.col-11 .table-head span:nth-child(4), .table-card.col-11.btn-icon .table-head span:nth-child(4), .table-card.col-11.btn-delete .table-head span:nth-child(4), .table-card.col-11.btn-secondary .table-head span:nth-child(4), .section-header ul a.table-card.col-11 .table-head span:nth-child(4), .table-card.col-11.btn-primary .table-head span:nth-child(4), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(4), header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span:nth-child(4), .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span:nth-child(4), .table-card.col-11.popup .row-line span:nth-child(4), .table-card.col-11.btn .row-line span:nth-child(4), .main-nav a.table-card.col-11 .row-line span:nth-child(4), .table-card.col-11.btn-icon .row-line span:nth-child(4), .table-card.col-11.btn-delete .row-line span:nth-child(4), .table-card.col-11.btn-secondary .row-line span:nth-child(4), .section-header ul a.table-card.col-11 .row-line span:nth-child(4), .table-card.col-11.btn-primary .row-line span:nth-child(4) {
+  width: 8%;
+}
+.card.table-card.col-11 .table-head span:nth-child(5), .card.table-card.col-11 .row-line span:nth-child(5), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(5), header .menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(5), .dashboard .scene.dash-home .table-card.col-11.card-header .table-head span:nth-child(5), .dashboard .scene.dash-home .table-card.col-11.card-body .table-head span:nth-child(5), .dashboard .scene.dash-home .table-card.col-11.card-footer .table-head span:nth-child(5), .table-card.col-11.popup .table-head span:nth-child(5), .table-card.col-11.btn .table-head span:nth-child(5), .main-nav a.table-card.col-11 .table-head span:nth-child(5), .table-card.col-11.btn-icon .table-head span:nth-child(5), .table-card.col-11.btn-delete .table-head span:nth-child(5), .table-card.col-11.btn-secondary .table-head span:nth-child(5), .section-header ul a.table-card.col-11 .table-head span:nth-child(5), .table-card.col-11.btn-primary .table-head span:nth-child(5), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(5), header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(5), .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span:nth-child(5), .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span:nth-child(5), .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span:nth-child(5), .table-card.col-11.popup .row-line span:nth-child(5), .table-card.col-11.btn .row-line span:nth-child(5), .main-nav a.table-card.col-11 .row-line span:nth-child(5), .table-card.col-11.btn-icon .row-line span:nth-child(5), .table-card.col-11.btn-delete .row-line span:nth-child(5), .table-card.col-11.btn-secondary .row-line span:nth-child(5), .section-header ul a.table-card.col-11 .row-line span:nth-child(5), .table-card.col-11.btn-primary .row-line span:nth-child(5) {
+  width: 11%;
+}
+.card.table-card.col-11 .table-head span:nth-child(6), .card.table-card.col-11 .row-line span:nth-child(6), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(6), header .menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(6), .dashboard .scene.dash-home .table-card.col-11.card-header .table-head span:nth-child(6), .dashboard .scene.dash-home .table-card.col-11.card-body .table-head span:nth-child(6), .dashboard .scene.dash-home .table-card.col-11.card-footer .table-head span:nth-child(6), .table-card.col-11.popup .table-head span:nth-child(6), .table-card.col-11.btn .table-head span:nth-child(6), .main-nav a.table-card.col-11 .table-head span:nth-child(6), .table-card.col-11.btn-icon .table-head span:nth-child(6), .table-card.col-11.btn-delete .table-head span:nth-child(6), .table-card.col-11.btn-secondary .table-head span:nth-child(6), .section-header ul a.table-card.col-11 .table-head span:nth-child(6), .table-card.col-11.btn-primary .table-head span:nth-child(6), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(6), header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(6), .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span:nth-child(6), .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span:nth-child(6), .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span:nth-child(6), .table-card.col-11.popup .row-line span:nth-child(6), .table-card.col-11.btn .row-line span:nth-child(6), .main-nav a.table-card.col-11 .row-line span:nth-child(6), .table-card.col-11.btn-icon .row-line span:nth-child(6), .table-card.col-11.btn-delete .row-line span:nth-child(6), .table-card.col-11.btn-secondary .row-line span:nth-child(6), .section-header ul a.table-card.col-11 .row-line span:nth-child(6), .table-card.col-11.btn-primary .row-line span:nth-child(6) {
+  width: 8%;
+}
+.card.table-card.col-11 .table-head span:nth-child(7), .card.table-card.col-11 .row-line span:nth-child(7), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(7), header .menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(7), .dashboard .scene.dash-home .table-card.col-11.card-header .table-head span:nth-child(7), .dashboard .scene.dash-home .table-card.col-11.card-body .table-head span:nth-child(7), .dashboard .scene.dash-home .table-card.col-11.card-footer .table-head span:nth-child(7), .table-card.col-11.popup .table-head span:nth-child(7), .table-card.col-11.btn .table-head span:nth-child(7), .main-nav a.table-card.col-11 .table-head span:nth-child(7), .table-card.col-11.btn-icon .table-head span:nth-child(7), .table-card.col-11.btn-delete .table-head span:nth-child(7), .table-card.col-11.btn-secondary .table-head span:nth-child(7), .section-header ul a.table-card.col-11 .table-head span:nth-child(7), .table-card.col-11.btn-primary .table-head span:nth-child(7), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(7), header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(7), .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span:nth-child(7), .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span:nth-child(7), .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span:nth-child(7), .table-card.col-11.popup .row-line span:nth-child(7), .table-card.col-11.btn .row-line span:nth-child(7), .main-nav a.table-card.col-11 .row-line span:nth-child(7), .table-card.col-11.btn-icon .row-line span:nth-child(7), .table-card.col-11.btn-delete .row-line span:nth-child(7), .table-card.col-11.btn-secondary .row-line span:nth-child(7), .section-header ul a.table-card.col-11 .row-line span:nth-child(7), .table-card.col-11.btn-primary .row-line span:nth-child(7) {
+  width: 8%;
+}
+.card.table-card.col-11 .table-head span:nth-child(8), .card.table-card.col-11 .row-line span:nth-child(8), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(8), header .menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(8), .dashboard .scene.dash-home .table-card.col-11.card-header .table-head span:nth-child(8), .dashboard .scene.dash-home .table-card.col-11.card-body .table-head span:nth-child(8), .dashboard .scene.dash-home .table-card.col-11.card-footer .table-head span:nth-child(8), .table-card.col-11.popup .table-head span:nth-child(8), .table-card.col-11.btn .table-head span:nth-child(8), .main-nav a.table-card.col-11 .table-head span:nth-child(8), .table-card.col-11.btn-icon .table-head span:nth-child(8), .table-card.col-11.btn-delete .table-head span:nth-child(8), .table-card.col-11.btn-secondary .table-head span:nth-child(8), .section-header ul a.table-card.col-11 .table-head span:nth-child(8), .table-card.col-11.btn-primary .table-head span:nth-child(8), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(8), header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(8), .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span:nth-child(8), .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span:nth-child(8), .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span:nth-child(8), .table-card.col-11.popup .row-line span:nth-child(8), .table-card.col-11.btn .row-line span:nth-child(8), .main-nav a.table-card.col-11 .row-line span:nth-child(8), .table-card.col-11.btn-icon .row-line span:nth-child(8), .table-card.col-11.btn-delete .row-line span:nth-child(8), .table-card.col-11.btn-secondary .row-line span:nth-child(8), .section-header ul a.table-card.col-11 .row-line span:nth-child(8), .table-card.col-11.btn-primary .row-line span:nth-child(8) {
+  width: 8%;
+}
+.card.table-card.col-11 .table-head span:nth-child(9), .card.table-card.col-11 .row-line span:nth-child(9), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(9), header .menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(9), .dashboard .scene.dash-home .table-card.col-11.card-header .table-head span:nth-child(9), .dashboard .scene.dash-home .table-card.col-11.card-body .table-head span:nth-child(9), .dashboard .scene.dash-home .table-card.col-11.card-footer .table-head span:nth-child(9), .table-card.col-11.popup .table-head span:nth-child(9), .table-card.col-11.btn .table-head span:nth-child(9), .main-nav a.table-card.col-11 .table-head span:nth-child(9), .table-card.col-11.btn-icon .table-head span:nth-child(9), .table-card.col-11.btn-delete .table-head span:nth-child(9), .table-card.col-11.btn-secondary .table-head span:nth-child(9), .section-header ul a.table-card.col-11 .table-head span:nth-child(9), .table-card.col-11.btn-primary .table-head span:nth-child(9), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(9), header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(9), .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span:nth-child(9), .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span:nth-child(9), .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span:nth-child(9), .table-card.col-11.popup .row-line span:nth-child(9), .table-card.col-11.btn .row-line span:nth-child(9), .main-nav a.table-card.col-11 .row-line span:nth-child(9), .table-card.col-11.btn-icon .row-line span:nth-child(9), .table-card.col-11.btn-delete .row-line span:nth-child(9), .table-card.col-11.btn-secondary .row-line span:nth-child(9), .section-header ul a.table-card.col-11 .row-line span:nth-child(9), .table-card.col-11.btn-primary .row-line span:nth-child(9) {
+  width: 8%;
+}
+.card.table-card.col-11 .table-head span:nth-child(10), .card.table-card.col-11 .row-line span:nth-child(10), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(10), header .menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:nth-child(10), .dashboard .scene.dash-home .table-card.col-11.card-header .table-head span:nth-child(10), .dashboard .scene.dash-home .table-card.col-11.card-body .table-head span:nth-child(10), .dashboard .scene.dash-home .table-card.col-11.card-footer .table-head span:nth-child(10), .table-card.col-11.popup .table-head span:nth-child(10), .table-card.col-11.btn .table-head span:nth-child(10), .main-nav a.table-card.col-11 .table-head span:nth-child(10), .table-card.col-11.btn-icon .table-head span:nth-child(10), .table-card.col-11.btn-delete .table-head span:nth-child(10), .table-card.col-11.btn-secondary .table-head span:nth-child(10), .section-header ul a.table-card.col-11 .table-head span:nth-child(10), .table-card.col-11.btn-primary .table-head span:nth-child(10), .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(10), header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:nth-child(10), .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span:nth-child(10), .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span:nth-child(10), .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span:nth-child(10), .table-card.col-11.popup .row-line span:nth-child(10), .table-card.col-11.btn .row-line span:nth-child(10), .main-nav a.table-card.col-11 .row-line span:nth-child(10), .table-card.col-11.btn-icon .row-line span:nth-child(10), .table-card.col-11.btn-delete .row-line span:nth-child(10), .table-card.col-11.btn-secondary .row-line span:nth-child(10), .section-header ul a.table-card.col-11 .row-line span:nth-child(10), .table-card.col-11.btn-primary .row-line span:nth-child(10) {
+  width: 8%;
+}
+.card.table-card.col-11 .table-head span:last-child, .card.table-card.col-11 .row-line span:last-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:last-child, header .menu-filter .filter-list .table-card.col-11.filter-panel .table-head span:last-child, .dashboard .scene.dash-home .table-card.col-11.card-header .table-head span:last-child, .dashboard .scene.dash-home .table-card.col-11.card-body .table-head span:last-child, .dashboard .scene.dash-home .table-card.col-11.card-footer .table-head span:last-child, .table-card.col-11.popup .table-head span:last-child, .table-card.col-11.btn .table-head span:last-child, .main-nav a.table-card.col-11 .table-head span:last-child, .table-card.col-11.btn-icon .table-head span:last-child, .table-card.col-11.btn-delete .table-head span:last-child, .table-card.col-11.btn-secondary .table-head span:last-child, .section-header ul a.table-card.col-11 .table-head span:last-child, .table-card.col-11.btn-primary .table-head span:last-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:last-child, header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span:last-child, .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span:last-child, .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span:last-child, .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span:last-child, .table-card.col-11.popup .row-line span:last-child, .table-card.col-11.btn .row-line span:last-child, .main-nav a.table-card.col-11 .row-line span:last-child, .table-card.col-11.btn-icon .row-line span:last-child, .table-card.col-11.btn-delete .row-line span:last-child, .table-card.col-11.btn-secondary .row-line span:last-child, .section-header ul a.table-card.col-11 .row-line span:last-child, .table-card.col-11.btn-primary .row-line span:last-child {
+  width: 6%;
+}
+.card.table-card.col-11 .row-line, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line, header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line, .dashboard .scene.dash-home .table-card.col-11.card-header .row-line, .dashboard .scene.dash-home .table-card.col-11.card-body .row-line, .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line, .table-card.col-11.popup .row-line, .table-card.col-11.btn .row-line, .main-nav a.table-card.col-11 .row-line, .table-card.col-11.btn-icon .row-line, .table-card.col-11.btn-delete .row-line, .table-card.col-11.btn-secondary .row-line, .section-header ul a.table-card.col-11 .row-line, .table-card.col-11.btn-primary .row-line {
+  padding: 12px 16px;
+}
+.card.table-card.col-11 .row-line span, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.col-11.filter-panel .row-line span, header .menu-filter .filter-list .table-card.col-11.filter-panel .row-line span, .dashboard .scene.dash-home .table-card.col-11.card-header .row-line span, .dashboard .scene.dash-home .table-card.col-11.card-body .row-line span, .dashboard .scene.dash-home .table-card.col-11.card-footer .row-line span, .table-card.col-11.popup .row-line span, .table-card.col-11.btn .row-line span, .main-nav a.table-card.col-11 .row-line span, .table-card.col-11.btn-icon .row-line span, .table-card.col-11.btn-delete .row-line span, .table-card.col-11.btn-secondary .row-line span, .section-header ul a.table-card.col-11 .row-line span, .table-card.col-11.btn-primary .row-line span {
+  font-size: 16px;
+}
+.card.graph-card .card-data, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data, header .menu-filter .filter-list .graph-card.filter-panel .card-data, .dashboard .scene.dash-home .graph-card.card-header .card-data, .dashboard .scene.dash-home .graph-card.card-body .card-data, .dashboard .scene.dash-home .graph-card.card-footer .card-data, .graph-card.popup .card-data, .graph-card.btn .card-data, .main-nav a.graph-card .card-data, .graph-card.btn-icon .card-data, .graph-card.btn-delete .card-data, .graph-card.btn-secondary .card-data, .section-header ul a.graph-card .card-data, .graph-card.btn-primary .card-data {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem;
+}
+.card.graph-card .card-data.graph-data, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data.graph-data, header .menu-filter .filter-list .graph-card.filter-panel .card-data.graph-data, .dashboard .scene.dash-home .graph-card.card-header .card-data.graph-data, .dashboard .scene.dash-home .graph-card.card-body .card-data.graph-data, .dashboard .scene.dash-home .graph-card.card-footer .card-data.graph-data, .graph-card.popup .card-data.graph-data, .graph-card.btn .card-data.graph-data, .main-nav a.graph-card .card-data.graph-data, .graph-card.btn-icon .card-data.graph-data, .graph-card.btn-delete .card-data.graph-data, .graph-card.btn-secondary .card-data.graph-data, .section-header ul a.graph-card .card-data.graph-data, .graph-card.btn-primary .card-data.graph-data {
+  flex-direction: column;
+}
+.card.graph-card .card-data figure, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data figure, header .menu-filter .filter-list .graph-card.filter-panel .card-data figure, .dashboard .scene.dash-home .graph-card.card-header .card-data figure, .dashboard .scene.dash-home .graph-card.card-body .card-data figure, .dashboard .scene.dash-home .graph-card.card-footer .card-data figure, .graph-card.popup .card-data figure, .graph-card.btn .card-data figure, .main-nav a.graph-card .card-data figure, .graph-card.btn-icon .card-data figure, .graph-card.btn-delete .card-data figure, .graph-card.btn-secondary .card-data figure, .section-header ul a.graph-card .card-data figure, .graph-card.btn-primary .card-data figure {
+  position: relative;
+}
+.card.graph-card .card-data .txt-data, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data, header .menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data, .dashboard .scene.dash-home .graph-card.card-header .card-data .txt-data, .dashboard .scene.dash-home .graph-card.card-body .card-data .txt-data, .dashboard .scene.dash-home .graph-card.card-footer .card-data .txt-data, .graph-card.popup .card-data .txt-data, .graph-card.btn .card-data .txt-data, .main-nav a.graph-card .card-data .txt-data, .graph-card.btn-icon .card-data .txt-data, .graph-card.btn-delete .card-data .txt-data, .graph-card.btn-secondary .card-data .txt-data, .section-header ul a.graph-card .card-data .txt-data, .graph-card.btn-primary .card-data .txt-data {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  justify-content: space-between;
+  width: 100%;
+  padding-block: 1rem;
+  padding-left: 1rem;
+}
+.card.graph-card .card-data .txt-data .data-content, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .data-content, header .menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .data-content, .dashboard .scene.dash-home .graph-card.card-header .card-data .txt-data .data-content, .dashboard .scene.dash-home .graph-card.card-body .card-data .txt-data .data-content, .dashboard .scene.dash-home .graph-card.card-footer .card-data .txt-data .data-content, .graph-card.popup .card-data .txt-data .data-content, .graph-card.btn .card-data .txt-data .data-content, .main-nav a.graph-card .card-data .txt-data .data-content, .graph-card.btn-icon .card-data .txt-data .data-content, .graph-card.btn-delete .card-data .txt-data .data-content, .graph-card.btn-secondary .card-data .txt-data .data-content, .section-header ul a.graph-card .card-data .txt-data .data-content, .graph-card.btn-primary .card-data .txt-data .data-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.card.graph-card .card-data .txt-data .data-line, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .data-line, header .menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .data-line, .dashboard .scene.dash-home .graph-card.card-header .card-data .txt-data .data-line, .dashboard .scene.dash-home .graph-card.card-body .card-data .txt-data .data-line, .dashboard .scene.dash-home .graph-card.card-footer .card-data .txt-data .data-line, .graph-card.popup .card-data .txt-data .data-line, .graph-card.btn .card-data .txt-data .data-line, .main-nav a.graph-card .card-data .txt-data .data-line, .graph-card.btn-icon .card-data .txt-data .data-line, .graph-card.btn-delete .card-data .txt-data .data-line, .graph-card.btn-secondary .card-data .txt-data .data-line, .section-header ul a.graph-card .card-data .txt-data .data-line, .graph-card.btn-primary .card-data .txt-data .data-line {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  justify-content: space-between;
+}
+.card.graph-card .card-data .txt-data .data-line .v-female, .card.graph-card .card-data .txt-data .data-line .v-male, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .data-line .v-female, header .menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .data-line .v-female, .dashboard .scene.dash-home .graph-card.card-header .card-data .txt-data .data-line .v-female, .dashboard .scene.dash-home .graph-card.card-body .card-data .txt-data .data-line .v-female, .dashboard .scene.dash-home .graph-card.card-footer .card-data .txt-data .data-line .v-female, .graph-card.popup .card-data .txt-data .data-line .v-female, .graph-card.btn .card-data .txt-data .data-line .v-female, .main-nav a.graph-card .card-data .txt-data .data-line .v-female, .graph-card.btn-icon .card-data .txt-data .data-line .v-female, .graph-card.btn-delete .card-data .txt-data .data-line .v-female, .graph-card.btn-secondary .card-data .txt-data .data-line .v-female, .section-header ul a.graph-card .card-data .txt-data .data-line .v-female, .graph-card.btn-primary .card-data .txt-data .data-line .v-female, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .data-line .v-male, header .menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .data-line .v-male, .dashboard .scene.dash-home .graph-card.card-header .card-data .txt-data .data-line .v-male, .dashboard .scene.dash-home .graph-card.card-body .card-data .txt-data .data-line .v-male, .dashboard .scene.dash-home .graph-card.card-footer .card-data .txt-data .data-line .v-male, .graph-card.popup .card-data .txt-data .data-line .v-male, .graph-card.btn .card-data .txt-data .data-line .v-male, .main-nav a.graph-card .card-data .txt-data .data-line .v-male, .graph-card.btn-icon .card-data .txt-data .data-line .v-male, .graph-card.btn-delete .card-data .txt-data .data-line .v-male, .graph-card.btn-secondary .card-data .txt-data .data-line .v-male, .section-header ul a.graph-card .card-data .txt-data .data-line .v-male, .graph-card.btn-primary .card-data .txt-data .data-line .v-male {
+  font-weight: bold;
+}
+.card.graph-card .card-data .txt-data > .data-line, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data > .data-line, header .menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data > .data-line, .dashboard .scene.dash-home .graph-card.card-header .card-data .txt-data > .data-line, .dashboard .scene.dash-home .graph-card.card-body .card-data .txt-data > .data-line, .dashboard .scene.dash-home .graph-card.card-footer .card-data .txt-data > .data-line, .graph-card.popup .card-data .txt-data > .data-line, .graph-card.btn .card-data .txt-data > .data-line, .main-nav a.graph-card .card-data .txt-data > .data-line, .graph-card.btn-icon .card-data .txt-data > .data-line, .graph-card.btn-delete .card-data .txt-data > .data-line, .graph-card.btn-secondary .card-data .txt-data > .data-line, .section-header ul a.graph-card .card-data .txt-data > .data-line, .graph-card.btn-primary .card-data .txt-data > .data-line {
+  align-self: flex-end;
+}
+.card.graph-card .card-data .txt-data > .data-line .title-data, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data > .data-line .title-data, header .menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data > .data-line .title-data, .dashboard .scene.dash-home .graph-card.card-header .card-data .txt-data > .data-line .title-data, .dashboard .scene.dash-home .graph-card.card-body .card-data .txt-data > .data-line .title-data, .dashboard .scene.dash-home .graph-card.card-footer .card-data .txt-data > .data-line .title-data, .graph-card.popup .card-data .txt-data > .data-line .title-data, .graph-card.btn .card-data .txt-data > .data-line .title-data, .main-nav a.graph-card .card-data .txt-data > .data-line .title-data, .graph-card.btn-icon .card-data .txt-data > .data-line .title-data, .graph-card.btn-delete .card-data .txt-data > .data-line .title-data, .graph-card.btn-secondary .card-data .txt-data > .data-line .title-data, .section-header ul a.graph-card .card-data .txt-data > .data-line .title-data, .graph-card.btn-primary .card-data .txt-data > .data-line .title-data {
+  font-size: 20px;
+}
+.card.graph-card .card-data .txt-data .line-title, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .line-title, header .menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .line-title, .dashboard .scene.dash-home .graph-card.card-header .card-data .txt-data .line-title, .dashboard .scene.dash-home .graph-card.card-body .card-data .txt-data .line-title, .dashboard .scene.dash-home .graph-card.card-footer .card-data .txt-data .line-title, .graph-card.popup .card-data .txt-data .line-title, .graph-card.btn .card-data .txt-data .line-title, .main-nav a.graph-card .card-data .txt-data .line-title, .graph-card.btn-icon .card-data .txt-data .line-title, .graph-card.btn-delete .card-data .txt-data .line-title, .graph-card.btn-secondary .card-data .txt-data .line-title, .section-header ul a.graph-card .card-data .txt-data .line-title, .graph-card.btn-primary .card-data .txt-data .line-title {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+.card.graph-card .card-data .txt-data .dot, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .dot, header .menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .dot, .dashboard .scene.dash-home .graph-card.card-header .card-data .txt-data .dot, .dashboard .scene.dash-home .graph-card.card-body .card-data .txt-data .dot, .dashboard .scene.dash-home .graph-card.card-footer .card-data .txt-data .dot, .graph-card.popup .card-data .txt-data .dot, .graph-card.btn .card-data .txt-data .dot, .main-nav a.graph-card .card-data .txt-data .dot, .graph-card.btn-icon .card-data .txt-data .dot, .graph-card.btn-delete .card-data .txt-data .dot, .graph-card.btn-secondary .card-data .txt-data .dot, .section-header ul a.graph-card .card-data .txt-data .dot, .graph-card.btn-primary .card-data .txt-data .dot {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  background-color: var(--female-color);
+}
+.card.graph-card .card-data .txt-data .dot.male, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .dot.male, header .menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data .dot.male, .dashboard .scene.dash-home .graph-card.card-header .card-data .txt-data .dot.male, .dashboard .scene.dash-home .graph-card.card-body .card-data .txt-data .dot.male, .dashboard .scene.dash-home .graph-card.card-footer .card-data .txt-data .dot.male, .graph-card.popup .card-data .txt-data .dot.male, .graph-card.btn .card-data .txt-data .dot.male, .main-nav a.graph-card .card-data .txt-data .dot.male, .graph-card.btn-icon .card-data .txt-data .dot.male, .graph-card.btn-delete .card-data .txt-data .dot.male, .graph-card.btn-secondary .card-data .txt-data .dot.male, .section-header ul a.graph-card .card-data .txt-data .dot.male, .graph-card.btn-primary .card-data .txt-data .dot.male {
+  background-color: var(--male-color);
+}
+.card.graph-card .card-data .txt-data svg, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data svg, header .menu-filter .filter-list .graph-card.filter-panel .card-data .txt-data svg, .dashboard .scene.dash-home .graph-card.card-header .card-data .txt-data svg, .dashboard .scene.dash-home .graph-card.card-body .card-data .txt-data svg, .dashboard .scene.dash-home .graph-card.card-footer .card-data .txt-data svg, .graph-card.popup .card-data .txt-data svg, .graph-card.btn .card-data .txt-data svg, .main-nav a.graph-card .card-data .txt-data svg, .graph-card.btn-icon .card-data .txt-data svg, .graph-card.btn-delete .card-data .txt-data svg, .graph-card.btn-secondary .card-data .txt-data svg, .section-header ul a.graph-card .card-data .txt-data svg, .graph-card.btn-primary .card-data .txt-data svg {
+  width: 20px;
+  fill: var(--txt-secondary);
+}
+.card.graph-card:last-child, .sidebar-wrapper .sidebar li.menu-filter .filter-list .graph-card.filter-panel:last-child, header .menu-filter .filter-list .graph-card.filter-panel:last-child, .dashboard .scene.dash-home .graph-card.card-header:last-child, .dashboard .scene.dash-home .graph-card.card-body:last-child, .dashboard .scene.dash-home .graph-card.card-footer:last-child, .graph-card.popup:last-child, .graph-card.btn:last-child, .main-nav a.graph-card:last-child, .graph-card.btn-icon:last-child, .graph-card.btn-delete:last-child, .graph-card.btn-secondary:last-child, .section-header ul a.graph-card:last-child, .graph-card.btn-primary:last-child {
+  flex: 1;
 }
 
 /* BUTTONS */
-.btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .dashboard .section-header ul a, .btn-primary {
+.btn, .main-nav a, .btn-icon, .btn-delete, .btn-secondary, .section-header ul a, .btn-primary {
   display: flex;
   flex-direction: column;
   gap: 0;
@@ -208,16 +568,16 @@
   color: var(--txt-default);
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 }
-.btn svg, .main-nav a svg, .btn-icon svg, .btn-delete svg, .btn-secondary svg, .dashboard .section-header ul a svg, .btn-primary svg {
+.btn svg, .main-nav a svg, .btn-icon svg, .btn-delete svg, .btn-secondary svg, .section-header ul a svg, .btn-primary svg {
   fill: var(--txt-default);
 }
-.btn:hover, .btn.selected, .btn.disabled, .main-nav a:hover, .btn-icon:hover, .btn-delete:hover, .btn-secondary:hover, .dashboard .section-header ul a:hover, .btn-primary:hover, .main-nav a.selected, .selected.btn-icon, .selected.btn-delete, .selected.btn-secondary, .dashboard .section-header ul a.selected, .selected.btn-primary, .main-nav a.disabled, .disabled.btn-icon, .disabled.btn-delete, .disabled.btn-secondary, .dashboard .section-header ul a.disabled, .disabled.btn-primary {
+.btn:hover, .btn.selected, .btn.disabled, .main-nav a:hover, .btn-icon:hover, .btn-delete:hover, .btn-secondary:hover, .section-header ul a:hover, .btn-primary:hover, .main-nav a.selected, .selected.btn-icon, .selected.btn-delete, .selected.btn-secondary, .section-header ul a.selected, .selected.btn-primary, .main-nav a.disabled, .disabled.btn-icon, .disabled.btn-delete, .disabled.btn-secondary, .section-header ul a.disabled, .disabled.btn-primary {
   box-shadow: none;
 }
-.btn.selected, .main-nav a.selected, .selected.btn-icon, .selected.btn-delete, .selected.btn-secondary, .dashboard .section-header ul a.selected, .selected.btn-primary {
+.btn.selected, .main-nav a.selected, .selected.btn-icon, .selected.btn-delete, .selected.btn-secondary, .section-header ul a.selected, .selected.btn-primary {
   cursor: default;
 }
-.btn.disabled, .main-nav a.disabled, .disabled.btn-icon, .disabled.btn-delete, .disabled.btn-secondary, .dashboard .section-header ul a.disabled, .disabled.btn-primary {
+.btn.disabled, .main-nav a.disabled, .disabled.btn-icon, .disabled.btn-delete, .disabled.btn-secondary, .section-header ul a.disabled, .disabled.btn-primary {
   opacity: 0.4;
 }
 
@@ -239,18 +599,18 @@
   fill: var(--bg-primary);
 }
 
-.btn-secondary, .dashboard .section-header ul a {
+.btn-secondary, .section-header ul a {
   color: var(--txt-primary);
 }
-.btn-secondary svg, .dashboard .section-header ul a svg {
+.btn-secondary svg, .section-header ul a svg {
   fill: var(--bg-primary);
 }
-.btn-secondary:hover, .btn-secondary.selected, .dashboard .section-header ul a:hover, .dashboard .section-header ul a.selected {
-  border-color: var(--primary-color);
+.btn-secondary:hover, .btn-secondary.selected, .section-header ul a:hover, .section-header ul a.selected {
+  border-color: var(--bg-selected);
 }
-.btn-secondary.selected, .dashboard .section-header ul a.selected {
-  color: white;
-  background-color: var(--primary-color);
+.btn-secondary.selected, .section-header ul a.selected {
+  color: var(--txt-secondary);
+  background-color: var(--bg-selected);
 }
 
 .btn-icon, .btn-delete {
@@ -298,7 +658,7 @@
   height: 36px;
 }
 .time-controls .btn-secondary:hover {
-  border-color: #ced4da;
+  border-color: var(--pale-slate-grey);
 }
 .time-controls .time-display {
   display: flex;
@@ -308,7 +668,7 @@
   justify-content: center;
   height: 40px;
   padding-inline: 1rem;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--pale-slate-grey);
 }
 
 /* FORMS */
@@ -316,12 +676,39 @@
 input {
   width: 96px;
   padding: 5px 8px;
-  border: 1px solid #6C6F70;
+  border: 1px solid var(--ceva-body-color);
   border-radius: 6px;
   font-size: 14px;
 }
 input:focus {
-  border: 1px solid #00add8;
+  border: 1px solid var(--ceva-ceva-color);
+}
+
+/* GRAPHS */
+.half-circle {
+  width: 160px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--male-color) 0 170deg, var(--female-color) 171deg 360deg);
+}
+
+.white-circle {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: flex-start;
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  width: 112px;
+  aspect-ratio: 1;
+  padding-inline: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--bg-primary);
+}
+.white-circle .circle-data:last-child {
+  align-self: flex-end;
 }
 
 /*********** BASE / RESET STYLES ***********/
@@ -339,7 +726,8 @@ body {
   max-height: 100%;
   font-family: Arial, sans-serif;
   font-size: 16px;
-  color: #3c3c3c;
+  color: var(--txt-body);
+  background-color: var(--bg-primary);
 }
 
 a {
@@ -366,6 +754,30 @@ img {
   vertical-align: middle;
   height: auto;
 }
+img.img-responsive {
+  width: 100%;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+/* ::-webkit-scrollbar {
+  display: none;
+} */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.5);
+  cursor: grab;
+}
+::-webkit-scrollbar-thumb:focus {
+  cursor: grabbing;
+}
 
 /*********** IMPORTS ***********/
 /******************* COMPONENTS *******************/
@@ -384,11 +796,11 @@ img {
   width: 48%;
   height: 80px;
   padding: 24px;
-  border-color: #e8ebef;
+  border-color: var(--alabaster-grey);
   transition: border-color 0.2s ease;
 }
 .main-nav a:hover {
-  border-color: #00325a;
+  border-color: var(--ceva-nt-blue);
 }
 .main-nav a img {
   width: 100%;
@@ -465,6 +877,23 @@ img {
   flex-direction: row;
   gap: 1rem;
 }
+.popup .grid-list {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+}
+.popup .grid-list li {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+  width: 25%;
+}
+.popup .grid-list img {
+  width: 40px;
+  height: 26px;
+}
 
 /*********** IMPORTS ***********/
 /******************* LAYOUT *******************/
@@ -477,7 +906,7 @@ img {
   z-index: 1;
   width: 48px;
   height: 100%;
-  background-color: #f0f2f6;
+  background-color: var(--bg-sidenav);
   transition: width 0.24s ease 0s;
 }
 .sidebar-wrapper .sidebar {
@@ -504,11 +933,11 @@ img {
   z-index: 2;
   width: 48px;
   padding-inline: 4px;
-  background-color: #f0f2f6;
+  background-color: var(--bg-sidenav);
 }
 .sidebar-wrapper .sidebar li a figure svg, .sidebar-wrapper .sidebar li button figure svg {
   width: 20px;
-  fill: #6C6F70;
+  fill: var(--txt-default);
 }
 .sidebar-wrapper .sidebar li a span, .sidebar-wrapper .sidebar li button span {
   position: relative;
@@ -528,22 +957,22 @@ img {
   transform: translateX(-152px);
 }
 .sidebar-wrapper .sidebar li a:hover, .sidebar-wrapper .sidebar li button:hover {
-  background-color: #ced4da;
+  background-color: var(--bg-side-hov);
 }
 .sidebar-wrapper .sidebar li a:hover figure, .sidebar-wrapper .sidebar li button:hover figure {
-  background-color: #ced4da;
+  background-color: var(--bg-side-hov);
 }
 .sidebar-wrapper .sidebar li.selected {
   font-weight: bold;
-  color: white;
-  background-color: #00325a;
+  color: var(--txt-secondary);
+  background-color: var(--bg-selected);
   cursor: default;
 }
 .sidebar-wrapper .sidebar li.selected figure {
-  background-color: #00325a;
+  background-color: var(--bg-selected);
 }
 .sidebar-wrapper .sidebar li.selected figure svg {
-  fill: white;
+  fill: var(--bg-primary);
 }
 .sidebar-wrapper .sidebar li.selected a:hover {
   cursor: default;
@@ -683,8 +1112,8 @@ footer {
   width: 100%;
   padding: 0.5rem;
   font-size: 14px;
-  color: white;
-  background-color: #00325a;
+  color: var(--txt-secondary);
+  background-color: var(--bg-secondary);
 }
 @media (min-width: 640px) {
   footer {
@@ -726,7 +1155,10 @@ footer ul {
   flex-grow: 1;
   padding-left: 48px;
   padding-bottom: 60px;
-  background-color: white;
+  background-color: var(--bg-default);
+}
+.content-wrapper.w-home {
+  background-color: var(--bg-primary);
 }
 
 header {
@@ -736,32 +1168,19 @@ header {
   align-items: center;
   justify-content: space-between;
   height: 84px;
+  min-height: 84px;
+  flex: 0 0 84px;
+  flex-shrink: 0;
   padding-inline: 1rem;
-  background-color: #00add8;
+  background-color: var(--bg-secondary);
 }
 header .h-left-side {
   display: flex;
   flex-direction: row;
   gap: 0;
 }
-header .h-left-side.h-home {
-  flex-direction: column;
-}
-header .h-left-side.h-home .brand-name {
-  font-family: "myriad-pro", sans-serif;
-  font-style: italic;
-  font-weight: bold;
-  line-height: 1;
-  color: white;
-}
-header .h-left-side.h-home .tagline {
-  font-family: "Jura", sans-serif;
-  font-size: 14px;
-  color: #00325a;
-}
-header .h-left-side:not(.h-home) {
-  align-items: center;
-  gap: 4rem;
+header .h-left-side img {
+  height: 60px;
 }
 header .h-right-side {
   display: flex;
@@ -901,15 +1320,6 @@ header .menu-filter.is-open .filter-list {
   header {
     padding-inline: 1.25rem;
   }
-  header .h-left-side.h-home {
-    gap: 0.25rem;
-  }
-  header .h-left-side.h-home .brand-name {
-    font-size: 28px;
-  }
-  header .h-left-side.h-home .tagline {
-    font-size: 20px;
-  }
   header .h-right-side {
     gap: 1.5rem;
   }
@@ -922,6 +1332,39 @@ header .menu-filter.is-open .filter-list {
     gap: 2rem;
   }
 }
+header.h-home {
+  background-color: var(--highlight-color);
+}
+header.h-home .h-left-side {
+  flex-direction: column;
+}
+header.h-home .h-left-side .brand-name {
+  font-family: "myriad-pro", sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--txt-secondary);
+}
+header.h-home .h-left-side .tagline {
+  font-family: "Jura", sans-serif;
+  font-size: 14px;
+  color: var(--txt-primary);
+}
+@media (min-width: 640px) {
+  header.h-home .h-left-side {
+    gap: 0.25rem;
+  }
+  header.h-home .h-left-side .brand-name {
+    font-size: 28px;
+  }
+  header.h-home .h-left-side .tagline {
+    font-size: 20px;
+  }
+}
+header:not(.h-home) .h-left-side {
+  align-items: center;
+  gap: 4rem;
+}
 
 main {
   display: flex;
@@ -929,6 +1372,7 @@ main {
   gap: 0;
   flex-grow: 1;
   align-items: center;
+  overflow: hidden;
 }
 
 /* MAIN CONTENT */
@@ -938,212 +1382,199 @@ section {
   gap: 0;
   width: 100%;
   height: 100%;
-  padding-top: 1.5rem;
-  padding-inline: 1.5rem;
+  padding: 1.5rem;
 }
-section .section-header {
+
+.section-header {
   display: flex;
   flex-direction: column;
   gap: 0;
-  justify-content: flex-end;
   row-gap: 0.75rem;
+  justify-content: space-between;
   height: 48px;
+  min-height: 48px;
+  flex: 0 0 48px;
+  flex-shrink: 0;
 }
-section .section-header li {
+.section-header ul {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.section-header ul li {
   display: flex;
 }
-section .section-header #clock, section .section-header .time-display {
+.section-header ul a {
+  font-weight: bold;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+.section-header #clock, .section-header .time-display {
   font-family: "Roboto Mono", monospace;
   font-size: 1.25rem;
-  color: #6C6F70;
+  color: var(--txt-default);
 }
-section .scene {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  flex-grow: 1;
-  align-items: center;
-  position: relative;
-  z-index: 0;
-  width: 100%;
-  padding-top: 3rem;
-}
-section .scene .hero {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-section .scene .hero .h-tagline {
-  font-family: "myriad-pro", sans-serif;
-  font-style: italic;
-  font-weight: bold;
-  font-size: 28px;
-}
-@media (min-width: 640px) {
-  section .scene {
-    gap: 6rem;
-    padding-top: 11rem;
-  }
-  section .scene .hero .h-tagline {
-    font-size: 48px;
-  }
+.section-header.sh-home {
+  justify-content: flex-end;
 }
 @media (min-width: 1160px) {
-  section .section-header {
+  .section-header {
     display: flex;
     flex-direction: row;
     gap: 0;
     align-items: center;
   }
 }
-.content {
-  width: 75%;
-}
-.content.c-full {
-  width: 100%;
-}
 
-.content-full {
-  width: 100%;
-}
-
-.content-left {
+.scene {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  width: 60%;
+  gap: 2rem;
+  flex-grow: 1;
+  position: relative;
+  z-index: 0;
+  width: 100%;
+  overflow: hidden;
 }
-.content-left .card-wrapper {
-  gap: 0.5rem;
+.scene.sc-home {
+  align-items: center;
+  justify-content: center;
 }
-.content-left .card-title {
-  font-size: 16px !important;
-}
-.content-left .card-title-side {
-  font-size: 20px !important;
-}
-
-.content-right {
+.scene.sc-home .hero {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
-  width: 40%;
+  gap: 1.5rem;
 }
-.content-right .card-title {
-  font-size: 16px !important;
+.scene.sc-home .hero .h-tagline {
+  font-family: "myriad-pro", sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 28px;
+  color: var(--txt-primary);
 }
-.content-right .card-title-side {
-  font-size: 20px !important;
+@media (min-width: 640px) {
+  .scene.sc-home {
+    gap: 6rem;
+  }
+  .scene.sc-home .hero .h-tagline {
+    font-size: 48px;
+  }
 }
 
-.grid-list {
-  display: flex;
-  flex-direction: row;
+/* DASHBOARDS SPECIFIC STYLES */
+.dashboard section {
+  gap: 1.5rem;
+}
+.dashboard .scene {
   gap: 1rem;
+}
+.dashboard .scene.dash-home {
+  gap: 3rem;
+  padding-inline: 0.5rem;
+}
+.dashboard .scene.dash-home .card-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   width: 100%;
 }
-.grid-list li {
+.dashboard .scene.dash-home figure {
+  width: 80%;
+  position: relative;
+}
+.dashboard .scene.dash-home figure img {
+  width: 100%;
+}
+.dashboard .scene.dash-home figure svg {
+  position: absolute;
+  width: 52px;
+  fill: var(--ceva-dn-orange);
+}
+.dashboard .scene.dash-home figure svg.svg-1 {
+  top: 36%;
+  left: 24%;
+}
+.dashboard .scene.dash-home figure svg.svg-2 {
+  top: 48%;
+  right: -2%;
+}
+.dashboard .scene.dash-home .content {
+  width: 100%;
+}
+.dashboard .scene.dash-home .row-line {
+  padding-inline: 0 12px;
+}
+.dashboard .scene.dash-home .row-line .line {
   display: flex;
   flex-direction: row;
   gap: 0.5rem;
   align-items: center;
-  width: 25%;
+  width: 80%;
 }
-.grid-list img {
-  width: 40px;
-  height: 26px;
+.dashboard .scene.dash-home .row-line .line svg {
+  width: 48px;
+  fill: var(--primary-color);
 }
-
-/* NINJA */
-.hide {
-  display: none !important;
-}
-
-.hidden {
-  color: #e8ebef !important;
-}
-
-.ninja-4th-wall {
-  display: none;
-  position: absolute;
-  z-index: 0;
-  top: 0.5rem;
-  left: 0;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 2px;
-  font-size: 14px;
-  font-style: italic;
-  color: #6C6F70;
-  background-color: rgba(255, 199, 44, 0.5);
-}
-@media (min-width: 1536px) {
-  .ninja-4th-wall {
-    display: flex;
-    flex-direction: row;
-    gap: 0.5rem;
-  }
-}
-
-/*********** IMPORTS ***********/
-/******************* UTILITIES *******************/
-/* FLEX KIT */
-/*********** PAGES ***********/
-/* DASHBOARDS SPECIFIC STYLES */
-.dashboard header {
-  padding-block: 0.75rem;
-  background-color: var(--primary-color);
-}
-.dashboard header .h-left-side img {
-  height: 60px;
-}
-.dashboard .content-wrapper {
-  background-color: #e8ebef;
-}
-.dashboard .section-header {
-  justify-content: space-between;
-}
-.dashboard .section-header ul {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-}
-.dashboard .section-header ul a {
-  font-weight: bold;
-  font-size: 0.875rem;
-  text-transform: uppercase;
-  letter-spacing: -0.5px;
-}
-.dashboard .scene {
+.dashboard .scene.dash-home .row-line .line-end {
   display: flex;
   flex-direction: column;
   gap: 0;
-  padding-top: 2rem;
+  justify-content: center;
+  align-items: flex-end;
+  width: 20%;
 }
-.dashboard .scene figure {
-  position: relative;
+.dashboard .scene.dash-home .row-line .line-end span:first-child {
+  font-size: 18px;
+  font-weight: bold;
 }
-.dashboard .scene figure img {
-  width: 100%;
+.dashboard .scene.dash-home .row-line .line-end span:nth-child(2) {
+  font-style: italic;
+  color: var(--ceva-body-color);
 }
-.dashboard .scene figure svg {
-  position: absolute;
-  top: 22%;
-  left: 12%;
-  width: 60px;
-  fill: #ff8200;
+.dashboard .scene.dash-home .card-header {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  justify-content: space-between;
+  padding: 0;
 }
-.dashboard .scene.dash-home {
-  flex-direction: column;
-  gap: 3rem;
-  padding-inline: 0.5rem;
+.dashboard .scene.dash-home .card-header .card-title {
+  padding: 16px;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  font-size: 24px;
+  text-transform: none;
+  color: var(--txt-secondary);
+  background-color: var(--bg-secondary);
 }
-.dashboard .scene.dash-home figure {
-  width: 80%;
+.dashboard .scene.dash-home .card-header .card-title-side {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+  align-items: center;
+  justify-content: center;
+  padding-right: 32px;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--txt-primary);
 }
-.dashboard .scene.dash-home .content {
-  width: 100%;
-  padding-top: 2rem;
+.dashboard .scene.dash-home .card-body {
+  padding: 0;
+  padding-inline: 20px;
+}
+.dashboard .scene.dash-home .card-footer {
+  padding: 0;
+}
+.dashboard .scene.dash-home .card-footer .row-line {
+  padding-inline: 24px 32px;
+}
+.dashboard .scene.dash-home .card-footer .row-line .line-end span:first-child {
+  font-size: 24px;
+}
+.dashboard .scene.dash-home .card-footer .footer-title {
+  font-size: 24px;
+  color: var(--primary-color);
 }
 @media (min-width: 1024px) {
   .dashboard .scene.dash-home {
@@ -1155,7 +1586,14 @@ section .scene .hero .h-tagline {
   }
   .dashboard .scene.dash-home .content {
     width: 50%;
-    padding-top: 2rem;
+  }
+}
+@media (min-width: 1160px) {
+  .dashboard .scene.dash-home {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    align-items: start;
   }
 }
 @media (min-width: 1280px) {
@@ -1170,744 +1608,85 @@ section .scene .hero .h-tagline {
     width: 40%;
   }
 }
-@media (min-width: 1160px) {
-  .dashboard .scene {
+
+/******* CONTENT STRUCTURE *******/
+/* CONTAINERS */
+.card-wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  width: 100%;
+}
+
+.dashboard-1 .content-full {
+  width: 100%;
+}
+.dashboard-1 .content-left {
+  width: 60%;
+}
+.dashboard-1 .content-right {
+  width: 40%;
+}
+.dashboard-1 .content-middle {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  flex-grow: 1;
+  overflow: hidden;
+}
+.dashboard-1 .content-middle .content-left, .dashboard-1 .content-middle .content-right {
+  flex-direction: column;
+}
+
+.dashboard-2 .card-wrapper {
+  height: 100%;
+  max-height: 100%;
+}
+
+.dashboard-3 .card-wrapper {
+  flex: 1;
+}
+
+.dashboard-5 .card-wrapper:last-child {
+  flex: 1;
+}
+
+/* NINJA */
+.hide {
+  display: none !important;
+}
+
+.hidden {
+  color: var(--alabaster-grey) !important;
+}
+
+.ninja-4th-wall {
+  display: none;
+  position: absolute;
+  z-index: 0;
+  top: 92px;
+  left: 56px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 2px;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--txt-default);
+  background-color: rgba(255, 199, 44, 0.5);
+}
+.ninja-4th-wall.a-right {
+  top: 102px;
+  left: initial;
+  right: 16px;
+}
+@media (min-width: 1536px) {
+  .ninja-4th-wall {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
-    align-items: start;
+    gap: 0.5rem;
   }
 }
-.dashboard .card-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 100%;
-}
-.dashboard .card-wrapper .card-header {
-  display: flex;
-  flex-direction: row;
-  gap: 0;
-  justify-content: space-between;
-}
-.dashboard .card-wrapper .card-header .card-title {
-  padding: 16px;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  font-size: 24px;
-  color: white;
-  background-color: var(--primary-color);
-}
-.dashboard .card-wrapper .card-header .card-title-side {
-  display: flex;
-  flex-direction: row;
-  gap: 0;
-  align-items: center;
-  justify-content: center;
-  padding-right: 32px;
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--primary-color);
-}
-.dashboard .card-wrapper .row-line {
-  display: flex;
-  padding: 16px;
-  padding-right: 32px;
-  border-bottom: 1px solid #e8ebef;
-}
-.dashboard .card-wrapper .row-line:last-child {
-  border-bottom: none;
-}
-.dashboard .card-wrapper .row-line .line {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  align-items: center;
-  width: 80%;
-}
-.dashboard .card-wrapper .row-line .line svg {
-  width: 48px;
-  fill: var(--primary-color);
-}
-.dashboard .card-wrapper .row-line .line-end {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  justify-content: center;
-  align-items: flex-end;
-  width: 20%;
-}
-.dashboard .card-wrapper .row-line .line-end span:first-child {
-  font-size: 18px;
-  font-weight: bold;
-}
-.dashboard .card-wrapper .row-line .line-end span:nth-child(2) {
-  font-style: italic;
-  color: #6C6F70;
-}
-.dashboard .card-wrapper .card-body {
-  padding-inline: 20px;
-}
-.dashboard .card-wrapper .card-body .row-line {
-  padding-inline: 0 12px;
-}
-.dashboard .card-wrapper .card-footer .row-line {
-  padding-inline: 24px 32px;
-}
-.dashboard .card-wrapper .card-footer .row-line .line-end span:first-child {
-  font-size: 24px;
-}
-.dashboard .card-wrapper .card-footer .footer-title {
-  font-size: 24px;
-  color: var(--primary-color);
-}
-.dashboard .card-wrapper .card-table .row-top-line {
-  display: flex;
-  padding: 16px;
-  padding-right: 32px;
-  font-weight: bold;
-  color: white;
-  background-color: var(--primary-color);
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-.dashboard .card-wrapper .card-table .row-line {
-  padding: 8px 16px;
-}
-.dashboard .card-wrapper .card-table .row-line span {
-  font-size: 14px;
-}
-.dashboard .card-wrapper .card-table .table-body {
-  height: 152px;
-  max-height: 152px;
-  overflow: hidden;
-}
-.dashboard .card-wrapper .card-table .table-body .table-body-container {
-  height: 100%;
-  overflow-y: auto;
-  scrollbar-gutter: stable;
-}
-.dashboard .card-wrapper .card-table.col-4 .row-top-line span:first-child, .dashboard .card-wrapper .card-table.col-4 .row-line span:first-child {
-  width: 15%;
-}
-.dashboard .card-wrapper .card-table.col-4 .row-top-line span:nth-child(2), .dashboard .card-wrapper .card-table.col-4 .row-line span:nth-child(2) {
-  width: 40%;
-}
-.dashboard .card-wrapper .card-table.col-4 .row-top-line span:nth-child(3), .dashboard .card-wrapper .card-table.col-4 .row-line span:nth-child(3) {
-  width: 30%;
-}
-.dashboard .card-wrapper .card-table.col-4 .row-top-line span:nth-child(4), .dashboard .card-wrapper .card-table.col-4 .row-line span:nth-child(4) {
-  width: 15%;
-}
-.dashboard .card-wrapper .card-table.col-4 .table-body {
-  height: 104px;
-  max-height: 104px;
-}
-.dashboard .card-wrapper .card-table.col-5 .row-top-line span:first-child, .dashboard .card-wrapper .card-table.col-5 .row-line span:first-child {
-  width: 14%;
-}
-.dashboard .card-wrapper .card-table.col-5 .row-top-line span:nth-child(2), .dashboard .card-wrapper .card-table.col-5 .row-line span:nth-child(2) {
-  width: 18%;
-}
-.dashboard .card-wrapper .card-table.col-5 .row-top-line span:nth-child(3), .dashboard .card-wrapper .card-table.col-5 .row-line span:nth-child(3) {
-  width: 32%;
-}
-.dashboard .card-wrapper .card-table.col-5 .row-top-line span:nth-child(4), .dashboard .card-wrapper .card-table.col-5 .row-line span:nth-child(4) {
-  width: 18%;
-}
-.dashboard .card-wrapper .card-table.col-5 .row-top-line span:last-child, .dashboard .card-wrapper .card-table.col-5 .row-line span:last-child {
-  width: 18%;
-}
-.dashboard .card-wrapper .card-table.col-5 .row-line {
-  padding: 12px 16px;
-}
-.dashboard .card-wrapper .card-table.col-5 .row-line span {
-  font-size: 16px;
-}
-.dashboard .card-wrapper .card-table.col-5 .table-body {
-  height: 100%;
-  max-height: 100%;
-}
-.dashboard .card-wrapper .card-table.col-6 .row-top-line span:first-child, .dashboard .card-wrapper .card-table.col-6 .row-line span:first-child {
-  width: 6%;
-}
-.dashboard .card-wrapper .card-table.col-6 .row-top-line span:nth-child(2), .dashboard .card-wrapper .card-table.col-6 .row-line span:nth-child(2) {
-  width: 24%;
-}
-.dashboard .card-wrapper .card-table.col-6 .row-top-line span:nth-child(3), .dashboard .card-wrapper .card-table.col-6 .row-line span:nth-child(3) {
-  width: 20%;
-}
-.dashboard .card-wrapper .card-table.col-6 .row-top-line span:nth-child(4), .dashboard .card-wrapper .card-table.col-6 .row-line span:nth-child(4) {
-  width: 22%;
-}
-.dashboard .card-wrapper .card-table.col-6 .row-top-line span:nth-child(5), .dashboard .card-wrapper .card-table.col-6 .row-line span:nth-child(5) {
-  width: 14%;
-}
-.dashboard .card-wrapper .card-table.col-6 .row-top-line span:last-child, .dashboard .card-wrapper .card-table.col-6 .row-line span:last-child {
-  width: 14%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-top-line span:first-child, .dashboard .card-wrapper .card-table.col-11 .row-line span:first-child {
-  width: 9%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-top-line span:nth-child(2), .dashboard .card-wrapper .card-table.col-11 .row-line span:nth-child(2) {
-  width: 14%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-top-line span:nth-child(3), .dashboard .card-wrapper .card-table.col-11 .row-line span:nth-child(3) {
-  width: 12%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-top-line span:nth-child(4), .dashboard .card-wrapper .card-table.col-11 .row-line span:nth-child(4) {
-  width: 8%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-top-line span:nth-child(5), .dashboard .card-wrapper .card-table.col-11 .row-line span:nth-child(5) {
-  width: 11%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-top-line span:nth-child(6), .dashboard .card-wrapper .card-table.col-11 .row-line span:nth-child(6) {
-  width: 8%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-top-line span:nth-child(7), .dashboard .card-wrapper .card-table.col-11 .row-line span:nth-child(7) {
-  width: 8%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-top-line span:nth-child(8), .dashboard .card-wrapper .card-table.col-11 .row-line span:nth-child(8) {
-  width: 8%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-top-line span:nth-child(9), .dashboard .card-wrapper .card-table.col-11 .row-line span:nth-child(9) {
-  width: 8%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-top-line span:nth-child(10), .dashboard .card-wrapper .card-table.col-11 .row-line span:nth-child(10) {
-  width: 8%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-top-line span:last-child, .dashboard .card-wrapper .card-table.col-11 .row-line span:last-child {
-  width: 6%;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-line {
-  padding: 12px 16px;
-}
-.dashboard .card-wrapper .card-table.col-11 .row-line span {
-  font-size: 16px;
-}
-.dashboard .card-wrapper .card-table.col-11 .table-body {
-  height: 100%;
-  max-height: 100%;
-}
-.dashboard .card-wrapper .card-graph {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  padding: 16px;
-}
-.dashboard .card-wrapper .card-graph h2 {
-  align-self: flex-start;
-  font-size: 16px;
-  color: var(--primary-color);
-}
-.dashboard .card-wrapper .double-header {
-  display: flex;
-  gap: 0.5rem;
-}
-.dashboard .card-wrapper .double-header .card-header {
-  flex: 1;
-}
-.dashboard .card-wrapper .double-header .card-header .card-title {
-  padding: 16px;
-  font-size: 16px;
-  font-weight: bold;
-}
-.dashboard .card-wrapper .double-header .card-header .card-title-side {
-  font-size: 20px;
-  font-weight: bold;
-}
-.dashboard .card-wrapper .header-w-icon {
-  display: flex;
-  align-items: center;
-  flex: 1;
-  gap: 1rem;
-}
-.dashboard .card-wrapper .header-w-icon .card-header {
-  flex: 1;
-}
-.dashboard .card-wrapper .header-w-icon figure {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background-color: #6C6F70;
-  border-radius: 100%;
-}
-.dashboard .card-wrapper .header-w-icon figure img {
-  width: 26px;
-}
-.dashboard .card-wrapper .header-w-icon svg {
-  width: 44px;
-  fill: #6C6F70;
-}
-.dashboard .card-wrapper .header-w-icon.alert svg {
-  fill: #ff8200;
-}
-.dashboard .scene.dashboard-5 {
-  padding-block: 3rem;
-  padding-inline: 0;
-}
-.dashboard .scene.dashboard-5 .content-full {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  gap: 0.5rem;
-  width: 100%;
-}
-.dashboard .scene.dashboard-5 .card-wrapper {
-  padding: 4px 16px;
-}
-.dashboard .scene.dashboard-5 .header-w-icon {
-  gap: 0;
-}
-.dashboard .scene.dashboard-5 .header-w-icon figure {
-  background-color: var(--primary-color);
-}
-.dashboard .scene.dashboard-5 .header-w-icon svg {
-  width: 44px;
-  fill: var(--primary-color);
-}
-.dashboard .scene.dashboard-5 .header-w-icon.warning svg {
-  fill: var(--primary-color);
-}
-.dashboard .scene.dashboard-5 .card-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex: 1;
-  gap: 0;
-}
-.dashboard .scene.dashboard-5 .card-header figure {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background-color: var(--primary-color);
-  border-radius: 100%;
-}
-.dashboard .scene.dashboard-5 .card-header figure img {
-  width: 26px;
-}
-.dashboard .scene.dashboard-5 .card-header svg {
-  width: 44px;
-  fill: #6C6F70;
-}
-.dashboard .scene.dashboard-5 .card-header.warning svg {
-  fill: #ff8200;
-}
-.dashboard .scene.dashboard-5 .card-header .card-title {
-  padding: 16px;
-  font-size: 24px;
-  font-weight: bold;
-  color: #6C6F70;
-  background-color: white !important;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-}
-.dashboard .scene.dashboard-5 .card-header .card-title-side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-right: 32px;
-  font-size: 24px;
-  font-weight: bold;
-  color: var(--primary-color);
-}
-.dashboard .scene.dashboard-5 .card-graph {
-  align-items: flex-start;
-  padding: 16px;
-}
-.dashboard .scene.dashboard-5 .card-graph .graph-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-.dashboard .scene.dashboard-5 .card-graph h2 {
-  align-self: center;
-  font-size: 16px;
-  color: var(--primary-color);
-}
-.dashboard .scene.dashboard-5 .card-graph figure {
-  width: 100%;
-  padding-bottom: 1rem;
-}
-.dashboard .scene.dashboard-5 .card-graph figure img {
-  width: 80%;
-}
-.dashboard .scene.dashboard-5 .action-tools {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.dashboard .scene.dashboard-5 .btn-primary {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: 40px;
-  padding: 0 16px;
-  color: white;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 8px;
-}
-.dashboard .scene.dashboard-5 .btn-primary svg {
-  width: 28px;
-  fill: white;
-}
-.dashboard .scene.dashboard-5 .double-header .header-w-icon:nth-child(2) .card-header {
-  justify-content: flex-end;
-}
-.dashboard .v2 {
-  padding: 1.5rem;
-}
-.dashboard .v2 .scene {
-  gap: 1rem;
-  padding-top: 1.5rem;
-  padding-inline: 0;
-}
-.dashboard .v2 .card-wrapper {
-  gap: 1rem;
-  padding: 16px 20px;
-}
-.dashboard .v2 .header-w-icon {
-  gap: 0;
-}
-.dashboard .v2 .header-w-icon figure {
-  background-color: var(--primary-color);
-}
-.dashboard .v2 .header-w-icon svg {
-  width: 44px;
-  fill: var(--primary-color);
-}
-.dashboard .v2 .header-w-icon.warning svg {
-  fill: #ff8200;
-}
-.dashboard .v2 .header-w-icon .icon-white svg {
-  width: 24px;
-  fill: white;
-}
-.dashboard .v2 .row-line {
-  display: flex;
-  padding: 16px;
-  padding-right: 32px;
-  border-bottom: 1px solid #e8ebef;
-}
-.dashboard .v2 .row-line:last-child {
-  border-bottom: none;
-}
-.dashboard .v2 .row-line .line {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  width: 80%;
-}
-.dashboard .v2 .row-line .line svg {
-  width: 48px !important;
-  fill: var(--primary-color);
-}
-.dashboard .v2 .row-line .line-end {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  justify-content: center;
-  align-items: flex-end;
-  width: 20%;
-}
-.dashboard .v2 .row-line .line-end span:first-child {
-  font-size: 18px;
-  font-weight: bold;
-}
-.dashboard .v2 .row-line .line-end span:nth-child(2) {
-  font-style: italic;
-  color: #6C6F70;
-}
-.dashboard .v2 .card.card-body {
-  padding-inline: 16px;
-}
-.dashboard .v2 .card.card-body .row-line {
-  padding-inline: 0;
-  padding-block: 12px;
-}
-.dashboard .v2 .card-header {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex: 1;
-  gap: 0;
-}
-.dashboard .v2 .card-header.end {
-  justify-content: flex-end;
-}
-.dashboard .v2 .card-header.between {
-  justify-content: space-between;
-}
-.dashboard .v2 .card-header figure {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  background-color: var(--primary-color);
-  border-radius: 100%;
-}
-.dashboard .v2 .card-header figure img {
-  width: 26px;
-}
-.dashboard .v2 .card-header svg {
-  width: 44px;
-  fill: #6C6F70;
-}
-.dashboard .v2 .card-header.warning svg {
-  fill: #ffc72c;
-}
-.dashboard .v2 .card-header .card-title {
-  padding: 16px;
-  font-size: 24px !important;
-  font-weight: bold;
-  color: var(--primary-color);
-  background-color: white !important;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-}
-.dashboard .v2 .card-header .card-title-side {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-right: 16px;
-  font-size: 24px !important;
-  font-weight: bold;
-  color: #00add8;
-}
-.dashboard .v2 .card.card-table .row-top-line {
-  display: flex;
-  padding: 16px;
-  padding-right: 32px;
-  font-weight: bold;
-  color: var(--primary-color);
-  background-color: white;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-  box-shadow: 0 10px 12px -10px rgba(0, 0, 0, 0.18);
-}
-.dashboard .v2 .card.card-table .row-line {
-  padding: 8px 16px;
-}
-.dashboard .v2 .card.card-table .row-line span {
-  font-size: 14px;
-}
-.dashboard .v2 .card.card-table .table-body {
-  height: 180px;
-  max-height: 180px;
-  overflow: hidden;
-}
-.dashboard .v2 .card.card-table .table-body .table-body-container {
-  height: 100%;
-  overflow-y: auto;
-  scrollbar-gutter: stable;
-}
-.dashboard .v2 .card.card-table.col-4 .row-top-line span:first-child, .dashboard .v2 .card.card-table.col-4 .row-line span:first-child {
-  width: 15%;
-}
-.dashboard .v2 .card.card-table.col-4 .row-top-line span:nth-child(2), .dashboard .v2 .card.card-table.col-4 .row-line span:nth-child(2) {
-  width: 40%;
-}
-.dashboard .v2 .card.card-table.col-4 .row-top-line span:nth-child(3), .dashboard .v2 .card.card-table.col-4 .row-line span:nth-child(3) {
-  width: 30%;
-}
-.dashboard .v2 .card.card-table.col-4 .row-top-line span:nth-child(4), .dashboard .v2 .card.card-table.col-4 .row-line span:nth-child(4) {
-  width: 15%;
-}
-.dashboard .v2 .card.card-table.col-4 .table-body {
-  height: 100%;
-  max-height: 100%;
-}
-.dashboard .v2 .card.card-table.col-5 .row-top-line span:first-child, .dashboard .v2 .card.card-table.col-5 .row-line span:first-child {
-  width: 14%;
-}
-.dashboard .v2 .card.card-table.col-5 .row-top-line span:nth-child(2), .dashboard .v2 .card.card-table.col-5 .row-line span:nth-child(2) {
-  width: 18%;
-}
-.dashboard .v2 .card.card-table.col-5 .row-top-line span:nth-child(3), .dashboard .v2 .card.card-table.col-5 .row-line span:nth-child(3) {
-  width: 32%;
-}
-.dashboard .v2 .card.card-table.col-5 .row-top-line span:nth-child(4), .dashboard .v2 .card.card-table.col-5 .row-line span:nth-child(4) {
-  width: 18%;
-}
-.dashboard .v2 .card.card-table.col-5 .row-top-line span:last-child, .dashboard .v2 .card.card-table.col-5 .row-line span:last-child {
-  width: 18%;
-}
-.dashboard .v2 .card.card-table.col-5 .row-line {
-  padding: 12px 16px;
-}
-.dashboard .v2 .card.card-table.col-5 .row-line span {
-  font-size: 16px;
-}
-.dashboard .v2 .card.card-table.col-5 .table-body {
-  height: 100%;
-  max-height: 100%;
-}
-.dashboard .v2 .card.card-table.col-6 .row-top-line span:first-child, .dashboard .v2 .card.card-table.col-6 .row-line span:first-child {
-  width: 6%;
-}
-.dashboard .v2 .card.card-table.col-6 .row-top-line span:nth-child(2), .dashboard .v2 .card.card-table.col-6 .row-line span:nth-child(2) {
-  width: 24%;
-}
-.dashboard .v2 .card.card-table.col-6 .row-top-line span:nth-child(3), .dashboard .v2 .card.card-table.col-6 .row-line span:nth-child(3) {
-  width: 20%;
-}
-.dashboard .v2 .card.card-table.col-6 .row-top-line span:nth-child(4), .dashboard .v2 .card.card-table.col-6 .row-line span:nth-child(4) {
-  width: 22%;
-}
-.dashboard .v2 .card.card-table.col-6 .row-top-line span:nth-child(5), .dashboard .v2 .card.card-table.col-6 .row-line span:nth-child(5) {
-  width: 14%;
-}
-.dashboard .v2 .card.card-table.col-6 .row-top-line span:last-child, .dashboard .v2 .card.card-table.col-6 .row-line span:last-child {
-  width: 14%;
-}
-.dashboard .v2 .card.card-table.col-7 .row-top-line span, .dashboard .v2 .card.card-table.col-7 .row-line span {
-  width: 14%;
-}
-.dashboard .v2 .card.card-table.col-7 .row-top-line span:first-child, .dashboard .v2 .card.card-table.col-7 .row-line span:first-child {
-  width: 16%;
-}
-.dashboard .v2 .card.card-table.col-7 .table-body span:first-child {
-  font-style: italic;
-  color: #6C6F70;
-}
-.dashboard .v2 .card.card-table.col-11 .row-top-line span:first-child, .dashboard .v2 .card.card-table.col-11 .row-line span:first-child {
-  width: 9%;
-}
-.dashboard .v2 .card.card-table.col-11 .row-top-line span:nth-child(2), .dashboard .v2 .card.card-table.col-11 .row-line span:nth-child(2) {
-  width: 14%;
-}
-.dashboard .v2 .card.card-table.col-11 .row-top-line span:nth-child(3), .dashboard .v2 .card.card-table.col-11 .row-line span:nth-child(3) {
-  width: 12%;
-}
-.dashboard .v2 .card.card-table.col-11 .row-top-line span:nth-child(4), .dashboard .v2 .card.card-table.col-11 .row-line span:nth-child(4) {
-  width: 8%;
-}
-.dashboard .v2 .card.card-table.col-11 .row-top-line span:nth-child(5), .dashboard .v2 .card.card-table.col-11 .row-line span:nth-child(5) {
-  width: 11%;
-}
-.dashboard .v2 .card.card-table.col-11 .row-top-line span:nth-child(6), .dashboard .v2 .card.card-table.col-11 .row-line span:nth-child(6) {
-  width: 8%;
-}
-.dashboard .v2 .card.card-table.col-11 .row-top-line span:nth-child(7), .dashboard .v2 .card.card-table.col-11 .row-line span:nth-child(7) {
-  width: 8%;
-}
-.dashboard .v2 .card.card-table.col-11 .row-top-line span:nth-child(8), .dashboard .v2 .card.card-table.col-11 .row-line span:nth-child(8) {
-  width: 8%;
-}
-.dashboard .v2 .card.card-table.col-11 .row-top-line span:nth-child(9), .dashboard .v2 .card.card-table.col-11 .row-line span:nth-child(9) {
-  width: 8%;
-}
-.dashboard .v2 .card.card-table.col-11 .row-top-line span:nth-child(10), .dashboard .v2 .card.card-table.col-11 .row-line span:nth-child(10) {
-  width: 8%;
-}
-.dashboard .v2 .card.card-table.col-11 .row-top-line span:last-child, .dashboard .v2 .card.card-table.col-11 .row-line span:last-child {
-  width: 6%;
-}
-.dashboard .v2 .card.card-table.col-11 .row-line {
-  padding: 12px 16px;
-}
-.dashboard .v2 .card.card-table.col-11 .row-line span {
-  font-size: 16px;
-}
-.dashboard .v2 .card.card-table.col-11 .table-body {
-  height: 100%;
-  max-height: 100%;
-}
-.dashboard .v2 .card-graph {
-  align-items: flex-start;
-  height: 100%;
-  padding: 16px;
-}
-.dashboard .v2 .card-graph .graph-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-}
-.dashboard .v2 .card-graph h2 {
-  align-self: center;
-  font-size: 16px;
-  color: var(--primary-color);
-}
-.dashboard .v2 .card-graph figure {
-  width: 100%;
-  padding-bottom: 1rem;
-}
-.dashboard .v2 .card-graph figure img {
-  width: 80%;
-}
-.dashboard .v2 .action-tools {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.dashboard .v2 .btn-primary {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  padding: 0 16px;
-  color: white;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 8px;
-}
-.dashboard .v2 .btn-primary svg {
-  width: 28px;
-  fill: white;
-}
-.dashboard .v2 .double-header .header-w-icon:nth-child(2) .card-header {
-  justify-content: flex-end;
-}
-.dashboard .v2 .content-left, .dashboard .v2 .content-right {
-  gap: 1rem;
-  height: 100%;
-}
-.dashboard .v2 .content-left .card-wrapper, .dashboard .v2 .content-right .card-wrapper {
-  gap: 1rem;
-}
-.dashboard .v3 {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.dashboard .v3 .content-top, .dashboard .v3 .content-bottom {
-  flex: 1;
-  width: 100%;
-}
-.dashboard .v3 .card-wrapper {
-  gap: 1rem;
-}
-.dashboard .v3 .card-title {
-  padding-block: 0 !important;
-}
-.dashboard {
-  /* &.portal-theme {
-       // Genesys Pages Specific Styles
-       &#genesys { }
-       // EggInject Pages Specific Styles
-       &#egginject { }
-       // Laserlife Pages Specific Styles
-       &#laserlife { }
-       // Dovac Pages Specific Styles
-       &#dovac { }
-       // Inline Pages Specific Styles
-       &#inline { }
-   }*/
-}/*# sourceMappingURL=styles.css.map */
+
+/*********** IMPORTS ***********/
+/******************* UTILITIES *******************/
+/* FLEX KIT *//*# sourceMappingURL=styles.css.map */

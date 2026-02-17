@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Connected C.H.I.C.K. Program</title>
+    <link rel="icon" href="../../img/favicon.ico" sizes="any">
     <link rel="stylesheet" href="../../scss/styles.css">
     <script src="../../script.js" defer></script>
 </head> 
@@ -108,6 +109,108 @@
         <header>
             <div class="h-left-side">
                 <img src="../../img/logos/genesys.png" alt="Ceva Logo">
+                <div class="menu-filter" id="hatcheryFilter">
+                    <button class="filter-btn trigger" type="button" aria-controls="filterList" aria-expanded="false" data-popup-pos="center">
+                        <span>Search for a hatchery</span>
+                        <!-- chevron -->
+                        <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
+                            <path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+
+                    <div id="filterList" class="popup filter-list" role="filter" aria-hidden="true">
+                        <div class="filter-panel">
+                            <div class="filter-search">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                    <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
+                                </svg>
+                                <input class="filter-search__input" type="text" placeholder="Search for a hatchery" />
+                                <button type="button" class="filter-search__clear" aria-label="Clear">✕</button>
+                            </div>
+
+                            <ul class="checklist" role="listbox" aria-label="Hatcheries">
+                                <li class="checklist__item checklist__item--selectall">
+                                    <label class="check">
+                                        <input class="check__input select-all" type="checkbox" />
+                                        <span class="check__box" aria-hidden="true"></span>
+                                        <span class="check__label">Select All</span>
+                                    </label>
+                                </li>
+                                <div class="check-items">
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Agidel" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Agidel</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Al Watania Broiler</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Baromfi-Coop Kft Keltető</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Calisa II</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Hawa Chicken (LB)</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Moy Park - Donaghmore</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">Padma Karya Prima</span>
+                                        </label>
+                                    </li>
+                                    <li class="checklist__item">
+                                        <label class="check">
+                                            <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
+                                            <span class="check__box" aria-hidden="true"></span>
+                                            <span class="check__label">SKM JOMBANG</span>
+                                        </label>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <!-- Actions -->
+                <div class="action-tools">
+                    <button class="btn-primary" title="report">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M192 112L304 112L304 200C304 239.8 336.2 272 376 272L464 272L464 512C464 520.8 456.8 528 448 528L192 528C183.2 528 176 520.8 176 512L176 128C176 119.2 183.2 112 192 112zM352 131.9L444.1 224L376 224C362.7 224 352 213.3 352 200L352 131.9zM192 64C156.7 64 128 92.7 128 128L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 250.5C512 233.5 505.3 217.2 493.3 205.2L370.7 82.7C358.7 70.7 342.5 64 325.5 64L192 64zM248 320C234.7 320 224 330.7 224 344C224 357.3 234.7 368 248 368L392 368C405.3 368 416 357.3 416 344C416 330.7 405.3 320 392 320L248 320zM248 416C234.7 416 224 426.7 224 440C224 453.3 234.7 464 248 464L392 464C405.3 464 416 453.3 416 440C416 426.7 405.3 416 392 416L248 416z"/>
+                        </svg>
+                    </button>
+                    <button class="btn-primary" title="share">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M457.5 71C450.6 64.1 440.3 62.1 431.3 65.8C422.3 69.5 416.5 78.3 416.5 88L416.5 144L368.5 144C280.1 144 208.5 215.6 208.5 304C208.5 350.7 229.2 384.4 252.1 407.4C260.2 415.6 268.6 422.3 276.4 427.8C285.6 434.3 298.1 433.5 306.5 425.9C314.9 418.3 316.7 405.9 311 396.1C307.4 389.8 304.5 381.2 304.5 369.4C304.5 333.2 333.8 303.9 370 303.9L416.5 303.9L416.5 359.9C416.5 369.6 422.3 378.4 431.3 382.1C440.3 385.8 450.6 383.8 457.5 376.9L593.5 240.9C602.9 231.5 602.9 216.3 593.5 207L457.5 71zM464.5 168L464.5 145.9L542.6 224L464.5 302.1L464.5 280C464.5 266.7 453.8 256 440.5 256L370 256C319.1 256 276.1 289.5 261.7 335.6C258.4 326.2 256.5 315.8 256.5 304C256.5 242.1 306.6 192 368.5 192L440.5 192C453.8 192 464.5 181.3 464.5 168zM144.5 160C100.3 160 64.5 195.8 64.5 240L64.5 496C64.5 540.2 100.3 576 144.5 576L400.5 576C444.7 576 480.5 540.2 480.5 496L480.5 472C480.5 458.7 469.8 448 456.5 448C443.2 448 432.5 458.7 432.5 472L432.5 496C432.5 513.7 418.2 528 400.5 528L144.5 528C126.8 528 112.5 513.7 112.5 496L112.5 240C112.5 222.3 126.8 208 144.5 208L168.5 208C181.8 208 192.5 197.3 192.5 184C192.5 170.7 181.8 160 168.5 160L144.5 160z"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
             <div class="h-right-side">
 
@@ -196,12 +299,52 @@
                     <!-- Date Picker -->
                     <div class="time-container">
                         <!-- Calendar btn -->
-                        <button class="btn-secondary" title="datepicker">
+                        <button class="btn-primary trigger" type="button" aria-controls="timePicker" aria-expanded="false" data-popup-pos="right">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                 <path d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM480 496C488.8 496 496 488.8 496 480L496 416L408 416L408 496L480 496zM496 368L496 288L408 288L408 368L496 368zM360 368L360 288L280 288L280 368L360 368zM232 368L232 288L144 288L144 368L232 368zM144 416L144 480C144 488.8 151.2 496 160 496L232 496L232 416L144 416zM280 416L280 496L360 496L360 416L280 416zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176z"/>
                             </svg>
                         </button>
-
+                        <div id="timePicker" class="popup" role="menu" aria-hidden="true">
+                            <h3 class="pp-title">Time period</h3>
+                            <div class="pp-content">
+                                <ul class="filters">
+                                    <li>Last & pending week</li>
+                                    <li>Last month</li>
+                                    <li>Last quarter</li>
+                                    <li>Last year</li>
+                                </ul>
+                                <div class="advanced-filters">
+                                    <div class="top-filters">
+                                        <div class="filter f-left">
+                                            <label for="start-date">Start Date</label>
+                                            <div class="input-btn">
+                                                <button class="btn-sm">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                                        <path d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176zM144 288L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 288L144 288z"/>
+                                                    </svg>
+                                                </button>
+                                                <input type="text" id="start-date" name="start-date" placeholder="25/01/2025">
+                                            </div>
+                                        </div>
+                                        <div class="filter f-left">
+                                            <label for="end-date">End Date</label>
+                                            <div class="input-btn">
+                                                <button class="btn-sm">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                                        <path d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176zM144 288L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 288L144 288z"/>
+                                                    </svg>
+                                                </button>
+                                            <input type="text" id="end-date" name="end-date" placeholder="25/01/2025">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="daypicker">
+                                        Calendar
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <!-- Day +/- -->
                         <div class="time-controls">
                             <!-- previous btn -->
@@ -220,215 +363,110 @@
                             </button>
                         </div>
                     </div>
-
-                    <!-- Actions -->
-                    <div class="action-tools">
-                        <button class="btn-primary" title="report">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                <path d="M192 112L304 112L304 200C304 239.8 336.2 272 376 272L464 272L464 512C464 520.8 456.8 528 448 528L192 528C183.2 528 176 520.8 176 512L176 128C176 119.2 183.2 112 192 112zM352 131.9L444.1 224L376 224C362.7 224 352 213.3 352 200L352 131.9zM192 64C156.7 64 128 92.7 128 128L128 512C128 547.3 156.7 576 192 576L448 576C483.3 576 512 547.3 512 512L512 250.5C512 233.5 505.3 217.2 493.3 205.2L370.7 82.7C358.7 70.7 342.5 64 325.5 64L192 64zM248 320C234.7 320 224 330.7 224 344C224 357.3 234.7 368 248 368L392 368C405.3 368 416 357.3 416 344C416 330.7 405.3 320 392 320L248 320zM248 416C234.7 416 224 426.7 224 440C224 453.3 234.7 464 248 464L392 464C405.3 464 416 453.3 416 440C416 426.7 405.3 416 392 416L248 416z"/>
-                            </svg>
-                        </button>
-                        <button class="btn-primary" title="share">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                <path d="M457.5 71C450.6 64.1 440.3 62.1 431.3 65.8C422.3 69.5 416.5 78.3 416.5 88L416.5 144L368.5 144C280.1 144 208.5 215.6 208.5 304C208.5 350.7 229.2 384.4 252.1 407.4C260.2 415.6 268.6 422.3 276.4 427.8C285.6 434.3 298.1 433.5 306.5 425.9C314.9 418.3 316.7 405.9 311 396.1C307.4 389.8 304.5 381.2 304.5 369.4C304.5 333.2 333.8 303.9 370 303.9L416.5 303.9L416.5 359.9C416.5 369.6 422.3 378.4 431.3 382.1C440.3 385.8 450.6 383.8 457.5 376.9L593.5 240.9C602.9 231.5 602.9 216.3 593.5 207L457.5 71zM464.5 168L464.5 145.9L542.6 224L464.5 302.1L464.5 280C464.5 266.7 453.8 256 440.5 256L370 256C319.1 256 276.1 289.5 261.7 335.6C258.4 326.2 256.5 315.8 256.5 304C256.5 242.1 306.6 192 368.5 192L440.5 192C453.8 192 464.5 181.3 464.5 168zM144.5 160C100.3 160 64.5 195.8 64.5 240L64.5 496C64.5 540.2 100.3 576 144.5 576L400.5 576C444.7 576 480.5 540.2 480.5 496L480.5 472C480.5 458.7 469.8 448 456.5 448C443.2 448 432.5 458.7 432.5 472L432.5 496C432.5 513.7 418.2 528 400.5 528L144.5 528C126.8 528 112.5 513.7 112.5 496L112.5 240C112.5 222.3 126.8 208 144.5 208L168.5 208C181.8 208 192.5 197.3 192.5 184C192.5 170.7 181.8 160 168.5 160L144.5 160z"/>
-                            </svg>
-                        </button>
-                    </div>
                 </div>
+                
+                <!-- 4TH WALL -->
+                <p class="ninja-4th-wall">
+                    <span>Work In Progress</span>
+                    <button type="button" class="btn-delete rounded" aria-label="Delete">x</button>
+                </p>
 
                 <!-- SECTION CONTENT -->
-                <div class="scene">
-                    <p class="ninja-4th-wall hide">
-                        <span>click on</span>
-                        <button type="button" class="btn-delete rounded" aria-label="Delete">x</button>
-                    </p>
-                    
-                    <div class="content-left">
-                        <div class="card-wrapper">
-                            <div class="double-header">
-                                <div class="header-w-icon">
+                <div class="scene dashboard-3">
+
+                    <!-- DATA CONTENT -->
+                    <div class="card-wrapper">
+                        <div class="card table-card col-7">
+                            <div class="card-title">
+                                <h2>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                         <path d="M320 576C461.4 576 576 461.4 576 320C576 178.6 461.4 64 320 64C178.6 64 64 178.6 64 320C64 461.4 178.6 576 320 576zM288 224C288 206.3 302.3 192 320 192C337.7 192 352 206.3 352 224C352 241.7 337.7 256 320 256C302.3 256 288 241.7 288 224zM280 288L328 288C341.3 288 352 298.7 352 312L352 400L360 400C373.3 400 384 410.7 384 424C384 437.3 373.3 448 360 448L280 448C266.7 448 256 437.3 256 424C256 410.7 266.7 400 280 400L304 400L304 336L280 336C266.7 336 256 325.3 256 312C256 298.7 266.7 288 280 288z"/>
                                     </svg>
-                                    <div class="card card-header">
-                                        <h2 class="card-title">Total flocks</h2>
-                                        <span class="card-title-side">
-                                            7
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="card card-header">
-                                    <h2 class="card-title">On-Going Flock</h2>
-                                    <span class="card-title-side">
-                                        2411CF S54
-                                    </span>
-                                </div>
+                                    <span>Speed</span>
+                                </h2>
                             </div>
-                            <div class="card card-table col-6">
-                                <div class="row-top-line">
-                                    <span>#</span>
-                                    <span>Flock Name</span>
-                                    <span>Breeder Age</span>
-                                    <span>DOC Sorted</span>
-                                    <span>%Male</span>
-                                    <span>%Female</span>
+                            <div class="table">
+                                <div class="table-head">
+                                    <span>Average Speed</span>
+                                    <span>Line 1</span>
+                                    <span>Line 2</span>
+                                    <span>Line 3</span>
+                                    <span>Line 4</span>
+                                    <span>Line 5</span>
+                                    <span>Line 6</span>
                                 </div>
                                 <div class="table-body">
                                     <div class="table-body-container">
                                         <div class="row-line">
-                                            <span>1</span>
-                                            <span>2411CF S51</span>
-                                            <span>51 w</span>
-                                            <span>20,000</span>
-                                            <span>50,0%</span>
-                                            <span>50,0%</span>
+                                            <span>Per 10 min</span>
+                                            <span>10,450</span>
+                                            <span>500</span>
+                                            <span>10,455</span>
+                                            <span>8000</span>
+                                            <span>50</span>
+                                            <span>5550</span>
                                         </div>
                                         <div class="row-line">
-                                            <span>2</span>
-                                            <span>2411CF S52</span>
-                                            <span>52 w</span>
-                                            <span>20,000</span>
-                                            <span>50,0%</span>
-                                            <span>50,0%</span>
-                                        </div>
-                                        <div class="row-line">
-                                            <span>3</span>
-                                            <span>2411CF S53</span>
-                                            <span>53 w</span>
-                                            <span>20,000</span>
-                                            <span>50,0%</span>
-                                            <span>50,0%</span>
-                                        </div>
-                                        <div class="row-line">
-                                            <span>4</span>
-                                            <span>2411CF S54</span>
-                                            <span>54 w</span>
-                                            <span>20,000</span>
-                                            <span>49,0%</span>
-                                            <span>51,0%</span>
-                                        </div>
-                                        <div class="row-line">
-                                            <span>5</span>
-                                            <span>2411CF S53</span>
-                                            <span>53 w</span>
-                                            <span>20,000</span>
-                                            <span>50,0%</span>
-                                            <span>50,0%</span>
-                                        </div>
-                                        <div class="row-line">
-                                            <span>6</span>
-                                            <span>2411CF S54</span>
-                                            <span>54 w</span>
-                                            <span>20,000</span>
-                                            <span>49,0%</span>
-                                            <span>51,0%</span>
-                                        </div>
-                                        <div class="row-line">
-                                            <span>7</span>
-                                            <span>2411CF S57</span>
-                                            <span>54 w</span>
-                                            <span>20,000</span>
-                                            <span>49,0%</span>
-                                            <span>51,0%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card-wrapper">
-                            <div class="header-w-icon alert">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                    <path d="M320 64C334.7 64 348.2 72.1 355.2 85L571.2 485C577.9 497.4 577.6 512.4 570.4 524.5C563.2 536.6 550.1 544 536 544L104 544C89.9 544 76.8 536.6 69.6 524.5C62.4 512.4 62.1 497.4 68.8 485L284.8 85C291.8 72.1 305.3 64 320 64zM320 416C302.3 416 288 430.3 288 448C288 465.7 302.3 480 320 480C337.7 480 352 465.7 352 448C352 430.3 337.7 416 320 416zM320 224C301.8 224 287.3 239.5 288.6 257.7L296 361.7C296.9 374.2 307.4 384 319.9 384C332.5 384 342.9 374.3 343.8 361.7L351.2 257.7C352.5 239.5 338.1 224 319.8 224z"/>
-                                </svg>
-                                <div class="card card-header">
-                                    <h2 class="card-title">Active Alerts</h2>
-                                    <span class="card-title-side alert-color">
-                                        2
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="card card-table col-4">
-                                <div class="row-top-line">
-                                    <span>Start Time</span>
-                                    <span>Code - Name</span>
-                                    <span>DOC quantity</span>
-                                    <span>Stop time</span>
-                                </div>
-                                <div class="table-body">
-                                    <div class="table-body-container">
-                                        <div class="row-line alert-color">
-                                            <span>9:44 AM</span>
-                                            <span>G0001- Emergency stop</span>
-                                            <span>12,689</span>
-                                            <span></span>
-                                        </div>
-                                        <div class="row-line alert-color">
-                                            <span>9:05 AM</span>
-                                            <span>A504- Communication default line</span>
-                                            <span>12,689</span>
-                                            <span></span>
-                                        </div>
-                                        <div class="row-line">
-                                            <span>5:50 AM</span>
-                                            <span>A033- Safety door open</span>
-                                            <span>2</span>
-                                            <span>5:54 AM</span>
+                                            <span>Per hour</span>
+                                            <span>7850</span>
+                                            <span>5550</span>
+                                            <span>6550</span>
+                                            <span>7250</span>
+                                            <span>8000</span>
+                                            <span>6980</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="content-right">
-                        <div class="card-wrapper">
-                            <div class="header-w-icon">
+                    <div class="card-wrapper">
+                        <div class="card graph-card">
+                            <div class="card-title">
+                                <h2>
+                                    <figure>
+                                        <img src="../../img/icons/bird.png">
+                                    </figure>
+                                    <span>Quantity DOC per line</span>
+                                </h2>
+                            </div>
+                            <div class="card-data">
                                 <figure>
-                                    <img src="../../img/icons/bird.png" width="40">
+                                    <div class="half-circle"></div>
+                                    <div class="white-circle">
+                                        <span class="circle-data pctFemale">select flock</span>
+                                        <span class="circle-data pctMale"></span>
+                                    </div>
                                 </figure>
-                                <!-- 
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                    <path d="M323.2 452.4C354.4 433.6 387.9 416 424.3 416L480 416C484.6 416 489.1 415.8 493.6 415.3L578.9 537.2C582.9 542.9 590.2 545.4 596.8 543.3C603.4 541.2 608 535 608 528L608 288C608 217.3 550.7 160 480 160L424.3 160C387.9 160 354.4 142.4 323.2 123.6C294.3 106.1 260.3 96 224 96C118 96 32 182 32 288C32 359.1 70.6 421.1 128 454.3L128 520C128 533.3 138.7 544 152 544C165.3 544 176 533.3 176 520L176 474C191.3 477.9 207.4 480 224 480C229.4 480 234.7 479.8 240 479.3L240 520C240 533.3 250.7 544 264 544C277.3 544 288 533.3 288 520L288 469.1C300.4 464.7 312.2 459.1 323.2 452.4zM480 264C493.3 264 504 274.7 504 288C504 301.3 493.3 312 480 312C466.7 312 456 301.3 456 288C456 274.7 466.7 264 480 264z"/>
-                                </svg>-->
-                                <div class="card card-header">
-                                    <h2 class="card-title">Day-old chicks sorted</h2>
-                                    <span class="card-title-side">
-                                        202,000
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="card card-body">
-                                <div class="row-line">
-                                    <div class="line">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                            <path d="M384 96C384 78.3 398.3 64 416 64L544 64C561.7 64 576 78.3 576 96L576 224C576 241.7 561.7 256 544 256C526.3 256 512 241.7 512 224L512 173.3L417 268.3C436.5 296.7 448 331 448 368.1C448 465.3 369.2 544.1 272 544.1C174.8 544.1 96 465.2 96 368C96 270.8 174.8 192 272 192C309 192 343.4 203.4 371.8 223L466.8 128L416.1 128C398.4 128 384.1 113.7 384.1 96zM272 480C333.9 480 384 429.9 384 368C384 306.1 333.9 256 272 256C210.1 256 160 306.1 160 368C160 429.9 210.1 480 272 480z"/>
-                                        </svg>
-                                        <span>Male</span>
+                                <div class="txt-data">
+                                    <div class="data-content">
+                                        <div class="data-line">
+                                            <div class="line-title">
+                                                <div class="dot">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                                        <path d="M208 240C208 178.1 258.1 128 320 128C381.9 128 432 178.1 432 240C432 301.9 381.9 352 320 352C258.1 352 208 301.9 208 240zM351.9 413.1C433.9 398.1 496 326.3 496 240C496 142.8 417.2 64 320 64C222.8 64 144 142.8 144 240C144 326.3 206.1 398.1 288.1 413.1C288 414.1 288 415 288 416L288 480L256 480C238.3 480 224 494.3 224 512C224 529.7 238.3 544 256 544L288 544L288 576C288 593.7 302.3 608 320 608C337.7 608 352 593.7 352 576L352 544L384 544C401.7 544 416 529.7 416 512C416 494.3 401.7 480 384 480L352 480L352 416C352 415 352 414.1 351.9 413.1z"/>
+                                                    </svg>
+                                                </div>
+                                                <span>Female</span>
+                                            </div>
+                                            <span class="v-female"></span>
+                                        </div>
+                                        <div class="data-line">
+                                            <div class="line-title">
+                                                <div class="dot male">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                                        <path d="M384 96C384 78.3 398.3 64 416 64L544 64C561.7 64 576 78.3 576 96L576 224C576 241.7 561.7 256 544 256C526.3 256 512 241.7 512 224L512 173.3L417 268.3C436.5 296.7 448 331 448 368.1C448 465.3 369.2 544.1 272 544.1C174.8 544.1 96 465.2 96 368C96 270.8 174.8 192 272 192C309 192 343.4 203.4 371.8 223L466.8 128L416.1 128C398.4 128 384.1 113.7 384.1 96zM272 480C333.9 480 384 429.9 384 368C384 306.1 333.9 256 272 256C210.1 256 160 306.1 160 368C160 429.9 210.1 480 272 480z"/>
+                                                    </svg>
+                                                </div>
+                                                <span>Male</span>
+                                            </div>
+                                            <span class="v-male"></span>
+                                        </div>
                                     </div>
-                                    <div class="line-end">
-                                        <span>100,500</span>
-                                        <span>49,7%</span>
-                                    </div>
-                                </div>
-                                <div class="row-line">
-                                    <div class="line">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                            <path d="M208 240C208 178.1 258.1 128 320 128C381.9 128 432 178.1 432 240C432 301.9 381.9 352 320 352C258.1 352 208 301.9 208 240zM351.9 413.1C433.9 398.1 496 326.3 496 240C496 142.8 417.2 64 320 64C222.8 64 144 142.8 144 240C144 326.3 206.1 398.1 288.1 413.1C288 414.1 288 415 288 416L288 480L256 480C238.3 480 224 494.3 224 512C224 529.7 238.3 544 256 544L288 544L288 576C288 593.7 302.3 608 320 608C337.7 608 352 593.7 352 576L352 544L384 544C401.7 544 416 529.7 416 512C416 494.3 401.7 480 384 480L352 480L352 416C352 415 352 414.1 351.9 413.1z"/>
-                                        </svg>
-                                        <span>Female</span>
-                                    </div>
-                                    <div class="line-end">
-                                        <span>101,500</span>
-                                        <span>50,3%</span>
+                                    <div class="data-line">
+                                        <span class="title-data sorted-volume"></span>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <div class="card-wrapper">
-                            <div class="card card-graph">
-                                <h2>Hour average Speed per line</h2>
-                                <img src="../../img/graphs/graph-1.png" width="240">
                             </div>
                         </div>
                     </div>
@@ -448,10 +486,6 @@
             <li><a href="dashboard_3-v2.html">Dashboard 3 v2</a></li>
             <li><a href="dashboard_3-v3.html">Dashboard 3 v3</a></li>
             <li><a href="../../404.html">Dashboard 3 v4</a></li>
-            <!-- 
-            <li><a href="dashboard_1-v2.html">Dashboard 1 v2</a></li>
-            <li><a href="dashboard_1-v3.html">Dashboard 1 v3</a></li>
-            <li><a href="dashboard_1-v4.html">Dashboard 1 v4</a></li> -->
         </ul>
         <p class="footer-text">Copyright ©2021-22 Ceva. All rights reserved.</p>
     </footer>
