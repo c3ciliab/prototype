@@ -332,7 +332,7 @@
     }
   }
 
-  &.chart-card{
+  &.chart-card {
     @include flex(column, 1rem);
     width: 100%;
 
@@ -340,142 +340,151 @@
       flex: 1;
     }
 
-    .chart{
+    .chart {
       display: grid;
       grid-template-columns: 40px 1fr;
       gap: 1rem;
-      //align-items: stretch;
       height: 100%;
     }
 
-    .y-axis{
+    /* y-axis labels */
+    .y-axis {
       @include flex(column, 1rem);
       align-items: flex-end;
       color: #7a8796;
       font-size: 14px;
     }
+
+    /* chart container */
+    .plot {
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* grid lines */
+    .gridline {
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: rgba(0,0,0,.06);
+      pointer-events: none;
+
+      &.gl-1 { top: 7.5px; }
+      &.gl-2 { top: 39.5px; }
+      &.gl-3 { top: 71.5px; }
+      &.gl-4 { top: 103.5px; }
+      &.gl-5 { top: 135.5px; }
+      &.gl-6 { top: 167.5px; }
+      &.gl-7 { top: 199.5px; }
+      &.gl-8 {
+        top: 231.5px;
+        background-color: var(--bg-secondary);
+      }
+    }
+    
+    /* SVG line overlay */
+    .line-svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 6;
+      pointer-events: none;
+
+      .line-path {
+        fill: none;
+        stroke: $alert-color;
+        stroke-width: .5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+    }
+
+    /* columns container */
+    .cols {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      align-items: end;
+      padding: 14px 16px 21.5px;
+      gap: 20px;
+
+      /* each column */
+      .col {
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+
+        /* bar */
+        .bar {
+          width: 66%;
+          height: calc(var(--bar) * 1%);
+          border-radius: 6px;
+          background: #9fd0ff; /* bleu clair */
+          box-shadow: inset 0 0 0 1px rgba(0,0,0,.04);
+        }
+
+        /* x-axis labels */
+        .x {
+          position:absolute;
+          bottom: -24px;
+          font-size: 14px;
+          color: #586574;
+        }
+
+        /* point on the line */
+        .point {
+          position:absolute;
+          left: 50%;
+          top: calc(100% - (var(--line) * 1%));
+          z-index: 8;
+          width: 12px;
+          height: 12px;
+          transform: translate(-50%, -50%);
+          border-radius: 999px;
+          background: #f3a12c;
+          box-shadow: 0 0 0 3px rgba(243,161,44,.22);
+        }
+
+        /* value text above points (/hour) */
+        .value {
+          position:absolute;
+          left: 50%;
+          top: calc(100% - (var(--line) * 1%) - 18px);
+          transform: translate(-50%, -50%);
+          font-weight: 600;
+          font-size: 20px;
+          color: #3a4653;
+          white-space: nowrap;
+          /* value text inside bar (/10mn) */
+          &.inside {
+            top: calc(100% - (var(--line) * 1%) + 48px);
+          }
+        }
+      }
+    }
   }
 
+  .legend{
+    display:flex;
+    align-items:center;
+    gap: 8px;
+    font-size: 14px;
+    color: #3a4653;
+    opacity: .9;
 
-.legend{
-  display:flex;
-  align-items:center;
-  gap: 8px;
-  font-size: 14px;
-  color: #3a4653;
-  opacity: .9;
-
-  .dot{
-    width: 10px;
-    height: 10px;
-    border-radius: 999px;
-    background: #f3a12c;
+    .dot{
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: #f3a12c;
+    }
   }
-}
-
-.plot{
-  position: relative;
-  overflow: hidden;
-}
-
-/* grid lines */
-.gridline{
-  position:absolute;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: rgba(0,0,0,.06);
-  pointer-events: none;
-}
-.gl-1{ top: 7.5px; }
-.gl-2{ top: 39.5px; }
-.gl-3{ top: 71.5px; }
-.gl-4{ top: 103.5px; }
-.gl-5{ top: 135.5px; }
-.gl-6{ top: 167.5px; }
-.gl-7{ top: 199.5px; }
-.gl-8{ top: 231.5px; }
-
-/* columns container */
-.cols{
-  position:absolute;
-  inset: 0;
-  display:grid;
-  grid-template-columns: repeat(5, 1fr);
-  align-items: end;
-  padding: 14px 16px 20px;
-  gap: 20px;
-}
-
-/* each column */
-.col{
-  position: relative;
-  height: 100%;
-  display:flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-/* bar */
-.bar{
-  width: 66%;
-  height: calc(var(--bar) * 1%);
-  border-radius: 6px;
-  background: #9fd0ff; /* bleu clair */
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,.04);
-}
-
-/* x labels */
-.x{
-  position:absolute;
-  bottom: 6px;
-  font-size: 14px;
-  color: #586574;
-}
-
-/* point on the line */
-.point{
-  position:absolute;
-  left: 50%;
-  top: calc(100% - (var(--line) * 1%));
-  width: 12px;
-  height: 12px;
-  transform: translate(-50%, -50%);
-  border-radius: 999px;
-  background: #f3a12c;
-  box-shadow: 0 0 0 3px rgba(243,161,44,.22);
-}
-
-/* value text above points */
-.value{
-  position:absolute;
-  left: 50%;
-  top: calc(100% - (var(--line) * 1%) - 18px);
-  transform: translate(-50%, -50%);
-  font-weight: 600;
-  font-size: 20px;
-  color: #3a4653;
-  white-space: nowrap;
-}
-
-/* SVG line overlay */
-.line-svg{
-  position:absolute;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-}
-
-.line-path{
-  fill: none;
-  stroke: #f3a12c;
-  stroke-width: 2.2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  opacity: .95;
-}
-
 }
 
 /* BUTTONS */
