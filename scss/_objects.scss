@@ -440,31 +440,47 @@
       align-items: flex-end;
       font-size: $sm-txt;
       color: var(--neutral-text);
+
+      &.lg-axis {
+        justify-content: space-between;
+        gap: 0;
+        padding-bottom: 14px;
+      }
     }
 
     /* chart container */
     .plot {
       position: relative;
       overflow: hidden;
-    }
 
-    /* grid lines */
-    .gridline {
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: rgba(0, 0, 0, .06);
+      /* grid lines */
+      .gridline {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: rgba(0, 0, 0, .06);
 
-      &.gl-1 { top: 7.5px; }
-      &.gl-2 { top: 39.5px; }
-      &.gl-3 { top: 71.5px; }
-      &.gl-4 { top: 103.5px; }
-      &.gl-5 { top: 135.5px; }
-      &.gl-6 { top: 167.5px; }
-      &.gl-7 { top: 199.5px; }
-      &.gl-8 { top: 231.5px;
-        background-color: var(--bg-secondary);
+        &.gl-1 { top: 7.5px; }
+        &.gl-2 { top: 39.5px; }
+        &.gl-3 { top: 71.5px; }
+        &.gl-4 { top: 103.5px; }
+        &.gl-5 { top: 135.5px; }
+        &.gl-6 { top: 167.5px; }
+        &.gl-7 { top: 199.5px; }
+        &.gl-8 { top: 231.5px;
+          background-color: var(--bg-secondary);
+        }
+      }
+
+      &.lg-plot {
+        .gridline {
+          &.gl-8 { 
+            top: initial;
+            bottom: 20.5px;
+            background-color: var(--bg-secondary);
+          }
+        }
       }
     }
     

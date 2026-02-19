@@ -792,6 +792,10 @@ section {
     .card-wrapper {
         &:last-child {
             flex: 1;
+            
+            .card {
+                flex: 1;
+            }
         }
     }
 }

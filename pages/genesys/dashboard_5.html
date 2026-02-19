@@ -488,7 +488,7 @@
                         </div>
                     </div>
                     <div class="card-wrapper">
-                        <div class="card graph-card">
+                        <div class="card chart-card combined-columns">
                             <div class="card-title">
                                 <h2>
                                     <figure>
@@ -496,15 +496,121 @@
                                     </figure>
                                     <span>Day-old chicks sorted evolution</span>
                                 </h2>
+                                <ul class="legend">
+                                    <li>
+                                        <span class="dot"></span>
+                                        <span>Female %</span>
+                                    </li>
+                                    <li>
+                                        <span class="dot"></span>
+                                        <span>Male %</span>
+                                    </li>
+                                    <li>
+                                        <span class="dot"></span>
+                                        <span>Quantity</span>
+                                    </li>
+                                </ul>
                                 <div class="action-tools">
                                     <button class="btn-secondary">By week</button>
                                     <button class="btn-secondary">By month</button>
                                 </div>
                             </div>
+
                             <div class="card-data">
-                                <figure>
-                                    <img src="../../img/graphs/graph-2.png">
-                                </figure>
+                                <div class="chart">
+                                    <!-- Y axis labels  -->
+                                    <div class="y-axis lg-axis">
+                                        <span>14000</span>
+                                        <span>12000</span>
+                                        <span>10000</span>
+                                        <span>8000</span>
+                                        <span>6000</span>
+                                        <span>4000</span>
+                                        <span>2000</span>
+                                        <span>0</span>
+                                    </div>
+
+                                    <div class="plot lg-plot">
+                                        <!-- Gridlines -->
+                                        <div class="gridline gl-1"></div>
+                                        <div class="gridline gl-2"></div>
+                                        <div class="gridline gl-3"></div>
+                                        <div class="gridline gl-4"></div>
+                                        <div class="gridline gl-5"></div>
+                                        <div class="gridline gl-6"></div>
+                                        <div class="gridline gl-7"></div>
+                                        <div class="gridline gl-8"></div>
+
+                                        <!-- Line overlay (points align with the columns centers) -->
+                                        <svg class="line-svg" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                                            <!-- polyline points: x = center of each bar group, y = 100 - --line% (hardcoded in %) -->
+                                            <polyline class="line-path" points="9,13 25.25,18 41.75,11 58,31.5 74.75,41 91,36" />
+                                        </svg>
+
+                                        <!-- Columns -->
+                                        <div class="cols">
+                                            <div class="col" style="--bar: 83; --line: 91;">
+                                                <div class="value">11,600</div>
+                                                <div class="bar">
+                                                    <span>50.3%</span>
+                                                    <span style="height: 97%">49.7%</span>
+                                                </div>
+                                                <div class="x">1</div>
+                                                <div class="point"></div>
+                                            </div>
+
+                                            <div class="col" style="--bar: 78; --line: 86">
+                                                <div class="value">10,450</div>
+                                                <div class="bar">
+                                                    <span style="height: 91%">48,8%</span>
+                                                    <span>52,2%</span>
+                                                </div>
+                                                <div class="x">2</div>
+                                                <div class="point"></div>
+                                            </div>
+
+                                            <div class="col" style="--bar: 87; --line: 94;">
+                                                <div class="value">11,800</div>
+                                                <div class="bar">
+                                                    <span>52,5%</span>
+                                                    <span style="height: 90%">48,5%</span>
+                                                </div>
+                                                <div class="x">3</div>
+                                                <div class="point"></div>
+                                            </div>
+
+                                            <div class="col" style="--bar: 63; --line: 70;">
+                                                <div class="value">8500</div>
+                                                <div class="bar">
+                                                    <span>51,5%</span>
+                                                    <span style="height: 94%">49,5%</span>
+                                                </div>
+                                                <div class="x">4</div>
+                                                <div class="point"></div>
+                                            </div>
+
+                                            <div class="col" style="--bar: 51; --line: 59;">
+                                                <div class="value">7000</div>
+                                                <div class="bar">
+                                                    <span>50,0%</span>
+                                                    <span>50,0%</span>
+                                                </div>
+                                                <div class="x">5</div>
+                                                <div class="point"></div>
+                                            </div>
+
+                                            <div class="col" style="--bar: 56; --line: 64;">
+                                                <div class="value">7800</div>
+                                                <div class="bar">
+                                                    <span style="height: 97%">49.7%</span>
+                                                    <span>50.3%</span>
+                                                </div>
+                                                <div class="x">6</div>
+                                                <div class="point"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
