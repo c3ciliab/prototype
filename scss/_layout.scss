@@ -764,6 +764,14 @@ section {
         .content-left, .content-right {
             flex-direction: column;
         }
+
+        .content-right {
+            .card {
+                &:last-child {
+                    flex: 1;
+                }
+            }
+        }
     }
 }
 

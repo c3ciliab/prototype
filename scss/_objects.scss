@@ -63,8 +63,8 @@
 
   .row-line {
     display: flex;
-    padding: 8px 16px;
-    padding-right: 32px;
+    padding-block: 8px;
+    padding-inline: 16px 6px;
     border-bottom: 1px solid $border-color-light;
 
     span {
@@ -77,16 +77,52 @@
     &:last-child {
       border-bottom: none;
     }
+  }
 
-    &:hover {
-      background-color: var(--bg-sidenav);
-      cursor: pointer;
-    }
+  /* data bar */
+  .meter {
+    --p: 50; /* position 0..100 */
+    --fill: rgba(120, 180, 255, .9);
+    display: block;
+    position: relative;
+    height: 22px;
+    border-radius: 4px;
+    background: linear-gradient(90deg, rgba(0, 50, 90, .2), rgba(0, 50, 90, .9));
+    //background: rgba(0, 50, 90, .5);
 
-    &.selected {
-      color: var(--highlight-color);
-      //background-color: var(--bg-side-hov);
-      cursor: default;
+    /* --- MARKER WRAPPER (se place selon --p) --- */
+    .marker {
+      display: block;
+      position: absolute;
+      top: 10px;
+      left: calc(clamp(0, var(--p), 100) * 1%);
+      transform: translateX(-50%);
+      width: 8px;
+      height: 8px;
+
+      /* triangle */
+      &::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-bottom: 14px solid $alert-color;
+        border-bottom: 14px solid rgba(20, 40, 70, 1);
+      }
+
+      /* point */
+      &::after {
+        content: "";
+        position: absolute;
+        top: 8px;
+        left: 2.5px;
+        width: 5px;
+        height: 5px;
+        border-radius: 50%;
+        background: $alert-color;
+      }
     }
   }
 
@@ -107,6 +143,7 @@
   &.table-card {
     @include flex(column);
     width: 100%;
+    padding-bottom: 8px;
 
     .card-title {
       padding-right: 1rem;
@@ -120,7 +157,6 @@
     .table-head {
       display: flex;
       padding: 1rem;
-      padding-right: 2rem;
       font-weight: bold;
       color: var(--txt-primary);
       box-shadow: 0 10px 12px -10px rgba(0, 0, 0, 0.18);
@@ -129,8 +165,10 @@
     .table-body {
       flex: 1;
       overflow: hidden;
+      padding-top: .25rem;
 
       .table-body-container {
+        @include flex;
         height: 100%;
         max-height: 100%;
         overflow-y: auto;
@@ -142,7 +180,7 @@
       height: 44%;
       
       .table-head, .row-line {
-        span {
+        > span {
           &:first-child { width: 15%; }
           &:nth-child(2) { width: 40%; }
           &:nth-child(3) { width: 30%; }
@@ -151,15 +189,33 @@
       }
     }
 
+    &.col-4-sm {
+      .table-head, .row-line {
+        > span {
+          &:first-child { width: 16%; }
+          &:nth-child(2) { width: 26%; }
+          &:nth-child(3) { width: 26%; }
+          &:nth-child(4) { width: 32%; }
+        }
+      }
+  
+      .row-line {
+        align-items: center;
+        flex: 1;
+        padding-block: 0;
+        &:nth-child(even) { background: transparent; }
+      }
+    }
+
     &.col-5 {
       .table-head, .row-line {
-          span {
-              &:first-child { width: 14%; }
-              &:nth-child(2) { width: 18%; }
-              &:nth-child(3) { width: 32%; }
-              &:nth-child(4) { width: 18%; }
-              &:last-child { width: 18%; }
-          }
+        > span {
+            &:first-child { width: 14%; }
+            &:nth-child(2) { width: 18%; }
+            &:nth-child(3) { width: 32%; }
+            &:nth-child(4) { width: 18%; }
+            &:last-child { width: 18%; }
+        }
       }
   
       .row-line {
@@ -175,7 +231,7 @@
       height: 54%;
 
       .table-head, .row-line {
-        span {
+        > span {
           &:first-child { width: 6%; }
           &:nth-child(2) { width: 24%; }
           &:nth-child(3) { width: 20%; }
@@ -184,11 +240,24 @@
           &:last-child { width: 14%; }
         }
       }
+
+      .row-line {
+        &:hover {
+          background-color: var(--bg-sidenav);
+          cursor: pointer;
+        }
+
+        &.selected {
+          //font-weight: 600;
+          color: var(--highlight-color);
+          cursor: default;
+        }
+      }
     }
 
     &.col-7 {
       .table-head, .row-line {
-        span {
+        > span {
           width: 14%;
           &:first-child { width: 16%; }
         }
@@ -206,7 +275,7 @@
 
     &.col-11 {
       .table-head, .row-line {
-        span {
+        > span {
           &:first-child { width: 9%; }
           &:nth-child(2) { width: 14%; }
           &:nth-child(3) { width: 12%; }
@@ -293,10 +362,6 @@
             fill: var(--txt-secondary);
         }
       }
-    }
-
-    &:last-child {
-      flex: 1;
     }
 
     &.line-chart {
@@ -507,22 +572,34 @@
       }
 
       /* columns */
-      .cols .col {
-        /* bar */
-        .bar {
-          //background: #9fd0ff; /* bleu clair */
-          background: rgba(0, 50, 90, .5);
+      .cols {
+        .col {
+          /* bar */
+          .bar {
+            //background: #9fd0ff; /* bleu clair */
+            background: rgba(0, 50, 90, .5);
+          }
+
+          /* value text */
+          .value {
+            /* value text above points (/hour) */
+            &:not(.inside) {
+              font-size: $md-txt;
+            }
+            /* value text inside bar (/10mn) */
+            &.inside {
+              top: calc(100% - (var(--line) * 1%) + 48px);
+            }
+          }
         }
 
-        /* value text */
-        .value {
-          /* value text above points (/hour) */
-          &:not(.inside) {
-            font-size: $md-txt;
-          }
-          /* value text inside bar (/10mn) */
-          &.inside {
-            top: calc(100% - (var(--line) * 1%) + 48px);
+        &.sm-cols {
+          padding-bottom: 18px;
+
+          .col {
+            .bar { width: 80%;}
+            .x { bottom: -21px; }
+            .value { font-size: $sm-txt; }
           }
         }
       }
