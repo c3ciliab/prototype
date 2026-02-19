@@ -68,8 +68,11 @@
     border-bottom: 1px solid $border-color-light;
 
     span {
-      font-size: 14px;
+      font-size: $sm-txt;
     }
+    /* zebra striping */
+    &:nth-child(odd) { background: transparent; }
+    &:nth-child(even) { background: rgba(0, 0, 0, 0.02); }
 
     &:last-child {
       border-bottom: none;

@@ -346,8 +346,8 @@ const rows = [
   { id: 5, lot: "2411CF S53", age: "53 w", volume: "201,000", female: "50,3%", male: "49,7%", vfemale: "100,800", vmale: "100,200" },
   { id: 6, lot: "2411CF S54", age: "54 w", volume: "202,000", female: "48,0%", male: "52,0%", vfemale: "100,000", vmale: "100,000" },
   { id: 7, lot: "2411CF S55", age: "54 w", volume: "200,000", female: "49,0%", male: "51,0%", vfemale: "100,000", vmale: "100,000" },
-  { id: 8, lot: "2411CF S56", age: "54 w", volume: "201,000", female: "49,0%", male: "51,0%", vfemale: "100,000", vmale: "100,000" },
-  { id: 9, lot: "2411CF S57", age: "53 w", volume: "200,000", female: "50,0%", male: "50,0%", vfemale: "100,000", vmale: "100,000" },
+  { id: 8, lot: "2411CF S56", age: "54 w", volume: "201,000", female: "49,0%", male: "51,0%", vfemale: "100,500", vmale: "100,500" },
+  { id: 9, lot: "2411CF S57", age: "53 w", volume: "198,000", female: "50,0%", male: "50,0%", vfemale: "100,000", vmale: "98,000" },
   { id: 10, lot: "2411CF S58", age: "54 w", volume: "200,000", female: "49,0%", male: "51,0%", vfemale: "100,000", vmale: "100,000" }
 ];
 
