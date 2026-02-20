@@ -138,6 +138,28 @@
     &:nth-child(2) {
       width: 60%;
     }
+
+    .title-data {
+      transition: color .2s ease, opacity .2s ease, transform .2s ease;
+
+      &.is-empty {
+        font-size: $md-txt;
+        font-style: italic;
+        font-weight: 500;
+        text-transform: lowercase;
+        color: var(--txt-default);
+        opacity: .4;
+      }
+
+      &:not(.is-empty) {
+        font-style: normal;
+        font-weight: 600;
+        text-transform: none;
+        color: var(--highlight-color);
+        opacity: 1;
+        transform: translateY(-1px);
+      }
+    }
   }
 
   &.table-card {
@@ -831,14 +853,17 @@ input {
 }
 
 /* GRAPHS */
-.half-circle{
+.half-circle {
+  --male: 50;
+  --female: 50;
   width: 160px;
   aspect-ratio: 1;
   border-radius: 50%;
   background: conic-gradient(
     from 0deg,
-    var(--male-color) 0 170deg,
-    var(--female-color) 171deg 360deg
+    var(--male-color) 0 calc((var(--male) * 3.6deg)),
+    #fff 0 calc((var(--male) * 3.6deg)),
+    var(--female-color) 0 360deg
   );
 }
 
@@ -858,6 +883,20 @@ input {
   .circle-data {
     &:last-child {
       align-self: flex-end;
+    }
+
+    &.is-empty {
+      align-self: center;
+      font-size: $sm-txt;
+      font-style: italic;
+      color: var(--txt-default);
+      opacity: .4;
+    }
+
+    &:not(.is-empty) {
+      font-style: normal;
+      opacity: 1;
+      transform: translateY(-1px);
     }
   }
 }

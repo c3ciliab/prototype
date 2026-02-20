@@ -15,7 +15,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// search inside panel
+// /* SEARCH PANEL */ 
 document.addEventListener("input", (e) => {
   const input = e.target.closest(".search-input");
   if (!input) return;
@@ -411,6 +411,36 @@ function renderRowLines(container, rows) {
   el.appendChild(frag);
 }
 
+function setKpiValue(el, value, placeholder = "[select flock]") {
+  if (!el) return;
+
+  const isEmpty = !value || value === placeholder;
+
+  el.textContent = isEmpty ? placeholder : value;
+  el.classList.toggle("is-empty", isEmpty);
+}
+
+function parsePct(pctStr) {
+  if (!pctStr) return null;
+  // "51,0%" -> 51.0
+  const n = parseFloat(String(pctStr).replace("%", "").replace(",", ".").trim());
+  return Number.isFinite(n) ? n : null;
+}
+
+function updateHalfCircle(maleStr, femaleStr) {
+  const male = parsePct(maleStr);
+  const female = parsePct(femaleStr);
+
+  // fallback si une valeur manque
+  const m = male ?? (female != null ? 100 - female : 50);
+  const f = female ?? (male != null ? 100 - male : 50);
+
+  document.querySelectorAll(".half-circle").forEach((circle) => {
+    circle.style.setProperty("--male", m);
+    circle.style.setProperty("--female", f);
+  });
+}
+
 // click update
 document.addEventListener("click", (e) => {
   const row = e.target.closest(".row-line");
@@ -423,25 +453,31 @@ document.addEventListener("click", (e) => {
   const vfemale = row.dataset.vfemale;
   const vmale = row.dataset.vmale;
 
+  // On-going flock
   const flockEl = document.getElementById("ongoingFlock");
-  if (flockEl && flock) flockEl.textContent = flock;
+  setKpiValue(flockEl, flock);
 
+  // Day-old chicks sorted
   document.querySelectorAll(".sorted-volume").forEach((el) => {
-    el.textContent = volume ?? "-";
+    setKpiValue(el, volume);
   });
 
-  document.querySelectorAll(".pctMale").forEach((el) => {
-    el.textContent = male ?? "-";
-  });
+  // %age female/male
   document.querySelectorAll(".pctFemale").forEach((el) => {
-    el.textContent = female ?? "-";
+    setKpiValue(el, female);
+  });
+  document.querySelectorAll(".pctMale").forEach((el) => {
+    setKpiValue(el, male);
   });
 
-  document.querySelectorAll(".v-male").forEach((el) => {
-    el.textContent = vmale ?? "-";
-  });
+  updateHalfCircle(male, female);
+
+  // volume female/male
   document.querySelectorAll(".v-female").forEach((el) => {
     el.textContent = vfemale ?? "-";
+  });
+  document.querySelectorAll(".v-male").forEach((el) => {
+    el.textContent = vmale ?? "-";
   });
 
   // style "selected"

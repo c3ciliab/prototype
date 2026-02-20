@@ -394,6 +394,25 @@ h2 {
 .card.kpi-card:nth-child(2), .sidebar-wrapper .sidebar li.menu-filter .filter-list .kpi-card.filter-panel:nth-child(2), header .menu-filter .filter-list .kpi-card.filter-panel:nth-child(2), .dashboard .scene.dash-home .kpi-card.card-header:nth-child(2), .dashboard .scene.dash-home .kpi-card.card-body:nth-child(2), .dashboard .scene.dash-home .kpi-card.card-footer:nth-child(2), .kpi-card.popup:nth-child(2), .kpi-card.btn:nth-child(2), .main-nav a.kpi-card:nth-child(2), .kpi-card.btn-icon:nth-child(2), .kpi-card.btn-delete:nth-child(2), .kpi-card.btn-secondary:nth-child(2), .section-header ul a.kpi-card:nth-child(2), .kpi-card.btn-primary:nth-child(2) {
   width: 60%;
 }
+.card.kpi-card .title-data, .sidebar-wrapper .sidebar li.menu-filter .filter-list .kpi-card.filter-panel .title-data, header .menu-filter .filter-list .kpi-card.filter-panel .title-data, .dashboard .scene.dash-home .kpi-card.card-header .title-data, .dashboard .scene.dash-home .kpi-card.card-body .title-data, .dashboard .scene.dash-home .kpi-card.card-footer .title-data, .kpi-card.popup .title-data, .kpi-card.btn .title-data, .main-nav a.kpi-card .title-data, .kpi-card.btn-icon .title-data, .kpi-card.btn-delete .title-data, .kpi-card.btn-secondary .title-data, .section-header ul a.kpi-card .title-data, .kpi-card.btn-primary .title-data {
+  transition: color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+.card.kpi-card .title-data.is-empty, .sidebar-wrapper .sidebar li.menu-filter .filter-list .kpi-card.filter-panel .title-data.is-empty, header .menu-filter .filter-list .kpi-card.filter-panel .title-data.is-empty, .dashboard .scene.dash-home .kpi-card.card-header .title-data.is-empty, .dashboard .scene.dash-home .kpi-card.card-body .title-data.is-empty, .dashboard .scene.dash-home .kpi-card.card-footer .title-data.is-empty, .kpi-card.popup .title-data.is-empty, .kpi-card.btn .title-data.is-empty, .main-nav a.kpi-card .title-data.is-empty, .kpi-card.btn-icon .title-data.is-empty, .kpi-card.btn-delete .title-data.is-empty, .kpi-card.btn-secondary .title-data.is-empty, .section-header ul a.kpi-card .title-data.is-empty, .kpi-card.btn-primary .title-data.is-empty {
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 500;
+  text-transform: lowercase;
+  color: var(--txt-default);
+  opacity: 0.4;
+}
+.card.kpi-card .title-data:not(.is-empty), .sidebar-wrapper .sidebar li.menu-filter .filter-list .kpi-card.filter-panel .title-data:not(.is-empty), header .menu-filter .filter-list .kpi-card.filter-panel .title-data:not(.is-empty), .dashboard .scene.dash-home .kpi-card.card-header .title-data:not(.is-empty), .dashboard .scene.dash-home .kpi-card.card-body .title-data:not(.is-empty), .dashboard .scene.dash-home .kpi-card.card-footer .title-data:not(.is-empty), .kpi-card.popup .title-data:not(.is-empty), .kpi-card.btn .title-data:not(.is-empty), .main-nav a.kpi-card .title-data:not(.is-empty), .kpi-card.btn-icon .title-data:not(.is-empty), .kpi-card.btn-delete .title-data:not(.is-empty), .kpi-card.btn-secondary .title-data:not(.is-empty), .section-header ul a.kpi-card .title-data:not(.is-empty), .kpi-card.btn-primary .title-data:not(.is-empty) {
+  font-style: normal;
+  font-weight: 600;
+  text-transform: none;
+  color: var(--highlight-color);
+  opacity: 1;
+  transform: translateY(-1px);
+}
 .card.table-card, .sidebar-wrapper .sidebar li.menu-filter .filter-list .table-card.filter-panel, header .menu-filter .filter-list .table-card.filter-panel, .dashboard .scene.dash-home .table-card.card-header, .dashboard .scene.dash-home .table-card.card-body, .dashboard .scene.dash-home .table-card.card-footer, .table-card.popup, .table-card.btn, .main-nav a.table-card, .table-card.btn-icon, .table-card.btn-delete, .table-card.btn-secondary, .section-header ul a.table-card, .table-card.btn-primary {
   display: flex;
   flex-direction: column;
@@ -1088,10 +1107,12 @@ input:focus {
 
 /* GRAPHS */
 .half-circle {
+  --male: 50;
+  --female: 50;
   width: 160px;
   aspect-ratio: 1;
   border-radius: 50%;
-  background: conic-gradient(from 0deg, var(--male-color) 0 170deg, var(--female-color) 171deg 360deg);
+  background: conic-gradient(from 0deg, var(--male-color) 0 calc(var(--male) * 3.6deg), #fff 0 calc(var(--male) * 3.6deg), var(--female-color) 0 360deg);
 }
 
 .white-circle {
@@ -1111,6 +1132,18 @@ input:focus {
 }
 .white-circle .circle-data:last-child {
   align-self: flex-end;
+}
+.white-circle .circle-data.is-empty {
+  align-self: center;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--txt-default);
+  opacity: 0.4;
+}
+.white-circle .circle-data:not(.is-empty) {
+  font-style: normal;
+  opacity: 1;
+  transform: translateY(-1px);
 }
 
 /*********** BASE / RESET STYLES ***********/
