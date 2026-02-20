@@ -499,3 +499,30 @@ const rows = [
 ];
 
 renderRowLines("#flocksTable", rows);
+
+// /* TOGGLE GRAPHS */
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest(".view-btn");
+  if (!btn) return;
+
+  const card = btn.closest(".card") || document; // si ta card a une classe .card
+  const viewsWrap = card.querySelector(".graph-views");
+  if (!viewsWrap) return;
+
+  const view = btn.dataset.view;
+
+  // active button
+  card.querySelectorAll(".view-btn").forEach(b => {
+    const active = b === btn;
+    b.classList.toggle("is-active", active);
+    b.setAttribute("aria-selected", String(active));
+  });
+
+  // show/hide views
+  viewsWrap.querySelectorAll(".graph-view").forEach(v => {
+    const isTarget = v.dataset.view === view;
+    v.hidden = !isTarget;
+  });
+
+  viewsWrap.dataset.activeView = view;
+});

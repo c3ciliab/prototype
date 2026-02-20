@@ -1330,6 +1330,41 @@ img.img-responsive {
   height: 26px;
 }
 
+/* TOGGLE GRAPHS */
+.card-switch {
+  position: relative;
+  flex: 1;
+}
+.card-switch .view-switch {
+  display: flex;
+  flex-direction: row;
+  gap: 0.25rem;
+  position: absolute;
+  top: -4px;
+  right: 8px;
+}
+.card-switch .view-switch .view-btn {
+  width: 28px;
+  height: 28px;
+  font-size: 14px;
+  background-color: #ffe395;
+  border-radius: 50%;
+  opacity: 0.6;
+}
+.card-switch .view-switch .view-btn.is-active {
+  opacity: 1;
+}
+.card-switch .graph-views {
+  height: 100%;
+}
+.card-switch .graph-views .graph-view {
+  display: flex;
+  height: 100%;
+}
+.card-switch .graph-views .graph-view[hidden] {
+  display: none !important;
+}
+
 /*********** IMPORTS ***********/
 /******************* LAYOUT *******************/
 /* ELEMENTS */
@@ -2112,7 +2147,7 @@ section {
   font-size: 14px;
   font-style: italic;
   color: var(--txt-default);
-  background-color: rgba(255, 199, 44, 0.5);
+  background-color: #ffe395;
 }
 .ninja-4th-wall.a-right {
   top: 102px;
