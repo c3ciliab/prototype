@@ -22,7 +22,7 @@
                 </a>
             </li>
             <!-- HATCHERY SEARCH -->
-            <li class="menu-filter"" id="hatcheryFilter">
+            <li class="menu-filter" id="hatcheryFilterSide" data-filter="hatchery">
                 <button class="filter-btn" type="button" aria-expanded="false">
                     <figure>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
@@ -42,73 +42,115 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
                                 <path d="M480 272C480 317.9 465.1 360.3 440 394.7L566.6 521.4C579.1 533.9 579.1 554.2 566.6 566.7C554.1 579.2 533.8 579.2 521.3 566.7L394.7 440C360.3 465.1 317.9 480 272 480C157.1 480 64 386.9 64 272C64 157.1 157.1 64 272 64C386.9 64 480 157.1 480 272zM272 416C351.5 416 416 351.5 416 272C416 192.5 351.5 128 272 128C192.5 128 128 192.5 128 272C128 351.5 192.5 416 272 416z"/>
                             </svg>
-                            <input class="filter-search__input" type="text" placeholder="Search for a hatchery" />
-                            <button type="button" class="filter-search__clear" aria-label="Clear">✕</button>
+                            <input class="search-input" type="text" placeholder="Search for a hatchery" />
+                            <button type="button" class="search-clear" aria-label="Clear">✕</button>
                         </div>
 
                         <ul class="checklist" role="listbox" aria-label="Hatcheries">
-                            <li class="checklist__item checklist__item--selectall">
+                            <li class="checklist-item checklist-item--selectall">
                                 <label class="check">
-                                    <input class="check__input select-all" type="checkbox" />
-                                    <span class="check__box" aria-hidden="true"></span>
-                                    <span class="check__label">Select All</span>
+                                    <input class="check-input select-all" type="checkbox" />
+                                    <span class="check-box" aria-hidden="true"></span>
+                                    <span class="check-label">Select All</span>
                                 </label>
                             </li>
                             <div class="check-items">
-                                <li class="checklist__item">
+                                <li class="checklist-item">
                                     <label class="check">
-                                        <input class="check__input item" type="checkbox" value="Agidel" />
-                                        <span class="check__box" aria-hidden="true"></span>
-                                        <span class="check__label">Agidel</span>
+                                        <input class="check-input item" type="checkbox" value="Agidel" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Agidel</span>
                                     </label>
                                 </li>
-                                <li class="checklist__item">
+                                <li class="checklist-item">
                                     <label class="check">
-                                        <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
-                                        <span class="check__box" aria-hidden="true"></span>
-                                        <span class="check__label">Al Watania Broiler</span>
+                                        <input class="check-input item" type="checkbox" value="Al Watania Broiler" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Al Watania Broiler</span>
                                     </label>
                                 </li>
-                                <li class="checklist__item">
+                                <li class="checklist-item">
                                     <label class="check">
-                                        <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
-                                        <span class="check__box" aria-hidden="true"></span>
-                                        <span class="check__label">Baromfi-Coop Kft Keltető</span>
+                                        <input class="check-input item" type="checkbox" value="Baromfi-Coop Kft Keltető" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Baromfi-Coop Kft Keltető</span>
                                     </label>
                                 </li>
-                                <li class="checklist__item">
+                                <li class="checklist-item">
                                     <label class="check">
-                                        <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
-                                        <span class="check__box" aria-hidden="true"></span>
-                                        <span class="check__label">Calisa II</span>
+                                        <input class="check-input item" type="checkbox" value="Calisa II" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Calisa II</span>
                                     </label>
                                 </li>
-                                <li class="checklist__item">
+                                <li class="checklist-item">
                                     <label class="check">
-                                        <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
-                                        <span class="check__box" aria-hidden="true"></span>
-                                        <span class="check__label">Hawa Chicken (LB)</span>
+                                        <input class="check-input item" type="checkbox" value="Don Pollo Montenegro" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Don Pollo Montenegro</span>
                                     </label>
                                 </li>
-                                <li class="checklist__item">
+                                <li class="checklist-item">
                                     <label class="check">
-                                        <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
-                                        <span class="check__box" aria-hidden="true"></span>
-                                        <span class="check__label">Moy Park - Donaghmore</span>
+                                        <input class="check-input item" type="checkbox" value="Galina Vendée" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Galina Vendée</span>
                                     </label>
                                 </li>
-                                <li class="checklist__item">
+                                <li class="checklist-item">
                                     <label class="check">
-                                        <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
-                                        <span class="check__box" aria-hidden="true"></span>
-                                        <span class="check__label">Padma Karya Prima</span>
+                                        <input class="check-input item" type="checkbox" value="Hawa Chicken (LB)" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Hawa Chicken (LB)</span>
                                     </label>
                                 </li>
-                                <li class="checklist__item">
+                                <li class="checklist-item">
                                     <label class="check">
-                                        <input class="check__input item" type="checkbox" value="Al Watania Broiler" />
-                                        <span class="check__box" aria-hidden="true"></span>
-                                        <span class="check__label">SKM JOMBANG</span>
+                                        <input class="check-input item" type="checkbox" value="Japfa Binh Duong" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Japfa Binh Duong</span>
+                                    </label>
+                                </li>
+                                <li class="checklist-item">
+                                    <label class="check">
+                                        <input class="check-input item" type="checkbox" value="Moy Park - Donaghmore" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Moy Park - Donaghmore</span>
+                                    </label>
+                                </li>
+                                <li class="checklist-item">
+                                    <label class="check">
+                                        <input class="check-input item" type="checkbox" value="Padma Karya Prima" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Padma Karya Prima</span>
+                                    </label>
+                                </li>
+                                <li class="checklist-item">
+                                    <label class="check">
+                                        <input class="check-input item" type="checkbox" value="Rainbow Chicken" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Rainbow Chicken</span>
+                                    </label>
+                                </li>
+                                <li class="checklist-item">
+                                    <label class="check">
+                                        <input class="check-input item" type="checkbox" value="Sahafarm Subcharean" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Sahafarm Subcharean</span>
+                                    </label>
+                                </li>
+                                <li class="checklist-item">
+                                    <label class="check">
+                                        <input class="check-input item" type="checkbox" value="Simmons Pineville" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">Simmons Pineville</span>
+                                    </label>
+                                </li>
+                                <li class="checklist-item">
+                                    <label class="check">
+                                        <input class="check-input item" type="checkbox" value="SKM JOMBANG" />
+                                        <span class="check-box" aria-hidden="true"></span>
+                                        <span class="check-label">SKM JOMBANG</span>
                                     </label>
                                 </li>
                             </div>
@@ -288,12 +330,6 @@
 
                 <!-- SECTION CONTENT -->
                 <div class="scene">
-                    <figure>
-                        <img src="../../img/engine.png" alt="Engine">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                            <path d="M320 64C334.7 64 348.2 72.1 355.2 85L571.2 485C577.9 497.4 577.6 512.4 570.4 524.5C563.2 536.6 550.1 544 536 544L104 544C89.9 544 76.8 536.6 69.6 524.5C62.4 512.4 62.1 497.4 68.8 485L284.8 85C291.8 72.1 305.3 64 320 64zM320 416C302.3 416 288 430.3 288 448C288 465.7 302.3 480 320 480C337.7 480 352 465.7 352 448C352 430.3 337.7 416 320 416zM320 224C301.8 224 287.3 239.5 288.6 257.7L296 361.7C296.9 374.2 307.4 384 319.9 384C332.5 384 342.9 374.3 343.8 361.7L351.2 257.7C352.5 239.5 338.1 224 319.8 224z"/>
-                        </svg>
-                    </figure>
                     <div class="content temp flex-center">
                         <h2 class="inline-blue">Work in Progress</h2>
                         <img src="../../img/chicks-at-work.png" width="460">
