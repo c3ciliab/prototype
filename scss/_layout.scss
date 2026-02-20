@@ -123,13 +123,13 @@
                     transition: max-height .2s ease, opacity .2s ease, transform .2s ease;
 
                     /* Panel */
-                    .filter-panel{
+                    .filter-panel {
                         @extend %card;
                         border: 1px solid #d9dde3;
                         padding: .5rem;
                     }
 
-                    .filter-search{
+                    .filter-search {
                         display: flex;
                         align-items: center;
                         padding: .5rem;
@@ -142,12 +142,12 @@
                         }
                     }
 
-                    .filter-search__input{
+                    .search-input {
                         width:100%;
                         border:0;
                     }
 
-                    .filter-search__clear{
+                    .search-clear {
                         border: 0;
                         background: transparent;
                         height: auto;
@@ -155,10 +155,10 @@
                         line-height: 1;
                         padding: .25rem .4rem;
                         border-radius: 6px;
-                    }
 
-                    .filter-search__clear:hover{
-                        background: #f3f5f8;
+                        &:hover {
+                            background: #f3f5f8;
+                        }
                     }
 
                     .checklist{
@@ -173,13 +173,13 @@
                         overflow-y: scroll;
                     }
 
-                    .checklist__item{
+                    .checklist-item{
                         padding: .35rem .5rem;
                         white-space: nowrap;
                         border-radius: 6px;
                     }
 
-                    .checklist__item:hover{ background:#f3f5f8; }
+                    .checklist-item:hover{ background:#f3f5f8; }
 
                     .check{
                         display:flex;
@@ -190,7 +190,7 @@
                     }
 
                     /* Checkbox look simple */
-                    .check__input{ width: 16px; height: 16px; }
+                    .check-input{ width: 16px; height: 16px; }
                 }
 
                 &.is-open {
@@ -311,13 +311,12 @@ header {
 
     .menu-filter {
         position: relative;
-
+        
         .filter-btn {
-            @include flexAlign;
-            gap: .25rem;
+            @include flexAlign(row, .25rem);
             height: 40px;
             padding-inline: .5rem;
-            color: white;
+            color: var(--txt-secondary);
             background-color: transparent;
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 8px;
@@ -330,19 +329,15 @@ header {
                 @include ellipsis;
             }
 
+            .chevron {
+                width: 18px;
+                height: 18px;
+                transition: transform .2s ease;
+            }
+
             &:hover {
                 border-color: white;
             }
-        }
-
-        .chevron {
-            width: 18px;
-            height: 18px;
-            transition: transform .2s ease;
-        }
-
-        &.is-open .chevron{
-            transform: rotate(180deg); /* down -> up */
         }
 
         .filter-list {
@@ -362,14 +357,13 @@ header {
             transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
 
             /* Panel */
-            .filter-panel{
+            .filter-panel {
                 @extend %card;
                 padding: .5rem;
             }
 
-            .filter-search{
-                display: flex;
-                align-items: center;
+            .filter-search {
+                @include flexAlign;
                 padding: .5rem;
                 border: 1px solid #e3e6eb;
                 border-radius: 8px;
@@ -378,31 +372,31 @@ header {
                     width: 28px;
                     fill: #3c3c3c;
                 }
+
+                .search-input {
+                    width: 100%;
+                    border: 0;
+                }
+
+                .search-clear {
+                    height: auto;
+                    line-height: 1;
+                    padding: .25rem .4rem;
+                    background: transparent;
+                    border: 0;
+                    border-radius: 6px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: #f3f5f8;
+                    }
+                }
             }
 
-            .filter-search__input{
-                width:100%;
-                border:0;
-            }
-
-            .filter-search__clear{
-                border: 0;
-                background: transparent;
-                height: auto;
-                cursor: pointer;
-                line-height: 1;
-                padding: .25rem .4rem;
-                border-radius: 6px;
-            }
-
-            .filter-search__clear:hover{
-                background: #f3f5f8;
-            }
-
-            .checklist{
-                margin: .5rem 0 0;
+            .checklist {
                 max-height: 260px;
                 overflow: auto;
+                margin: .5rem 0 0;
                 border-radius: 8px;
             }
 
@@ -411,27 +405,31 @@ header {
                 overflow-y: scroll;
             }
 
-            .checklist__item{
+            .checklist-item {
                 padding: .35rem .5rem;
                 white-space: nowrap;
                 border-radius: 6px;
+
+                &:hover { background:#f3f5f8; }
             }
 
-            .checklist__item:hover{ background:#f3f5f8; }
+            .check {
+                @include flexAlign(row, .6rem);
+                cursor: pointer;
+                user-select: none;
 
-            .check{
-                display:flex;
-                align-items:center;
-                gap:.6rem;
-                cursor:pointer;
-                user-select:none;
+                .check-input { 
+                    width: 16px;
+                    height: 16px;
+                }
             }
-
-            /* Checkbox look simple */
-            .check__input{ width: 16px; height: 16px; }
         }
 
         &.is-open {
+            .chevron {
+                transform: rotate(180deg); /* down -> up */
+            }
+
             .filter-list { 
                 max-height: 240px;
                 opacity: 1;

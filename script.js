@@ -10,19 +10,21 @@ document.addEventListener("click", (e) => {
   item.classList.toggle("is-open", willOpen);
 
   btn.setAttribute("aria-expanded", String(willOpen));
-  if (list) list.hidden = !willOpen;
+  if (list) {
+    list.style.removeProperty("max-height");
+  }
 });
 
 // search inside panel
 document.addEventListener("input", (e) => {
-  const input = e.target.closest(".filter-search__input");
+  const input = e.target.closest(".search-input");
   if (!input) return;
 
   const panel = input.closest(".filter-panel");
   const q = input.value.trim().toLowerCase();
 
-  panel.querySelectorAll(".checklist__item").forEach(li => {
-    if (li.classList.contains("checklist__item--selectall")) return;
+  panel.querySelectorAll(".checklist-item").forEach(li => {
+    if (li.classList.contains("checklist-item--selectall")) return;
 
     const label = li.innerText.trim().toLowerCase();
     li.style.display = label.includes(q) ? "" : "none";
@@ -41,8 +43,8 @@ document.addEventListener("input", (e) => {
 // select all + indeterminate
 function updateSelectAll(panel) {
   const selectAll = panel.querySelector(".select-all");
-  const items = [...panel.querySelectorAll(".check__input.item")]
-    .filter(cb => cb.closest(".checklist__item").style.display !== "none");
+  const items = [...panel.querySelectorAll(".check-input.item")]
+    .filter(cb => cb.closest(".checklist-item").style.display !== "none");
 
   const checked = items.filter(cb => cb.checked).length;
 
@@ -58,9 +60,9 @@ document.addEventListener("change", (e) => {
   // click select-all
   if (e.target.classList.contains("select-all")) {
     const checked = e.target.checked;
-    panel.querySelectorAll(".check__input.item").forEach(cb => {
+    panel.querySelectorAll(".check-input.item").forEach(cb => {
       // option: ne coche que les visibles
-      if (cb.closest(".checklist__item").style.display === "none") return;
+      if (cb.closest(".checklist-item").style.display === "none") return;
       cb.checked = checked;
     });
     updateSelectAll(panel);
@@ -74,23 +76,23 @@ document.addEventListener("change", (e) => {
 });
 
 document.addEventListener("click", (e) => {
-  const clearBtn = e.target.closest(".filter-search__clear");
+  const clearBtn = e.target.closest(".search-clear");
   if (!clearBtn) return;
 
   const panel = clearBtn.closest(".filter-panel");
-  const input = panel.querySelector(".filter-search__input");
+  const input = panel.querySelector(".search-input");
   const wrap = panel.closest(".menu-filter")?.querySelector(".filter-list");
 
   // 1) reset search
   if (input) input.value = "";
 
   // 2) show all rows
-  panel.querySelectorAll(".checklist__item").forEach(li => {
+  panel.querySelectorAll(".checklist-item").forEach(li => {
     li.style.display = "";
   });
 
   // 3) uncheck all items
-  panel.querySelectorAll(".check__input.item").forEach(cb => cb.checked = false);
+  panel.querySelectorAll(".check-input.item").forEach(cb => cb.checked = false);
 
   // 4) reset select all state
   const selectAll = panel.querySelector(".select-all");
@@ -104,6 +106,115 @@ document.addEventListener("click", (e) => {
     wrap.style.maxHeight = wrap.scrollHeight + "px";
   }
 });
+
+// display selection
+const HATCHERY_FILTERS = ["hatcheryFilterSide", "hatcheryFilterHeader"];
+
+/* récupère les valeurs cochées dans un filtre */
+function getCheckedValues(filter) {
+  return [...filter.querySelectorAll(".check-input.item:checked")].map(cb => cb.value);
+}
+
+/* applique une sélection (par values) dans un filtre */
+function setCheckedValues(filter, values) {
+  filter.querySelectorAll(".check-input.item").forEach(cb => {
+    cb.checked = values.includes(cb.value);
+  });
+}
+
+/* met à jour l'état Select All (checked / indeterminate) */
+function updateSelectAll(filter) {
+  const selectAll = filter.querySelector(".check-input.select-all");
+  if (!selectAll) return;
+
+  const items = [...filter.querySelectorAll(".check-input.item")];
+  const checked = items.filter(i => i.checked).length;
+
+  selectAll.checked = items.length > 0 && checked === items.length;
+  selectAll.indeterminate = checked > 0 && checked < items.length;
+}
+
+/* met à jour le texte du bouton (liste + ellipsis via CSS) */
+function updateHatcherySummary(filter) {
+  const btnText = filter.querySelector(".filter-btn > span");
+  if (!btnText) return;
+
+  const checkedLabels = [...filter.querySelectorAll(".check-input.item:checked")]
+    .map(cb => cb.closest(".check")?.querySelector(".check-label")?.textContent?.trim())
+    .filter(Boolean);
+
+  btnText.textContent = checkedLabels.length ? checkedLabels.join(", ") : "Search for a hatchery";
+}
+
+/* applique partout une sélection */
+function syncAll(fromId, values) {
+  HATCHERY_FILTERS.forEach((id) => {
+    const filter = document.getElementById(id);
+    if (!filter) return;
+
+    // si ce n'est pas celui d'origine : on coche/décoche pareil
+    if (id !== fromId) {
+      setCheckedValues(filter, values);
+    }
+
+    updateSelectAll(filter);
+    updateHatcherySummary(filter);
+  });
+}
+
+/* init : prend la sélection du 1er filtre trouvé */
+function initHatcherySync() {
+  const first = HATCHERY_FILTERS.map(id => document.getElementById(id)).find(Boolean);
+  if (!first) return;
+  const values = getCheckedValues(first);
+  syncAll(first.id, values);
+}
+
+/* CHANGE handler */
+document.addEventListener("change", (e) => {
+  const filter = e.target.closest("#hatcheryFilterSide, #hatcheryFilterHeader");
+  if (!filter) return;
+
+  // click Select All
+  if (e.target.matches(".check-input.select-all")) {
+    const checked = e.target.checked;
+    filter.querySelectorAll(".check-input.item").forEach(cb => cb.checked = checked);
+
+    const values = getCheckedValues(filter);
+    syncAll(filter.id, values);
+    return;
+  }
+
+  // click item
+  if (e.target.matches(".check-input.item")) {
+    const values = getCheckedValues(filter);
+    syncAll(filter.id, values);
+  }
+});
+
+/* CLEAR handler (pour les 2) */
+document.addEventListener("click", (e) => {
+  const clear = e.target.closest("#hatcheryFilterSide .search-clear, #hatcheryFilterHeader .search-clear");
+  if (!clear) return;
+
+  const filter = clear.closest("#hatcheryFilterSide, #hatcheryFilterHeader");
+  if (!filter) return;
+
+  // reset search input local (si tu veux)
+  const input = filter.querySelector(".search-input");
+  if (input) input.value = "";
+
+  // décoche tout dans le filtre source
+  filter.querySelectorAll(".check-input.item").forEach(cb => cb.checked = false);
+  const selectAll = filter.querySelector(".check-input.select-all");
+  if (selectAll) { selectAll.checked = false; selectAll.indeterminate = false; }
+
+  // sync partout (vide)
+  syncAll(filter.id, []);
+});
+
+initHatcherySync();
+
 
 // /* POPUP TOGGLE */
 const GAP = 12;

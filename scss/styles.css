@@ -1422,11 +1422,11 @@ img.img-responsive {
   width: 28px;
   fill: #3c3c3c;
 }
-.sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-search__input {
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .search-input {
   width: 100%;
   border: 0;
 }
-.sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-search__clear {
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .search-clear {
   border: 0;
   background: transparent;
   height: auto;
@@ -1435,7 +1435,7 @@ img.img-responsive {
   padding: 0.25rem 0.4rem;
   border-radius: 6px;
 }
-.sidebar-wrapper .sidebar li.menu-filter .filter-list .filter-search__clear:hover {
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .search-clear:hover {
   background: #f3f5f8;
 }
 .sidebar-wrapper .sidebar li.menu-filter .filter-list .checklist {
@@ -1448,12 +1448,12 @@ img.img-responsive {
   max-height: 120px;
   overflow-y: scroll;
 }
-.sidebar-wrapper .sidebar li.menu-filter .filter-list .checklist__item {
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .checklist-item {
   padding: 0.35rem 0.5rem;
   white-space: nowrap;
   border-radius: 6px;
 }
-.sidebar-wrapper .sidebar li.menu-filter .filter-list .checklist__item:hover {
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .checklist-item:hover {
   background: #f3f5f8;
 }
 .sidebar-wrapper .sidebar li.menu-filter .filter-list .check {
@@ -1468,7 +1468,7 @@ img.img-responsive {
 .sidebar-wrapper .sidebar li.menu-filter .filter-list {
   /* Checkbox look simple */
 }
-.sidebar-wrapper .sidebar li.menu-filter .filter-list .check__input {
+.sidebar-wrapper .sidebar li.menu-filter .filter-list .check-input {
   width: 16px;
   height: 16px;
 }
@@ -1599,12 +1599,11 @@ header .menu-filter {
 header .menu-filter .filter-btn {
   display: flex;
   flex-direction: row;
-  gap: 0;
-  align-items: center;
   gap: 0.25rem;
+  align-items: center;
   height: 40px;
   padding-inline: 0.5rem;
-  color: white;
+  color: var(--txt-secondary);
   background-color: transparent;
   border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 8px;
@@ -1618,16 +1617,13 @@ header .menu-filter .filter-btn span {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-header .menu-filter .filter-btn:hover {
-  border-color: white;
-}
-header .menu-filter .chevron {
+header .menu-filter .filter-btn .chevron {
   width: 18px;
   height: 18px;
   transition: transform 0.2s ease;
 }
-header .menu-filter.is-open .chevron {
-  transform: rotate(180deg); /* down -> up */
+header .menu-filter .filter-btn:hover {
+  border-color: white;
 }
 header .menu-filter .filter-list {
   position: absolute;
@@ -1651,6 +1647,8 @@ header .menu-filter .filter-list .filter-panel {
 }
 header .menu-filter .filter-list .filter-search {
   display: flex;
+  flex-direction: row;
+  gap: 0;
   align-items: center;
   padding: 0.5rem;
   border: 1px solid #e3e6eb;
@@ -1660,55 +1658,56 @@ header .menu-filter .filter-list .filter-search svg {
   width: 28px;
   fill: #3c3c3c;
 }
-header .menu-filter .filter-list .filter-search__input {
+header .menu-filter .filter-list .filter-search .search-input {
   width: 100%;
   border: 0;
 }
-header .menu-filter .filter-list .filter-search__clear {
-  border: 0;
-  background: transparent;
+header .menu-filter .filter-list .filter-search .search-clear {
   height: auto;
-  cursor: pointer;
   line-height: 1;
   padding: 0.25rem 0.4rem;
+  background: transparent;
+  border: 0;
   border-radius: 6px;
+  cursor: pointer;
 }
-header .menu-filter .filter-list .filter-search__clear:hover {
+header .menu-filter .filter-list .filter-search .search-clear:hover {
   background: #f3f5f8;
 }
 header .menu-filter .filter-list .checklist {
-  margin: 0.5rem 0 0;
   max-height: 260px;
   overflow: auto;
+  margin: 0.5rem 0 0;
   border-radius: 8px;
 }
 header .menu-filter .filter-list .check-items {
   max-height: 120px;
   overflow-y: scroll;
 }
-header .menu-filter .filter-list .checklist__item {
+header .menu-filter .filter-list .checklist-item {
   padding: 0.35rem 0.5rem;
   white-space: nowrap;
   border-radius: 6px;
 }
-header .menu-filter .filter-list .checklist__item:hover {
+header .menu-filter .filter-list .checklist-item:hover {
   background: #f3f5f8;
 }
 header .menu-filter .filter-list .check {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   gap: 0.6rem;
+  align-items: center;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
 }
-header .menu-filter .filter-list {
-  /* Checkbox look simple */
-}
-header .menu-filter .filter-list .check__input {
+header .menu-filter .filter-list .check .check-input {
   width: 16px;
   height: 16px;
+}
+header .menu-filter.is-open .chevron {
+  transform: rotate(180deg); /* down -> up */
 }
 header .menu-filter.is-open .filter-list {
   max-height: 240px;
