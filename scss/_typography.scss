@@ -18,6 +18,7 @@ $mono: "Roboto Mono", monospace;
 /* TEXT */
 
 // Sizes
+$xs-txt: 12px;
 $sm-txt: 14px;
 $md-txt: 20px;
 $lg-txt: 24px;
@@ -31,6 +32,11 @@ h2 {
     text-transform: uppercase;
 }
 
+// Other texts
+label {
+    font-size: $sm-txt;
+}
+
 // Styles
 @mixin brand-txt($style: italic) {
     font-family: $myriad;
@@ -40,5 +46,4 @@ h2 {
 
 @mixin time-txt {
     font-family: $mono;
-    font-size: 1.25rem;
 }

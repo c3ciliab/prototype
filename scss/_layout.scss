@@ -314,6 +314,8 @@ header {
         
         .filter-btn {
             @include flexAlign(row, .25rem);
+            justify-content: space-between;
+            width: 100%;
             height: 40px;
             padding-inline: .5rem;
             color: var(--txt-secondary);

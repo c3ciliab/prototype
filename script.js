@@ -255,6 +255,23 @@ function positionPopup(trigger, popup) {
   }
 }
 
+function openAndPositionPopup(trigger, popup) {
+  // ouvre (selon ton système)
+  trigger.classList.add("is-open");
+  trigger.setAttribute("aria-expanded", "true");
+  popup.setAttribute("aria-hidden", "false");
+
+  // IMPORTANT: reset pour éviter les restes
+  popup.style.removeProperty("left");
+  popup.style.removeProperty("right");
+
+  // position après que la popup ait une vraie taille
+  requestAnimationFrame(() => {
+    positionPopup(trigger, popup);
+    requestAnimationFrame(() => positionPopup(trigger, popup)); // safe si transition
+  });
+}
+
 document.addEventListener("click", (e) => {
   const trigger = e.target.closest(".trigger");
 
@@ -284,7 +301,11 @@ document.addEventListener("click", (e) => {
   }
 
   // click inside popup => don't close
-  if (e.target.closest(".popup")) return;
+  //if (e.target.closest(".popup")) return;
+  
+  // if click inside timePicker, don't treat it as outside
+  if (e.target.closest("#timePicker")) return;
+
   // click outside => close everything
   closeAllPopups();
 });
@@ -357,10 +378,275 @@ function tick() {
 
   const dayEl = document.getElementById("dayOnly");
   if (dayEl) dayEl.textContent = formatDay(now);
+  //if (dayEl) dayEl.value = formatDay(now);
+
+  document.querySelector("#startDate").placeholder = formatDay(now);
+  document.querySelector("#endDate").placeholder = formatDay(now);
 }
 
 tick();
 setInterval(tick, 1000);
+
+// /* TIME SETTINGS */
+function formatDay(d) {
+  const dd = String(d.getDate()).padStart(2, "0");
+  const mm = String(d.getMonth() + 1).padStart(2, "0");
+  const yyyy = d.getFullYear();
+  return `${dd}/${mm}/${yyyy}`;
+}
+
+function startOfWeekMonday(date) {
+  const d = new Date(date);
+  d.setHours(0, 0, 0, 0);
+  const day = d.getDay(); // 0=Sun,1=Mon...
+  const diff = (day === 0 ? -6 : 1 - day); // back to Monday
+  d.setDate(d.getDate() + diff);
+  return d;
+}
+
+function endOfMonth(date) {
+  const d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  d.setHours(0, 0, 0, 0);
+  return d;
+}
+
+function setDateInputs(startDate, endDate) {
+  const startEl = document.querySelector('[name="start-date"]');
+  const endEl = document.querySelector('[name="end-date"]');
+  if (startEl) startEl.value = formatDay(startDate);
+  if (endEl) endEl.value = formatDay(endDate);
+}
+
+/**
+ * Period rules:
+ * - week: from Monday of last week -> today (pending week)
+ * - month: previous calendar month (1st -> last day)
+ * - quarter: previous calendar quarter
+ * - year: previous calendar year
+ */
+function applyPeriod(periodKey) {
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+
+  let start, end;
+
+  switch (periodKey) {
+    case "week": {
+      const thisMonday = startOfWeekMonday(now);
+      start = new Date(thisMonday);
+      start.setDate(start.getDate() - 7); // monday last week
+      end = now; // pending week = jusqu'à aujourd'hui
+      break;
+    }
+
+    case "month": {
+      const prevMonthStart = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+      prevMonthStart.setHours(0, 0, 0, 0);
+      start = prevMonthStart;
+      end = endOfMonth(prevMonthStart);
+      break;
+    }
+
+    case "quarter": {
+      const q = Math.floor(now.getMonth() / 3); // 0..3 current quarter index
+      const prevQEndMonth = q * 3 - 1;          // last month of prev quarter
+      const prevQStartMonth = prevQEndMonth - 2;
+
+      const yearForPrevQ = prevQEndMonth < 0 ? now.getFullYear() - 1 : now.getFullYear();
+      const endMonth = (prevQEndMonth + 12) % 12;
+      const startMonth = (prevQStartMonth + 12) % 12;
+
+      start = new Date(yearForPrevQ, startMonth, 1);
+      start.setHours(0, 0, 0, 0);
+      end = endOfMonth(new Date(yearForPrevQ, endMonth, 1));
+      break;
+    }
+
+    case "year": {
+      const y = now.getFullYear() - 1;
+      start = new Date(y, 0, 1);
+      start.setHours(0, 0, 0, 0);
+      end = new Date(y, 11, 31);
+      end.setHours(0, 0, 0, 0);
+      break;
+    }
+
+    case "custom":
+    default:
+      return; // ne touche pas aux inputs
+  }
+
+  setDateInputs(start, end);
+}
+
+// /* CUSTOMIZE TIME */
+function openPopupById(popupId) {
+  const popup = document.getElementById(popupId);
+  if (!popup) return;
+
+  // trouve le trigger associé
+  const trigger = document.querySelector(`.trigger[aria-controls="${popupId}"]`);
+
+  // ferme les autres triggers/popups
+  document.querySelectorAll(".trigger.is-open").forEach(t => t.classList.remove("is-open"));
+  document.querySelectorAll(".popup.is-open").forEach(p => p.classList.remove("is-open"));
+
+  // ouvre
+  trigger?.classList.add("is-open");
+  trigger?.setAttribute("aria-expanded", "true");
+
+  popup.classList.add("is-open");
+  popup.setAttribute("aria-hidden", "false");
+}
+
+function closePeriodMenu(menuEl) {
+  menuEl?.classList.remove("is-open");
+  menuEl?.querySelector(".trigger")?.setAttribute("aria-expanded", "false");
+  menuEl?.querySelector(".popup")?.setAttribute("aria-hidden", "true");
+}
+
+// map pour afficher un label propre dans le dropdown
+const PERIOD_LABELS = {
+  week: "Last week & pending",
+  month: "Last month",
+  quarter: "Last quarter",
+  year: "Last year",
+};
+
+// /* TIME SELECT */
+document.addEventListener("click", (e) => {
+  const clickedChip = e.target.closest("#timePicker .pp-chip");
+  const clickedTrigger = e.target.closest(".period-menu .trigger");
+  const clickedItem = e.target.closest(".period-menu .period-item");
+
+  // click chip (week/month/quarter/year) inside timePicker
+  if (clickedChip) {
+    const key = clickedChip.dataset.period;
+
+    // update inputs
+    applyPeriod(key);
+
+    // active state on chips
+    document.querySelectorAll("#timePicker .pp-chip").forEach(b => {
+      b.classList.toggle("is-active", b.dataset.period === key);
+    });
+
+    // optional: sync dropdown label (sans fermer le menu)
+    const periodLabelEl = document.querySelector(".period-menu .period-label");
+    if (periodLabelEl) periodLabelEl.textContent = clickedChip.textContent.trim();
+
+    return;
+  }
+
+  // click item => set label + close
+  if (clickedItem) {
+    const m = clickedItem.closest(".period-menu");
+    const trigger = m?.querySelector(".trigger");
+    const popup = m?.querySelector("#" + trigger?.getAttribute("aria-controls")) || m?.querySelector(".popup");
+    const label = m?.querySelector(".period-label");
+
+    // update label
+    if (label) label.textContent = clickedItem.textContent.trim();
+
+    // move focus out of popup BEFORE hiding it
+    trigger?.focus();
+
+    // close
+    m?.classList.remove("is-open");
+    trigger?.setAttribute("aria-expanded", "false");
+    popup?.setAttribute("aria-hidden", "true");
+
+    // update inputs
+    applyPeriod(clickedItem.dataset.period);
+    
+    const key = clickedItem.dataset.period;
+    document.querySelectorAll("#timePicker .pp-chip").forEach(b => {
+      b.classList.toggle("is-active", b.dataset.period === key);
+    });
+
+    // hook custom => open timePicker popup
+    if (clickedItem.dataset.period === "custom") {
+      openPopupById("timePicker");
+      const popup = document.getElementById("timePicker");
+      const trigger = document.querySelector('.trigger[aria-controls="timePicker"]');
+      if (trigger && popup) openAndPositionPopup(trigger, popup);
+    }
+    return;
+  }
+
+  // click trigger => toggle
+  if (clickedTrigger) {
+    const m = clickedTrigger.closest(".period-menu");
+    const willOpen = !m.classList.contains("is-open");
+
+    // close others
+    document.querySelectorAll(".period-menu.is-open").forEach((x) => {
+      if (x !== m) {
+        const t = x.querySelector(".trigger");
+        const p = x.querySelector("#" + t?.getAttribute("aria-controls")) || x.querySelector(".popup");
+        x.classList.remove("is-open");
+        t?.setAttribute("aria-expanded", "false");
+        p?.setAttribute("aria-hidden", "true");
+      }
+    });
+
+    // toggle current
+    const popup = m.querySelector("#" + clickedTrigger.getAttribute("aria-controls")) || m.querySelector(".popup");
+    m.classList.toggle("is-open", willOpen);
+    clickedTrigger.setAttribute("aria-expanded", String(willOpen));
+    popup?.setAttribute("aria-hidden", String(!willOpen));
+    return;
+  }
+
+  // if click inside timePicker, don't treat it as outside
+  if (e.target.closest("#timePicker")) return;
+
+  // click outside => close all
+  document.querySelectorAll(".period-menu.is-open").forEach((x) => {
+    const t = x.querySelector(".trigger");
+    const p = x.querySelector("#" + t?.getAttribute("aria-controls")) || x.querySelector(".popup");
+    x.classList.remove("is-open");
+    t?.setAttribute("aria-expanded", "false");
+    p?.setAttribute("aria-hidden", "true");
+  });
+});
+
+// esc => close
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+
+  document.querySelectorAll(".period-menu.is-open").forEach((x) => {
+    const t = x.querySelector(".trigger");
+    const p = x.querySelector("#" + t?.getAttribute("aria-controls")) || x.querySelector(".popup");
+    x.classList.remove("is-open");
+    t?.setAttribute("aria-expanded", "false");
+    p?.setAttribute("aria-hidden", "true");
+  });
+});
+
+// Quick chips inside #timePicker (week/month/quarter/year)
+document.addEventListener("click", (e) => {
+  const chip = e.target.closest(".pp-chip");
+  if (!chip) return;
+
+  // on s'assure que c'est bien DANS timePicker
+  if (!chip.closest("#timePicker")) return;
+
+  const key = chip.dataset.period;
+  if (!key) return;
+
+  // update inputs
+  applyPeriod(key);
+
+  // active state
+  document.querySelectorAll("#timePicker .pp-chip").forEach((b) => {
+    b.classList.toggle("is-active", b === chip);
+  });
+
+  // sync dropdown label
+  const periodLabelEl = document.querySelector(".period-menu .period-label");
+  if (periodLabelEl) periodLabelEl.textContent = PERIOD_LABELS[key] || chip.textContent.trim();
+});
 
 // /* FLOCKS LIST */
 function createRowLine(cells, flockName, volume, female, male, vfemale, vmale) {

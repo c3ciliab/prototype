@@ -742,7 +742,7 @@
   border-color: var(--primary-color);
   color: var(--txt-secondary);
   background-color: var(--bg-primary);
-  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
 
   svg {
     fill: var(--bg-secondary)
@@ -750,7 +750,7 @@
 
   &:hover, &.selected {
     border-color: var(--primary-color);
-    color: var(--txt-primary);
+    color: var(--txt-secondary);
     background-color: var(--bg-secondary);
 
     svg {
@@ -794,47 +794,8 @@
 }
 
 .btn-sm {
+  display: flex;
   width: 16px;
-}
-
-/* BUTTONS GROUPS */
-.time-container, .time-controls, .action-tools {
-  @include flexAlign(row, .75rem);
-
-  .btn-primary, .btn-secondary {
-    width: 44px;
-    height: 44px;
-    padding: 0;
-
-    svg {
-      width: 28px;
-    }
-  }
-}
-
-.time-container {
-  gap: 1.25rem;
-}
-
-.time-controls {
-  display: none;
-  gap: .5rem;
-
-  .btn-secondary {
-    width: 36px;
-    height: 36px;
-
-    &:hover {
-      border-color: $border-color;
-    }
-  }
-
-  .time-display {
-    @include flexCenter;
-    height: 40px;
-    padding-inline: 1rem;
-    border: 1px solid $border-color;
-  }
 }
 
 /* FORMS */
@@ -849,6 +810,10 @@ input {
 
   &:focus {
     border: 1px solid $highlight-color;
+  }
+  
+  &::placeholder {
+    font-style: italic;
   }
 }
 

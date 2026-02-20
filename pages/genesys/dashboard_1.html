@@ -473,18 +473,41 @@
                                 <path d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM480 496C488.8 496 496 488.8 496 480L496 416L408 416L408 496L480 496zM496 368L496 288L408 288L408 368L496 368zM360 368L360 288L280 288L280 368L360 368zM232 368L232 288L144 288L144 368L232 368zM144 416L144 480C144 488.8 151.2 496 160 496L232 496L232 416L144 416zM280 416L280 496L360 496L360 416L280 416zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176z"/>
                             </svg>
                         </button>
-                        <div id="timePicker" class="popup" role="menu" aria-hidden="true">
-                            <h3 class="pp-title">Time period</h3>
-                            <div class="pp-content">
-                                <ul class="filters">
-                                    <li>Last & pending week</li>
-                                    <li>Last month</li>
-                                    <li>Last quarter</li>
-                                    <li>Last year</li>
+                        <div class="period-menu">
+                            <button class="btn-primary trigger" type="button" aria-controls="periodPicker" aria-expanded="false" data-popup-pos="right">
+                                <span class="period-label">Select period</span>
+                                <!-- chevron -->
+                                <svg class="chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" aria-hidden="true">
+                                    <path d="M5.5 7.5 10 12l4.5-4.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                            </button>
+
+                            <div id="periodPicker" class="popup" role="menu" aria-hidden="true">
+                                <ul class="pickers">
+                                    <li role="menuitem"><button type="button" class="period-item" data-period="week">Last week &amp; pending</button></li>
+                                    <li role="menuitem"><button type="button" class="period-item" data-period="month">Last month</button></li>
+                                    <li role="menuitem"><button type="button" class="period-item" data-period="quarter">Last quarter</button></li>
+                                    <li role="menuitem"><button type="button" class="period-item" data-period="year">Last year</button></li>
+                                    <li role="menuitem"><button type="button" class="period-item" data-period="custom">Customized</button></li>
                                 </ul>
-                                <div class="advanced-filters">
-                                    <div class="top-filters">
-                                        <div class="filter f-left">
+                            </div>
+                        </div>
+                        
+                        <div id="timePicker" class="popup" role="menu" aria-hidden="true">
+                            <div class="pp-head">
+                                <h3 class="pp-title">Time period</h3>
+                            </div>
+                            
+                            <div class="pp-content">
+                                <div class="pp-quick" role="group" aria-label="Quick periods">
+                                    <button type="button" class="pp-chip" data-period="week">Week +</button>
+                                    <button type="button" class="pp-chip" data-period="month">Month</button>
+                                    <button type="button" class="pp-chip" data-period="quarter">Quarter</button>
+                                    <button type="button" class="pp-chip" data-period="year">Year</button>
+                                </div>
+                                <div class="pp-filters">
+                                    <div class="advanced-filters">
+                                        <div class="filter">
                                             <label for="start-date">Start Date</label>
                                             <div class="input-btn">
                                                 <button class="btn-sm">
@@ -492,10 +515,10 @@
                                                         <path d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176zM144 288L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 288L144 288z"/>
                                                     </svg>
                                                 </button>
-                                                <input type="text" id="start-date" name="start-date" placeholder="25/01/2025">
+                                                <input type="text" id="startDate" name="start-date">
                                             </div>
                                         </div>
-                                        <div class="filter f-left">
+                                        <div class="filter">
                                             <label for="end-date">End Date</label>
                                             <div class="input-btn">
                                                 <button class="btn-sm">
@@ -503,34 +526,31 @@
                                                         <path d="M216 64C229.3 64 240 74.7 240 88L240 128L400 128L400 88C400 74.7 410.7 64 424 64C437.3 64 448 74.7 448 88L448 128L480 128C515.3 128 544 156.7 544 192L544 480C544 515.3 515.3 544 480 544L160 544C124.7 544 96 515.3 96 480L96 192C96 156.7 124.7 128 160 128L192 128L192 88C192 74.7 202.7 64 216 64zM216 176L160 176C151.2 176 144 183.2 144 192L144 240L496 240L496 192C496 183.2 488.8 176 480 176L216 176zM144 288L144 480C144 488.8 151.2 496 160 496L480 496C488.8 496 496 488.8 496 480L496 288L144 288z"/>
                                                     </svg>
                                                 </button>
-                                            <input type="text" id="end-date" name="end-date" placeholder="25/01/2025">
+                                            <input type="text" id="endDate" name="end-date">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="daypicker">
-                                        Calendar
+                                        [Calendar]
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
                         <!-- Day +/- -->
-                        <div class="time-controls">
-                            <!-- previous btn -->
-                            <button class="btn-secondary" title="previous">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                    <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320L406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
-                                </svg>
-                            </button>
-                            <!-- day display -->
-                            <p class="time-display card" id="dayOnly"></p>
-                            <!-- next btn -->
-                            <button class="btn-secondary" title="next">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
-                                    <path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/>
-                                </svg>
-                            </button>
-                        </div>
+                        <!-- previous btn 
+                        <button class="btn-secondary" title="previous">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                <path d="M169.4 297.4C156.9 309.9 156.9 330.2 169.4 342.7L361.4 534.7C373.9 547.2 394.2 547.2 406.7 534.7C419.2 522.2 419.2 501.9 406.7 489.4L237.3 320L406.6 150.6C419.1 138.1 419.1 117.8 406.6 105.3C394.1 92.8 373.8 92.8 361.3 105.3L169.3 297.3z"/>
+                            </svg>
+                        </button> -->
+                        
+                        <!-- next btn 
+                        <button class="btn-secondary" title="next">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                                <path d="M471.1 297.4C483.6 309.9 483.6 330.2 471.1 342.7L279.1 534.7C266.6 547.2 246.3 547.2 233.8 534.7C221.3 522.2 221.3 501.9 233.8 489.4L403.2 320L233.9 150.6C221.4 138.1 221.4 117.8 233.9 105.3C246.4 92.8 266.7 92.8 279.2 105.3L471.2 297.3z"/>
+                            </svg>
+                        </button>-->
                     </div>
                 </div>
 
