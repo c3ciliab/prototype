@@ -1,9 +1,20 @@
 /*********** IMPORTS ***********/
+// settings : colors/typo/tokens (variables) 
 @use "colors" as *;
 @use "typography" as *;
+@use "tokens" as *;
+
+// tools : mixins/functions/placeholders
 @use "config" as *;
-@use "objects";
+
+// generic/base : reset, html/body, basics
 @use "base";
+
+// objects : patterns layout (container, grid, stacks…)
+@use "objects";
+
+// components : btn, card, popup, table, filter…
 @use "components";
+
+// layout/pages : header/sidenav/page wrappers + pages overrides
 @use "layout";
-@use "utilities";

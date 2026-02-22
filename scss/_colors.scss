@@ -44,11 +44,21 @@
 --olive-grey:       #909396;
 --dark-grey:        #3c3c3c;
 
---neutral-color:    rgba(255, 255, 255, 0.24);
+--neutral-color:    rgba(255, 255, 255, 0.24);  //rgba(108, 111, 112, 0.24)
 --neutral-text:     rgba(0, 0, 0, 0.24);
 
 /************** DESIGN SYSTEM COLORS **************/
 
+/* COLOR PALETTE */
+--primary-color: var(--ceva-nt-blue);
+--secondary-color: var(--ceva-white);
+--highlight-color: var(--ceva-one);
+--success-color: var(--ceva-health-color);
+--warning-color: var(--ceva-dn-yellow);
+--alert-color: var(--ceva-dn-orange);
+--danger-color: var(--ceva-dn-red);
+
+/* LAYOUT and ELEMENTS */
 --bg-default:   var(--alabaster-grey);
 --bg-primary:   var(--ceva-white);
 --bg-secondary: var(--ceva-nt-blue);

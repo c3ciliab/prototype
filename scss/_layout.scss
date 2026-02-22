@@ -9,232 +9,143 @@
 /*********** LAYOUT ***********/
 
 /* LEFT MENU */
-.sidebar-wrapper {
-    display: flex;
+.sidebar {
+    @include flex;
     position: fixed;
     z-index: 1;
-    width: 48px;
+    width: var(--sidebar-collapsed);
     height: 100%;
     background-color: var(--bg-sidenav);
     @include transition(width);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.07);
 
-    .sidebar {
-        @include flex;
-        box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.1), 0px 3px 6px rgba(0, 0, 0, 0.07);
+    li {
+        a, button {
+            @include flexAlign;
+            height: var(--sidebar-collapsed);
+            @include transition(gap);
 
-        li {
-            a, button {
-                @include flexAlign;
-                height: 48px;
-                @include transition(gap);
+            figure {
+                @include flexCenter;
+                position: relative;
+                z-index: 2;
+                width: var(--sidebar-collapsed);
+                padding-inline: 4px;
+                background-color: var(--bg-sidenav);
+
+                svg {
+                    width: 20px;
+                    fill: var(--txt-default);
+                }
+            }
+
+            span {
+                position: relative;
+                z-index: 1;
+                width: 0;
+                max-width: 200px;
+                font-size: $sm-txt;
+                @include ellipsis;
+                transform: translateX(-152px);
+                opacity: 0;
+                @include transitions((width, padding, transform, opacity));
+            }
+
+            > svg {
+                display: none;
+                transform: translateX(-152px);
+            }
+
+            &:hover {
+                background-color: var(--bg-side-hov);
 
                 figure {
-                    @include flexCenter;
-                    position: relative;
-                    z-index: 2;
-                    width: 48px;
-                    padding-inline: 4px;
-                    background-color: var(--bg-sidenav);
-
-                    svg {
-                        width: 20px;
-                        fill: var(--txt-default);
-                    }
-                }
-
-                span {
-                    position: relative;
-                    z-index: 1;
-                    width: 0;
-                    max-width: 200px;
-                    font-size: $sm-txt;
-                    @include ellipsis;
-                    transform: translateX(-152px);
-                    opacity: 0;
-                    @include transitions((width, transform, opacity));
-                }
-
-                > svg {
-                    display: none;
-                    transform: translateX(-152px);
-                }
-
-                &:hover {
                     background-color: var(--bg-side-hov);
-
-                    figure {
-                        background-color: var(--bg-side-hov);
-                    }
                 }
             }
+        }
 
-            &.selected {
-                font-weight: bold;
-                color: var(--txt-secondary);
-                background-color: var(--bg-selected);
+        &.selected {
+            font-weight: bold;
+            color: var(--txt-secondary);
+            background-color: var(--bg-selected);
+            cursor: default;
+            
+            figure {
+                background-color: var(--bg-selected);  
+
+                svg {
+                    fill: var(--bg-primary);
+                }
+            }
+            
+            a:hover {
                 cursor: default;
+            }
+        }
+
+        &:first-child, &:nth-child(2), &.selected {
+            :hover {
+                background-color: initial;
                 
                 figure {
-                    background-color: var(--bg-selected);  
-
-                    svg {
-                        fill: var(--bg-primary);
-                    }
-                }
-                
-                a:hover {
-                    cursor: default;
-                }
-            }
-
-            &:first-child, &:nth-child(2), &.selected {
-                :hover {
                     background-color: initial;
-                    
-                    figure {
-                        background-color: initial;
-                    }
+                }
+            }
+        }
+
+        &.menu-filter {
+            .filter-list {
+                display: none;
+                padding-inline: .5rem;
+                transform: translateY(-48px);
+                transition: max-height var(--tr), opacity var(--tr), transform var(--tr);
+
+                .filter-panel {
+                    background-color: var(--bg-primary);
+                    border: 1px solid #d9dde3;
                 }
             }
 
-            &.menu-filter {
-                .filter-btn {
-                    gap: 0;
-                }
-
-                .chevron {
-                    width: 18px;
-                    height: 18px;
-                    transition: transform .2s ease;
-                }
-
-                &.is-open .chevron{
-                    transform: rotate(180deg); /* down -> up */
-                }
-
-                .filter-list {
-                    display: none;
-                    overflow: hidden;
-                    max-height: 0;
-                    padding-inline: .5rem;
-                    font-size: $sm-txt;
-                    opacity: 0;
-                    transform: translateY(-48px);
-                    transition: max-height .2s ease, opacity .2s ease, transform .2s ease;
-
-                    /* Panel */
-                    .filter-panel {
-                        @extend %card;
-                        border: 1px solid #d9dde3;
-                        padding: .5rem;
-                    }
-
-                    .filter-search {
-                        display: flex;
-                        align-items: center;
-                        padding: .5rem;
-                        border: 1px solid #e3e6eb;
-                        border-radius: 8px;
-
-                        svg {
-                            width: 28px;
-                            fill: #3c3c3c;
-                        }
-                    }
-
-                    .search-input {
-                        width:100%;
-                        border:0;
-                    }
-
-                    .search-clear {
-                        border: 0;
-                        background: transparent;
-                        height: auto;
-                        cursor: pointer;
-                        line-height: 1;
-                        padding: .25rem .4rem;
-                        border-radius: 6px;
-
-                        &:hover {
-                            background: #f3f5f8;
-                        }
-                    }
-
-                    .checklist{
-                        margin: .5rem 0 0;
-                        max-height: 260px;
-                        overflow: auto;
-                        border-radius: 8px;
-                    }
-
-                    .check-items {
-                        max-height: 120px;
-                        overflow-y: scroll;
-                    }
-
-                    .checklist-item{
-                        padding: .35rem .5rem;
-                        white-space: nowrap;
-                        border-radius: 6px;
-                    }
-
-                    .checklist-item:hover{ background:#f3f5f8; }
-
-                    .check{
-                        display:flex;
-                        align-items:center;
-                        gap:.6rem;
-                        cursor:pointer;
-                        user-select:none;
-                    }
-
-                    /* Checkbox look simple */
-                    .check-input{ width: 16px; height: 16px; }
-                }
-
-                &.is-open {
-                    .filter-list { 
-                        max-height: 240px;
-                        opacity: 1;
-                        transform: translateY(0);
-                        transition: max-height .2s ease, opacity .2s ease, transform .2s ease;
-                    }
+            &.is-open {
+                .filter-list { 
+                    max-height: 240px;
+                    opacity: 1;
+                    transform: translateY(0);
+                    transition: max-height var(--tr), opacity var(--tr), transform var(--tr);
                 }
             }
         }
     }
 
     &:hover {
-        width: 256px;
+        width: var(--sidebar-expanded);
 
-        .sidebar {
-            li {
-                 a, button {
-                    gap: .5rem;
+        li {
+            a, button {
+                gap: .5rem;
 
-                    span {
-                        width: 200px;
-                        padding-inline: 12px;
-                        transform: translateX(0px);
-                        opacity: 1;
-                    }
-
-                    > svg {
-                        display: block;
-                        transform: translateX(0);
-                    }
+                span {
+                    width: 200px;
+                    padding-inline: 12px;
+                    transform: translateX(0px);
+                    opacity: 1;
                 }
 
-                button {
-                    span {
-                        width: 176px;
-                    }
-                }
-
-                .filter-list {
+                > svg {
                     display: block;
+                    transform: translateX(0);
                 }
+            }
+
+            button {
+                span {
+                    width: 160px;
+                }
+            }
+
+            .filter-list {
+                display: block;
             }
         }
     }
@@ -272,8 +183,8 @@ footer {
 /* CONTENT */
 .content-wrapper {
     @include flexGrow;
-    padding-left: 48px; // space for sidebar
-    padding-bottom: 60px; // space for footer
+    padding-left: var(--sidebar-collapsed); // space for sidebar
+    padding-bottom: var(--footer-h); // space for footer
     background-color: var(--bg-default);
 
     &.w-home {
@@ -283,9 +194,9 @@ footer {
 
 header {
     @include flexBetween(row, .75rem);
-    height: 84px;
-    min-height: 84px;
-    flex: 0 0 84px;
+    height: var(--header-h);
+    min-height: var(--header-h);
+    flex: 0 0 var(--header-h);
     flex-shrink: 0;
     padding-inline: 1rem;
     background-color: var(--bg-secondary);
@@ -331,12 +242,6 @@ header {
                 @include ellipsis;
             }
 
-            .chevron {
-                width: 18px;
-                height: 18px;
-                transition: transform .2s ease;
-            }
-
             &:hover {
                 border-color: white;
             }
@@ -346,99 +251,23 @@ header {
             position: absolute;
             top: 48px !important;
             left: 0 !important;
-            overflow: hidden;
-            max-height: 0;
             padding: 0;
-            font-size: $sm-txt;
             border-radius: 8px;
             box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.24);
-            opacity: 0;
             visibility: hidden;
             pointer-events: none;
             transform: translateY(-12px);
-            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
-
-            /* Panel */
-            .filter-panel {
-                @extend %card;
-                padding: .5rem;
-            }
-
-            .filter-search {
-                @include flexAlign;
-                padding: .5rem;
-                border: 1px solid #e3e6eb;
-                border-radius: 8px;
-
-                svg {
-                    width: 28px;
-                    fill: #3c3c3c;
-                }
-
-                .search-input {
-                    width: 100%;
-                    border: 0;
-                }
-
-                .search-clear {
-                    height: auto;
-                    line-height: 1;
-                    padding: .25rem .4rem;
-                    background: transparent;
-                    border: 0;
-                    border-radius: 6px;
-                    cursor: pointer;
-
-                    &:hover {
-                        background: #f3f5f8;
-                    }
-                }
-            }
-
-            .checklist {
-                max-height: 260px;
-                overflow: auto;
-                margin: .5rem 0 0;
-                border-radius: 8px;
-            }
-
-            .check-items {
-                max-height: 120px;
-                overflow-y: scroll;
-            }
-
-            .checklist-item {
-                padding: .35rem .5rem;
-                white-space: nowrap;
-                border-radius: 6px;
-
-                &:hover { background:#f3f5f8; }
-            }
-
-            .check {
-                @include flexAlign(row, .6rem);
-                cursor: pointer;
-                user-select: none;
-
-                .check-input { 
-                    width: 16px;
-                    height: 16px;
-                }
-            }
+            transition: opacity var(--tr), transform var(--tr), visibility 0s linear 0.24s;
         }
 
         &.is-open {
-            .chevron {
-                transform: rotate(180deg); /* down -> up */
-            }
-
             .filter-list { 
                 max-height: 240px;
                 opacity: 1;
                 visibility: visible;
                 pointer-events: auto;
                 transform: translateY(0);
-                transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s;
+                transition: opacity var(--tr), transform var(--tr), visibility 0s;
             }
         }
     }

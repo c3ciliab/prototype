@@ -140,7 +140,7 @@
     }
 
     .title-data {
-      transition: color .2s ease, opacity .2s ease, transform .2s ease;
+      transition: color var(--tr), opacity var(--tr), transform var(--tr);
 
       &.is-empty {
         font-size: $md-txt;
