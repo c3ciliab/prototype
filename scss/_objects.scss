@@ -298,17 +298,17 @@
     &.col-11 {
       .table-head, .row-line {
         > span {
-          &:first-child { width: 9%; }
-          &:nth-child(2) { width: 14%; }
+          &:first-child { width: 7%; }
+          &:nth-child(2) { width: 12%; }
           &:nth-child(3) { width: 12%; }
-          &:nth-child(4) { width: 8%; }
+          &:nth-child(4) { width: 11%; }
           &:nth-child(5) { width: 11%; }
-          &:nth-child(6) { width: 8%; }
+          &:nth-child(6) { width: 10%; }
           &:nth-child(7) { width: 8%; }
           &:nth-child(8) { width: 8%; }
           &:nth-child(9) { width: 8%; }
           &:nth-child(10) { width: 8%; }
-          &:last-child { width: 6%; }
+          &:last-child { width: 5%; }
         }
       }
   
@@ -317,6 +317,35 @@
 
         span {
           font-size: 16px;
+        }
+      }
+    }
+
+    .sorted-table {
+      .table-head {
+        > span {
+          @include flexAlign(row, .5rem);
+          user-select: none;
+
+          &::after {
+            content: "";
+            width: 0;
+            height: 0;
+            margin-top: 7px;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-bottom: 6px solid var(--txt-default);
+            transform: translateY(-50%);
+            opacity: .75;
+          }
+
+          &.is-asc::after {
+            border-bottom: 6px solid currentColor; // ▲
+          }
+          &.is-desc::after {
+            border-top: 6px solid currentColor; // ▼
+            border-bottom: none;
+          }
         }
       }
     }

@@ -812,3 +812,137 @@ document.addEventListener("click", (e) => {
 
   viewsWrap.dataset.activeView = view;
 });
+
+// /* TABLE SORTING */
+
+(function initSortableTables() {
+  const tables = document.querySelectorAll(".sorted-table");
+  if (!tables.length) return;
+
+  const parseNumberLike = (s) => {
+    if (!s) return NaN;
+    const t = s.trim();
+    if (t === "-" || t === "—") return NaN;
+
+    // % "49,7%" -> 49.7
+    if (t.includes("%")) {
+      const n = parseFloat(t.replace("%", "").trim().replace(",", "."));
+      return Number.isFinite(n) ? n : NaN;
+    }
+
+    // "20,000" -> 20000
+    const n = parseFloat(t.replace(/\s/g, "").replace(/,/g, ""));
+    return Number.isFinite(n) ? n : NaN;
+  };
+
+  const parseAgeWeeks = (s) => {
+    // "51 w" -> 51
+    const n = parseFloat(String(s).replace(/[^\d.]/g, ""));
+    return Number.isFinite(n) ? n : NaN;
+  };
+
+  const parseDateDDMMYY = (s) => {
+    const m = /^(\d{2})\/(\d{2})\/(\d{2,4})$/.exec((s || "").trim());
+    if (!m) return null;
+    const dd = parseInt(m[1], 10);
+    const mm = parseInt(m[2], 10) - 1;
+    let yy = parseInt(m[3], 10);
+    if (yy < 100) yy += 2000;
+    const d = new Date(yy, mm, dd);
+    return isNaN(d.getTime()) ? null : d;
+  };
+
+  const parseTimeRange = (s) => {
+    // "09:40-10:55 AM" -> minutes of start time
+    const m = /^(\d{1,2}):(\d{2})/.exec((s || "").trim());
+    if (!m) return NaN;
+    return parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
+  };
+
+  function getSortValueByHeader(label, cellText) {
+    const h = (label || "").toLowerCase().trim();
+    const txt = (cellText || "").trim();
+
+    if (h === "date") {
+      const d = parseDateDDMMYY(txt);
+      return d ? d.getTime() : Number.NEGATIVE_INFINITY;
+    }
+    if (h === "time") return parseTimeRange(txt);
+    if (h.includes("age")) return parseAgeWeeks(txt);
+    if (h.includes("doc") || h.includes("sorted") || h === "male" || h === "female" || h.includes("alert") || h.includes("%")) {
+      // numeric columns
+      if ((h.includes("alert") || h.includes("alerts")) && (txt === "-" || txt === "")) return Number.POSITIVE_INFINITY;
+      return parseNumberLike(txt);
+    }
+    if (h === "#") return parseNumberLike(txt); // index
+    return txt.toLowerCase(); // text fallback
+  }
+
+  tables.forEach((table) => {
+    const head = table.querySelector(".table-head");
+    const bodyContainer = table.querySelector(".table-body-container");
+    if (!head || !bodyContainer) return;
+
+    const headers = Array.from(head.children);
+
+    let sortIndex = -1;
+    let sortDir = "asc";
+
+    function updateHeadUI(activeIdx, dir) {
+      headers.forEach((h, i) => {
+        h.classList.toggle("is-sorted", i === activeIdx);
+        h.classList.toggle("is-asc", i === activeIdx && dir === "asc");
+        h.classList.toggle("is-desc", i === activeIdx && dir === "desc");
+        h.setAttribute("role", "button");
+        h.setAttribute("tabindex", "0");
+        h.setAttribute("aria-sort", i === activeIdx ? (dir === "asc" ? "ascending" : "descending") : "none");
+      });
+    }
+
+    function sortByColumn(idx) {
+      sortDir = (sortIndex === idx && sortDir === "asc") ? "desc" : "asc";
+      sortIndex = idx;
+
+      const label = headers[idx]?.textContent ?? "";
+
+      const rows = Array.from(bodyContainer.querySelectorAll(".row-line"));
+      rows.sort((a, b) => {
+        const ta = a.children[idx]?.textContent ?? "";
+        const tb = b.children[idx]?.textContent ?? "";
+
+        const va = getSortValueByHeader(label, ta);
+        const vb = getSortValueByHeader(label, tb);
+
+        const na = typeof va === "number" && Number.isFinite(va);
+        const nb = typeof vb === "number" && Number.isFinite(vb);
+
+        let cmp = 0;
+        if (na && nb) cmp = va - vb;
+        else if (na && !nb) cmp = -1;
+        else if (!na && nb) cmp = 1;
+        else cmp = String(va).localeCompare(String(vb), undefined, { numeric: true, sensitivity: "base" });
+
+        return sortDir === "asc" ? cmp : -cmp;
+      });
+
+      const frag = document.createDocumentFragment();
+      rows.forEach(r => frag.appendChild(r));
+      bodyContainer.appendChild(frag);
+
+      updateHeadUI(sortIndex, sortDir);
+    }
+
+    headers.forEach((h, idx) => {
+      h.style.cursor = "pointer";
+      h.addEventListener("click", () => sortByColumn(idx));
+      h.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          sortByColumn(idx);
+        }
+      });
+    });
+
+    updateHeadUI(sortIndex, sortDir);
+  });
+})();
