@@ -814,7 +814,7 @@ label {
   gap: 1.25rem;
   position: absolute;
   inset: 0;
-  padding: 14px 16px 21.5px;
+  padding: 14px 16px 25.5px;
   /* each column */
 }
 .card.chart-card .cols .col, .sidebar-wrapper .sidebar li.menu-filter .filter-list .chart-card.filter-panel .cols .col, header .menu-filter .filter-list .chart-card.filter-panel .cols .col, .dashboard .scene.dash-home .chart-card.card-header .cols .col, .dashboard .scene.dash-home .chart-card.card-body .cols .col, .dashboard .scene.dash-home .chart-card.card-footer .cols .col, .chart-card.popup .cols .col, .chart-card.btn .cols .col, .main-nav a.chart-card .cols .col, .chart-card.btn-icon .cols .col, .chart-card.btn-delete .cols .col, .chart-card.btn-secondary .cols .col, .section-header ul a.chart-card .cols .col, .chart-card.btn-primary .cols .col {
@@ -916,7 +916,7 @@ label {
   top: calc(100% - var(--line) * 1% + 48px);
 }
 .card.chart-card.line-columns .cols.sm-cols, .sidebar-wrapper .sidebar li.menu-filter .filter-list .chart-card.line-columns.filter-panel .cols.sm-cols, header .menu-filter .filter-list .chart-card.line-columns.filter-panel .cols.sm-cols, .dashboard .scene.dash-home .chart-card.line-columns.card-header .cols.sm-cols, .dashboard .scene.dash-home .chart-card.line-columns.card-body .cols.sm-cols, .dashboard .scene.dash-home .chart-card.line-columns.card-footer .cols.sm-cols, .chart-card.line-columns.popup .cols.sm-cols, .chart-card.line-columns.btn .cols.sm-cols, .main-nav a.chart-card.line-columns .cols.sm-cols, .chart-card.line-columns.btn-icon .cols.sm-cols, .chart-card.line-columns.btn-delete .cols.sm-cols, .chart-card.line-columns.btn-secondary .cols.sm-cols, .section-header ul a.chart-card.line-columns .cols.sm-cols, .chart-card.line-columns.btn-primary .cols.sm-cols {
-  padding-bottom: 18px;
+  padding-bottom: 26px;
 }
 .card.chart-card.line-columns .cols.sm-cols .col .bar, .sidebar-wrapper .sidebar li.menu-filter .filter-list .chart-card.line-columns.filter-panel .cols.sm-cols .col .bar, header .menu-filter .filter-list .chart-card.line-columns.filter-panel .cols.sm-cols .col .bar, .dashboard .scene.dash-home .chart-card.line-columns.card-header .cols.sm-cols .col .bar, .dashboard .scene.dash-home .chart-card.line-columns.card-body .cols.sm-cols .col .bar, .dashboard .scene.dash-home .chart-card.line-columns.card-footer .cols.sm-cols .col .bar, .chart-card.line-columns.popup .cols.sm-cols .col .bar, .chart-card.line-columns.btn .cols.sm-cols .col .bar, .main-nav a.chart-card.line-columns .cols.sm-cols .col .bar, .chart-card.line-columns.btn-icon .cols.sm-cols .col .bar, .chart-card.line-columns.btn-delete .cols.sm-cols .col .bar, .chart-card.line-columns.btn-secondary .cols.sm-cols .col .bar, .section-header ul a.chart-card.line-columns .cols.sm-cols .col .bar, .chart-card.line-columns.btn-primary .cols.sm-cols .col .bar {
   width: 80%;
@@ -2275,6 +2275,9 @@ section {
 }
 .dashboard-5 .card-wrapper:last-child .card {
   flex: 1;
+}
+.dashboard-5 .card.chart-card.combined-columns .cols {
+  padding-bottom: 21.5px;
 }
 
 /* NINJA */
