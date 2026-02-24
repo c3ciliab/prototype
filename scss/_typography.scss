@@ -3,7 +3,7 @@
 /* FONTS */
 
 // IMPORTS
-// Adobe - Myriad Pro
+// Adobe - Myriad Pro --> corporate font for baseline, auto switch to arial if not available
 @import url("https://use.typekit.net/arm4sae.css"); 
 // Google - Jura
 @import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&display=swap'); 
@@ -26,6 +26,9 @@ $xl-txt: 28px;
 $xxl-txt: 32px;
 
 // Titles
+
+// h1 => tagline
+
 h2 {
     font-size: $sm-txt;
     font-weight: 500;

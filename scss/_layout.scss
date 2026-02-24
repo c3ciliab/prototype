@@ -174,8 +174,26 @@ footer {
 
     ul {
         display: none;
+        position: relative;
         @include mq-md {
             @include flex(row, 1rem);
+        }
+    }
+    
+    .view-switch {
+        @include flex(row, 2.75rem);
+        top: -34px;
+        left: 16px;
+
+        .view-btn {
+            color: var(--txt-primary);
+            border: 1px solid var(--txt-primary);
+            opacity: .7;
+            cursor: default;
+
+            &.is-active {
+                opacity: 1;
+            }
         }
     }
 }
@@ -417,17 +435,9 @@ section {
         gap: 1rem;
 
         &.dash-home {
-            gap: 3rem;
-            padding-inline: .5rem;
-
-            .card-wrapper {
-                @include flex (column, .5rem);
-                width: 100%;
-            }
-
             figure {
-                width: 80%;
                 position: relative;
+                width: 46%;
 
                 img {
                     width: 100%;
@@ -450,9 +460,114 @@ section {
                 }
             }
 
-            .content {
-                width: 100%;
+            .kpi-cards {
+                @include flexGrow(column, 1rem);
+
+                .data {
+                    padding-left: .5rem;
+                }
+
+                .card-title {
+                    h2 {
+                        display: block;
+                    }
+                }
+
+                .card-body {
+                    @include flexGrow(row, 1rem);
+                    justify-content: space-between;
+
+                    .c-data {
+                        @include flex(column, 1rem);
+                        justify-content: space-between;
+                        width: 100%;
+                    }
+
+                    .data {
+                        @include flex(column, .25rem);
+                        flex-wrap: wrap;
+                        height: 100%;
+                        font-size: 1.75rem;
+                        font-weight: bold;
+                    }
+
+                    .subdata {
+                        @include flex(row, .25rem);
+                        flex-wrap: wrap;
+                        color: var(--txt-default)
+                    }
+
+                    .graphs {
+                        @include flex(row, .5rem);
+
+                        &.graph-1 {
+                            align-items: flex-end;
+
+                            .bar {
+                                @include flexCenter;
+                                justify-content: flex-end;
+                                width: 36px;
+                                height: 112px;
+                                padding-bottom: .5rem;
+                                background-color: var(--female-color);
+
+                                &:last-child {
+                                    height: 88%;
+                                    background-color: var(--male-color);
+
+                                    &.br2 {
+                                        height: 94%;
+                                    }
+                                }
+                            }
+                        }
+
+                        &.graph-2 {
+                            gap: 0;
+                            
+                            svg {
+                                width: 60px;
+                                fill: var(--success-color);
+
+                                &.down {
+                                    fill: var(--danger-color);
+                                    opacity: .5;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &:nth-child(4), &:last-child {
+                    gap: .5rem;
+
+                    .data {
+                        align-items: center;
+                        justify-content: center;
+                        padding-left: 0;
+                        font-size: 2.75rem;
+                    }
+                }
             }
+
+            .content-middle {
+                @include flexAlign(row, 3rem);
+                padding-top: 3rem;
+
+                .col-4 {
+                    width: 54%;
+                    height: fit-content;
+                }
+            }
+        }
+
+        &.dash-2 {
+            gap: 3rem;
+            padding-inline: .5rem;
+
+            .card-wrapper { flex-direction: column; }
+
+            .content { width: 100%; }
 
             .row-line {
                 padding-inline: 0 12px;
@@ -538,15 +653,11 @@ section {
             // media queries
             @include mq-lg {
                 flex-direction: row;
-                padding-top: 6rem;
+                padding-top: 7rem;
 
-                figure {
-                    width: 50%;
-                }
+                figure { width: 50%; }
 
-                .content {
-                    width: 50%;
-                }
+                .content { width: 50%; }
             }
             
             @include mq(1160px) {
@@ -571,12 +682,6 @@ section {
 
 /******* CONTENT STRUCTURE *******/
     
-/* CONTAINERS */
-.card-wrapper {
-    @include flex (row, 1rem);
-    width: 100%;
-}
-
 .dashboard-1 {
     .content-full { width: 100%; }
     .content-left {

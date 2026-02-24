@@ -389,39 +389,39 @@
 .card-switch {
   position: relative;
   flex: 1;
+}
 
-  // switch btns
-  .view-switch {
-    @include flex(row, .25rem);
-    position: absolute;
-    top: -4px;
-    right: 8px;
+// switch btns
+.view-switch {
+  @include flex(row, .25rem);
+  position: absolute;
+  top: -4px;
+  right: 8px;
 
-    .view-btn {
-      width: 28px;
-      height: 28px;
-      font-size: $sm-txt;
-      background-color: $bg-ninja;
-      border-radius: 50%;
-      opacity: .6;
+  .view-btn {
+    width: 28px;
+    height: 28px;
+    font-size: $sm-txt;
+    background-color: $bg-ninja;
+    border-radius: 50%;
+    opacity: .6;
 
-      &.is-active {
-        opacity: 1;
-      }
+    &.is-active {
+      opacity: 1;
     }
   }
+}
 
-  // views
-  .graph-views {
+// views
+.graph-views {
+  height: 100%;
+
+  .graph-view {
+    display: flex;
     height: 100%;
 
-    .graph-view {
-      display: flex;
-      height: 100%;
-
-      &[hidden] {
-        display: none !important;
-      }
+    &[hidden] {
+      display: none !important;
     }
   }
 }
