@@ -1783,6 +1783,7 @@ footer {
   z-index: 2;
   bottom: 0;
   width: 100%;
+  height: var(--footer-h);
   padding: 0.5rem;
   font-size: 14px;
   color: var(--txt-secondary);
